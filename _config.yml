@@ -1,6 +1,6 @@
 theme: jekyll-theme-minimal# Site settings
 title: Daniel Quisbert
-description: 'Jekyll-Uno - a minimal, responsive theme for Jekyll'
+description: 'Software, Web, Mapas & Open Source'
 url: 'http://danielquisbert.github.io'
 baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
@@ -20,7 +20,7 @@ defaults:
       path: ''
       type: 'posts'
     values:
-        layout: 'post'
+        layout: 'page'
 
 # Build settings
 destination: _site
