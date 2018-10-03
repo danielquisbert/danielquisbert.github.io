@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal# Site settings
-title: Webmapping
+title: Daniel Quisbert
 description: 'Software, Web, Mapas & Open Source'
 url: 'https://danielquisbert.github.io'
 baseurl: '/'
@@ -7,7 +7,7 @@ baseurl: '/'
 # disqus_shortname: 'your-disqus-name'
 
 author:
-  name: 'Webmapping'
+  name: 'Daniel Quisbert'
   email: dquisbert@ge0tic.net
   twitter_username: danielquisbertc
   facebook_username: daniel.quisbert
