@@ -1,13 +1,13 @@
 theme: jekyll-theme-minimal# Site settings
 title: Daniel Quisbert
 description: 'Software, Web, Mapas & Open Source'
-url: 'http://danielquisbert.github.io'
+url: 'https://danielquisbert.github.io'
 baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 
 author:
-  name: 'Daniel Quisbert'
+  name: 'Webmapping'
   email: dquisbert@ge0tic.net
   twitter_username: danielquisbertc
   facebook_username: daniel.quisbert
@@ -20,7 +20,7 @@ defaults:
       path: ''
       type: 'posts'
     values:
-        layout: 'page'
+        layout: 'post'
 
 # Build settings
 destination: _site
