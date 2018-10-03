@@ -1,0 +1,69 @@
+---
+title:  "Un poco sobre mi"
+date:   2016-01-08 15:04:23
+categories: [cv]
+tags: [cv]
+---
+
+
+Un apasionado por las tecnologías, la web, los mapas y software Open Source.
+
+## Educación:
+
+### Primaria y secundaria
+
+	* [2001] U.E. Santa Maria de los Ángeles
+
+### Pregrado
+
+	* [2014] Universidad Mayor de San Andrés, Licenciado en informática con mención en ingeniería de sistemas informáticos
+
+### Postgrado
+
+	* [2016] Diplomaod en educación superior - UPEA
+	* [2017] Diplomado en Sistemas de Información Geográfica - UMSA
+
+
+## Esperiencia laboral
+
+### ENDE Tecnologías S.A.
+	: [Actual] *Ingeniero de Software*, Responsable de diseño y desarrollo de sistemas de información geoespaciales.
+
+### Autoridad de Pensiones y Seguros - APS
+	: [2016] *Administrador de bases de datos PostgreSQL DBA*, Preparación, migración e importación de información de contribuyentes para la  Gestora Pública.
+
+### Instituto Nacional de Estadística - INE
+	: [2016] *Especialista de procesamiento de datos*, Respnsable infromático de encuentas e implementación de sistema de gestión de proyectos.
+
+### Organización de las Naciones Unidas para la Alimentación y la Agricultura - FAO
+	: [2016] *Responsable de la plataforma geoespacial GeoFAO*, administración de la plataforma espacial basada en geOrchestra y desarrollo de su sitio web geofao.org.bo
+
+### CADEB S.A.
+	: [2015] *Analista de sistemas de información geográfica*, Análisis, diseño y desarrollo de un sistema geoautomatizado de gestión reclamos, compuesto por una central telefónica IVR, un módulo de despacho, módulo de monitoreo en tiempo real y cierre de reclamos desde dispositvos móviles.
+
+### GeoBolivia - Vicepresidencia del Estado Plurinacional de Bolivia
+	: [2012 - 2014] *Consultor informático*, desde desarrollo de scripts webmapping, hasta la administración de los servicios internos de la plataforma geoespacial geOrchestra.
+
+## Ponencias
+
+### OpenStreetMap Latinoamérica 2017
+	: Ponencia 
+
+
+To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+
+Jekyll also offers powerful support for code snippets:
+
+``` ruby
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+```
+
+Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+
+[jekyll]:      http://jekyllrb.com
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-help]: https://github.com/jekyll/jekyll-help
