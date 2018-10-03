@@ -1,18 +1,18 @@
 theme: jekyll-theme-minimal# Site settings
-title: Jekyll-Uno
+title: Daniel Quisbert
 description: 'Jekyll-Uno - a minimal, responsive theme for Jekyll'
-url: 'http://joshgerdes.com/jekyll-uno'
-baseurl: '/jekyll-uno'
+url: 'http://danielquisbert.github.io'
+baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 
 author:
-  name: 'Josh Gerdes'
-  email: josh@joshgerdes.com
-  twitter_username: joshgerdes
-  facebook_username: joshgerdes
-  github_username:  joshgerdes
-  linkedin_username:  joshgerdes
+  name: 'Daniel Quisbert'
+  email: dquisbert@ge0tic.net
+  twitter_username: danielquisbertc
+  facebook_username: daniel.quisbert
+  github_username:  danielquibert
+  linkedin_username:  danielquisbert
 
 defaults:
   -
