@@ -5,51 +5,47 @@ categories: [cv]
 tags: [cv]
 ---
 
-
 Un apasionado por las tecnologías, la web, los mapas y software Open Source.
 
 
 ## Educación:
 
-### Primaria y secundaria
+- ### Primaria y secundaria
+	- [2001] Unidad Educativa Santa Maria de los Ángeles, Fé y Alegría
 
-- [2001] U.E. Santa Maria de los Ángeles
+- ### Pregrado
+	- [2014] Universidad Mayor de San Andrés, Licenciado en informática con mención en ingeniería de sistemas informáticos
 
-### Pregrado
-
-- [2014] Universidad Mayor de San Andrés, Licenciado en informática con mención en ingeniería de sistemas informáticos
-
-### Postgrado
-
-- [2016] Diplomaod en educación superior - UPEA
-- [2017] Diplomado en Sistemas de Información Geográfica - UMSA
+- ### Postgrado
+	- [2016] Diplomaod en educación superior - Universidad Pública de El Alto
+	- [2017] Diplomado en Sistemas de Información Geográfica - Universidad Mayor de San Andres
 
 
 ## Esperiencia laboral
 
 - ### ENDE Tecnologías S.A.
-[Actual] *Ingeniero de Software*, Responsable de diseño y desarrollo de sistemas de información geoespaciales.
+[Actual] ***Ingeniero de Software***, Responsable de diseño y desarrollo de sistemas de información geoespaciales.
 
 - ### Autoridad de Pensiones y Seguros - APS
 [2016] *Administrador de bases de datos PostgreSQL DBA*, Preparación, migración e importación de información de contribuyentes para la  Gestora Pública.
 
 - ### Instituto Nacional de Estadística - INE
-[2016] *Especialista de procesamiento de datos*, Respnsable infromático de encuentas e implementación de sistema de gestión de proyectos.
+[2016] ***Especialista de procesamiento de datos***, Respnsable infromático de encuentas e implementación de sistema de gestión de proyectos.
 
 - ### Organización de las Naciones Unidas para la Alimentación y la Agricultura - FAO
-[2016] *Responsable de la plataforma geoespacial GeoFAO*, administración de la plataforma espacial basada en geOrchestra y desarrollo de su sitio web geofao.org.bo
+[2016] ***Responsable de la plataforma geoespacial GeoFAO***, administración de la plataforma espacial basada en geOrchestra y desarrollo de su sitio web geofao.org.bo
 
 - ### CADEB S.A.
-[2015] *Analista de sistemas de información geográfica*, Análisis, diseño y desarrollo de un sistema geoautomatizado de gestión reclamos, compuesto por una central telefónica IVR, un módulo de despacho, módulo de monitoreo en tiempo real y cierre de reclamos desde dispositvos móviles.
+[2015] ***Analista de sistemas de información geográfica***, Análisis, diseño y desarrollo de un sistema geoautomatizado de gestión reclamos, compuesto por una central telefónica IVR, un módulo de despacho, módulo de monitoreo en tiempo real y cierre de reclamos desde dispositvos móviles.
 
 - ### GeoBolivia - Vicepresidencia del Estado Plurinacional de Bolivia
-[2012 - 2014] *Consultor informático*, desde desarrollo de scripts webmapping, hasta la administración de los servicios internos de la plataforma geoespacial geOrchestra.
+[2012 - 2014] ***Consultor informático***, desde desarrollo de scripts webmapping, hasta la administración de los servicios internos de la plataforma geoespacial geOrchestra.
 
 
 ## Ponencias
 
 - ### OSM LATAM 2017 - Lima Perú
-Ponencia *Instalación y configuración del mapa OSM sobre Linux en offline* en la conferencia [OpenStreetMap Latino América][osm-latam]
+Ponencia ***Instalación y configuración del mapa OSM sobre Linux en offline*** en la conferencia [OpenStreetMap Latino América][osm-latam]
 
 
 ## Emprendimientos

@@ -1,6 +1,6 @@
 ---
 title:  "Servicios"
-date:   2000-01-01 00:00:00
+date:   2000-01-01 01:00:00
 categories: [servicios]
 tags: [servicios]
 ---
@@ -19,7 +19,7 @@ Todos las páginas utilizan diseño responsive para el acceso por cualquier tipo
 Adiconalmente poder enlazar su sitio con las redes sociales y publicitar por medio de estas deres para llegar a más potenciales clientes.
 
 ## Desarrollo e implementación de Sistemas de Información Geográfica
-Entre los rabajos que desarrollé e implementé puedo mencionar:
+Entre los trabajos que desarrollé e implementé puedo mencionar:
 
 - Geoportales.
 - Plataformas de Infraestructura de Datos Espaciales - IDE's.

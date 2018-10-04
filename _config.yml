@@ -8,10 +8,10 @@ baseurl: '/'
 
 author:
   name: 'Daniel Quisbert'
-  email: dquisbert@ge0tic.net
+  email: daniel.quisbert@protonmail.com
   twitter_username: danielquisbertc
   facebook_username: daniel.quisbert
-  github_username:  danielquibert
+  github_username:  danielquisbert
   linkedin_username:  danielquisbert
 
 defaults:
