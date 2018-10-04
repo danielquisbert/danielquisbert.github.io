@@ -5,10 +5,10 @@ categories: [servicios]
 tags: [servicios]
 ---
 
-Con más de 10 años de experiencia en el campo de la informática, estoy seguro que puedo bridar soluciones tecnológicas para sus necesidades. Entre algunos de los servicios que brindo puedo mencionar los siguientes:
+Con más de 10 años de experiencia en el campo de la informática, estoy seguro que puedo dar soluciones tecnológicas para las necesidades de su empresa, institución o negocio. Entre algunos de los servicios que he trabajado, puedo mencionar los siguientes:
 
 ## Diseño, desarrollo y adaptación de páginas web
-Por mi experiencia con las nuevas tecnologías, los trabajo sobre páginas web las desarrollo con tecnología europea, la cual nos da un plus de reducir las vulnerabilidades inherentes de la web, y siempre en coordinación para llegar a resultados esperados por los clientes y cumpliendo todas sus exigencias. Alguno de mis trabajos puedo listar:
+Por mi experiencia con las nuevas tecnologías, los trabajos sobre páginas web las desarrollo con tecnología europea, la cual nos da un plus de reducir las vulnerabilidades inherentes al internet, y siempre en coordinación para llegar a resultados esperados por los clientes y cumpliendo todas sus exigencias. Alguno de mis trabajos puedo mencionar:
 
 - [ge0next.com][ge0next], un sitio de enseñanza tecnológica, donde se resalta el diseño simple y animaciones en JavaScript.
 - [ge0tic][ge0tic], mi proyecto y emprendimiento personal, donde utilizo webmapping para resaltar el uso de las tecnologías de mapas.
@@ -16,24 +16,26 @@ Por mi experiencia con las nuevas tecnologías, los trabajo sobre páginas web l
 - [Aerobol][aerobol], un sitio de una empresa publicitaria, destacando un diseño minmalista y sencillo.
 
 Todos las páginas utilizan diseño responsive para el acceso por cualquier tipo de dispositivo, sean smart phones, tablets, laptops, PCs, etc.
-Adiconalmente poder enlazar su sitio con las redes sociales y publicitar por medio de estas deres para llegar a más potenciales clientes.
+Adiconalmente con un equipo de trabajo realizamos el trabajo de social manager, para enlazar su sitio con las redes sociales y publicitar por medio de estas deres para llegar a más potenciales clientes o consumidores.
 
 ## Desarrollo e implementación de Sistemas de Información Geográfica
 Entre los trabajos que desarrollé e implementé puedo mencionar:
 
-- Geoportales.
-- Plataformas de Infraestructura de Datos Espaciales - IDE's.
+- Geoportales ([GeoFao][geofao], [GeoBolivia][geobolivia]).
+- Plataformas de Infraestructura de Datos Espaciales - IDE's. ([GeoFao][geofao])
 - Visualizadores de Mapas.
-- Implementación de servidores de mapas, map server y Geoserver.
+- Implementación de servidores de mapas, map server y Geoserver ([GeoBolivia][geobolivia]).
 - Sistemas de edición geográfica basadas en la web.
 
 Siempre cumpliendo con los estándares internacionales OGC.
 
 ## Asesoría tecnológica informática
-Con mi experiencia en administración de servidores, desarollo de sistemas y administración de bases de datos, puedo ser un gran aporte al momento de tomar decisiones sobre infraestructuras tecnológicas, implementación de soluciones software, análisis de sistemas, gestión de proyectos tecnológicos y en particular sobre sistemas de infromación geográfica open source.
+Con mi amplia experiencia en administración de equipos de desarrollo, gestión de proyectos tecnológicos para empresas privadas, públicas y ONG's, además de mi esperincia técnica con servidores Linux, desarollo de sistemas y administración de bases de datos, puedo ser un gran aporte al momento de tomar decisiones sobre infraestructuras tecnológicas, implementación de soluciones software, análisis de sistemas, gestión de proyectos tecnológicos y en particular sobre sistemas de infromación geográfica open source.
 
 
 [ge0next]:     http://www.ge0next.com
 [ge0tic]:      http://www.ge0tic.net
 [dynamusgas]:  http://www.dynamusgas.com
 [aerobol]:     http://www.aerobol.com
+[geofao]:      http://geofao.org.bo
+[geobolivia]:  http://geo.gob.bo

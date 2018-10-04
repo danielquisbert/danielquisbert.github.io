@@ -24,36 +24,38 @@ Un apasionado por las tecnologías, la web, los mapas y software Open Source.
 ## Esperiencia laboral
 
 - ### ENDE Tecnologías S.A.
-[Actual] ***Ingeniero de Software***, Responsable de diseño y desarrollo de sistemas de información geoespaciales.
+	[Actual] ***Ingeniero de Software***, Responsable de diseño y desarrollo de sistemas de información geoespaciales.
 
 - ### Autoridad de Pensiones y Seguros - APS
-[2016] *Administrador de bases de datos PostgreSQL DBA*, Preparación, migración e importación de información de contribuyentes para la  Gestora Pública.
+	[2016] ***Administrador de bases de datos PostgreSQL DBA***, Inicio y preparación de información de contribuyentes para la  Gestora Pública.
 
 - ### Instituto Nacional de Estadística - INE
-[2016] ***Especialista de procesamiento de datos***, Respnsable infromático de encuentas e implementación de sistema de gestión de proyectos.
+	[2016] ***Especialista de procesamiento de datos***, Respnsable infromático de encuentas e implementación de sistema de gestión de proyectos.
 
 - ### Organización de las Naciones Unidas para la Alimentación y la Agricultura - FAO
-[2016] ***Responsable de la plataforma geoespacial GeoFAO***, administración de la plataforma espacial basada en geOrchestra y desarrollo de su sitio web geofao.org.bo
+	[2016] ***Responsable de la plataforma geoespacial GeoFAO***, administración de la plataforma espacial basada en geOrchestra y desarrollo de su sitio web [GeoFao][geofao].
 
 - ### CADEB S.A.
-[2015] ***Analista de sistemas de información geográfica***, Análisis, diseño y desarrollo de un sistema geoautomatizado de gestión reclamos, compuesto por una central telefónica IVR, un módulo de despacho, módulo de monitoreo en tiempo real y cierre de reclamos desde dispositvos móviles.
+	[2015] ***Analista de sistemas de información geográfica***, Análisis, diseño y desarrollo de un sistema geoautomatizado de gestión reclamos, compuesto por una central telefónica IVR, un módulo de despacho, módulo de monitoreo en tiempo real y cierre de reclamos desde dispositvos móviles.
 
 - ### GeoBolivia - Vicepresidencia del Estado Plurinacional de Bolivia
-[2012 - 2014] ***Consultor informático***, desde desarrollo de scripts webmapping, hasta la administración de los servicios internos de la plataforma geoespacial geOrchestra.
+	[2012 - 2014] ***Consultor informático***, desde desarrollo de scripts webmapping, hasta la administración de los servicios internos de la plataforma de infraestructura de Datos Espaciales basado en el framework [geOrchestra][georchestra].
 
 
 ## Ponencias
 
 - ### OSM LATAM 2017 - Lima Perú
-Ponencia ***Instalación y configuración del mapa OSM sobre Linux en offline*** en la conferencia [OpenStreetMap Latino América][osm-latam]
+	Ponencia sobre ***Instalación y configuración del mapa OSM sobre Linux en offline*** en la conferencia [OpenStreetMap Latino América][osm-latam] OSM LATAM 2017.
 
 
 ## Emprendimientos
 
 - ### ge0tic
-Creador y fundador de [ge0tic][ge0tic], un sistema de información geográfica basado en la web, que utiliza el mapa de [OSM][osm] en offline y que se pretende que llegue a la mayor parte de unidades educativas en Bolivia.
+	Creador y fundador de [ge0tic][ge0tic], un sistema de información geográfica basado en la web, que utiliza el mapa de [OSM][osm] en offline y que se pretende que llegue a la mayor parte de unidades educativas en Bolivia.
 
 
 [osm-latam]:   https://wiki.openstreetmap.org/wiki/ES:State_Of_The_Map_Latam_2017
 [ge0tic]:      https://www.ge0tic.net
 [osm]:         http://openstreetmap.org
+[geofao]:      http://geofao.org.bo
+[georchestra]: http://georchestra.org
