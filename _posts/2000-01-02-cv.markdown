@@ -17,7 +17,7 @@ Un apasionado por las tecnologías, la web, los mapas y software Open Source.
 	- [2014] Universidad Mayor de San Andrés, Licenciado en informática con mención en ingeniería de sistemas informáticos
 
 - ### Postgrado
-	- [2016] Diplomaod en educación superior - Universidad Pública de El Alto
+	- [2016] Diplomado en educación superior - Universidad Pública de El Alto
 	- [2017] Diplomado en Sistemas de Información Geográfica - Universidad Mayor de San Andres
 
 
@@ -30,7 +30,7 @@ Un apasionado por las tecnologías, la web, los mapas y software Open Source.
 	[2016] ***Administrador de bases de datos PostgreSQL DBA***, Inicio y preparación de información de contribuyentes para la  Gestora Pública.
 
 - ### Instituto Nacional de Estadística - INE
-	[2016] ***Especialista de procesamiento de datos***, Respnsable infromático de encuentas e implementación de sistema de gestión de proyectos.
+	[2016] ***Especialista de procesamiento de datos***, Respnsable informático de encuestas e implementación de sistema de gestión de proyectos Openproject.
 
 - ### Organización de las Naciones Unidas para la Alimentación y la Agricultura - FAO
 	[2016] ***Responsable de la plataforma geoespacial GeoFAO***, administración de la plataforma espacial basada en geOrchestra y desarrollo de su sitio web [GeoFao][geofao].
@@ -51,7 +51,7 @@ Un apasionado por las tecnologías, la web, los mapas y software Open Source.
 ## Emprendimientos
 
 - ### ge0tic
-	Creador y fundador de [ge0tic][ge0tic], un sistema de información geográfica basado en la web, que utiliza el mapa de [OSM][osm] en offline y que se pretende que llegue a la mayor parte de unidades educativas en Bolivia.
+	Creador y fundador de [ge0tic][ge0tic], un sistema de información geográfica basado en la web, que utiliza el mapa de [OSM][osm] en offline y que se pretende ser una herramienta didáctica para profesores y estudiantes en la mayor parte de unidades educativas en Bolivia principalmente del área rural.
 
 
 [osm-latam]:   https://wiki.openstreetmap.org/wiki/ES:State_Of_The_Map_Latam_2017
