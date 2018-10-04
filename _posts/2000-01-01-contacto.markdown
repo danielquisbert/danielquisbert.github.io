@@ -8,11 +8,15 @@ tags: [contacto]
 Información de contacto
 
 
-<ul>
-	<li><span class="span-info"><i class="glyphicon glyphicon-map-marker"></i> Dirección:</span> Plaza Juan José Torrez y avenida Cívica, Z. huayna Potosí, El Alto - La Paz, Bolivia <br /><br /></li>
-    <li><span class="span-info"><i class="glyphicon glyphicon-envelope"></i> Email:</span> daniel.quisbert@protonmail.com</li>
-    <li><span class="span-info"><i class="glyphicon glyphicon-phone"></i> Móvil:</span> +591 671 45303</li>
-    <li><span class="span-info"><i class="glyphicon glyphicon-globe"></i> Website:</span> www.danielquisbert.github.io</li>
-    <li><span class="span-info"><i class="glyphicon glyphicon-comment"></i> Skype:</span> danielquisbert2</li>
-</ul>
+
+	<i class="glyphicon glyphicon-map-marker"></i> Dirección:</span> Plaza Juan José Torrez y avenida Cívica, Z. huayna Potosí, El Alto - La Paz, Bolivia.
+
+    <i class="glyphicon glyphicon-envelope"></i> Email:</span> daniel.quisbert@protonmail.com
+
+    <i class="glyphicon glyphicon-phone"></i> Móvil:</span> +591 671 45303
+
+    <i class="glyphicon glyphicon-globe"></i> Website:</span> www.danielquisbert.github.io
+
+    <i class="glyphicon glyphicon-comment"></i> Skype:</span> danielquisbert2
+
 
