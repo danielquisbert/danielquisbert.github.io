@@ -12,13 +12,13 @@ tags: [contacto]
 Plaza Juan José Torrez y avenida Cívica, Z. huayna Potosí, El Alto - La Paz, Bolivia.
 
 - #### **Email:** 
-danielquisbert@yandex.com
+[danielquisbert@yandex.com](mailto:danielquisbert@yandex.com)
 
 - #### **Móvil:** 
 +591 671 45303
 
 - #### **Website:** 
-https://danielquisbert.github.io
+[danielquisbert.github.io](https://danielquisbert.github.io)
 
 - #### **Skype:** 
 danielquisbert2
