@@ -1,27 +1,12 @@
- <div class="user-details">
-  <h1> Mi experiencia </h1>
-  <p> {{site.user_description}} </p>
-</div>
-  <div class="user">
-    <div class="tech">
-      <h2> Servidores </h2>
-      <i class="devicon-linux-plain colored"></i>
-      <i class="devicon-debian-plain colored"></i>
-      <i class="devicon-ssh-original-wordmark colored"></i>
-      <p>Administración de servidores Linux, con especial cariño por Debian y Administración remota.</p>
+
+<!-- About Start -->
+
+<section id="{{ page.section-type }}" class="container content-section text-center">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      {{ page.content | markdownify }}
     </div>
-    <div class="tech">
-      <h2>Code</h2>
-      <i class="devicon-java-plain-wordmark colored"></i>
-      <i class="devicon-javascript-plain colored"></i>
-      <i class="devicon-angularjs-plain-wordmark colored"></i>
-      <i class="devicon-php-plain"></i>
-      <p>Experiencia en desarrollo de software especializado en mapas y geolocalización, geoportales, visores de mapas, infraestructura de datos espaciales.</p>
-    </div>
-    <div class="tech">
-      <h2>Herramientas Gráfica y versinamiento</h2>
-      <i class="devicon-git-plain"></i>
-      <i class="devicon-gimp-plain colored"></i>
-      <p>Versinamiento con GIT sobre plataformas como gitlab, github, etc. Diseño gráfico utilizando gimp. </p>
-    </div>
-</div>
+  </div>
+</section>
+
+<!-- About End -->
