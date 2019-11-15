@@ -5,13 +5,12 @@ description: A blog about lorem ipsum dolor sit amet
 # url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 
 # User settings
-username: Anon Developer
-user_description: Bicycle rights irony actually neutra typewriter lyft. Man bun taxidermy put a bird on it, umami yr ramps pop-up ugh bushwick chia lo-fi. Occupy bitters pour-over snackwave you probably haven't heard of them small batch. Cornhole mustache man bun letterpress echo park VHS.
-user_title: Software Developer
-email: anon@anon.com
-twitter_username: lorem_ipsum
-github_username:  lorem_ipsum
-gplus_username:  lorem_ipsum
+username: Daniel Quisbert
+user_description: Experiencia de más de 10 años en el campo de la informática, estoy seguro que puedo dar soluciones tecnológicas para las necesidades de su empresa, institución o negocio. Entre algunos de los servicios que he trabajado, puedo mencionar los siguientes.
+user_title: Software, Web, Maps & Open Source
+email: danielquisbert@yandex.com
+twitter_username: danielquisbertc
+github_username:  danielquisbert
 
 # Google-analytics
 google-analytics:
