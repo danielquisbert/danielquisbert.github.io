@@ -1,0 +1,43 @@
+theme: jekyll-theme-minimal# Site settings
+title: Daniel Quisbert
+description: 'Software, Web, Mapas & Open Source'
+url: 'https://danielquisbert.github.io'
+baseurl: '/'
+# google_analytics: 'UA-XXXXXX-X'
+# disqus_shortname: 'your-disqus-name'
+
+author:
+  name: 'Daniel Quisbert'
+  email: daniel.quisbert@protonmail.com
+  twitter_username: danielquisbertc
+  facebook_username: daniel.quisbert
+  github_username:  danielquisbert
+  linkedin_username:  danielquisbert
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+        layout: 'post'
+
+# Build settings
+destination: _site
+paginate: 10
+permalink: /:year/:title/
+markdown: kramdown
+highlighter: rouge
+
+sass:
+    sass_dir: _sass
+    style: compressed
+
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
+
+plugins: ['jekyll-paginate']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
