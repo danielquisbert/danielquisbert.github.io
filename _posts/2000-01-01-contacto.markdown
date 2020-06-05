@@ -7,10 +7,6 @@ tags: [contacto]
 
 ### Información de contacto
 
-
-- #### **Dirección:** 
-Plaza Juan José Torrez y avenida Cívica, La Paz - Bolivia.
-
 - #### **Email:** 
 [danielquisbert@yandex.com](mailto:danielquisbert@yandex.com)
 
@@ -20,24 +16,25 @@ Plaza Juan José Torrez y avenida Cívica, La Paz - Bolivia.
 - #### **Website:** 
 [danielquisbert.github.io](https://danielquisbert.github.io)
 
-- #### **Twitter:** 
-[@danielquisbertc](https://twitter.com/danielquisbertc)
+- #### **Telegram:** 
+@danielquisbert
 
 - #### **Facebook:** 
 [daniel.quisbert](https://www.facebook.com/daniel.quisbert/)
 
+- #### **Twitter:** 
+[@danielquisbertc](https://twitter.com/danielquisbertc)
+
 - #### **Github:** 
 [danielquisbert](https://github.com/danielquisbert)
-
-- #### **Skype:** 
-danielquisbert2
-
-- #### **Telegram:** 
-@danielquisbert
 
 - #### **Linkedin:** 
 [danielquisbert](https://www.linkedin.com/in/danielquisbert/)
 
-- #### **Github:** 
-[danielquisbert](https://github.com/danielquisbert)
+- #### **Skype:** 
+danielquisbert2
+
+
+
+
 
