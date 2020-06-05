@@ -18,12 +18,12 @@ Un apasionado por las tecnologías, la web, los mapas y software Open Source.
 
 - ### Postgrado
 	- [2016] Diplomado en educación superior - Universidad Pública de El Alto
-	- [2017] Diplomado en Sistemas de Información Geográfica - Universidad Mayor de San Andres
+	- [2017] Diplomado en Sistemas de Información Geográfica - Universidad Mayor de San Andrés
 
 
 ## Esperiencia laboral
 
-- ### ENDE Tecnologías S.A.
+- ### ENDE TECNOLOGÍAS S.A.
 	[Actual] ***Ingeniero de Software***, Responsable de diseño y desarrollo de sistemas de información geoespaciales.
 
 - ### Autoridad de Pensiones y Seguros - APS
@@ -55,7 +55,7 @@ Un apasionado por las tecnologías, la web, los mapas y software Open Source.
 
 
 [osm-latam]:   https://wiki.openstreetmap.org/wiki/ES:State_Of_The_Map_Latam_2017
-[ge0tic]:      https://www.ge0tic.net
+[ge0tic]:      https://ge0tic.github.io
 [osm]:         http://openstreetmap.org
 [geofao]:      http://geofao.org.bo
 [georchestra]: http://georchestra.org

@@ -1,6 +1,6 @@
 theme: jekyll-theme-minimal# Site settings
 title: Daniel Quisbert
-description: 'Software, Web, Mapas & Open Source'
+description: 'Software, Web, Maps & Open Source'
 url: 'https://danielquisbert.github.io'
 baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
@@ -8,7 +8,7 @@ baseurl: '/'
 
 author:
   name: 'Daniel Quisbert'
-  email: daniel.quisbert@protonmail.com
+  email: danielquisbert@yandex.com
   twitter_username: danielquisbertc
   facebook_username: daniel.quisbert
   github_username:  danielquisbert
