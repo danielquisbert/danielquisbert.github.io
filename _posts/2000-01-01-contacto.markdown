@@ -10,8 +10,11 @@ tags: [contacto]
 - #### **Email:** 
 [danielquisbert@yandex.com](mailto:danielquisbert@yandex.com)
 
-- #### **Móvil, Whatsapp y Signal:** 
+- #### **Móvil - Signal:** 
 +591 671 45303
+
+- #### **Whatsapp:** 
++591 671 45303](https://wa.me/59167145303?text=¿Necesitas%20ayuda%20en%20tecnología?)
 
 - #### **Website:** 
 [danielquisbert.github.io](https://danielquisbert.github.io)
