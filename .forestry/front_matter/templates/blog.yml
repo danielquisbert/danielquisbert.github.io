@@ -6,8 +6,8 @@ fields:
   name: theme
   label: theme
 - type: text
-  name: title
-  label: title
+  name: titlex
+  label: titlex
 - type: text
   name: description
   label: description
