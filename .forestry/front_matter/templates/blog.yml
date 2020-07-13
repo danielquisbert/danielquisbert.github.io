@@ -1,0 +1,103 @@
+---
+label: blog
+hide_body: true
+fields:
+- type: text
+  name: theme
+  label: theme
+- type: text
+  name: titlex
+  label: titlex
+- type: text
+  name: description
+  label: description
+- type: text
+  name: url
+  label: url
+- type: text
+  name: baseurl
+  label: baseurl
+- type: field_group
+  name: author
+  label: author
+  fields:
+  - type: text
+    name: name
+    label: name
+  - type: text
+    name: email
+    label: email
+  - type: text
+    name: twitter_username
+    label: twitter_username
+  - type: text
+    name: facebook_username
+    label: facebook_username
+  - type: text
+    name: github_username
+    label: github_username
+  - type: text
+    name: linkedin_username
+    label: linkedin_username
+- type: field_group_list
+  name: defaults
+  label: defaults
+  fields:
+  - type: field_group
+    name: scope
+    label: scope
+    fields:
+    - type: text
+      name: path
+      label: path
+    - type: text
+      name: type
+      label: type
+  - type: field_group
+    name: values
+    label: values
+    fields:
+    - type: text
+      name: layout
+      label: layout
+- type: text
+  name: destination
+  label: destination
+- type: number
+  name: paginate
+  label: paginate
+- type: text
+  name: permalink
+  label: permalink
+- type: text
+  name: markdown
+  label: markdown
+- type: text
+  name: highlighter
+  label: highlighter
+- type: field_group
+  name: sass
+  label: sass
+  fields:
+  - type: text
+    name: sass_dir
+    label: sass_dir
+  - type: text
+    name: style
+    label: style
+- type: field_group
+  name: kramdown
+  label: kramdown
+  fields:
+  - type: text
+    name: input
+    label: input
+  - type: boolean
+    name: hard_wrap
+    label: hard_wrap
+- type: list
+  name: plugins
+  label: plugins
+- type: list
+  name: exclude
+  label: exclude
