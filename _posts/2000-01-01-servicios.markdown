@@ -34,7 +34,7 @@ Con más de 8 años de experiencia en desarrollo web, me apasiona crear sitios w
 
 
 Todos las páginas utilizan diseño responsive para el acceso por cualquier tipo de dispositivo, sean smart phones, tablets, laptops, PCs, etc.
-Adiconalmente con un equipo de trabajo realizamos el trabajo de social manager, para enlazar su sitio con las redes sociales y publicitar por medio de estas deres para llegar a más potenciales clientes o consumidores.
+Adiconalmente con un equipo de trabajo realizamos el trabajo de social manager, para enlazar su sitio con las redes sociales y publicitar por medio de estas redes para llegar a más potenciales clientes o consumidores.
 
 
 
