@@ -5,7 +5,7 @@ categories: [cv]
 tags: [cv]
 ---
 
-Un apasionado por las tecnologías, la web, los mapas y software Open Source.
+Un profesional en informática con una gran pasión por las tecnologías móviles, los mapas y el software Open Source, siempre dispuesto a aprender y mejorar sus habilidades.
 
 
 ## Educación:
