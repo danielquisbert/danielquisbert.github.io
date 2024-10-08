@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
-import '../modules/direccion/direccion_view.dart';
 import '../modules/home/home_binding.dart';
 import '../modules/home/home_view.dart';
-import '../modules/direccion/direccion_binding.dart';
 
 import '../modules/experiencia/experiencia_binding.dart';
 import '../modules/experiencia/experiencia_view.dart';
@@ -26,11 +24,7 @@ class AppPages {
       page: () => const HomeView(),
       binding: HomeBinding(),
     ),
-    GetPage(
-      name: Routes.DIRECCION,
-      page: () => const DireccionView(),
-      binding: DireccionBinding(),
-    ),
+
     GetPage(
       name: Routes.EXPERIENCIA,
       page: () => const ExperienciaView(),
