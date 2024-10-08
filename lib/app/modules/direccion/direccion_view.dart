@@ -4,35 +4,36 @@ import 'direccion_controller.dart';
 import '../../themes/app_theme.dart';
 
 class DireccionView extends GetView<DireccionController> {
+  const DireccionView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dirección'),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        title: const Text('Dirección'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Get.back(),
+        ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Card(
-                child: Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Column(
-                    children: [
-                      Obx(() => _buildInfoTile(Icons.location_on, 'Dirección', controller.direccion.value)),
-                      Divider(),
-                      Obx(() => _buildInfoTile(Icons.phone, 'Teléfono', controller.telefono.value)),
-                      Divider(),
-                      Obx(() => _buildInfoTile(Icons.email, 'Email', controller.email.value)),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Obx(() => _buildInfoTile(Icons.location_on, 'Dirección',
+                    controller.direccion.value)),
+                const Divider(color: Colors.white24),
+                Obx(() => _buildInfoTile(
+                    Icons.phone, 'Teléfono', controller.telefono.value)),
+                const Divider(color: Colors.white24),
+                Obx(() => _buildInfoTile(
+                    Icons.email, 'Email', controller.email.value)),
+              ],
+            ),
           ),
         ),
       ),
@@ -50,8 +51,8 @@ class DireccionView extends GetView<DireccionController> {
         ),
         child: Icon(icon, color: AppTheme.accentColor),
       ),
-      title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
-      subtitle: Text(value),
+      title: Text(title, style: const TextStyle(color: Colors.white70)),
+      subtitle: Text(value, style: const TextStyle(color: Colors.white)),
     );
   }
 }

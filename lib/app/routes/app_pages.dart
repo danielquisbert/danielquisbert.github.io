@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
+import '../modules/direccion/direccion_view.dart';
 import '../modules/home/home_binding.dart';
 import '../modules/home/home_view.dart';
 import '../modules/direccion/direccion_binding.dart';
-import '../modules/direccion/direccion_view.dart';
+
 import '../modules/experiencia/experiencia_binding.dart';
 import '../modules/experiencia/experiencia_view.dart';
 import '../modules/portafolio/portafolio_binding.dart';
@@ -16,37 +17,38 @@ import '../modules/terminal/terminal_view.dart';
 part 'app_routes.dart';
 
 class AppPages {
+  // ignore: constant_identifier_names
   static const INITIAL = Routes.HOME;
 
   static final routes = [
     GetPage(
       name: Routes.HOME,
-      page: () => HomeView(),
+      page: () => const HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
       name: Routes.DIRECCION,
-      page: () => DireccionView(),
+      page: () => const DireccionView(),
       binding: DireccionBinding(),
     ),
     GetPage(
       name: Routes.EXPERIENCIA,
-      page: () => ExperienciaView(),
+      page: () => const ExperienciaView(),
       binding: ExperienciaBinding(),
     ),
     GetPage(
       name: Routes.PORTAFOLIO,
-      page: () => PortafolioView(),
+      page: () => const PortafolioView(),
       binding: PortafolioBinding(),
     ),
     GetPage(
       name: Routes.BLOG,
-      page: () => BlogView(),
+      page: () => const BlogView(),
       binding: BlogBinding(),
     ),
     GetPage(
       name: Routes.TERMINAL,
-      page: () => TerminalView(),
+      page: () => const TerminalView(),
       binding: TerminalBinding(),
     ),
     // Añade las demás rutas aquí (Configuración, Correo, Calendario)

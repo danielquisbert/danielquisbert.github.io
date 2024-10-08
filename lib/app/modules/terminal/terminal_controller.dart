@@ -16,15 +16,16 @@ class TerminalController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    output.add('Bienvenido a la Terminal Linux simulada. Escribe un comando o "help" para ver la lista de comandos disponibles.');
+    output.add(
+        'Bienvenido a la Terminal Linux simulada. Escribe un comando o "help" para ver la lista de comandos disponibles.');
   }
 
   void ejecutarComando(String comando) {
-    output.add('$comando');
-    
+    output.add(comando);
+
     final args = comando.split(' ');
     final cmd = args[0].toLowerCase();
-    
+
     switch (cmd) {
       case 'ls':
         ls(args);
@@ -60,7 +61,8 @@ class TerminalController extends GetxController {
         help();
         break;
       default:
-        output.add('Comando no reconocido: $cmd. Escribe "help" para ver la lista de comandos disponibles.');
+        output.add(
+            'Comando no reconocido: $cmd. Escribe "help" para ver la lista de comandos disponibles.');
     }
 
     inputController.clear();
@@ -71,10 +73,12 @@ class TerminalController extends GetxController {
     if (args.contains('-l')) {
       // Simulación de formato largo
       fileSystem[currentDirectory]?.forEach((file) {
-        output.add('drwxr-xr-x 2 danielquisbert users 4096 ${DateTime.now().toString()} $file');
+        output.add(
+            'drwxr-xr-x 2 danielquisbert users 4096 ${DateTime.now().toString()} $file');
       });
     } else {
-      output.add(fileSystem[currentDirectory]?.join('  ') ?? 'Directorio vacío');
+      output
+          .add(fileSystem[currentDirectory]?.join('  ') ?? 'Directorio vacío');
     }
   }
 
@@ -130,7 +134,8 @@ class TerminalController extends GetxController {
       output.add('cat: missing operand');
     } else {
       if (fileSystem[currentDirectory.value]?.contains(args[1]) ?? false) {
-        output.add('Contents of ${args[1]}:\nThis is a simulated file content.');
+        output
+            .add('Contents of ${args[1]}:\nThis is a simulated file content.');
       } else {
         output.add('cat: ${args[1]}: No such file or directory');
       }
@@ -151,7 +156,8 @@ class TerminalController extends GetxController {
 
   void uname(List<String> args) {
     if (args.contains('-a')) {
-      output.add('Linux Simulated 5.10.0-generic #1 SMP Dart Flutter x86_64 GNU/Linux');
+      output.add(
+          'Linux Simulated 5.10.0-generic #1 SMP Dart Flutter x86_64 GNU/Linux');
     } else {
       output.add('Linux');
     }
