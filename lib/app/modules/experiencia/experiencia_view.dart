@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'experiencia_controller.dart';
 import '../../themes/app_theme.dart';
 
@@ -21,16 +22,18 @@ class ExperienciaView extends GetView<ExperienciaController> {
               const Gap(24),
               _buildProfessionalSummary(controller),
               const Gap(32),
-              Text(
-                'Experiencia Profesional',
-                style: Get.textTheme.headlineMedium?.copyWith(
-                  color: AppTheme.accentColor,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const Gap(24),
+              _buildSectionTitle('Experiencia Profesional'),
               ...controller.experiencias
                   .map((exp) => _buildExperienceItem(exp)),
+              const Gap(32),
+              _buildSectionTitle('Educación'),
+              ...controller.educacion.map((edu) => _buildEducationItem(edu)),
+              const Gap(32),
+              _buildSectionTitle('Ponencias'),
+              ...controller.ponencias.map((pon) => _buildPresentationItem(pon)),
+              const Gap(32),
+              _buildSectionTitle('Certificaciones'),
+              _buildCertificationsList(controller.certificaciones),
             ],
           ),
         );
@@ -55,6 +58,7 @@ class ExperienciaView extends GetView<ExperienciaController> {
                 controller.name,
                 style: Get.textTheme.headlineLarge?.copyWith(
                   fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
               Text(
@@ -66,7 +70,8 @@ class ExperienciaView extends GetView<ExperienciaController> {
               const Gap(8),
               Text(
                 controller.contact,
-                style: Get.textTheme.bodyMedium,
+                style:
+                    Get.textTheme.bodyMedium?.copyWith(color: Colors.white70),
               ),
             ],
           ),
@@ -95,6 +100,22 @@ class ExperienciaView extends GetView<ExperienciaController> {
     );
   }
 
+  Widget _buildSectionTitle(String title) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: Get.textTheme.headlineMedium?.copyWith(
+            color: AppTheme.accentColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const Gap(24),
+      ],
+    );
+  }
+
   Widget _buildExperienceItem(Experiencia exp) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,6 +131,7 @@ class ExperienciaView extends GetView<ExperienciaController> {
                     exp.puesto,
                     style: Get.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                   Text(
@@ -125,6 +147,7 @@ class ExperienciaView extends GetView<ExperienciaController> {
               exp.periodo,
               style: Get.textTheme.bodyMedium?.copyWith(
                 fontStyle: FontStyle.italic,
+                color: Colors.white70,
               ),
             ),
           ],
@@ -132,7 +155,7 @@ class ExperienciaView extends GetView<ExperienciaController> {
         const Gap(12),
         Text(
           exp.descripcion,
-          style: Get.textTheme.bodyMedium,
+          style: Get.textTheme.bodyMedium?.copyWith(color: Colors.white),
         ),
         const Gap(16),
         _buildSkillsList(exp.habilidades),
@@ -152,6 +175,102 @@ class ExperienciaView extends GetView<ExperienciaController> {
                 label: Text(habilidad),
                 backgroundColor: AppTheme.accentColor.withOpacity(0.1),
                 labelStyle: TextStyle(color: AppTheme.accentColor),
+              ))
+          .toList(),
+    );
+  }
+
+  Widget _buildEducationItem(Educacion edu) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          edu.titulo,
+          style: Get.textTheme.titleLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        Text(
+          edu.institucion,
+          style: Get.textTheme.titleMedium?.copyWith(
+            color: AppTheme.accentColor,
+          ),
+        ),
+        Text(
+          edu.periodo,
+          style: Get.textTheme.bodyMedium?.copyWith(
+            fontStyle: FontStyle.italic,
+            color: Colors.white70,
+          ),
+        ),
+        const Gap(16),
+      ],
+    );
+  }
+
+  Widget _buildPresentationItem(Ponencia pon) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          pon.titulo,
+          style: Get.textTheme.titleLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        Text(
+          pon.evento,
+          style: Get.textTheme.titleMedium?.copyWith(
+            color: AppTheme.accentColor,
+          ),
+        ),
+        Text(
+          pon.tipo,
+          style: Get.textTheme.bodyMedium?.copyWith(
+            fontStyle: FontStyle.italic,
+            color: Colors.white70,
+          ),
+        ),
+        const Gap(16),
+      ],
+    );
+  }
+
+  Widget _buildCertificationsList(List<String> certificaciones) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: certificaciones
+          .map((cert) => Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(Icons.check_circle,
+                        color: AppTheme.accentColor, size: 20),
+                    const Gap(8),
+                    Expanded(
+                      child: cert.contains('Flutter Certified')
+                          ? InkWell(
+                              onTap: () => launchUrl(Uri.parse(
+                                  'https://androidatc.com/_transcript.php?action=public&u=lMLczaXbl9WnmaSSlODYstbWxZucX5PQ2w%3D%3D')),
+                              child: Text(
+                                cert,
+                                style: Get.textTheme.bodyMedium?.copyWith(
+                                  color: Colors.blue,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            )
+                          : Text(
+                              cert,
+                              style: Get.textTheme.bodyMedium
+                                  ?.copyWith(color: Colors.white),
+                            ),
+                    ),
+                  ],
+                ),
               ))
           .toList(),
     );

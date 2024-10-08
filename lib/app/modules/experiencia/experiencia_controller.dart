@@ -191,10 +191,6 @@ class ExperienciaController extends GetxController {
       'PostgreSQL, Educomser',
       'Instalación y configuración de servidores DNS, Vicepresidencia del Estado Plurinacional de Bolivia - ADSIB',
       'Módulo I DBA ORACLE, Fundación PROYDESA',
-      'Desarrollo de aplicaciones Web 2.0, (JQuery, Dojo, Prototype y Ajax) UMSA - FCPN - Postgrado en Informática',
-      'Implementación de Base de Datos con SQL Server 2008, UMSA - Carrera de Informática',
-      'Aplicaciones escritorio Visual Basic .NET 2005, UMSA - Carrera de Informática',
-      'PHP y MySQL, UMSA - Carrera de Informática',
     ]);
   }
 }

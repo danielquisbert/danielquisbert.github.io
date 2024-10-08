@@ -34,6 +34,7 @@ dependencies:
   gap: ^3.0.1
   get: null
   intl: ^0.19.0
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_lints: ^4.0.0
