@@ -14,7 +14,8 @@ class ExperienciaView extends GetView<ExperienciaController> {
       init: ExperienciaController(),
       builder: (controller) {
         return SingleChildScrollView(
-          padding: const EdgeInsets.all(24),
+          padding: EdgeInsets.symmetric(
+              horizontal: Get.width * .2, vertical: Get.height * .1),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -12,11 +10,13 @@ class BlogView extends GetView<BlogController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GetBuilder<BlogController>(
-        init: BlogController(),
-        builder: (controller) {
-          return Obx(() {
+    return GetBuilder<BlogController>(
+      init: BlogController(),
+      builder: (controller) {
+        return Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: Get.width * .2, vertical: Get.height * .1),
+          child: Obx(() {
             if (controller.posts.isEmpty) {
               return const Center(child: CircularProgressIndicator());
             }
@@ -85,9 +85,9 @@ class BlogView extends GetView<BlogController> {
                 );
               },
             );
-          });
-        },
-      ),
+          }),
+        );
+      },
     );
   }
 

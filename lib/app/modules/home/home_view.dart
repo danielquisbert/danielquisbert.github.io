@@ -130,10 +130,10 @@ class HomeView extends GetView<HomeController> {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _dockIcon(Icons.work, 'Experiencia', () => _openExperiencia()),
+          _dockIcon(Icons.work, 'Mi CV', () => _openExperiencia()),
           _dockIcon(Icons.folder, 'Portafolio', () => _openPortafolio()),
           _dockIcon(Icons.terminal, 'Terminal', () => _openTerminal()),
-          _dockIcon(Icons.article, 'Blog', () => _openBlog()),
+          //_dockIcon(Icons.article, 'Blog', () => _openBlog()),
         ],
       ),
     );

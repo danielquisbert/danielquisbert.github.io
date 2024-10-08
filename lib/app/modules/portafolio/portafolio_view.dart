@@ -17,15 +17,19 @@ class PortafolioView extends GetView<PortafolioController> {
     return GetBuilder<PortafolioController>(
       init: PortafolioController(),
       builder: (controller) {
-        return MasonryGridView.count(
-          crossAxisCount: 2,
-          mainAxisSpacing: 4,
-          crossAxisSpacing: 4,
-          itemCount: controller.proyectos.length,
-          itemBuilder: (context, index) {
-            final proyecto = controller.proyectos[index];
-            return _buildProjectCard(proyecto);
-          },
+        return Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: Get.width * .2, vertical: Get.height * .1),
+          child: MasonryGridView.count(
+            crossAxisCount: 2,
+            mainAxisSpacing: 4,
+            crossAxisSpacing: 4,
+            itemCount: controller.proyectos.length,
+            itemBuilder: (context, index) {
+              final proyecto = controller.proyectos[index];
+              return _buildProjectCard(proyecto);
+            },
+          ),
         );
       },
     );
