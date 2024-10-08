@@ -181,6 +181,6 @@ class HomeView extends GetView<HomeController> {
   }
 
   void _openBlog() {
-    controller.openWindow(const BlogView(), 'Blog');
+    controller.openWindow(BlogView(), 'Blog');
   }
 }

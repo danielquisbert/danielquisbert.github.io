@@ -37,7 +37,7 @@ class AppPages {
     ),
     GetPage(
       name: Routes.BLOG,
-      page: () => const BlogView(),
+      page: () => BlogView(),
       binding: BlogBinding(),
     ),
     GetPage(
