@@ -119,6 +119,41 @@
             z-index: 2;
             max-width: 800px;
             padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-profile {
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.1s;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            background: var(--gradient-primary);
+            padding: 4px;
+            margin: 0 auto 1rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(57, 211, 83, 0.3);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--secondary-dark);
         }
 
         .hero h1 {
@@ -495,6 +530,11 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
             
             .services-grid {
                 grid-template-columns: 1fr;
@@ -543,8 +583,13 @@
     <section id="inicio" class="hero">
         <div class="hero-background"></div>
         <div class="hero-content">
+            <div class="hero-profile">
+                <div class="profile-image">
+                    <img src="danielquisbert.png" alt="Daniel Quisbert - Desarrollador Full Stack" loading="lazy">
+                </div>
+            </div>
             <h1>Daniel <span class="highlight">Quisbert</span></h1>
-            <p>Desarrollador Full Stack especializado en aplicaciones móviles educativas y sistemas geoespaciales. Creador de <strong>ge0tic</strong> - la App educativa que transforma el aprendizaje de geografía en Bolivia y el mundo.</p>
+            <p>Desarrollador Full Stack especializado en aplicaciones móviles educativas y sistemas geoespaciales. Creador de <strong>ge0tic</strong> - la plataforma educativa que transforma el aprendizaje de geografía en Bolivia y el mundo.</p>
             <a href="#contacto" class="cta-button">Colaboremos Juntos</a>
         </div>
     </section>
@@ -595,7 +640,7 @@
                             <span class="tech-tag">Android</span>
                             <span class="tech-tag">Servicios Públicos</span>
                             <span class="tech-tag">Geolocalización</span>
-                            <span class="tech-tag">Pagos QR</span>
+                            <span class="tech-tag">Pagos</span>
                         </div>
                         <div class="portfolio-links">
                             <a href="https://play.google.com/store/search?q=appluz&c=apps&hl=es_BO" target="_blank">Play Store</a>
@@ -613,6 +658,7 @@
                         <div class="portfolio-tech">
                             <span class="tech-tag">Android</span>
                             <span class="tech-tag">RRHH</span>
+                            <span class="tech-tag">Biometría</span>
                             <span class="tech-tag">Enterprise</span>
                         </div>
                         <div class="portfolio-links">
@@ -632,7 +678,7 @@
                             <span class="tech-tag">Android</span>
                             <span class="tech-tag">Educación</span>
                             <span class="tech-tag">Notificaciones</span>
-                            <span class="tech-tag">Información</span>
+                            <span class="tech-tag">Mapas</span>
                         </div>
                         <div class="portfolio-links">
                             <a href="https://play.google.com/store/apps/details?id=com.artec.bo" target="_blank">Play Store</a>
@@ -670,7 +716,7 @@
                             <span class="tech-tag">Android</span>
                             <span class="tech-tag">Geografía</span>
                             <span class="tech-tag">Educación</span>
-                            <span class="tech-tag">Offline</span>
+                            <span class="tech-tag">Cultura</span>
                         </div>
                         <div class="portfolio-links">
                             <a href="https://play.google.com/store/apps/details?id=com.ge0tic.bo" target="_blank">Play Store</a>
@@ -746,7 +792,7 @@
                         <div class="portfolio-icon">🏛️</div>
                     </div>
                     <div class="portfolio-content">
-                        <h4>Registraduría Nacional - Colombia (2022)</h4>
+                        <h4>Registraduría Nacional - Colombia</h4>
                         <p>Desarrollo y mantenimiento del portal oficial gubernamental de la Registraduría Nacional del Estado Civil de Colombia, manejando millones de consultas ciudadanas.</p>
                         <div class="portfolio-tech">
                             <span class="tech-tag">SPIP CMS</span>
@@ -772,8 +818,9 @@
                 <div class="skill-tags">
                     <span class="skill-tag">React</span>
                     <span class="skill-tag">Vue.js</span>
+                    <span class="skill-tag">TypeScript</span>
                     <span class="skill-tag">Next.js</span>
-                    <span class="skill-tag">Angular</span>
+                    <span class="skill-tag">Tailwind CSS</span>
                 </div>
             </div>
             <div class="skill-category reveal">
@@ -781,22 +828,26 @@
                 <div class="skill-tags">
                     <span class="skill-tag">Node.js</span>
                     <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Django</span>
                     <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MongoDB</span>
                 </div>
             </div>
             <div class="skill-category reveal">
                 <h3>Mobile</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">React Native</span>
-                    <span class="skill-tag">Android - java</span>
                     <span class="skill-tag">Flutter</span>
+                    <span class="skill-tag">Kotlin</span>
+                    <span class="skill-tag">Swift</span>
+                    <span class="skill-tag">Ionic</span>
                 </div>
             </div>
             <div class="skill-category reveal">
                 <h3>Mapas & GIS</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Google Maps API</span>
-                    <span class="skill-tag">OpenStreetMap</span>
+                    <span class="skill-tag">Mapbox</span>
                     <span class="skill-tag">Leaflet</span>
                     <span class="skill-tag">PostGIS</span>
                     <span class="skill-tag">QGIS</span>
