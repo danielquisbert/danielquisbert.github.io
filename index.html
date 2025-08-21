@@ -1,38 +1,908 @@
-<!DOCTYPE html>
-<html>
+<span class="skill-tag">SPIP CMS</span>
+                    <span class="skill-tag">WordPress</span><!DOCTYPE html>
+<html lang="es">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Quisbert | Desarrollador Full Stack & Mobile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+        :root {
+            --primary-dark: #0d1117;
+            --secondary-dark: #161b22;
+            --accent-green: #39d353;
+            --accent-emerald: #2ea043;
+            --text-light: #ffffff;
+            --text-gray: #c9d1d9;
+            --gradient-primary: linear-gradient(135deg, #39d353 0%, #2ea043 100%);
+            --gradient-secondary: linear-gradient(135deg, rgba(57, 211, 83, 0.1) 0%, rgba(46, 160, 67, 0.1) 100%);
+        }
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/">
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="danielquisbert_github_io">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-  <title>danielquisbert_github_io</title>
-  <link rel="manifest" href="manifest.json">
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 40%, rgba(57, 211, 83, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(46, 160, 67, 0.08) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+
+        .hero .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.6s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.9s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(57, 211, 83, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Servicios Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--secondary-dark);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-green);
+        }
+
+        .service-card * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--secondary-dark);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(57, 211, 83, 0.1);
+            color: var(--accent-green);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(57, 211, 83, 0.3);
+        }
+
+        /* Portfolio Styles */
+        .portfolio-section {
+            margin-bottom: 4rem;
+        }
+
+        .portfolio-category {
+            font-size: 1.5rem;
+            color: var(--accent-green);
+            margin-bottom: 2rem;
+            text-align: left;
+            background: none;
+            -webkit-text-fill-color: var(--accent-green);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            background: var(--secondary-dark);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-green);
+            box-shadow: 0 20px 40px rgba(57, 211, 83, 0.1);
+        }
+
+        .portfolio-image {
+            height: 120px;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .portfolio-icon {
+            font-size: 3rem;
+            filter: grayscale(0);
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .portfolio-content p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .portfolio-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(57, 211, 83, 0.1);
+            color: var(--accent-green);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(57, 211, 83, 0.3);
+        }
+
+        .portfolio-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .portfolio-links a {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .portfolio-links a:hover {
+            color: var(--accent-emerald);
+        }
+
+        .portfolio-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background: var(--accent-green);
+            transition: width 0.3s ease;
+        }
+
+        .portfolio-links a:hover::after {
+            width: 100%;
+        }
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-gray);
+        }
+
+        .contact-item a {
+            color: var(--accent-green);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-emerald);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-dark);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-light);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">DQ</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1>Daniel <span class="highlight">Quisbert</span></h1>
+            <p>Desarrollador Full Stack especializado en aplicaciones móviles educativas y sistemas geoespaciales. Creador de <strong>ge0tic</strong> - la App educativa que transforma el aprendizaje de geografía en Bolivia y el mundo.</p>
+            <a href="#contacto" class="cta-button">Colaboremos Juntos</a>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios">
+        <h2 class="reveal">Servicios Especializados</h2>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">📱</div>
+                <h3>Desarrollo de Apps Móviles</h3>
+                <p>Aplicaciones nativas e híbridas para iOS y Android con interfaces intuitivas y rendimiento optimizado. Especializado en React Native, Flutter y desarrollo nativo.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🗺️</div>
+                <h3>Sistemas de Mapas & GIS</h3>
+                <p>Soluciones geoespaciales avanzadas integrando Google Maps, Mapbox y OpenStreetMap. Análisis geográfico, visualización de datos y aplicaciones de geolocalización.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">💻</div>
+                <h3>Desarrollo Full Stack</h3>
+                <p>Arquitecturas web modernas con tecnologías de vanguardia. APIs RESTful, microservicios, bases de datos escalables y sistemas de alta disponibilidad.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">⚡</div>
+                <h3>Consultoría Técnica</h3>
+                <p>Auditorías de código, optimización de rendimiento, arquitectura de software y mentoría técnica para equipos de desarrollo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portafolio -->
+    <section id="portafolio">
+        <h2 class="reveal">Proyectos Destacados</h2>
+        
+        <!-- Aplicaciones Móviles -->
+        <div class="portfolio-section">
+            <h3 class="portfolio-category reveal">📱 Aplicaciones Móviles</h3>
+            <div class="portfolio-grid">
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-image">
+                        <div class="portfolio-icon">⚡</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>AppLuz DELAPAZ</h4>
+                        <p>Aplicación oficial para la gestión de suministros de energía eléctrica de DELAPAZ, la distribuidora más grande de Bolivia con más de 1 millón de usuarios. Permite consultar consumos, deudas y localizar puntos de pago.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Servicios Públicos</span>
+                            <span class="tech-tag">Geolocalización</span>
+                            <span class="tech-tag">Pagos QR</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://play.google.com/store/search?q=appluz&c=apps&hl=es_BO" target="_blank">Play Store</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-image">
+                        <div class="portfolio-icon">📋</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>AsistenciApp</h4>
+                        <p>Sistema avanzado para el control y marcado de asistencias empresariales. Optimiza la gestión de recursos humanos con tecnología móvil, garantizando precisión y facilidad de uso.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">RRHH</span>
+                            <span class="tech-tag">Enterprise</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.gecko.asistencias" target="_blank">Play Store</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-image">
+                        <div class="portfolio-icon">🎓</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>ARTEC App</h4>
+                        <p>Aplicación oficial del centro de capacitación ARTEC. Transformando mentes e inspirando innovación con acceso a cursos, notificaciones de promociones y geolocalización de sucursales.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Educación</span>
+                            <span class="tech-tag">Notificaciones</span>
+                            <span class="tech-tag">Información</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.artec.bo" target="_blank">Play Store</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-image">
+                        <div class="portfolio-icon">🧠</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>ARTEC Juniors</h4>
+                        <p>Juego educativo innovador para estudiantes de 7-17+ años. Transforma el estudio en diversión con matemáticas, lenguaje y ciencias a través de desafíos interactivos adaptativos.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Gamificación</span>
+                            <span class="tech-tag">Educación</span>
+                            <span class="tech-tag">Offline</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.ge0tic.artecjuniors" target="_blank">Play Store</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-image">
+                        <div class="portfolio-icon">🇧🇴</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>ge0tic Bolivia</h4>
+                        <p>Descubre Bolivia de manera interactiva y divertida. Explora historia, cultura y datos curiosos de cada departamento boliviano, desafiando conocimientos geográficos.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Geografía</span>
+                            <span class="tech-tag">Educación</span>
+                            <span class="tech-tag">Offline</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.ge0tic.bo" target="_blank">Play Store</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-image">
+                        <div class="portfolio-icon">🇨🇴</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>ge0tic Colombia</h4>
+                        <p>Aplicación educativa gratuita para explorar la diversidad geográfica de Colombia. Diseñada para niños y jóvenes, funciona sin internet y desarrolla inteligencia espacial.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Geografía</span>
+                            <span class="tech-tag">Offline</span>
+                            <span class="tech-tag">Educación</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.ge0tic.col" target="_blank">Play Store</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-image">
+                        <div class="portfolio-icon">🚀</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>TodoCerca</h4>
+                        <p>Plataforma desarrollada para ARTEC que impulsa emprendedores conectando negocios locales con consumidores. Fomenta el crecimiento económico y comercial comunitario.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Emprendimiento</span>
+                            <span class="tech-tag">Marketplace</span>
+                            <span class="tech-tag">Negocios</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.gecko.todocercapp" target="_blank">Play Store</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sitios Web -->
+        <div class="portfolio-section">
+            <h3 class="portfolio-category reveal">💻 Desarrollo Web</h3>
+            <div class="portfolio-grid">
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-image">
+                        <div class="portfolio-icon">🎓</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>ARTEC - Plataforma Educativa</h4>
+                        <p>Ecosistema de aprendizaje integral que transforma vidas a través de educación técnica de excelencia. Plataforma robusta con gestión de cursos, evaluaciones y certificaciones.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">SPIP CMS</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://arte-tecnologias.com/" target="_blank">Ver Sitio</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-image">
+                        <div class="portfolio-icon">🏛️</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>Registraduría Nacional - Colombia (2022)</h4>
+                        <p>Desarrollo y mantenimiento del portal oficial gubernamental de la Registraduría Nacional del Estado Civil de Colombia, manejando millones de consultas ciudadanas.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">SPIP CMS</span>
+                            <span class="tech-tag">Alta Disponibilidad</span>
+                            <span class="tech-tag">Seguridad</span>
+                            <span class="tech-tag">Gobierno</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://registraduria.gov.co" target="_blank">Ver Sitio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades">
+        <h2 class="reveal">Stack Tecnológico</h2>
+        <div class="skills-container">
+            <div class="skill-category reveal">
+                <h3>Frontend</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Vue.js</span>
+                    <span class="skill-tag">Next.js</span>
+                    <span class="skill-tag">Angular</span>
+                </div>
+            </div>
+            <div class="skill-category reveal">
+                <h3>Backend</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                </div>
+            </div>
+            <div class="skill-category reveal">
+                <h3>Mobile</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">React Native</span>
+                    <span class="skill-tag">Android - java</span>
+                    <span class="skill-tag">Flutter</span>
+                </div>
+            </div>
+            <div class="skill-category reveal">
+                <h3>Mapas & GIS</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Google Maps API</span>
+                    <span class="skill-tag">OpenStreetMap</span>
+                    <span class="skill-tag">Leaflet</span>
+                    <span class="skill-tag">PostGIS</span>
+                    <span class="skill-tag">QGIS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="contact-content reveal">
+            <h2>¿Listo para Innovar?</h2>
+            <p>Construyamos juntos la próxima generación de aplicaciones. Especializado en proyectos desafiantes que requieren soluciones técnicas avanzadas y pensamiento estratégico.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:dani3l.quisb3rt@gmail.com">dani3l.quisb3rt@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <a href="tel:+59167145303">+591 67145303</a>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <a href="https://www.linkedin.com/in/danielquisbert/" target="_blank">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <a href="https://github.com/danielquisbert" target="_blank">GitHub</a>
+                </div>
+                <div class="contact-item">
+                    <span>📘</span>
+                    <a href="https://www.facebook.com/danielquisbert" target="_blank">Facebook</a>
+                </div>
+                <div class="contact-item">
+                    <span>🎵</span>
+                    <a href="https://www.tiktok.com/@danielquisbertc" target="_blank">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Daniel Quisbert. Innovación tecnológica con propósito.</p>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+            } else {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBackground = document.querySelector('.hero-background');
+            if (heroBackground) {
+                heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
 </body>
 </html>
