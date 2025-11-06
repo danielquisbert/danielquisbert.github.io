@@ -1,10 +1,10 @@
-<span class="skill-tag">SPIP CMS</span>
-                    <span class="skill-tag">WordPress</span><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Quisbert | Desarrollador Full Stack & Mobile</title>
+    <meta name="description" content="Aprende Flutter y desarrollo móvil con mapas GIS. Cursos en vivo, proyectos reales y mentoría personalizada con Daniel Quisbert.">
+    <title>Daniel Quisbert | Desarrollo Móvil & GIS - Aprende Flutter con Mapas</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
         * {
@@ -14,18 +14,21 @@
         }
 
         :root {
-            --primary-dark: #0d1117;
-            --secondary-dark: #161b22;
+            --primary-dark: #0a0e1a;
+            --secondary-dark: #151b2d;
             --accent-green: #39d353;
-            --accent-emerald: #2ea043;
+            --accent-blue: #4A90E2;
+            --accent-purple: #8B5CF6;
+            --accent-orange: #F59E0B;
             --text-light: #ffffff;
             --text-gray: #c9d1d9;
             --gradient-primary: linear-gradient(135deg, #39d353 0%, #2ea043 100%);
-            --gradient-secondary: linear-gradient(135deg, rgba(57, 211, 83, 0.1) 0%, rgba(46, 160, 67, 0.1) 100%);
+            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-course: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--primary-dark);
             color: var(--text-light);
             line-height: 1.6;
@@ -37,10 +40,15 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 15, 35, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(15px);
             z-index: 1000;
+            border-bottom: 1px solid rgba(57, 211, 83, 0.1);
             transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
         }
 
         nav {
@@ -54,17 +62,19 @@
 
         .logo {
             font-size: 1.5rem;
-            font-weight: bold;
+            font-weight: 800;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-links a {
@@ -72,26 +82,25 @@
             color: var(--text-gray);
             transition: all 0.3s ease;
             position: relative;
+            font-weight: 500;
         }
 
         .nav-links a:hover {
             color: var(--accent-green);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
+        .nav-cta {
             background: var(--gradient-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            color: white !important;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-            left: 0;
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(57, 211, 83, 0.3);
         }
 
         /* Hero Section */
@@ -102,6 +111,7 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
         }
 
         .hero-background {
@@ -110,59 +120,42 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 40%, rgba(57, 211, 83, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 60%, rgba(46, 160, 67, 0.08) 0%, transparent 50%);
-            animation: float 6s ease-in-out infinite;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(57, 211, 83, 0.1) 0%, transparent 50%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
         }
 
         .hero-content {
             text-align: center;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
-        .hero-profile {
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.1s;
-        }
-
-        .profile-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid transparent;
-            background: var(--gradient-primary);
-            padding: 4px;
-            margin: 0 auto 1rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .profile-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(57, 211, 83, 0.3);
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            background: var(--secondary-dark);
+        .hero-badge {
+            display: inline-block;
+            background: rgba(57, 211, 83, 0.1);
+            border: 1px solid rgba(57, 211, 83, 0.3);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.8s ease;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 800;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.3s;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
         .hero .highlight {
@@ -172,318 +165,750 @@
             background-clip: text;
         }
 
-        .hero p {
-            font-size: 1.2rem;
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
             color: var(--text-gray);
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.6s;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.4s both;
         }
 
-        .cta-button {
-            display: inline-block;
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             padding: 1rem 2rem;
             background: var(--gradient-primary);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
+            font-size: 1.05rem;
             transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.9s;
-            position: relative;
-            overflow: hidden;
+            border: none;
+            cursor: pointer;
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(57, 211, 83, 0.3);
         }
 
-        .cta-button:hover::before {
-            left: 100%;
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: transparent;
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(57, 211, 83, 0.3);
+        .btn-secondary:hover {
+            border-color: var(--accent-green);
+            background: rgba(57, 211, 83, 0.1);
         }
 
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+        /* Social Proof Banner */
+        .social-proof {
+            background: var(--secondary-dark);
+            padding: 2rem 2rem;
             text-align: center;
+            border-top: 1px solid rgba(57, 211, 83, 0.1);
+            border-bottom: 1px solid rgba(57, 211, 83, 0.1);
+        }
+
+        .social-proof-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .proof-item {
+            text-align: center;
+        }
+
+        .proof-number {
+            font-size: 2.5rem;
+            font-weight: 800;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
-        /* Servicios Grid */
-        .services-grid {
+        .proof-label {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(74, 144, 226, 0.1);
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .profile-card {
+            background: var(--secondary-dark);
+            padding: 2rem;
+            border-radius: 25px;
+            border: 1px solid rgba(57, 211, 83, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-green);
+            padding: 4px;
+            margin: 0 auto 1.5rem;
+            object-fit: cover;
+            background: var(--secondary-dark);
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-green);
+        }
+
+        .about-text p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            background: rgba(57, 211, 83, 0.05);
+            padding: 1rem;
+            border-radius: 15px;
+            border: 1px solid rgba(57, 211, 83, 0.2);
+        }
+
+        .highlight-item strong {
+            color: var(--accent-green);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* ge0tic Showcase */
+        .geotic-showcase {
+            background: var(--secondary-dark);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            border: 1px solid rgba(57, 211, 83, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .geotic-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(57, 211, 83, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .geotic-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .geotic-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .geotic-badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent-orange);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .geotic-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .geotic-features li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-gray);
+        }
+
+        .geotic-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .geotic-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(57, 211, 83, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(57, 211, 83, 0.2);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .geotic-media {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .media-badge {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .media-badge:hover {
+            transform: translateX(10px);
+            border-color: var(--accent-purple);
+        }
+
+        .media-icon {
+            font-size: 2rem;
+        }
+
+        .media-text strong {
+            display: block;
+            margin-bottom: 0.3rem;
+            color: var(--accent-purple);
+        }
+
+        .media-text span {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Courses Section */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .course-card {
+            background: var(--secondary-dark);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid rgba(74, 144, 226, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(74, 144, 226, 0.2);
+        }
+
+        .course-header {
+            background: var(--gradient-course);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .course-level {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .course-duration {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .course-body {
+            padding: 2rem;
+        }
+
+        .course-description {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .course-modules {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .course-modules li {
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            background: rgba(74, 144, 226, 0.05);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-blue);
+            transition: all 0.3s ease;
+        }
+
+        .course-modules li:hover {
+            background: rgba(74, 144, 226, 0.1);
+            transform: translateX(5px);
+        }
+
+        .module-title {
+            font-weight: 600;
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .module-description {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .course-features {
+            background: rgba(57, 211, 83, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .course-features h4 {
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .feature-item::before {
+            content: '✓';
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* Success Cases */
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .success-card {
+            background: var(--secondary-dark);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .success-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .success-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .success-content {
+            padding: 2rem;
+        }
+
+        .success-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-purple);
+        }
+
+        .success-content p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .success-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .success-tag {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--accent-purple);
+            padding: 0.4rem 0.9rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .service-card {
+        .testimonial-video {
             background: var(--secondary-dark);
-            padding: 2rem;
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            border: 1px solid rgba(245, 158, 11, 0.2);
             transition: all 0.3s ease;
+        }
+
+        .testimonial-video:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.2);
+        }
+
+        .video-embed {
             position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
             overflow: hidden;
         }
 
-        .service-card::before {
-            content: '';
+        .video-embed iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--gradient-secondary);
-            opacity: 0;
-            transition: all 0.3s ease;
         }
 
-        .service-card:hover::before {
-            opacity: 1;
+        .testimonial-info {
+            padding: 1.5rem;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-green);
+        .testimonial-info h4 {
+            color: var(--accent-orange);
+            margin-bottom: 0.5rem;
         }
 
-        .service-card * {
-            position: relative;
-            z-index: 2;
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-        }
-
-        .service-card p {
+        .testimonial-info p {
             color: var(--text-gray);
-            line-height: 1.6;
+            font-size: 0.9rem;
         }
 
-        /* Skills */
-        .skills-container {
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(57, 211, 83, 0.1) 0%, rgba(74, 144, 226, 0.1) 100%);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            text-align: center;
+            border: 1px solid rgba(57, 211, 83, 0.2);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Contact Info */
+        .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .skill-category {
+        .contact-card {
             background: var(--secondary-dark);
             padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .skill-category h3 {
-            color: var(--accent-green);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: rgba(57, 211, 83, 0.1);
-            color: var(--accent-green);
-            padding: 0.3rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(57, 211, 83, 0.3);
-        }
-
-        /* Portfolio Styles */
-        .portfolio-section {
-            margin-bottom: 4rem;
-        }
-
-        .portfolio-category {
-            font-size: 1.5rem;
-            color: var(--accent-green);
-            margin-bottom: 2rem;
-            text-align: left;
-            background: none;
-            -webkit-text-fill-color: var(--accent-green);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .portfolio-card {
-            background: var(--secondary-dark);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-green);
-            box-shadow: 0 20px 40px rgba(57, 211, 83, 0.1);
-        }
-
-        .portfolio-image {
-            height: 120px;
-            background: var(--gradient-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .portfolio-icon {
-            font-size: 3rem;
-            filter: grayscale(0);
-        }
-
-        .portfolio-content {
-            padding: 2rem;
-        }
-
-        .portfolio-content h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-        }
-
-        .portfolio-content p {
-            color: var(--text-gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .portfolio-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            background: rgba(57, 211, 83, 0.1);
-            color: var(--accent-green);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(57, 211, 83, 0.3);
-        }
-
-        .portfolio-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .portfolio-links a {
-            color: var(--accent-green);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .portfolio-links a:hover {
-            color: var(--accent-emerald);
-        }
-
-        .portfolio-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background: var(--accent-green);
-            transition: width 0.3s ease;
-        }
-
-        .portfolio-links a:hover::after {
-            width: 100%;
-        }
-        .contact-content {
+            border: 1px solid rgba(57, 211, 83, 0.2);
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-gray);
-        }
-
-        .contact-item a {
-            color: var(--accent-green);
-            text-decoration: none;
             transition: all 0.3s ease;
         }
 
-        .contact-item a:hover {
-            color: var(--accent-emerald);
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h4 {
+            margin-bottom: 0.5rem;
+            color: var(--accent-green);
+        }
+
+        .contact-card a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Social Media */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            border: 1px solid rgba(57, 211, 83, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+            box-shadow: 0 10px 25px rgba(57, 211, 83, 0.2);
         }
 
         /* Footer */
         footer {
             background: var(--secondary-dark);
+            padding: 3rem 2rem 2rem;
             text-align: center;
-            padding: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(57, 211, 83, 0.1);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7); }
+            100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 75px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--secondary-dark);
+            color: var(--text-light);
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            right: 80px;
         }
 
         /* Animations */
@@ -498,9 +923,26 @@
             }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Mobile Menu */
@@ -516,170 +958,92 @@
             background: var(--text-light);
             margin: 3px 0;
             transition: 0.3s;
+            border-radius: 2px;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 968px) {
             .nav-links {
                 display: none;
             }
-            
+
             .mobile-menu {
                 display: flex;
             }
-            
+
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .profile-image {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .services-grid {
+            .about-content,
+            .geotic-content {
                 grid-template-columns: 1fr;
             }
-            
-            .contact-info {
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-card {
+                min-width: auto;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-ctas {
                 flex-direction: column;
-                align-items: center;
             }
-        }
 
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 28px;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
-            background: #1ebe57;
-        }
-
-        .whatsapp-float::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: rgba(37, 211, 102, 0.3);
-            animation: ripple 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            section {
+                padding: 4rem 1.5rem;
             }
-            50% {
-                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
-            }
-            100% {
-                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            }
-        }
 
-        @keyframes ripple {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.4);
-                opacity: 0;
-            }
-        }
-
-        /* WhatsApp tooltip */
-        .whatsapp-tooltip {
-            position: absolute;
-            right: 70px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--secondary-dark);
-            color: var(--text-light);
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(57, 211, 83, 0.3);
-        }
-
-        .whatsapp-float:hover .whatsapp-tooltip {
-            opacity: 1;
-            right: 75px;
-        }
-
-        .whatsapp-tooltip::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 100%;
-            transform: translateY(-50%);
-            border: 6px solid transparent;
-            border-left-color: var(--secondary-dark);
-        }
-
-        @media (max-width: 768px) {
             .whatsapp-float {
-                width: 55px;
-                height: 55px;
+                width: 60px;
+                height: 60px;
                 bottom: 20px;
                 right: 20px;
-                font-size: 24px;
             }
 
             .whatsapp-tooltip {
                 display: none;
             }
         }
+
+        @media (max-width: 640px) {
+            .success-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .geotic-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .social-proof-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header id="header">
         <nav>
-            <div class="logo">DQ</div>
+            <div class="logo">Daniel Quisbert</div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#portafolio">Portafolio</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#cursos">Cursos GIS</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto" class="nav-cta">Contáctame</a></li>
             </ul>
             <div class="mobile-menu">
                 <span></span>
@@ -693,225 +1057,127 @@
     <section id="inicio" class="hero">
         <div class="hero-background"></div>
         <div class="hero-content">
-            <div class="hero-profile">
-                <div class="profile-image">
-                    <img src="danielquisbert.webp" alt="Daniel Quisbert - Desarrollador Full Stack" loading="lazy">
-                </div>
-            </div>
-            <h1>Daniel <span class="highlight">Quisbert</span></h1>
-            <p>Desarrollador Full Stack especializado en aplicaciones móviles educativas y sistemas geoespaciales. Creador de <strong>ge0tic</strong> - la plataforma educativa que transforma el aprendizaje de geografía en Bolivia y el mundo.</p>
-            <a href="#contacto" class="cta-button">Colaboremos Juntos</a>
-        </div>
-    </section>
-
-    <!-- Servicios -->
-    <section id="servicios">
-        <h2 class="reveal">Servicios Especializados</h2>
-        <div class="services-grid">
-            <div class="service-card reveal">
-                <div class="service-icon">📱</div>
-                <h3>Desarrollo de Apps Móviles</h3>
-                <p>Aplicaciones nativas e híbridas para iOS y Android con interfaces intuitivas y rendimiento optimizado. Especializado en React Native, Flutter y desarrollo nativo.</p>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon">🗺️</div>
-                <h3>Sistemas de Mapas & GIS</h3>
-                <p>Soluciones geoespaciales avanzadas integrando Google Maps, Mapbox y OpenStreetMap. Análisis geográfico, visualización de datos y aplicaciones de geolocalización.</p>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon">💻</div>
-                <h3>Desarrollo Full Stack</h3>
-                <p>Arquitecturas web modernas con tecnologías de vanguardia. APIs RESTful, microservicios, bases de datos escalables y sistemas de alta disponibilidad.</p>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon">⚡</div>
-                <h3>Consultoría Técnica</h3>
-                <p>Auditorías de código, optimización de rendimiento, arquitectura de software y mentoría técnica para equipos de desarrollo.</p>
+            <div class="hero-badge">🚀 Desarrollador & Educador</div>
+            <h1>Aprende a crear apps móviles con <span class="highlight">mapas y GIS</span></h1>
+            <p class="subtitle">Cursos prácticos de Flutter en vivo, con proyectos reales y mentoría personalizada. Transforma tu pasión por la geografía en aplicaciones que impactan.</p>
+            <div class="hero-ctas">
+                <a href="#cursos" class="btn-primary">
+                    <span>📚</span> Ver Cursos
+                </a>
+                <a href="https://wa.me/59167145303?text=Hola%20Daniel!%20Quiero%20más%20información%20sobre%20tus%20cursos" class="btn-secondary" target="_blank">
+                    <span>💬</span> Conversemos
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Portafolio -->
-    <section id="portafolio">
-        <h2 class="reveal">Proyectos Destacados</h2>
-        
-        <!-- Aplicaciones Móviles -->
-        <div class="portfolio-section">
-            <h3 class="portfolio-category reveal">📱 Aplicaciones Móviles</h3>
-            <div class="portfolio-grid">
-                <div class="portfolio-card reveal">
-                    <div class="portfolio-image">
-                        <div class="portfolio-icon">⚡</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>AppLuz DELAPAZ</h4>
-                        <p>Aplicación oficial para la gestión de suministros de energía eléctrica de DELAPAZ, la distribuidora más grande de Bolivia con más de 1 millón de usuarios. Permite consultar consumos, deudas y localizar puntos de pago.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Android</span>
-                            <span class="tech-tag">Servicios Públicos</span>
-                            <span class="tech-tag">Geolocalización</span>
-                            <span class="tech-tag">Pagos</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/search?q=appluz&c=apps&hl=es_BO" target="_blank">Play Store</a>
-                        </div>
-                    </div>
-                </div>
+    <!-- Social Proof -->
+    <div class="social-proof">
+        <div class="social-proof-grid">
+            <div class="proof-item reveal">
+                <span class="proof-number">1000+</span>
+                <span class="proof-label">Usuarios ge0tic</span>
+            </div>
+            <div class="proof-item reveal">
+                <span class="proof-number">100+</span>
+                <span class="proof-label">Estudiantes capacitados</span>
+            </div>
+            <div class="proof-item reveal">
+                <span class="proof-number">7+</span>
+                <span class="proof-label">Apps en Play Store</span>
+            </div>
+            <div class="proof-item reveal">
+                <span class="proof-number">📺</span>
+                <span class="proof-label">Entrevistas en medios</span>
+            </div>
+        </div>
+    </div>
 
-                <div class="portfolio-card reveal">
-                    <div class="portfolio-image">
-                        <div class="portfolio-icon">📋</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>AsistenciApp</h4>
-                        <p>Sistema avanzado para el control y marcado de asistencias empresariales. Optimiza la gestión de recursos humanos con tecnología móvil, garantizando precisión y facilidad de uso.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Android</span>
-                            <span class="tech-tag">RRHH</span>
-                            <span class="tech-tag">Biometría</span>
-                            <span class="tech-tag">Enterprise</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.gecko.asistencias" target="_blank">Play Store</a>
-                        </div>
-                    </div>
+    <!-- About Section -->
+    <section id="sobre-mi">
+        <div class="about-content reveal">
+            <div class="about-image">
+                <div class="profile-card">
+                    <img src="danielquisbert.webp" alt="Daniel Quisbert" class="profile-img">
+                    <div class="profile-name">Daniel Quisbert</div>
+                    <div class="profile-title">Desarrollador Full Stack & Educador GIS</div>
                 </div>
-
-                <div class="portfolio-card reveal">
-                    <div class="portfolio-image">
-                        <div class="portfolio-icon">🎓</div>
+            </div>
+            <div class="about-text">
+                <h3>Hola, soy Daniel 👋</h3>
+                <p>Desarrollador boliviano apasionado por la tecnología geoespacial y la educación. Mi misión es hacer que el aprendizaje de programación móvil sea accesible y práctico para todos.</p>
+                <p>He desarrollado aplicaciones para más de 1 millón de usuarios, trabajado con instituciones gubernamentales, y creado <strong>ge0tic</strong>, una app educativa que transforma cómo aprendemos geografía.</p>
+                <p>Lo que me diferencia: <strong>enseño desde la experiencia real</strong>. Cada clase está basada en proyectos que he construido y desafíos que he superado. No encontrarás teoría sin práctica aquí.</p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <strong>Metodología única</strong>
+                        <span>Clases en vivo con asistencia en tus proyectos personales</span>
                     </div>
-                    <div class="portfolio-content">
-                        <h4>ARTEC App</h4>
-                        <p>Aplicación oficial del centro de capacitación ARTEC. Transformando mentes e inspirando innovación con acceso a cursos, notificaciones de promociones y geolocalización de sucursales.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Android</span>
-                            <span class="tech-tag">Educación</span>
-                            <span class="tech-tag">Notificaciones</span>
-                            <span class="tech-tag">Mapas</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.artec.bo" target="_blank">Play Store</a>
-                        </div>
+                    <div class="highlight-item">
+                        <strong>Experiencia comprobada</strong>
+                        <span>Apps con millones de consultas en producción</span>
                     </div>
-                </div>
-
-                <div class="portfolio-card reveal">
-                    <div class="portfolio-image">
-                        <div class="portfolio-icon">🧠</div>
+                    <div class="highlight-item">
+                        <strong>Enfoque práctico</strong>
+                        <span>Construye apps reales desde la primera clase</span>
                     </div>
-                    <div class="portfolio-content">
-                        <h4>ARTEC Juniors</h4>
-                        <p>Juego educativo innovador para estudiantes de 7-17+ años. Transforma el estudio en diversión con matemáticas, lenguaje y ciencias a través de desafíos interactivos adaptativos.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Android</span>
-                            <span class="tech-tag">Gamificación</span>
-                            <span class="tech-tag">Educación</span>
-                            <span class="tech-tag">Offline</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.ge0tic.artecjuniors" target="_blank">Play Store</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card reveal">
-                    <div class="portfolio-image">
-                        <div class="portfolio-icon">🇧🇴</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>ge0tic Bolivia</h4>
-                        <p>Descubre Bolivia de manera interactiva y divertida. Explora historia, cultura y datos curiosos de cada departamento boliviano, desafiando conocimientos geográficos.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Android</span>
-                            <span class="tech-tag">Geografía</span>
-                            <span class="tech-tag">Educación</span>
-                            <span class="tech-tag">Cultura</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.ge0tic.bo" target="_blank">Play Store</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card reveal">
-                    <div class="portfolio-image">
-                        <div class="portfolio-icon">🇨🇴</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>ge0tic Colombia</h4>
-                        <p>Aplicación educativa gratuita para explorar la diversidad geográfica de Colombia. Diseñada para niños y jóvenes, funciona sin internet y desarrolla inteligencia espacial.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Android</span>
-                            <span class="tech-tag">Geografía</span>
-                            <span class="tech-tag">Offline</span>
-                            <span class="tech-tag">Educación</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.ge0tic.col" target="_blank">Play Store</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card reveal">
-                    <div class="portfolio-image">
-                        <div class="portfolio-icon">🚀</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>TodoCerca</h4>
-                        <p>Plataforma desarrollada para ARTEC que impulsa emprendedores conectando negocios locales con consumidores. Fomenta el crecimiento económico y comercial comunitario.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Android</span>
-                            <span class="tech-tag">Emprendimiento</span>
-                            <span class="tech-tag">Marketplace</span>
-                            <span class="tech-tag">Negocios</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.gecko.todocercapp" target="_blank">Play Store</a>
-                        </div>
+                    <div class="highlight-item">
+                        <strong>Comunidad</strong>
+                        <span>Soporte continuo y networking con otros estudiantes</span>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Sitios Web -->
-        <div class="portfolio-section">
-            <h3 class="portfolio-category reveal">💻 Desarrollo Web</h3>
-            <div class="portfolio-grid">
-                <div class="portfolio-card reveal">
-                    <div class="portfolio-image">
-                        <div class="portfolio-icon">🎓</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>ARTEC - Plataforma Educativa</h4>
-                        <p>Ecosistema de aprendizaje integral que transforma vidas a través de educación técnica de excelencia. Plataforma robusta con gestión de cursos, evaluaciones y certificaciones.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">SPIP CMS</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Responsive</span>
+    <!-- ge0tic Showcase -->
+    <section id="geotic">
+        <div class="geotic-showcase reveal">
+            <div class="geotic-content">
+                <div class="geotic-info">
+                    <span class="geotic-badge">⭐ Proyecto Destacado</span>
+                    <h3>ge0tic: Juegos educativos con mapas</h3>
+                    <p>Una app que nació de la pasión por enseñar geografía de forma divertida. Comenzó como proyecto web en 2016 con 100 estudiantes, y hoy es una aplicación móvil con más de 1000 usuarios en toda Latinoamérica.</p>
+                    <ul class="geotic-features">
+                        <li>Funciona 100% sin internet</li>
+                        <li>Múltiples juegos interactivos con mapas</li>
+                        <li>Contenido educativo de Bolivia, Colombia y más países</li>
+                        <li>Desarrollado completamente con Flutter y tecnología GIS</li>
+                    </ul>
+                    <div class="geotic-stats">
+                        <div class="stat-card">
+                            <span class="stat-number">1000+</span>
+                            <span class="stat-label">Descargas</span>
                         </div>
-                        <div class="portfolio-links">
-                            <a href="https://arte-tecnologias.com/" target="_blank">Ver Sitio</a>
+                        <div class="stat-card">
+                            <span class="stat-number">4.5★</span>
+                            <span class="stat-label">Rating Play Store</span>
                         </div>
                     </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.ge0tic.bo" target="_blank" class="btn-primary" style="margin-top: 1.5rem;">
+                        <span>📱</span> Ver en Play Store
+                    </a>
                 </div>
-                
-                <div class="portfolio-card reveal">
-                    <div class="portfolio-image">
-                        <div class="portfolio-icon">🏛️</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Registraduría Nacional - Colombia</h4>
-                        <p>Desarrollo y mantenimiento del portal oficial gubernamental de la Registraduría Nacional del Estado Civil de Colombia, manejando millones de consultas ciudadanas.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">SPIP CMS</span>
-                            <span class="tech-tag">Alta Disponibilidad</span>
-                            <span class="tech-tag">Seguridad</span>
-                            <span class="tech-tag">Gobierno</span>
+                <div class="geotic-media">
+                    <div class="media-badge">
+                        <div class="media-icon">📺</div>
+                        <div class="media-text">
+                            <strong>Cobertura en TV</strong>
+                            <span>Entrevista sobre innovación educativa</span>
                         </div>
-                        <div class="portfolio-links">
-                            <a href="https://registraduria.gov.co" target="_blank">Ver Sitio</a>
+                    </div>
+                    <div class="media-badge">
+                        <div class="media-icon">📰</div>
+                        <div class="media-text">
+                            <strong>Prensa Nacional</strong>
+                            <span>Reconocimiento en medios bolivianos</span>
+                        </div>
+                    </div>
+                    <div class="media-badge">
+                        <div class="media-icon">🎓</div>
+                        <div class="media-text">
+                            <strong>Usado en escuelas</strong>
+                            <span>Herramienta educativa en colegios</span>
                         </div>
                     </div>
                 </div>
@@ -919,108 +1185,306 @@
         </div>
     </section>
 
-    <!-- Habilidades -->
-    <section id="habilidades">
-        <h2 class="reveal">Stack Tecnológico</h2>
-        <div class="skills-container">
-            <div class="skill-category reveal">
-                <h3>Frontend</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Vue.js</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">Next.js</span>
-                    <span class="skill-tag">Tailwind CSS</span>
+    <!-- Courses Section -->
+    <section id="cursos">
+        <div class="section-header reveal">
+            <span class="section-badge">📚 Programas de Formación</span>
+            <h2>Cursos de Flutter & GIS</h2>
+            <p class="section-description">Aprende a crear aplicaciones móviles profesionales con mapas. Clases en vivo, proyectos reales y soporte personalizado.</p>
+        </div>
+        <div class="courses-grid">
+            <!-- Curso Inicial -->
+            <div class="course-card reveal">
+                <div class="course-header">
+                    <div class="course-level">🌱 Nivel Inicial</div>
+                    <h3 class="course-title">Flutter GIS Básico</h3>
+                    <p class="course-duration">4 semanas • 32 horas</p>
+                </div>
+                <div class="course-body">
+                    <p class="course-description">Perfecto para geógrafos, geodestas y profesionales SIG que desean crear sus primeras aplicaciones móviles con capacidades geoespaciales.</p>
+                    
+                    <div class="course-features">
+                        <h4>✨ Lo que incluye:</h4>
+                        <div class="feature-list">
+                            <div class="feature-item">Clases en vivo</div>
+                            <div class="feature-item">Proyecto final guiado</div>
+                            <div class="feature-item">Material descargable</div>
+                            <div class="feature-item">Certificado</div>
+                            <div class="feature-item">Grupo de WhatsApp</div>
+                            <div class="feature-item">Soporte personalizado</div>
+                        </div>
+                    </div>
+
+                    <ul class="course-modules">
+                        <li>
+                            <span class="module-title">📌 Fundamentos Dart para GIS</span>
+                            <span class="module-description">Sintaxis, estructuras de control y POO aplicado a datos espaciales</span>
+                        </li>
+                        <li>
+                            <span class="module-title">🎨 Flutter para Apps Geográficas</span>
+                            <span class="module-description">Widgets, navegación y diseño responsivo</span>
+                        </li>
+                        <li>
+                            <span class="module-title">📍 Geolocalización Básica</span>
+                            <span class="module-description">GPS, coordenadas y sistemas de referencia</span>
+                        </li>
+                        <li>
+                            <span class="module-title">💾 Almacenamiento Local</span>
+                            <span class="module-description">SharedPreferences y SQLite para geodatos</span>
+                        </li>
+                        <li>
+                            <span class="module-title">🚀 Proyecto Final</span>
+                            <span class="module-description">App de campo para levantamiento topográfico simple</span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/59167145303?text=Hola%20Daniel!%20Me%20interesa%20el%20curso%20Flutter%20GIS%20Básico" target="_blank" class="btn-primary" style="width: 100%;">
+                        <span>💬</span> Consultar por WhatsApp
+                    </a>
                 </div>
             </div>
-            <div class="skill-category reveal">
-                <h3>Backend</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Django</span>
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">MongoDB</span>
+
+            <!-- Curso Avanzado -->
+            <div class="course-card reveal">
+                <div class="course-header" style="background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);">
+                    <div class="course-level">🚀 Nivel Avanzado</div>
+                    <h3 class="course-title">GIS Pro Mobile</h3>
+                    <p class="course-duration">6 semanas • 48 horas</p>
                 </div>
-            </div>
-            <div class="skill-category reveal">
-                <h3>Mobile</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">React Native</span>
-                    <span class="skill-tag">Flutter</span>
-                    <span class="skill-tag">Kotlin</span>
-                    <span class="skill-tag">Swift</span>
-                    <span class="skill-tag">Ionic</span>
-                </div>
-            </div>
-            <div class="skill-category reveal">
-                <h3>Mapas & GIS</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Google Maps API</span>
-                    <span class="skill-tag">Mapbox</span>
-                    <span class="skill-tag">Leaflet</span>
-                    <span class="skill-tag">PostGIS</span>
-                    <span class="skill-tag">QGIS</span>
+                <div class="course-body">
+                    <p class="course-description">Para especialistas en SIG, geólogos y cartógrafos que buscan desarrollar aplicaciones empresariales con análisis espacial avanzado.</p>
+                    
+                    <div class="course-features">
+                        <h4>✨ Lo que incluye:</h4>
+                        <div class="feature-list">
+                            <div class="feature-item">Clases en vivo</div>
+                            <div class="feature-item">Proyecto empresarial</div>
+                            <div class="feature-item">Código fuente completo</div>
+                            <div class="feature-item">Certificado avanzado</div>
+                            <div class="feature-item">Mentoría 1-a-1</div>
+                            <div class="feature-item">Publicación en stores</div>
+                        </div>
+                    </div>
+
+                    <ul class="course-modules">
+                        <li>
+                            <span class="module-title">🗺️ Mapas Interactivos Avanzados</span>
+                            <span class="module-description">Mapbox, OpenStreetMap, capas vectoriales y raster</span>
+                        </li>
+                        <li>
+                            <span class="module-title">🔔 Notificaciones Push</span>
+                            <span class="module-description">Implementación de notificaciones en tiempo real</span>
+                        </li>
+                        <li>
+                            <span class="module-title">🌐 APIs Geoespaciales</span>
+                            <span class="module-description">WMS, WFS, geocodificación y servicios web OGC</span>
+                        </li>
+                        <li>
+                            <span class="module-title">📊 Análisis Espacial Móvil</span>
+                            <span class="module-description">Buffer, intersecciones, cálculos geodésicos</span>
+                        </li>
+                        <li>
+                            <span class="module-title">📸 Captura de Datos en Campo</span>
+                            <span class="module-description">Cámara, formularios complejos, metadatos espaciales</span>
+                        </li>
+                        <li>
+                            <span class="module-title">☁️ Sincronización y Deploy</span>
+                            <span class="module-description">Almacenamiento en nube y publicación en stores</span>
+                        </li>
+                        <li>
+                            <span class="module-title">🏆 Proyecto Final</span>
+                            <span class="module-description">App SIG empresarial para la gestión de datos espaciales vectoriales</span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/59167145303?text=Hola%20Daniel!%20Me%20interesa%20el%20curso%20GIS%20Pro%20Mobile" target="_blank" class="btn-primary" style="width: 100%;">
+                        <span>💬</span> Consultar por WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
+    <!-- Success Cases -->
+    <section id="proyectos">
+        <div class="section-header reveal">
+            <span class="section-badge">💼 Proyectos Destacados</span>
+            <h2>Casos de Éxito</h2>
+            <p class="section-description">Soluciones reales que he desarrollado para empresas, instituciones y emprendedores.</p>
+        </div>
+        <div class="success-grid">
+            <div class="success-card reveal">
+                <div class="success-image">🎓</div>
+                <div class="success-content">
+                    <h4>ARTEC - Ecosistema Completo</h4>
+                    <p>Desarrollé tanto la plataforma web educativa como la aplicación móvil para ARTEC, centro de capacitación líder en Bolivia. Proyecto integral que incluye gestión de cursos, notificaciones y geolocalización de sucursales.</p>
+                    <div class="success-tags">
+                        <span class="success-tag">Web + Mobile</span>
+                        <span class="success-tag">SPIP CMS</span>
+                        <span class="success-tag">Flutter</span>
+                        <span class="success-tag">Educación</span>
+                    </div>
+                    <a href="https://arte-tecnologias.com/" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
+                        🔗 Ver Proyecto
+                    </a>
+                </div>
+            </div>
+
+            <div class="success-card reveal">
+                <div class="success-image">⚡</div>
+                <div class="success-content">
+                    <h4>AppLuz DELAPAZ</h4>
+                    <p>App oficial para la gestión de suministros eléctricos de la distribuidora más grande de Bolivia. Maneja más de 1 millón de usuarios con consultas de consumo, pagos y geolocalización de puntos de servicio.</p>
+                    <div class="success-tags">
+                        <span class="success-tag">1M+ usuarios</span>
+                        <span class="success-tag">Servicios Públicos</span>
+                        <span class="success-tag">Geolocalización</span>
+                        <span class="success-tag">Pagos</span>
+                    </div>
+                    <a href="https://play.google.com/store/search?q=appluz&c=apps&hl=es_BO" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
+                        📱 Ver en Play Store
+                    </a>
+                </div>
+            </div>
+
+            <div class="success-card reveal">
+                <div class="success-image">🏛️</div>
+                <div class="success-content">
+                    <h4>Registraduría Nacional - Colombia</h4>
+                    <p>Desarrollo y mantenimiento del portal oficial gubernamental de Colombia. Infraestructura de alta disponibilidad que maneja millones de consultas ciudadanas diarias.</p>
+                    <div class="success-tags">
+                        <span class="success-tag">Gobierno</span>
+                        <span class="success-tag">Alta Disponibilidad</span>
+                        <span class="success-tag">Seguridad</span>
+                        <span class="success-tag">SPIP CMS</span>
+                    </div>
+                    <a href="https://registraduria.gov.co" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
+                        🔗 Ver Sitio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonios">
+        <div class="section-header reveal">
+            <span class="section-badge">💬 Lo que dicen</span>
+            <h2>Testimonios Reales</h2>
+            <p class="section-description">Profesores, directores y medios de comunicación compartiendo su experiencia con ge0tic.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-video reveal">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/GFsKYXBKpVo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="testimonial-info">
+                    <h4>Profesor Titular</h4>
+                    <p>Testimonio sobre el impacto de ge0tic en la enseñanza</p>
+                </div>
+            </div>
+
+            <div class="testimonial-video reveal">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/AaoTe21QAvQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="testimonial-info">
+                    <h4>Docente de Geografía</h4>
+                    <p>Experiencia usando ge0tic en el aula</p>
+                </div>
+            </div>
+
+            <div class="testimonial-video reveal">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/sW124xCu7rw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="testimonial-info">
+                    <h4>Directora de Colegio</h4>
+                    <p>Implementación institucional de la plataforma</p>
+                </div>
+            </div>
+
+            <div class="testimonial-video reveal">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/q8zXi7m5Ctg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="testimonial-info">
+                    <h4>Entrevista Televisiva</h4>
+                    <p>Cobertura en medios nacionales sobre innovación educativa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
     <section id="contacto">
-        <div class="contact-content reveal">
-            <h2>¿Listo para Innovar?</h2>
-            <p>Construyamos juntos la próxima generación de aplicaciones. Especializado en proyectos desafiantes que requieren soluciones técnicas avanzadas y pensamiento estratégico.</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>📧</span>
-                    <a href="mailto:dani3l.quisb3rt@gmail.com">dani3l.quisb3rt@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <span>📱</span>
-                    <a href="tel:+59167145303">+591 67145303</a>
-                </div>
-                <div class="contact-item">
-                    <span>💼</span>
-                    <a href="https://www.linkedin.com/in/danielquisbert/" target="_blank">LinkedIn</a>
-                </div>
-                <div class="contact-item">
-                    <span>🔗</span>
-                    <a href="https://github.com/danielquisbert" target="_blank">GitHub</a>
-                </div>
-                <div class="contact-item">
-                    <span>📘</span>
-                    <a href="https://www.facebook.com/danielquisbert" target="_blank">Facebook</a>
-                </div>
-                <div class="contact-item">
-                    <span>🎵</span>
-                    <a href="https://www.tiktok.com/@danielquisbertc" target="_blank">TikTok</a>
-                </div>
+        <div class="cta-section reveal">
+            <h2>¿Listo para crear tu primera app con mapas?</h2>
+            <p>Conversemos sobre cómo puedo ayudarte a alcanzar tus objetivos. Ya sea que quieras aprender Flutter, necesites una consultoría o tengas un proyecto en mente.</p>
+            <a href="https://wa.me/59167145303?text=Hola%20Daniel!%20Quiero%20conversar%20sobre%20tus%20servicios" target="_blank" class="btn-primary" style="font-size: 1.1rem; padding: 1.2rem 2.5rem;">
+                <span>💬</span> Hablemos por WhatsApp
+            </a>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card reveal">
+                <div class="contact-icon">📧</div>
+                <h4>Email</h4>
+                <a href="mailto:dani3l.quisb3rt@gmail.com">dani3l.quisb3rt@gmail.com</a>
             </div>
+            <div class="contact-card reveal">
+                <div class="contact-icon">📱</div>
+                <h4>WhatsApp</h4>
+                <a href="https://wa.me/59167145303" target="_blank">+591 67145303</a>
+            </div>
+            <div class="contact-card reveal">
+                <div class="contact-icon">💼</div>
+                <h4>LinkedIn</h4>
+                <a href="https://www.linkedin.com/in/danielquisbert/" target="_blank">danielquisbert</a>
+            </div>
+            <div class="contact-card reveal">
+                <div class="contact-icon">💻</div>
+                <h4>GitHub</h4>
+                <a href="https://github.com/danielquisbert" target="_blank">danielquisbert</a>
+            </div>
+        </div>
+
+        <div class="social-links reveal">
+            <a href="https://www.youtube.com/@danielquisbert" target="_blank" class="social-link" title="YouTube">
+                📺
+            </a>
+            <a href="https://www.tiktok.com/@danielquisbertc" target="_blank" class="social-link" title="TikTok">
+                🎵
+            </a>
+            <a href="https://www.facebook.com/danielquisbert" target="_blank" class="social-link" title="Facebook">
+                📘
+            </a>
+            <a href="https://www.instagram.com/danielquisbert" target="_blank" class="social-link" title="Instagram">
+                📸
+            </a>
         </div>
     </section>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/59167145303?text=¡Hola%20Daniel!%20👋%20Vi%20tu%20portafolio%20y%20me%20encantaría%20conversar%20sobre%20una%20oportunidad%20de%20colaboración.%20¿Tienes%20un%20momento%20para%20chatear?" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
-        <span class="whatsapp-tooltip">¡Hablemos por WhatsApp! 💬</span>
-        📱
+    <a href="https://wa.me/59167145303?text=Hola%20Daniel!%20Vi%20tu%20sitio%20web%20y%20me%20gustaría%20conversar" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <span class="whatsapp-tooltip">¡Conversemos! 💬</span>
+        💬
     </a>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Daniel Quisbert. Innovación tecnológica con propósito.</p>
+        <p>© 2025 Daniel Quisbert - Desarrollo Móvil & GIS</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Transformando la educación tecnológica en Bolivia y Latinoamérica 🚀</p>
     </footer>
 
     <script>
         // Scroll reveal animation
         function reveal() {
             const reveals = document.querySelectorAll('.reveal');
-            
             for (let i = 0; i < reveals.length; i++) {
                 const windowHeight = window.innerHeight;
                 const elementTop = reveals[i].getBoundingClientRect().top;
-                const elementVisible = 150;
-                
+                const elementVisible = 100;
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add('active');
                 }
@@ -1028,9 +1492,19 @@
         }
 
         window.addEventListener('scroll', reveal);
-        reveal(); // Initial check
+        reveal();
 
-        // Smooth scrolling for navigation links
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1044,31 +1518,12 @@
             });
         });
 
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(15, 15, 35, 0.95)';
-            } else {
-                header.style.background = 'rgba(15, 15, 35, 0.95)';
-            }
-        });
-
-        // Mobile menu toggle
+        // Mobile menu functionality (basic)
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
-
+        
         mobileMenu.addEventListener('click', () => {
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // Parallax effect for hero background
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroBackground = document.querySelector('.hero-background');
-            if (heroBackground) {
-                heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
         });
     </script>
 </body>
