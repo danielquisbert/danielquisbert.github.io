@@ -1032,244 +1032,7 @@
             }
         }
     </style>
-    <style>
-/* Modal Overlay */
-.course-modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 14, 26, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 10000;
-    animation: fadeIn 0.4s ease;
-    overflow-y: auto;
-}
-
-.course-modal-overlay.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
-
-/* Modal Container */
-.course-modal {
-    background: var(--secondary-dark, #151b2d);
-    border-radius: 30px;
-    max-width: 600px;
-    width: 100%;
-    position: relative;
-    border: 2px solid rgba(57, 211, 83, 0.3);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    animation: slideUp 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* Modal Header */
-.modal-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 2rem;
-    text-align: center;
-    position: relative;
-}
-
-.modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.modal-close:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: rotate(90deg);
-}
-
-.modal-badge {
-    display: inline-block;
-    background: rgba(245, 158, 11, 0.3);
-    border: 1px solid rgba(245, 158, 11, 0.6);
-    color: #F59E0B;
-    padding: 0.5rem 1.2rem;
-    border-radius: 25px;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-.modal-header h3 {
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 0.5rem;
-    font-weight: 800;
-}
-
-.modal-level {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-}
-
-/* Modal Body */
-.modal-body {
-    padding: 2.5rem;
-}
-
-.urgency-message {
-    background: rgba(245, 158, 11, 0.1);
-    border: 2px solid rgba(245, 158, 11, 0.4);
-    padding: 1rem 1.5rem;
-    border-radius: 15px;
-    text-align: center;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    color: #F59E0B;
-    font-size: 1.05rem;
-}
-
-/* Countdown */
-.countdown-container {
-    background: linear-gradient(135deg, rgba(57, 211, 83, 0.1) 0%, rgba(74, 144, 226, 0.1) 100%);
-    padding: 2rem;
-    border-radius: 20px;
-    margin-bottom: 2rem;
-}
-
-.countdown-label {
-    text-align: center;
-    color: var(--accent-green, #39d353);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
-
-.countdown-timer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    text-align: center;
-}
-
-.countdown-item {
-    background: var(--primary-dark, #0a0e1a);
-    padding: 1rem;
-    border-radius: 12px;
-    border: 1px solid rgba(57, 211, 83, 0.3);
-}
-
-.countdown-number {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--accent-green, #39d353);
-    display: block;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-
-.countdown-text {
-    font-size: 0.8rem;
-    color: var(--text-gray, #c9d1d9);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Seats Info */
-.seats-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    padding: 1rem 1.5rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-}
-
-.seats-label {
-    color: var(--text-gray, #c9d1d9);
-}
-
-.seats-number {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #EF4444;
-}
-
-/* CTA Button */
-.modal-cta {
-    background: linear-gradient(135deg, #39d353 0%, #2ea043 100%);
-    color: white;
-    padding: 1.2rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-.modal-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(57, 211, 83, 0.4);
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-    .course-modal {
-        margin: 1rem;
-    }
-
-    .modal-body {
-        padding: 1.5rem;
-    }
-
-    .countdown-timer {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .countdown-number {
-        font-size: 1.5rem;
-    }
-
-    .modal-header h3 {
-        font-size: 1.5rem;
-    }
-}
-</style>
+    
 </head>
 <body>
     <!-- Header -->
@@ -1715,6 +1478,246 @@
         <p style="font-size: 0.9rem; margin-top: 0.5rem;">Toda inversión en conocimiento, siempre generará los mejores resultados 🚀</p>
     </footer>
 
+
+
+    <style>
+/* Modal Overlay */
+.course-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 14, 26, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 10000;
+    animation: fadeIn 0.4s ease;
+    overflow-y: auto;
+}
+
+.course-modal-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Modal Container */
+.course-modal {
+    background: var(--secondary-dark, #151b2d);
+    border-radius: 30px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    border: 2px solid rgba(57, 211, 83, 0.3);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Modal Header */
+.modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.modal-badge {
+    display: inline-block;
+    background: rgba(245, 158, 11, 0.3);
+    border: 1px solid rgba(245, 158, 11, 0.6);
+    color: #F59E0B;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.modal-header h3 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.modal-level {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 2.5rem;
+}
+
+.urgency-message {
+    background: rgba(245, 158, 11, 0.1);
+    border: 2px solid rgba(245, 158, 11, 0.4);
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: #F59E0B;
+    font-size: 1.05rem;
+}
+
+/* Countdown */
+.countdown-container {
+    background: linear-gradient(135deg, rgba(57, 211, 83, 0.1) 0%, rgba(74, 144, 226, 0.1) 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+}
+
+.countdown-label {
+    text-align: center;
+    color: var(--accent-green, #39d353);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.countdown-timer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.countdown-item {
+    background: var(--primary-dark, #0a0e1a);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(57, 211, 83, 0.3);
+}
+
+.countdown-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-green, #39d353);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.countdown-text {
+    font-size: 0.8rem;
+    color: var(--text-gray, #c9d1d9);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Seats Info */
+.seats-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.seats-label {
+    color: var(--text-gray, #c9d1d9);
+}
+
+.seats-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #EF4444;
+}
+
+/* CTA Button */
+.modal-cta {
+    background: linear-gradient(135deg, #39d353 0%, #2ea043 100%);
+    color: white;
+    padding: 1.2rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.modal-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(57, 211, 83, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .course-modal {
+        margin: 1rem;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    .countdown-timer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+
+    .modal-header h3 {
+        font-size: 1.5rem;
+    }
+}
+</style>
 
     <!-- Modal HTML -->
 <div class="course-modal-overlay" id="courseModal">
