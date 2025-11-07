@@ -1032,6 +1032,244 @@
             }
         }
     </style>
+    <style>
+/* Modal Overlay */
+.course-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 14, 26, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 10000;
+    animation: fadeIn 0.4s ease;
+    overflow-y: auto;
+}
+
+.course-modal-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Modal Container */
+.course-modal {
+    background: var(--secondary-dark, #151b2d);
+    border-radius: 30px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    border: 2px solid rgba(57, 211, 83, 0.3);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Modal Header */
+.modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.modal-badge {
+    display: inline-block;
+    background: rgba(245, 158, 11, 0.3);
+    border: 1px solid rgba(245, 158, 11, 0.6);
+    color: #F59E0B;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.modal-header h3 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.modal-level {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 2.5rem;
+}
+
+.urgency-message {
+    background: rgba(245, 158, 11, 0.1);
+    border: 2px solid rgba(245, 158, 11, 0.4);
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: #F59E0B;
+    font-size: 1.05rem;
+}
+
+/* Countdown */
+.countdown-container {
+    background: linear-gradient(135deg, rgba(57, 211, 83, 0.1) 0%, rgba(74, 144, 226, 0.1) 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+}
+
+.countdown-label {
+    text-align: center;
+    color: var(--accent-green, #39d353);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.countdown-timer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.countdown-item {
+    background: var(--primary-dark, #0a0e1a);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(57, 211, 83, 0.3);
+}
+
+.countdown-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-green, #39d353);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.countdown-text {
+    font-size: 0.8rem;
+    color: var(--text-gray, #c9d1d9);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Seats Info */
+.seats-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.seats-label {
+    color: var(--text-gray, #c9d1d9);
+}
+
+.seats-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #EF4444;
+}
+
+/* CTA Button */
+.modal-cta {
+    background: linear-gradient(135deg, #39d353 0%, #2ea043 100%);
+    color: white;
+    padding: 1.2rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.modal-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(57, 211, 83, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .course-modal {
+        margin: 1rem;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    .countdown-timer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+
+    .modal-header h3 {
+        font-size: 1.5rem;
+    }
+}
+</style>
 </head>
 <body>
     <!-- Header -->
@@ -1477,6 +1715,57 @@
         <p style="font-size: 0.9rem; margin-top: 0.5rem;">Toda inversión en conocimiento, siempre generará los mejores resultados 🚀</p>
     </footer>
 
+
+    <!-- Modal HTML -->
+<div class="course-modal-overlay" id="courseModal">
+    <div class="course-modal">
+        <div class="modal-header">
+            <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">&times;</button>
+            <div class="modal-badge" id="modalBadge">🔥 Inscripciones Abiertas</div>
+            <h3 id="modalTitle">Flutter GIS Básico</h3>
+            <p class="modal-level" id="modalLevel">🌱 Nivel Inicial</p>
+        </div>
+        <div class="modal-body">
+            <div class="urgency-message" id="urgencyMessage">
+                ⚡ Solo quedan 12 cupos disponibles
+            </div>
+
+            <div class="countdown-container">
+                <div class="countdown-label">⏰ El curso inicia en:</div>
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-text">Días</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-text">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-text">Min</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-text">Seg</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seats-info">
+                <span class="seats-label">Cupos Disponibles:</span>
+                <span class="seats-number" id="seatsAvailable">12/15</span>
+            </div>
+
+            <a href="#" class="modal-cta" id="modalCTA" target="_blank">
+                <span>💬</span>
+                <span id="ctaText">Reservar Mi Cupo Ahora</span>
+            </a>
+        </div>
+    </div>
+</div>
+    
+
     <script>
         // Scroll reveal animation
         function reveal() {
@@ -1526,5 +1815,127 @@
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
     </script>
+
+
+    <script>
+// Configuración del Modal de Curso
+let modalConfig = null;
+
+// Cargar configuración desde JSON
+async function loadModalConfig() {
+    try {
+        const response = await fetch('config.json');
+        const config = await response.json();
+        modalConfig = config.modal;
+        
+        if (modalConfig.enabled) {
+            initializeModal();
+        }
+    } catch (error) {
+        console.error('Error loading modal config:', error);
+    }
+}
+
+// Inicializar modal
+function initializeModal() {
+    // Verificar si ya se mostró en esta sesión
+    const modalShown = sessionStorage.getItem('courseModalShown');
+    if (modalShown) return;
+
+    // Configurar contenido
+    document.getElementById('modalTitle').textContent = modalConfig.courseTitle;
+    document.getElementById('modalLevel').textContent = modalConfig.courseLevel;
+    document.getElementById('ctaText').textContent = modalConfig.ctaText;
+    
+    // Configurar CTA
+    const whatsappLink = `https://wa.me/${modalConfig.whatsappNumber}?text=${encodeURIComponent(modalConfig.whatsappMessage)}`;
+    document.getElementById('modalCTA').href = whatsappLink;
+
+    // Mostrar cupos
+    document.getElementById('seatsAvailable').textContent = 
+        `${modalConfig.availableSeats}/${modalConfig.totalSeats}`;
+
+    // Iniciar countdown
+    startCountdown();
+
+    // Mostrar modal después de 2 segundos
+    setTimeout(() => {
+        document.getElementById('courseModal').classList.add('active');
+        sessionStorage.setItem('courseModalShown', 'true');
+    }, 2000);
+}
+
+// Countdown timer
+function startCountdown() {
+    const startDate = new Date(modalConfig.startDate).getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = startDate - now;
+
+        if (distance < 0) {
+            // Curso ya comenzó
+            document.getElementById('urgencyMessage').textContent = 
+                modalConfig.urgencyMessages.courseStarted;
+            clearInterval(countdownInterval);
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+        // Actualizar mensaje de urgencia
+        updateUrgencyMessage(days);
+    }
+
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
+}
+
+// Actualizar mensaje de urgencia según días restantes
+function updateUrgencyMessage(daysLeft) {
+    const seats = modalConfig.availableSeats;
+    let message = '';
+
+    if (daysLeft > 7) {
+        message = modalConfig.urgencyMessages.moreThan7Days;
+    } else if (daysLeft > 3) {
+        message = modalConfig.urgencyMessages.lessThan7Days;
+    } else if (daysLeft > 1) {
+        message = modalConfig.urgencyMessages.lessThan3Days;
+    } else {
+        message = modalConfig.urgencyMessages.lessThan24Hours;
+    }
+
+    message = message.replace('{seats}', seats);
+    document.getElementById('urgencyMessage').textContent = message;
+}
+
+// Cerrar modal
+function closeModal() {
+    document.getElementById('courseModal').classList.remove('active');
+}
+
+// Cerrar al hacer clic fuera
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('courseModal');
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+// Cargar configuración al cargar la página
+document.addEventListener('DOMContentLoaded', loadModalConfig);
+</script>
+
+
+    
 </body>
 </html>
