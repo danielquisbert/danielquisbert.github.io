@@ -1,6 +1,6 @@
 {
   "modal": {
-    "enabled": true,
+    "enabled": false,
     "courseTitle": "Flutter GIS Básico",
     "courseLevel": "🌱 Nivel Inicial",
     "startDate": "2025-12-15T09:00:00",
