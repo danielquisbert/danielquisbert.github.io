@@ -1,0 +1,20 @@
+{
+  "modal": {
+    "enabled": true,
+    "courseTitle": "Flutter GIS Básico",
+    "courseLevel": "🌱 Nivel Inicial",
+    "startDate": "2025-12-15T09:00:00",
+    "availableSeats": 12,
+    "totalSeats": 15,
+    "whatsappNumber": "59167145303",
+    "whatsappMessage": "Hola Daniel! Quiero reservar mi cupo para el próximo curso",
+    "ctaText": "Reservar Mi Cupo Ahora",
+    "urgencyMessages": {
+      "moreThan7Days": "🔥 Inscripciones abiertas - Cupos limitados",
+      "lessThan7Days": "⚡ ¡ÚLTIMA SEMANA! Solo quedan {seats} cupos",
+      "lessThan3Days": "🚨 ¡ÚLTIMOS DÍAS! Solo {seats} lugares disponibles",
+      "lessThan24Hours": "⏰ ¡ÚLTIMO DÍA! Curso inicia mañana - {seats} cupos restantes",
+      "courseStarted": "✅ Curso en progreso - Próximo grupo pronto"
+    }
+  }
+}
