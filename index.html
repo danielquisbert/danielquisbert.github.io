@@ -1031,6 +1031,17 @@
                 gap: 1.5rem;
             }
         }
+        @media (max-width: 968px) {
+            .success-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .success-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
     
 </head>
@@ -1314,57 +1325,78 @@
             <p class="section-description">Soluciones reales que he desarrollado para empresas, instituciones y emprendedores.</p>
         </div>
         <div class="success-grid">
-            <div class="success-card reveal">
-                <div class="success-image">🎓</div>
-                <div class="success-content">
-                    <h4>ARTEC - Ecosistema Completo</h4>
-                    <p>Desarrollé tanto la plataforma web educativa como la aplicación móvil para ARTEC, centro de capacitación líder en Bolivia. Proyecto integral que incluye gestión de cursos, notificaciones y geolocalización de sucursales.</p>
-                    <div class="success-tags">
-                        <span class="success-tag">Web + Mobile</span>
-                        <span class="success-tag">SPIP CMS</span>
-                        <span class="success-tag">Flutter</span>
-                        <span class="success-tag">Educación</span>
-                    </div>
-                    <a href="https://arte-tecnologias.com/" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
-                        🔗 Ver Proyecto
-                    </a>
-                </div>
+    <!-- ARTEC - Ecosistema Completo (mantener) -->
+    <div class="success-card reveal">
+        <div class="success-image">🎓</div>
+        <div class="success-content">
+            <h4>ARTEC - Ecosistema Completo</h4>
+            <p>Desarrollé tanto la plataforma web educativa como la aplicación móvil para ARTEC, centro de capacitación líder en Bolivia. Proyecto integral que incluye gestión de cursos, notificaciones y geolocalización de sucursales.</p>
+            <div class="success-tags">
+                <span class="success-tag">Web + Mobile</span>
+                <span class="success-tag">SPIP CMS</span>
+                <span class="success-tag">Flutter</span>
+                <span class="success-tag">Educación</span>
             </div>
-
-            <div class="success-card reveal">
-                <div class="success-image">⚡</div>
-                <div class="success-content">
-                    <h4>AppLuz DELAPAZ</h4>
-                    <p>App oficial para la gestión de suministros eléctricos de la distribuidora más grande de Bolivia. Maneja más de 1 millón de usuarios con consultas de consumo, pagos y geolocalización de puntos de servicio.</p>
-                    <div class="success-tags">
-                        <span class="success-tag">1M+ usuarios</span>
-                        <span class="success-tag">Servicios Públicos</span>
-                        <span class="success-tag">Geolocalización</span>
-                        <span class="success-tag">Pagos</span>
-                    </div>
-                    <a href="https://play.google.com/store/search?q=appluz&c=apps&hl=es_BO" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
-                        📱 Ver en Play Store
-                    </a>
-                </div>
-            </div>
-
-            <div class="success-card reveal">
-                <div class="success-image">🏛️</div>
-                <div class="success-content">
-                    <h4>Registraduría Nacional - Colombia</h4>
-                    <p>Desarrollo y mantenimiento del portal oficial gubernamental de Colombia. Infraestructura de alta disponibilidad que maneja millones de consultas ciudadanas diarias.</p>
-                    <div class="success-tags">
-                        <span class="success-tag">Gobierno</span>
-                        <span class="success-tag">Alta Disponibilidad</span>
-                        <span class="success-tag">Seguridad</span>
-                        <span class="success-tag">SPIP CMS</span>
-                    </div>
-                    <a href="https://registraduria.gov.co" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
-                        🔗 Ver Sitio
-                    </a>
-                </div>
-            </div>
+            <a href="https://arte-tecnologias.com/" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
+                🔗 Ver Proyecto
+            </a>
         </div>
+    </div>
+
+    <!-- ARTEC Juniors (NUEVA) -->
+    <div class="success-card reveal">
+        <div class="success-image">🎮</div>
+        <div class="success-content">
+            <h4>ARTEC Juniors - Juegos Educativos</h4>
+            <p>App móvil de juegos educativos diseñada para estudiantes de secundaria. Incluye trivias interactivas de Matemática, Lenguaje, Química y Física para repasar contenidos escolares de forma divertida y efectiva.</p>
+            <div class="success-tags">
+                <span class="success-tag">Gamificación</span>
+                <span class="success-tag">Educación</span>
+                <span class="success-tag">Flutter</span>
+                <span class="success-tag">Trivias</span>
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=com.ge0tic.artecjuniors" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
+                📱 Ver en Play Store
+            </a>
+        </div>
+    </div>
+
+    <!-- TallerPRO (NUEVA) -->
+    <div class="success-card reveal">
+        <div class="success-image">🔧</div>
+        <div class="success-content">
+            <h4>TallerPRO - Gestión de Talleres</h4>
+            <p>Sistema completo para talleres mecánicos que conecta propietarios con sus clientes. La app permite a los clientes rastrear reparaciones en tiempo real, recibir notificaciones de progreso y gestionar servicios de mantenimiento vehicular.</p>
+            <div class="success-tags">
+                <span class="success-tag">B2B</span>
+                <span class="success-tag">Automotriz</span>
+                <span class="success-tag">Flutter</span>
+                <span class="success-tag">Gestión</span>
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=com.gecko.tallerpro" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
+                📱 Ver en Play Store
+            </a>
+        </div>
+    </div>
+
+    <!-- Registraduría Nacional (mantener) -->
+    <div class="success-card reveal">
+        <div class="success-image">🏛️</div>
+        <div class="success-content">
+            <h4>Registraduría Nacional - Colombia</h4>
+            <p>Desarrollo y mantenimiento del portal oficial gubernamental de Colombia. Infraestructura de alta disponibilidad que maneja millones de consultas ciudadanas diarias.</p>
+            <div class="success-tags">
+                <span class="success-tag">Gobierno</span>
+                <span class="success-tag">Alta Disponibilidad</span>
+                <span class="success-tag">Seguridad</span>
+                <span class="success-tag">SPIP CMS</span>
+            </div>
+            <a href="https://registraduria.gov.co" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
+                🔗 Ver Sitio
+            </a>
+        </div>
+    </div>
+</div>
     </section>
 
     <!-- Testimonials -->
