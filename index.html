@@ -1580,9 +1580,10 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Daniel Quisbert - Cursos de Flutter & GIS</p>
-        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Aprende haciendo. Construye aplicaciones reales 🚀</p>
+        <p>© <span id="year"></span> Daniel Quisbert - Cursos de Flutter & GIS</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">De cero a producción. Código real, apps reales 🚀</p>
     </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
 
 
