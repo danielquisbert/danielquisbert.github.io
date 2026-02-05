@@ -518,9 +518,15 @@
         /* Courses Section */
         .courses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
+        }
+
+        @media (min-width: 1400px) {
+            .courses-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .course-card {
@@ -542,6 +548,10 @@
             padding: 2rem;
             text-align: center;
             position: relative;
+        }
+
+        .course-header.geoserver {
+            background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
         }
 
         .course-level {
@@ -1208,7 +1218,7 @@
             <!-- Curso Inicial -->
             <div class="course-card reveal">
                 <div class="course-header">
-                    <div class="course-level">🌱 Nivel Inicial</div>
+                    <div class="course-level">🌱 Nivel Junior</div>
                     <h3 class="course-title">Flutter GIS Básico</h3>
                     <p class="course-duration">6 semanas • 30 horas</p>
                 </div>
@@ -1310,6 +1320,68 @@
                     </ul>
 
                     <a href="https://wa.me/59167145303?text=Hola%20Daniel!%20Me%20interesa%20el%20curso%20GIS%20Pro%20Mobile" target="_blank" class="btn-primary" style="width: 100%;">
+                        <span>💬</span> Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Curso GeoServer -->
+            <div class="course-card reveal">
+                <div class="course-header geoserver">
+                    <div class="course-level">🎯 Nivel Intermedio</div>
+                    <h3 class="course-title">GeoServer Básico-Medio</h3>
+                    <p class="course-duration">4 semanas • 11 horas</p>
+                </div>
+                <div class="course-body">
+                    <p class="course-description">Domina GeoServer y crea mapas web interactivos con WMS, PostGIS y filtros CQL dinámicos. Aprende a desplegar servicios geoespaciales profesionales desde cero.</p>
+                    
+                    <div class="course-features">
+                        <h4>✨ Lo que incluye:</h4>
+                        <div class="feature-list">
+                            <div class="feature-item">Clases en vivo</div>
+                            <div class="feature-item">Proyecto web deployado</div>
+                            <div class="feature-item">Código fuente completo</div>
+                            <div class="feature-item">Certificado</div>
+                            <div class="feature-item">Grupo de WhatsApp</div>
+                            <div class="feature-item">Portfolio piece</div>
+                        </div>
+                    </div>
+
+                    <ul class="course-modules">
+                        <li>
+                            <span class="module-title">⚙️ Instalación y Setup</span>
+                            <span class="module-description">GeoServer en Windows/Linux, interface de administración y configuración inicial</span>
+                        </li>
+                        <li>
+                            <span class="module-title">🗄️ PostGIS Integration</span>
+                            <span class="module-description">Conectar bases de datos espaciales, publicar capas y cargar datos propios</span>
+                        </li>
+                        <li>
+                            <span class="module-title">🗺️ WMS + CQL Filtros</span>
+                            <span class="module-description">Protocolo WMS completo, filtros CQL dinámicos e integración con Leaflet</span>
+                        </li>
+                        <li>
+                            <span class="module-title">🌐 Desarrollo Web</span>
+                            <span class="module-description">HTML + Leaflet, WMS overlays interactivos, filtros UI y deploy en GitHub Pages</span>
+                        </li>
+                        <li>
+                            <span class="module-title">🏆 Proyecto Final Guiado</span>
+                            <span class="module-description">Aplicación web completa con mapas, filtros dinámicos y URL pública funcionando</span>
+                        </li>
+                    </ul>
+
+                    <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(56, 142, 60, 0.1) 100%); padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid rgba(76, 175, 80, 0.3);">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">💰 Inversión</div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #4CAF50; line-height: 1;">$30 USD</div>
+                            <div style="font-size: 1.2rem; color: var(--text-gray); margin-top: 0.3rem;">Bs. 250</div>
+                        </div>
+                        <div style="text-align: center; font-size: 0.85rem; color: var(--text-gray); margin-top: 1rem;">
+                            📅 Inicio: <strong style="color: #4CAF50;">24 de Febrero, 2026</strong>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/59167145303?text=Hola%20Daniel!%20Me%20interesa%20el%20curso%20de%20GeoServer%20Básico-Medio%20que%20inicia%20el%2024%20de%20febrero.%20¿Podrías%20darme%20más%20información?" target="_blank" class="btn-primary" style="width: 100%;">
                         <span>💬</span> Consultar por WhatsApp
                     </a>
                 </div>
@@ -1463,7 +1535,7 @@
             <div class="contact-card reveal">
                 <div class="contact-icon">📧</div>
                 <h4>Email</h4>
-                <a href="mailto:dani3l.quisb3rt@gmail.com">dani3l.quisb3rt@gmail.com</a>
+                <a href="/cdn-cgi/l/email-protection#92f6f3fcfba1febce3e7fbe1f0a1e0e6d2f5fff3fbfebcf1fdff"><span class="__cf_email__" data-cfemail="d5b1b4bbbce6b9fba4a0bca6b7e6a7a195b2b8b4bcb9fbb6bab8">[email&#160;protected]</span></a>
             </div>
             <div class="contact-card reveal">
                 <div class="contact-icon">📱</div>
@@ -1560,7 +1632,7 @@
 
 /* Modal Header */
 .modal-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
     padding: 2rem;
     text-align: center;
     position: relative;

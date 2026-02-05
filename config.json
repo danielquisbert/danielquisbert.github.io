@@ -1,13 +1,13 @@
 {
   "modal": {
-    "enabled": false,
-    "courseTitle": "Flutter GIS Básico",
-    "courseLevel": "🌱 Nivel Inicial",
-    "startDate": "2025-12-15T09:00:00",
-    "availableSeats": 12,
-    "totalSeats": 15,
+    "enabled": true,
+    "courseTitle": "GeoServer Básico-Medio",
+    "courseLevel": "🎯 Nivel Intermedio",
+    "startDate": "2026-02-24T09:00:00",
+    "availableSeats": 15,
+    "totalSeats": 20,
     "whatsappNumber": "59167145303",
-    "whatsappMessage": "Hola Daniel! Quiero reservar mi cupo para el próximo curso",
+    "whatsappMessage": "Hola Daniel! Quiero reservar mi cupo para el curso de GeoServer que inicia el 24 de febrero",
     "ctaText": "Reservar Mi Cupo Ahora",
     "urgencyMessages": {
       "moreThan7Days": "🔥 Inscripciones abiertas - Cupos limitados",
@@ -15,6 +15,32 @@
       "lessThan3Days": "🚨 ¡ÚLTIMOS DÍAS! Solo {seats} lugares disponibles",
       "lessThan24Hours": "⏰ ¡ÚLTIMO DÍA! Curso inicia mañana - {seats} cupos restantes",
       "courseStarted": "✅ Curso en progreso - Próximo grupo pronto"
+    }
+  },
+  "courses": {
+    "geoserver": {
+      "enabled": true,
+      "courseTitle": "GeoServer Básico-Medio",
+      "courseLevel": "🎯 Nivel Intermedio",
+      "startDate": "2026-02-24T09:00:00",
+      "availableSeats": 15,
+      "totalSeats": 20,
+      "price": {
+        "usd": 30,
+        "bolivianos": 250
+      }
+    },
+    "flutter_basico": {
+      "enabled": false,
+      "courseTitle": "Flutter GIS Básico",
+      "courseLevel": "🌱 Nivel Junior",
+      "startDate": "2026-02-25T09:00:00",
+      "availableSeats": 12,
+      "totalSeats": 15,
+      "price": {
+        "usd": 40,
+        "bolivianos": 280
+      }
     }
   }
 }
