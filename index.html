@@ -1654,10 +1654,10 @@
                     switch(course.status) {
                     case 'open':
                         const seatsLeft = course.availableSeats;
-                        if (seatsLeft <= CONFIG.courseDefaults.minSeatsForUrgency) {
+                        if (seatsLeft <= config.courseDefaults.minSeatsForUrgency) {
                         badge = `<span class="badge badge-urgency">🔥 ¡ÚLTIMOS ${seatsLeft} CUPOS!</span>`;
                         button = `
-                            <a href="https://wa.me/${CONFIG.contact.inscription.number}?text=Hola!%20Quiero%20inscribirme%20en%20el%20curso%20${encodeURIComponent(course.courseTitle)}" 
+                            <a href="https://wa.me/${config.contact.inscription.number}?text=Hola!%20Quiero%20inscribirme%20en%20el%20curso%20${encodeURIComponent(course.courseTitle)}" 
                             target="_blank" 
                             class="btn btn-warning btn-block btn-pulse">
                             <i class="fas fa-fire"></i>
@@ -1665,11 +1665,11 @@
                             </a>`;
                         } else {
                         badge = `<span class="badge badge-open">✅ Inscripciones Abiertas</span>`;
-                        if (seatsLeft <= CONFIG.courseDefaults.showCounterWhenSeatsBelow) {
+                        if (seatsLeft <= config.courseDefaults.showCounterWhenSeatsBelow) {
                             badge += `<span class="badge badge-seats">${seatsLeft}/${course.totalSeats} cupos</span>`;
                         }
                         button = `
-                            <a href="https://wa.me/${CONFIG.contact.inscription.number}?text=Hola!%20Quiero%20inscribirme%20en%20el%20curso%20${encodeURIComponent(course.courseTitle)}" 
+                            <a href="https://wa.me/${config.contact.inscription.number}?text=Hola!%20Quiero%20inscribirme%20en%20el%20curso%20${encodeURIComponent(course.courseTitle)}" 
                             target="_blank" 
                             class="btn btn-primary btn-block">
                             <i class="fab fa-whatsapp"></i>
@@ -1685,7 +1685,7 @@
                         badge = `<span class="badge badge-soon">🔜 Próximamente</span>
                                 <span class="badge badge-date">Inicia: ${dateStr}</span>`;
                         button = `
-                        <a href="https://wa.me/${CONFIG.contact.inscription.number}?text=Hola!%20Quiero%20reservar%20pre-inscripción%20para%20${encodeURIComponent(course.courseTitle)}" 
+                        <a href="https://wa.me/${config.contact.inscription.number}?text=Hola!%20Quiero%20reservar%20pre-inscripción%20para%20${encodeURIComponent(course.courseTitle)}" 
                             target="_blank" 
                             class="btn btn-outline-primary btn-block">
                             <i class="fas fa-rocket"></i>
@@ -1701,7 +1701,7 @@
                                 <span class="badge badge-next">📅 Próximo: ${nextDateStr}</span>`;
                         if (course.nextCohort.waitlistEnabled) {
                         button = `
-                            <a href="https://wa.me/${CONFIG.contact.inscription.number}?text=Hola!%20Quiero%20anotarme%20en%20lista%20de%20espera%20para%20${encodeURIComponent(course.courseTitle)}" 
+                            <a href="https://wa.me/${config.contact.inscription.number}?text=Hola!%20Quiero%20anotarme%20en%20lista%20de%20espera%20para%20${encodeURIComponent(course.courseTitle)}" 
                             target="_blank" 
                             class="btn btn-outline btn-block">
                             <i class="fas fa-bell"></i>
@@ -1720,7 +1720,7 @@
                         cardOpacity = 'opacity-60';
                         badge = `<span class="badge badge-progress">🎓 En Progreso</span>`;
                         button = `
-                        <a href="https://wa.me/${CONFIG.contact.inscription.number}?text=Hola!%20Quiero%20información%20del%20próximo%20grupo%20de%20${encodeURIComponent(course.courseTitle)}" 
+                        <a href="https://wa.me/${config.contact.inscription.number}?text=Hola!%20Quiero%20información%20del%20próximo%20grupo%20de%20${encodeURIComponent(course.courseTitle)}" 
                             target="_blank" 
                             class="btn btn-outline btn-block">
                             <i class="fas fa-bell"></i>
