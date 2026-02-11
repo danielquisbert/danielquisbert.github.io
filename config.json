@@ -61,12 +61,12 @@
       "availableSeats": 15,
       "totalSeats": 15,
       "price": {
-        "usd": 35,
-        "bolivianos": 240,
+        "usd": 25,
+        "bolivianos": 270,
         "earlyBirdDiscount": 0.20,
         "earlyBirdDeadline": "2026-03-03T23:59:59-04:00"
       },
-      "schedule": "Lunes y Miércoles 19:00-21:30",
+      "schedule": "Martes y Jueves 20:00-21:30",
       "modality": "Online en Vivo + Grabaciones",
       "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
       "nextCohort": {
@@ -107,12 +107,12 @@
       "availableSeats": 18,
       "totalSeats": 20,
       "price": {
-        "usd": 50,
-        "bolivianos": 350,
+        "usd": 30,
+        "bolivianos": 320,
         "earlyBirdDiscount": 0.15,
         "earlyBirdDeadline": "2026-02-13T23:59:59-04:00"
       },
-      "schedule": "Martes y Jueves 19:00-22:00",
+      "schedule": "Miércoles y Viernes 20:00-22:00",
       "modality": "Online en Vivo + Mentoría",
       "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
       "nextCohort": {
@@ -123,14 +123,14 @@
         "Certificación Profesional ARTECLAB",
         "16 clases en vivo de alto nivel",
         "Geoprocesamiento en el móvil",
-        "Sincronización con Firebase",
+        "Notificaciones con Firebase",
         "Consumo de servicios WMS/WFS",
         "Publicación en Play Store"
       ],
       "modules": [
         { "number": 1, "icon": "🏗️", "title": "Arquitectura Clean", "description": "Estructura profesional para apps escalables." },
         { "number": 2, "icon": "🌐", "title": "Servicios OGC", "description": "Conexión directa con GeoServer (WMS/WFS)." },
-        { "number": 3, "icon": "🔥", "title": "Cloud Real-time", "description": "Sincronización con Firebase y mapas multiusuario." },
+        { "number": 3, "icon": "🔥", "title": "Push Notifications", "description": "Notificaciones en tiempo real." },
         { "number": 4, "icon": "📐", "title": "Análisis Espacial", "description": "Cálculo de áreas, distancias y perímetros en pantalla." },
         { "number": 5, "icon": "🚨", "title": "Geofencing", "description": "Alertas automáticas al entrar o salir de polígonos." },
         { "number": 6, "icon": "🚀", "title": "Deploy Pro", "description": "Generación de App Bundle y subida a tiendas." }
@@ -154,11 +154,11 @@
       "totalSeats": 20,
       "price": {
         "usd": 30,
-        "bolivianos": 250,
+        "bolivianos": 300,
         "earlyBirdDiscount": 0.15,
         "earlyBirdDeadline": "2026-02-17T23:59:59-04:00"
       },
-      "schedule": "Martes y Jueves 19:00-21:00",
+      "schedule": "Martes y Jueves 19:00-21:30",
       "modality": "Online en Vivo",
       "whatsappGroup": "https://chat.whatsapp.com/C0q6HSFXG92JeDWISChp5Q",
       "nextCohort": {
