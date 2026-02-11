@@ -45,233 +45,80 @@
   },
 
   "courses": [
-    {
-      "id": "geoserver",
-      "enabled": true,
-      "status": "full",
-      "priority": 3,
-      "courseTitle": "GeoServer Básico-Medio",
-      "courseLevel": "🎯 Nivel Intermedio",
-      "slug": "geoserver-basico-medio",
-      "duration": "4 semanas • 20 horas",
-      "description": "Aprende a publicar mapas en la web de forma profesional. Construye servicios geoespaciales accesibles desde navegadores o apps móviles.",
-      "startDate": "2026-02-24T09:00:00-04:00",
-      "endDate": "2026-03-24T21:00:00-04:00",
-      "availableSeats": 0,
-      "totalSeats": 20,
-      "price": {
-        "usd": 30,
-        "bolivianos": 250,
-        "earlyBirdDiscount": 0.15,
-        "earlyBirdDeadline": "2026-02-17T23:59:59-04:00"
-      },
-      "schedule": "Martes y Jueves 19:00-21:00",
-      "modality": "Online en Vivo",
-      "whatsappGroup": "https://chat.whatsapp.com/C0q6HSFXG92JeDWISChp5Q",
-      "nextCohort": {
-        "startDate": "2026-04-15T09:00:00-04:00",
-        "waitlistEnabled": true
-      },
-      "features": [
-        "8 clases prácticas en vivo",
-        "Web app deployada y funcional",
-        "Código completo + templates",
-        "Certificado digital verificable",
-        "Grupo privado de soporte",
-        "Portfolio web profesional"
-      ],
-      "modules": [
-        {
-          "number": 1,
-          "icon": "⚙️",
-          "title": "Setup & Configuración",
-          "description": "Instala y configura GeoServer en tu máquina"
-        },
-        {
-          "number": 2,
-          "icon": "🗄️",
-          "title": "PostGIS & Datos",
-          "description": "Conecta bases de datos espaciales y carga datos"
-        },
-        {
-          "number": 3,
-          "icon": "🗺️",
-          "title": "Servicios WMS/WFS",
-          "description": "Publica capas y servicios web estándar OGC"
-        },
-        {
-          "number": 4,
-          "icon": "🌐",
-          "title": "Web Development",
-          "description": "Integra mapas en tu web con Leaflet/OpenLayers"
-        },
-        {
-          "number": 5,
-          "icon": "🚀",
-          "title": "Deploy Profesional",
-          "description": "Publica tu proyecto en producción (servidor real)"
-        }
-      ],
-      "requirements": [
-        "Conocimientos básicos de mapas/GIS",
-        "Laptop con 8GB RAM mínimo",
-        "Conocimientos básicos de navegación web"
-      ],
-      "tags": ["geoserver", "webmapping", "postgis", "wms", "wfs"]
-    },
-    {
-      "id": "flutter_basico",
-      "enabled": true,
-      "status": "coming_soon",
-      "priority": 1,
-      "courseTitle": "Flutter GIS Básico",
-      "courseLevel": "🌱 Nivel Junior",
-      "slug": "flutter-gis-basico",
-      "duration": "6 semanas • 30 horas",
-      "description": "Crea tu primera app móvil con mapas interactivos. Sin experiencia previa requerida. De cero a una app funcional en tu portfolio.",
-      "startDate": "2026-03-10T09:00:00-04:00",
-      "endDate": "2026-04-21T21:30:00-04:00",
-      "availableSeats": 15,
-      "totalSeats": 15,
-      "price": {
-        "usd": 35,
-        "bolivianos": 240,
-        "earlyBirdDiscount": 0.20,
-        "earlyBirdDeadline": "2026-03-03T23:59:59-04:00"
-      },
-      "schedule": "Lunes y Miércoles 19:00-21:30",
-      "modality": "Online en Vivo + Grabaciones",
-      "whatsappGroup": "",
-      "nextCohort": {
-        "startDate": "2026-05-05T09:00:00-04:00",
-        "waitlistEnabled": false
-      },
-      "features": [
-        "12 clases en vivo + grabaciones",
-        "App funcional en tu celular",
-        "Código fuente completo comentado",
-        "Certificado digital al terminar",
-        "Grupo de WhatsApp exclusivo",
-        "Bonus: Publicación en PlayStore"
-      ],
-      "modules": [
-        {
-          "number": 1,
-          "icon": "📌",
-          "title": "Fundamentos Flutter",
-          "description": "Dart y Flutter desde cero absoluto"
-        },
-        {
-          "number": 2,
-          "icon": "🎨",
-          "title": "UI/UX Mobile",
-          "description": "Interfaces profesionales y responsivas"
-        },
-        {
-          "number": 3,
-          "icon": "📍",
-          "title": "Mapas & GPS",
-          "description": "Geolocalización en tiempo real"
-        },
-        {
-          "number": 4,
-          "icon": "💾",
-          "title": "Persistencia Local",
-          "description": "Guarda datos sin necesidad de internet"
-        },
-        {
-          "number": 5,
-          "icon": "🏆",
-          "title": "Proyecto Final",
-          "description": "App completa de levantamiento topográfico"
-        }
-      ],
-      "requirements": [
-        "Ninguno - Desde cero absoluto",
-        "Ganas de aprender programación",
-        "Laptop/PC y smartphone Android"
-      ],
-      "tags": ["flutter", "mobile", "dart", "gps", "beginner"]
-    },
-    {
-      "id": "gis_pro",
-      "enabled": true,
-      "status": "coming_soon",
-      "priority": 2,
-      "courseTitle": "GIS Pro Mobile",
-      "courseLevel": "🚀 Nivel Avanzado",
-      "slug": "gis-pro-mobile",
-      "duration": "6 semanas • 32 horas",
-      "description": "Desarrolla aplicaciones empresariales con análisis espacial avanzado, sincronización en la nube y publicación en stores oficiales.",
-      "startDate": "2026-02-20T09:00:00-04:00",
-      "endDate": "2026-04-02T22:00:00-04:00",
-      "availableSeats": 18,
-      "totalSeats": 20,
-      "price": {
-        "usd": 50,
-        "bolivianos": 350,
-        "earlyBirdDiscount": 0.15,
-        "earlyBirdDeadline": "2026-02-13T23:59:59-04:00"
-      },
-      "schedule": "Martes y Jueves 19:00-22:00",
-      "modality": "Online en Vivo + Mentoría 1-a-1",
-      "whatsappGroup": "",
-      "nextCohort": {
-        "startDate": "2026-04-22T09:00:00-04:00",
-        "waitlistEnabled": true
-      },
-      "features": [
-        "16 clases en vivo de 3 horas",
-        "App publicada en PlayStore/AppStore",
-        "Código production-ready",
-        "Certificado profesional avanzado",
-        "2 sesiones de mentoría 1-a-1",
-        "Portfolio de nivel empresarial"
-      ],
-      "modules": [
-        {
-          "number": 1,
-          "icon": "🗺️",
-          "title": "Mapas Avanzados",
-          "description": "Google Maps, OSM, capas vectoriales custom"
-        },
-        {
-          "number": 2,
-          "icon": "🔔",
-          "title": "Push Notifications",
-          "description": "Firebase Cloud Messaging en tiempo real"
-        },
-        {
-          "number": 3,
-          "icon": "🌐",
-          "title": "APIs Geoespaciales",
-          "description": "Integración WMS, WFS y geocodificación"
-        },
-        {
-          "number": 4,
-          "icon": "📊",
-          "title": "Análisis Espacial",
-          "description": "Buffer, intersecciones, cálculos geodésicos"
-        },
-        {
-          "number": 5,
-          "icon": "📸",
-          "title": "Captura de Campo",
-          "description": "Formularios dinámicos + fotos geolocalizadas"
-        },
-        {
-          "number": 6,
-          "icon": "☁️",
-          "title": "Cloud & Deploy",
-          "description": "Sincronización Firebase + publicación en Stores"
-        }
-      ],
-      "requirements": [
-        "Conocimientos básicos de Flutter/Dart",
-        "Experiencia previa en programación",
-        "Laptop con 8GB RAM y smartphone"
-      ],
-      "tags": ["flutter", "advanced", "gis", "firebase", "production"]
-    }
-  ]
+  {
+    "id": "flutter_basico",
+    "enabled": true,
+    "status": "coming_soon",
+    "courseTitle": "Flutter GIS Básico",
+    "courseLevel": "🌱 Nivel Junior",
+    "duration": "6 semanas • 30 horas",
+    "description": "Crea apps móviles que capturen datos geográficos en campo. Aprenderás a integrar mapas, usar el GPS y guardar información con fotos sin depender de internet.",
+    "features": [
+      "12 clases en vivo + grabaciones",
+      "App de captura funcional",
+      "Manejo de GPS y Cámara",
+      "Almacenamiento Local (Offline)",
+      "Certificado de participación",
+      "Código fuente base incluido"
+    ],
+    "modules": [
+      { "number": 1, "icon": "📱", "title": "Fundamentos Express", "description": "Dart y Widgets esenciales para apps ágiles." },
+      { "number": 2, "icon": "🗺️", "title": "Mapas Interactivos", "description": "Integración de OpenStreetMap y capas base." },
+      { "number": 3, "icon": "📍", "title": "Geolocalización", "description": "Captura de coordenadas exactas y precisión GPS." },
+      { "number": 4, "icon": "📸", "title": "Formularios Multimedia", "description": "Recolección de datos con texto, listas y fotos." },
+      { "number": 5, "icon": "💾", "title": "Persistencia Offline", "description": "Guardado de datos en el equipo sin conexión." },
+      { "number": 6, "icon": "📤", "title": "Exportación de Datos", "description": "Compartir reportes por WhatsApp y formatos CSV." }
+    ]
+  },
+  {
+    "id": "gis_pro",
+    "enabled": true,
+    "status": "coming_soon",
+    "courseTitle": "Flutter GIS Pro",
+    "courseLevel": "🚀 Nivel Avanzado",
+    "duration": "6 semanas • 32 horas",
+    "description": "Desarrolla soluciones corporativas con geoprocesamiento en vivo, sincronización en la nube y geocercas automáticas para gestión de personal y activos.",
+    "features": [
+      "16 clases en vivo de alto nivel",
+      "Geoprocesamiento en el móvil",
+      "Sincronización con Firebase",
+      "Consumo de servicios WMS/WFS",
+      "Publicación en Play Store",
+      "Mentoría técnica personalizada"
+    ],
+    "modules": [
+      { "number": 1, "icon": "🏗️", "title": "Arquitectura Clean", "description": "Estructura profesional para apps escalables." },
+      { "number": 2, "icon": "🌐", "title": "Servicios OGC", "description": "Conexión directa con GeoServer (WMS/WFS)." },
+      { "number": 3, "icon": "🔥", "title": "Cloud Real-time", "description": "Sincronización con Firebase y mapas multiusuario." },
+      { "number": 4, "icon": "📐", "title": "Análisis Espacial", "description": "Cálculo de áreas, distancias y perímetros en pantalla." },
+      { "number": 5, "icon": "🚨", "title": "Geofencing", "description": "Alertas automáticas al entrar o salir de polígonos." },
+      { "number": 6, "icon": "🚀", "title": "Deploy Pro", "description": "Generación de App Bundle y subida a tiendas." }
+    ]
+  },
+  {
+    "id": "geoserver",
+    "enabled": true,
+    "status": "full",
+    "courseTitle": "GeoServer & Security",
+    "courseLevel": "🎯 Nivel Intermedio",
+    "duration": "4 semanas • 20 horas",
+    "description": "Domina la publicación de servicios geoespaciales bajo estándares internacionales, asegurando tus datos con protocolos de acceso restringido.",
+    "features": [
+      "8 clases prácticas intensivas",
+      "Configuración de Seguridad avanzada",
+      "Estilizado de mapas con SLD/CSS",
+      "Optimización de Base de Datos",
+      "Visor web con Leaflet incluido",
+      "Despliegue en servidor VPS"
+    ],
+    "modules": [
+      { "number": 1, "icon": "⚙️", "title": "Arquitectura & PostGIS", "description": "Instalación y tunning de base de datos espacial." },
+      { "number": 2, "icon": "🎨", "title": "Simbología Avanzada", "description": "Diseño de mapas profesionales con SLD y CSS." },
+      { "number": 3, "icon": "🔒", "title": "Seguridad & Usuarios", "description": "Restricción de capas y servicios mediante roles." },
+      { "number": 4, "icon": "⚡", "title": "Filtros CQL", "description": "Consultas dinámicas y potentes desde la URL." },
+      { "number": 5, "icon": "🖥️", "title": "Visor Web Pro", "description": "Integración completa con Leaflet y paneles." },
+      { "number": 6, "icon": "☁️", "title": "Producción Real", "description": "Publicación en la nube para acceso global." }
+    ]
+  }
+]
 }
