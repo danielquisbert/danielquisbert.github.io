@@ -62,7 +62,7 @@
       "totalSeats": 15,
       "price": {
         "usd": 25,
-        "bolivianos": 270,
+        "bolivianos": 250,
         "earlyBirdDiscount": 0.20,
         "earlyBirdDeadline": "2026-03-03T23:59:59-04:00"
       },
@@ -102,13 +102,13 @@
       "slug": "gis-pro-mobile",
       "duration": "6 semanas • 32 horas",
       "description": "Desarrolla soluciones corporativas con geoprocesamiento en vivo, sincronización en la nube y geocercas automáticas para gestión de activos.",
-      "startDate": "2026-02-20T09:00:00-04:00",
+      "startDate": "2026-01-07T09:00:00-04:00",
       "endDate": "2026-04-02T22:00:00-04:00",
       "availableSeats": 18,
       "totalSeats": 20,
       "price": {
         "usd": 30,
-        "bolivianos": 320,
+        "bolivianos": 300,
         "earlyBirdDiscount": 0.15,
         "earlyBirdDeadline": "2026-02-13T23:59:59-04:00"
       },
@@ -116,7 +116,7 @@
       "modality": "Online en Vivo + Mentoría",
       "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
       "nextCohort": {
-        "startDate": "2026-04-22T09:00:00-04:00",
+        "startDate": "2026-01-07T09:00:00-04:00",
         "waitlistEnabled": true
       },
       "features": [
