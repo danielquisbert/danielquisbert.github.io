@@ -1,10 +1,30 @@
 {
+  "community": {
+    "whatsapp": {
+      "url": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
+      "label": "Únete al Grupo de WhatsApp"
+    },
+    "telegram": {
+      "url": "https://t.me/+oWOMHhrIbytkODVh",
+      "label": "Únete al Canal de Telegram"
+    }
+  },
+  "contact": {
+    "inscription": {
+      "number": "59164222142",
+      "label": "Inscripciones"
+    },
+    "consultation": {
+      "number": "59167145303",
+      "label": "Consultoría y Trabajo"
+    }
+  },
   "modal": {
-    "enabled": true,
+    "enabled": false,
     "courseTitle": "GeoServer Básico-Medio",
     "courseLevel": "🎯 Nivel Intermedio",
     "startDate": "2026-02-24T09:00:00",
-    "availableSeats": 15,
+    "availableSeats": 0,
     "totalSeats": 20,
     "whatsappNumber": "59164222142",
     "whatsappMessage": "Hola! Quiero reservar mi cupo para el curso de GeoServer que inicia el 24 de febrero",
@@ -19,28 +39,171 @@
   },
   "courses": {
     "geoserver": {
+      "id": "geoserver",
       "enabled": true,
+      "status": "open",
       "courseTitle": "GeoServer Básico-Medio",
       "courseLevel": "🎯 Nivel Intermedio",
+      "duration": "4 semanas • 20 horas",
+      "description": "Aprende a publicar mapas en la web de forma profesional. Construye servicios geoespaciales accesibles desde navegadores o apps móviles.",
       "startDate": "2026-02-24T09:00:00",
-      "availableSeats": 15,
+      "availableSeats": 0,
+      "totalSeats": 20,
+      "price": {
+        "usd": 25,
+        "bolivianos": 220
+      },
+      "schedule": "Martes y Jueves 19:00-21:00",
+      "whatsappGroup": "https://chat.whatsapp.com/C0q6HSFXG92JeDWISChp5Q",
+      "nextCohortDate": "2026-04-15T09:00:00",
+      "features": [
+        "8 clases prácticas",
+        "Web app deployada",
+        "Código completo",
+        "Certificado",
+        "Grupo de soporte",
+        "Portfolio web"
+      ],
+      "modules": [
+        {
+          "icon": "⚙️",
+          "title": "Setup & Configuración",
+          "description": "Instala y configura GeoServer"
+        },
+        {
+          "icon": "🗄️",
+          "title": "PostGIS & Datos",
+          "description": "Conecta bases de datos espaciales"
+        },
+        {
+          "icon": "🗺️",
+          "title": "Servicios WMS/WFS",
+          "description": "Publica capas y servicios web"
+        },
+        {
+          "icon": "🌐",
+          "title": "Web Development",
+          "description": "Integra mapas con Leaflet"
+        },
+        {
+          "icon": "🚀",
+          "title": "Deploy Profesional",
+          "description": "Publica tu proyecto en producción"
+        }
+      ]
+    },
+    "flutter_basico": {
+      "id": "flutter_basico",
+      "enabled": true,
+      "status": "open",
+      "courseTitle": "Flutter GIS Básico",
+      "courseLevel": "🌱 Nivel Junior",
+      "duration": "6 semanas • 30 horas",
+      "description": "Crea tu primera app móvil con mapas interactivos. Sin experiencia previa requerida. De cero a una app funcional en tu portfolio.",
+      "startDate": "2026-03-10T09:00:00",
+      "availableSeats": 0,
+      "totalSeats": 15,
+      "price": {
+        "usd": 20,
+        "bolivianos": 180
+      },
+      "schedule": "Lunes y Miércoles 19:00-21:30",
+      "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
+      "nextCohortDate": "2026-05-05T09:00:00",
+      "features": [
+        "12 clases en vivo",
+        "App funcional al terminar",
+        "Código fuente completo",
+        "Certificado digital",
+        "Grupo de soporte",
+        "Grabaciones de clases"
+      ],
+      "modules": [
+        {
+          "icon": "📌",
+          "title": "Fundamentos Flutter",
+          "description": "Dart y Flutter desde cero"
+        },
+        {
+          "icon": "🎨",
+          "title": "UI/UX Mobile",
+          "description": "Interfaces profesionales"
+        },
+        {
+          "icon": "📍",
+          "title": "Mapas & GPS",
+          "description": "Geolocalización en tu app"
+        },
+        {
+          "icon": "💾",
+          "title": "Persistencia Local",
+          "description": "Guarda datos sin internet"
+        },
+        {
+          "icon": "🏆",
+          "title": "Proyecto Final",
+          "description": "App de levantamiento topográfico"
+        }
+      ]
+    },
+    "gis_pro": {
+      "id": "gis_pro",
+      "enabled": true,
+      "status": "full",
+      "courseTitle": "GIS Pro Mobile",
+      "courseLevel": "🚀 Nivel Avanzado",
+      "duration": "6 semanas • 32 horas",
+      "description": "Desarrolla aplicaciones empresariales con análisis espacial avanzado, sincronización en la nube y publicación en stores oficiales.",
+      "startDate": "2026-02-20T09:00:00",
+      "availableSeats": 0,
       "totalSeats": 20,
       "price": {
         "usd": 30,
         "bolivianos": 250
-      }
-    },
-    "flutter_basico": {
-      "enabled": false,
-      "courseTitle": "Flutter GIS Básico",
-      "courseLevel": "🌱 Nivel Junior",
-      "startDate": "2026-02-25T09:00:00",
-      "availableSeats": 12,
-      "totalSeats": 15,
-      "price": {
-        "usd": 40,
-        "bolivianos": 280
-      }
+      },
+      "schedule": "Martes y Jueves 19:00-22:00",
+      "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
+      "nextCohortDate": "2026-04-22T09:00:00",
+      "features": [
+        "16 clases en vivo",
+        "App publicada en PlayStore",
+        "Código profesional",
+        "Certificado avanzado",
+        "Mentoría 1-a-1",
+        "Portfolio profesional"
+      ],
+      "modules": [
+        {
+          "icon": "🗺️",
+          "title": "Mapas Avanzados",
+          "description": "Google Maps, OSM, capas vectoriales"
+        },
+        {
+          "icon": "🔔",
+          "title": "Push Notifications",
+          "description": "Notificaciones en tiempo real"
+        },
+        {
+          "icon": "🌐",
+          "title": "APIs Geoespaciales",
+          "description": "WMS, WFS y geocodificación"
+        },
+        {
+          "icon": "📊",
+          "title": "Análisis Espacial",
+          "description": "Buffer, intersecciones geodésicas"
+        },
+        {
+          "icon": "📸",
+          "title": "Captura de Campo",
+          "description": "Formularios y fotos geolocalizadas"
+        },
+        {
+          "icon": "☁️",
+          "title": "Cloud & Deploy",
+          "description": "Sincronización y publicación"
+        }
+      ]
     }
   }
 }

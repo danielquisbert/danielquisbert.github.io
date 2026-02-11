@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cursos prácticos de Flutter y GeoServer. Aprende a crear apps móviles y mapas web con proyectos reales.">
-    <title>Cursos de Flutter & GIS | Daniel Quisbert</title>
+    <meta name="description" content="Cursos prácticos de Flutter y GeoServer. Comunidad de profesionales en tecnologías geoespaciales.">
+    <title>GeoNexus | Cursos Flutter & GIS</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,544 +15,514 @@
         }
 
         :root {
-            --primary-dark: #0a0e1a;
-            --secondary-dark: #151b2d;
-            --accent-green: #39d353;
-            --accent-blue: #4A90E2;
-            --accent-purple: #8B5CF6;
-            --accent-orange: #F59E0B;
-            --text-light: #ffffff;
-            --text-gray: #c9d1d9;
-            --gradient-primary: linear-gradient(135deg, #39d353 0%, #2ea043 100%);
-            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-course: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+            --bg-primary: #050a14;
+            --bg-secondary: #080f1e;
+            --bg-card: #0d1625;
+            --accent-cyan: #00e5ff;
+            --accent-green: #39ff14;
+            --accent-purple: #c77dff;
+            --accent-orange: #ff6b35;
+            --accent-yellow: #ffd60a;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255,255,255,0.75);
+            --text-muted: rgba(255,255,255,0.45);
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--primary-dark);
-            color: var(--text-light);
+            font-family: 'Exo 2', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 14, 26, 0.95);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(57, 211, 83, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-gray);
-            transition: all 0.3s ease;
-            position: relative;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-green);
-        }
-
-        .nav-cta {
-            background: var(--gradient-primary);
-            padding: 0.6rem 1.5rem;
-            border-radius: 25px;
-            color: white !important;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(57, 211, 83, 0.3);
-        }
-
-        /* Hero Section */
+        /* =====================
+           HERO SECTION (GeoNexus Style)
+        ===================== */
         .hero {
             min-height: 100vh;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             overflow: hidden;
-            padding-top: 80px;
+            padding: 2rem;
         }
 
-        .hero-background {
+        /* Grid background */
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,180,255,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,180,255,0.06) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
+        }
+
+        /* Radial gradient overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 80% at 55% 50%,
+                rgba(0,180,255,0.12) 0%,
+                rgba(20,40,100,0.4) 50%,
+                rgba(8,15,30,0.95) 100%);
+            z-index: 0;
+        }
+
+        .hero-container {
+            max-width: 1200px;
             width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(57, 211, 83, 0.1) 0%, transparent 50%);
-            animation: float 8s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-20px) scale(1.05); }
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 2;
-            max-width: 900px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 0 2rem;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(57, 211, 83, 0.1);
-            border: 1px solid rgba(57, 211, 83, 0.3);
-            padding: 0.5rem 1.2rem;
-            border-radius: 25px;
-            color: var(--accent-green);
+        /* Corner decorations */
+        .corner-tl, .corner-br {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            z-index: 5;
+        }
+
+        .corner-tl {
+            top: 20px;
+            left: 20px;
+            border-top: 2px solid rgba(0,229,255,0.5);
+            border-left: 2px solid rgba(0,229,255,0.5);
+        }
+
+        .corner-br {
+            bottom: 20px;
+            right: 20px;
+            border-bottom: 2px solid rgba(57,255,20,0.5);
+            border-right: 2px solid rgba(57,255,20,0.5);
+        }
+
+        /* Scan line */
+        .scanline {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0,229,255,0.4), transparent);
+            z-index: 3;
+            animation: scan 6s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            5% { opacity: 1; }
+            95% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        /* Glow effect */
+        .glow-left {
+            position: absolute;
+            left: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0,180,255,0.15) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Map pins */
+        .map-pins {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .pin {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: pinPulse 3s ease-in-out infinite;
+            animation-delay: var(--del, 0s);
+        }
+
+        .pin-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--color, #00e5ff);
+            box-shadow: 0 0 12px var(--color, #00e5ff), 0 0 24px var(--color, #00e5ff);
+        }
+
+        .pin-line {
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to bottom, var(--color, #00e5ff), transparent);
+        }
+
+        .pin-ring {
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 1px solid var(--color, #00e5ff);
+            animation: ringExpand 3s ease-out infinite;
+            animation-delay: var(--del, 0s);
+            opacity: 0.5;
+        }
+
+        @keyframes pinPulse {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        @keyframes ringExpand {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
+        /* Connection lines */
+        .connections {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        /* Particles */
+        .particles {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: floatP var(--dur, 8s) ease-in-out infinite;
+            animation-delay: var(--del, 0s);
+        }
+
+        @keyframes floatP {
+            0%, 100% { transform: translate(0,0) scale(1); opacity: var(--op, 0.6); }
+            50% { transform: translate(var(--tx,10px), var(--ty,-15px)) scale(1.2); opacity: 1; }
+        }
+
+        /* Hero Content */
+        .hero-content {
+            position: relative;
+            max-width: 620px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(0,180,255,0.12);
+            border: 1px solid rgba(0,180,255,0.3);
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00e5ff;
+            box-shadow: 0 0 8px #00e5ff;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .eyebrow-text {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #00e5ff;
             font-weight: 600;
-            margin-bottom: 1.5rem;
-            animation: fadeInDown 0.8s ease;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            animation: fadeInUp 1s ease 0.2s both;
+        .brand-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -2px;
+            margin-bottom: 6px;
         }
 
-        .hero .highlight {
-            background: var(--gradient-primary);
+        .brand-geo {
+            color: #ffffff;
+            text-shadow:
+                0 0 30px rgba(255,255,255,0.3),
+                0 0 60px rgba(0,180,255,0.2);
+        }
+
+        .brand-nexus {
+            background: linear-gradient(135deg, #00b4ff 0%, #00e5ff 40%, #39ff14 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(0,200,255,0.6));
         }
 
-        .hero .subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            color: var(--text-gray);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease 0.4s both;
+        .brand-tagline {
+            font-size: 16px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 32px;
+            font-weight: 300;
         }
 
-        .hero-ctas {
+        .divider {
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, #00b4ff, #39ff14, transparent);
+            border-radius: 2px;
+            margin-bottom: 28px;
+        }
+
+        .description {
+            font-size: 17px;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.6;
+            margin-bottom: 36px;
+            max-width: 500px;
+            font-weight: 300;
+        }
+
+        .tech-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .chip {
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-family: 'Orbitron', sans-serif;
+            border: 1px solid;
+            text-transform: uppercase;
+        }
+
+        .chip-flutter { color: #54c5f8; border-color: rgba(84,197,248,0.4); background: rgba(84,197,248,0.08); }
+        .chip-geo { color: #39ff14; border-color: rgba(57,255,20,0.4); background: rgba(57,255,20,0.08); }
+        .chip-postgis { color: #ff6b35; border-color: rgba(255,107,53,0.4); background: rgba(255,107,53,0.08); }
+        .chip-web { color: #c77dff; border-color: rgba(199,125,255,0.4); background: rgba(199,125,255,0.08); }
+        .chip-maps { color: #ffd60a; border-color: rgba(255,214,10,0.4); background: rgba(255,214,10,0.08); }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .author-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00b4ff, #39ff14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 16px;
+            color: #080f1e;
+            flex-shrink: 0;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-size: 15px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .author-role {
+            font-size: 12px;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Community CTAs */
+        .community-ctas {
             display: flex;
             gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.6s both;
+            margin-top: 2rem;
         }
 
-        .btn-primary {
+        .btn-whatsapp, .btn-telegram {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: var(--gradient-primary);
-            color: white;
-            text-decoration: none;
+            gap: 0.6rem;
+            padding: 0.9rem 1.8rem;
             border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.05rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
         }
 
-        .btn-primary:hover {
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #20ba5a;
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(57, 211, 83, 0.3);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
         }
 
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
+        .btn-telegram {
             background: transparent;
-            color: var(--text-light);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: var(--accent-cyan);
+            border: 2px solid rgba(0, 229, 255, 0.3);
         }
 
-        .btn-secondary:hover {
-            border-color: var(--accent-green);
-            background: rgba(57, 211, 83, 0.1);
+        .btn-telegram:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 229, 255, 0.1);
+            transform: translateY(-2px);
         }
 
-        /* Social Proof Banner */
-        .social-proof {
-            background: var(--secondary-dark);
-            padding: 2rem 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(57, 211, 83, 0.1);
-            border-bottom: 1px solid rgba(57, 211, 83, 0.1);
+        /* Globe */
+        .globe-wrapper {
+            position: relative;
+            width: 520px;
+            height: 520px;
+            flex-shrink: 0;
         }
 
-        .social-proof-grid {
-            max-width: 1000px;
+        .globe {
+            width: 100%;
+            height: 100%;
+            animation: globeSpin 30s linear infinite;
+            filter: drop-shadow(0 0 40px rgba(0,200,255,0.5));
+        }
+
+        @keyframes globeSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* =====================
+           COURSES SECTION
+        ===================== */
+        .courses-section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
         }
 
-        .proof-item {
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
             text-align: center;
-        }
-
-        .proof-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
+            margin-bottom: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00b4ff 0%, #39ff14 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            display: block;
-            margin-bottom: 0.5rem;
         }
 
-        .proof-label {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-        }
-
-        /* Sections */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-badge {
-            display: inline-block;
-            background: rgba(74, 144, 226, 0.1);
-            border: 1px solid rgba(74, 144, 226, 0.3);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            color: var(--accent-blue);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .section-description {
-            font-size: 1.15rem;
-            color: var(--text-gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .profile-card {
-            background: var(--secondary-dark);
-            padding: 2rem;
-            border-radius: 25px;
-            border: 1px solid rgba(57, 211, 83, 0.2);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-primary);
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid var(--accent-green);
-            padding: 4px;
-            margin: 0 auto 1.5rem;
-            object-fit: cover;
-            background: var(--secondary-dark);
-        }
-
-        .profile-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .profile-title {
-            color: var(--accent-green);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--accent-green);
-        }
-
-        .about-text p {
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .about-highlights {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .highlight-item {
-            background: rgba(57, 211, 83, 0.05);
-            padding: 1rem;
-            border-radius: 15px;
-            border: 1px solid rgba(57, 211, 83, 0.2);
-        }
-
-        .highlight-item strong {
-            color: var(--accent-green);
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-
-        /* ge0tic Showcase */
-        .geotic-showcase {
-            background: var(--secondary-dark);
-            border-radius: 30px;
-            padding: 4rem 3rem;
-            border: 1px solid rgba(57, 211, 83, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .geotic-showcase::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(57, 211, 83, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .geotic-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .geotic-info h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .geotic-badge {
-            display: inline-block;
-            background: rgba(245, 158, 11, 0.2);
-            color: var(--accent-orange);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .geotic-features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .geotic-features li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: var(--text-gray);
-        }
-
-        .geotic-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-green);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .geotic-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            background: rgba(57, 211, 83, 0.05);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(57, 211, 83, 0.2);
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent-green);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-
-        .geotic-media {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .media-badge {
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            padding: 1rem 1.5rem;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .media-badge:hover {
-            transform: translateX(10px);
-            border-color: var(--accent-purple);
-        }
-
-        .media-icon {
-            font-size: 2rem;
-        }
-
-        .media-text strong {
-            display: block;
-            margin-bottom: 0.3rem;
-            color: var(--accent-purple);
-        }
-
-        .media-text span {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-
-        /* Courses Section */
         .courses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        @media (min-width: 1400px) {
-            .courses-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
         }
 
         .course-card {
-            background: var(--secondary-dark);
+            background: var(--bg-card);
             border-radius: 25px;
             overflow: hidden;
-            border: 1px solid rgba(74, 144, 226, 0.2);
+            border: 1px solid rgba(0, 180, 255, 0.2);
             transition: all 0.3s ease;
             position: relative;
         }
 
         .course-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(74, 144, 226, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 180, 255, 0.2);
+            border-color: rgba(0, 229, 255, 0.4);
         }
 
         .course-header {
-            background: var(--gradient-course);
             padding: 2rem;
             text-align: center;
             position: relative;
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
         }
 
         .course-header.geoserver {
             background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+        }
+
+        .course-header.flutter-basic {
+            background: linear-gradient(135deg, #54c5f8 0%, #4A90E2 100%);
+        }
+
+        .course-header.gis-pro {
+            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+        }
+
+        .course-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-open {
+            background: rgba(57, 255, 20, 0.2);
+            color: #39ff14;
+            border: 1px solid rgba(57, 255, 20, 0.5);
+        }
+
+        .status-full {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+            border: 1px solid rgba(255, 107, 53, 0.5);
+        }
+
+        .status-closed {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .course-level {
@@ -565,14 +536,15 @@
         }
 
         .course-title {
-            font-size: 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
             font-weight: 800;
         }
 
         .course-duration {
             opacity: 0.9;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .course-body {
@@ -580,40 +552,9 @@
         }
 
         .course-description {
-            color: var(--text-gray);
+            color: var(--text-secondary);
             margin-bottom: 2rem;
             line-height: 1.7;
-        }
-
-        .course-modules {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .course-modules li {
-            padding: 1rem;
-            margin-bottom: 0.8rem;
-            background: rgba(74, 144, 226, 0.05);
-            border-radius: 12px;
-            border-left: 3px solid var(--accent-blue);
-            transition: all 0.3s ease;
-        }
-
-        .course-modules li:hover {
-            background: rgba(74, 144, 226, 0.1);
-            transform: translateX(5px);
-        }
-
-        .module-title {
-            font-weight: 600;
-            color: var(--accent-blue);
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-
-        .module-description {
-            font-size: 0.9rem;
-            color: var(--text-gray);
         }
 
         .course-features {
@@ -640,7 +581,7 @@
             align-items: center;
             gap: 0.5rem;
             font-size: 0.9rem;
-            color: var(--text-gray);
+            color: var(--text-secondary);
         }
 
         .feature-item::before {
@@ -649,86 +590,400 @@
             font-weight: bold;
         }
 
-        /* Success Cases */
-        .success-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .course-info {
+            background: rgba(0, 180, 255, 0.05);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 180, 255, 0.1);
         }
 
-        .success-card {
-            background: var(--secondary-dark);
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .info-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .info-value {
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .price-box {
+            background: linear-gradient(135deg, rgba(0, 180, 255, 0.1) 0%, rgba(57, 255, 20, 0.1) 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 180, 255, 0.3);
+            text-align: center;
+        }
+
+        .price-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-amount {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            line-height: 1;
+        }
+
+        .price-alt {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+        }
+
+        .seats-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(57, 255, 20, 0.1);
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(57, 255, 20, 0.3);
+        }
+
+        .seats-indicator.full {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .seats-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #39ff14;
+        }
+
+        .seats-indicator.full .seats-number {
+            color: #ff6b35;
+        }
+
+        .seats-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .course-modules {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .course-modules li {
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.6rem;
+            background: rgba(0, 180, 255, 0.05);
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-cyan);
+            transition: all 0.3s ease;
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+        }
+
+        .course-modules li:hover {
+            background: rgba(0, 180, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .module-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .module-content {
+            flex: 1;
+        }
+
+        .module-title {
+            font-weight: 700;
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .module-description {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .next-cohort {
+            background: rgba(255, 214, 10, 0.1);
+            border: 1px solid rgba(255, 214, 10, 0.3);
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .next-cohort-title {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .next-cohort-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .community-cta-box {
+            background: rgba(57, 255, 20, 0.1);
+            border: 2px solid rgba(57, 255, 20, 0.3);
+            padding: 1.2rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .community-cta-title {
+            color: var(--accent-green);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .community-buttons {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        .community-buttons .btn-whatsapp,
+        .community-buttons .btn-telegram {
+            flex: 1;
+            padding: 0.7rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #39ff14 0%, #2ea043 100%);
+            color: #0a0e1a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(57, 255, 20, 0.3);
+        }
+
+        /* =====================
+           FOOTER
+        ===================== */
+        footer {
+            background: var(--bg-secondary);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(0, 180, 255, 0.1);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 180, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.3rem;
+            border: 1px solid rgba(0, 180, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 25px rgba(0, 180, 255, 0.2);
+        }
+
+        /* Portfolio/Testimonials Toggle */
+        .portfolio-toggle {
+            text-align: center;
+            margin: 3rem 0 2rem;
+        }
+
+        .btn-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--accent-purple);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            cursor: pointer;
+        }
+
+        .btn-toggle:hover {
+            border-color: var(--accent-purple);
+            background: rgba(139, 92, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .portfolio-content {
+            display: none;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+
+        .portfolio-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
             border-radius: 20px;
             overflow: hidden;
             border: 1px solid rgba(139, 92, 246, 0.2);
             transition: all 0.3s ease;
         }
 
-        .success-card:hover {
+        .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
         }
 
-        .success-image {
-            height: 200px;
+        .project-icon {
+            height: 150px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 3.5rem;
         }
 
-        .success-content {
-            padding: 2rem;
+        .project-content {
+            padding: 1.5rem;
         }
 
-        .success-content h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .project-content h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
             color: var(--accent-purple);
         }
 
-        .success-content p {
-            color: var(--text-gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 0.9rem;
         }
 
-        .success-tags {
+        .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
         }
 
-        .success-tag {
+        .project-tag {
             background: rgba(139, 92, 246, 0.1);
             color: var(--accent-purple);
-            padding: 0.4rem 0.9rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
             border: 1px solid rgba(139, 92, 246, 0.3);
         }
 
-        /* Testimonials */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
         .testimonial-video {
-            background: var(--secondary-dark);
-            border-radius: 20px;
+            background: var(--bg-card);
+            border-radius: 15px;
             overflow: hidden;
             border: 1px solid rgba(245, 158, 11, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-video:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.2);
         }
 
         .video-embed {
@@ -747,125 +1002,38 @@
         }
 
         .testimonial-info {
-            padding: 1.5rem;
+            padding: 1rem;
         }
 
-        .testimonial-info h4 {
+        .testimonial-info h5 {
             color: var(--accent-orange);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
         }
 
         .testimonial-info p {
-            color: var(--text-gray);
-            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
         }
 
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, rgba(57, 211, 83, 0.1) 0%, rgba(74, 144, 226, 0.1) 100%);
-            border-radius: 30px;
-            padding: 4rem 3rem;
+        .section-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--accent-purple);
             text-align: center;
-            border: 1px solid rgba(57, 211, 83, 0.2);
         }
 
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        /* Contact Info */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background: var(--secondary-dark);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(57, 211, 83, 0.2);
+        .footer-bottom {
             text-align: center;
-            transition: all 0.3s ease;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 180, 255, 0.1);
+            color: var(--text-muted);
         }
 
-        .contact-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-green);
-        }
-
-        .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-card h4 {
-            margin-bottom: 0.5rem;
-            color: var(--accent-green);
-        }
-
-        .contact-card a {
-            color: var(--text-gray);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-card a:hover {
-            color: var(--accent-green);
-        }
-
-        /* Social Media */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            width: 60px;
-            height: 60px;
-            background: var(--secondary-dark);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            text-decoration: none;
-            border: 1px solid rgba(57, 211, 83, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-green);
-            box-shadow: 0 10px 25px rgba(57, 211, 83, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--secondary-dark);
-            padding: 3rem 2rem 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(57, 211, 83, 0.1);
-            margin-top: 4rem;
-        }
-
-        footer p {
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-        }
-
-        /* WhatsApp Float */
+        /* =====================
+           FLOATING WHATSAPP
+        ===================== */
         .whatsapp-float {
             position: fixed;
             width: 65px;
@@ -898,1155 +1066,605 @@
             100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
         }
 
-        .whatsapp-tooltip {
-            position: absolute;
-            right: 75px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--secondary-dark);
-            color: var(--text-light);
-            padding: 10px 15px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(37, 211, 102, 0.3);
-        }
-
-        .whatsapp-float:hover .whatsapp-tooltip {
-            opacity: 1;
-            right: 80px;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-light);
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        /* Responsive */
+        /* =====================
+           RESPONSIVE
+        ===================== */
         @media (max-width: 968px) {
-            .nav-links {
-                display: none;
+            .hero-container {
+                flex-direction: column;
+                gap: 3rem;
             }
 
-            .mobile-menu {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-content,
-            .geotic-content {
-                grid-template-columns: 1fr;
+            .globe-wrapper {
+                width: 350px;
+                height: 350px;
             }
 
             .courses-grid {
                 grid-template-columns: 1fr;
             }
 
-            .course-card {
-                min-width: auto;
+            .community-buttons {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .brand-name {
+                font-size: 3rem;
             }
 
-            .about-highlights {
-                grid-template-columns: 1fr;
-            }
-
-            .feature-list {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-ctas {
+            .community-ctas {
                 flex-direction: column;
             }
 
-            section {
-                padding: 4rem 1.5rem;
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
 
-            .whatsapp-float {
-                width: 60px;
-                height: 60px;
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .whatsapp-tooltip {
-                display: none;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .success-grid,
+            .projects-grid,
             .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .geotic-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .social-proof-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-        @media (max-width: 968px) {
-            .success-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 640px) {
-            .success-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
-    
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <nav>
-            <div class="logo">Daniel Quisbert</div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#cursos">Cursos GIS</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#testimonios">Testimonios</a></li>
-                <li><a href="#contacto" class="nav-cta">Contáctame</a></li>
-            </ul>
-            <div class="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
-
     <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="hero-background"></div>
-        <div class="hero-content">
-            <div class="hero-badge">🚀 Cursos Prácticos en Vivo</div>
-            <h1>Crea apps móviles profesionales con <span class="highlight">mapas y tecnología GIS</span></h1>
-            <p class="subtitle">Aprende Flutter y GeoServer desde cero. Proyectos reales, clases en vivo y mentoría para que construyas aplicaciones que resuelvan problemas geoespaciales.</p>
-            <div class="hero-ctas">
-                <a href="#cursos" class="btn-primary">
-                    <span>📚</span> Ver Cursos
-                </a>
-                <a href="https://wa.me/59164222142?text=Hola!%20Quiero%20información%20sobre%20los%20cursos" class="btn-secondary" target="_blank">
-                    <span>💬</span> Más Información
-                </a>
+    <section class="hero">
+        <div class="corner-tl"></div>
+        <div class="corner-br"></div>
+        <div class="scanline"></div>
+        <div class="glow-left"></div>
+
+        <!-- Map pins -->
+        <div class="map-pins">
+            <div class="pin" style="top:22%; left:18%; --color:#00e5ff; --del:0s;">
+                <div class="pin-dot"></div>
+                <div class="pin-ring"></div>
+                <div class="pin-line"></div>
+            </div>
+            <div class="pin" style="top:55%; left:12%; --color:#39ff14; --del:1s;">
+                <div class="pin-dot"></div>
+                <div class="pin-ring"></div>
+                <div class="pin-line"></div>
+            </div>
+            <div class="pin" style="top:70%; left:25%; --color:#c77dff; --del:0.5s;">
+                <div class="pin-dot"></div>
+                <div class="pin-ring"></div>
+                <div class="pin-line"></div>
+            </div>
+            <div class="pin" style="top:35%; left:30%; --color:#ffd60a; --del:1.5s;">
+                <div class="pin-dot"></div>
+                <div class="pin-ring"></div>
+                <div class="pin-line"></div>
+            </div>
+            <div class="pin" style="top:80%; left:15%; --color:#ff6b35; --del:2s;">
+                <div class="pin-dot"></div>
+                <div class="pin-ring"></div>
+                <div class="pin-line"></div>
             </div>
         </div>
-    </section>
 
-    <!-- Social Proof -->
-    <div class="social-proof">
-        <div class="social-proof-grid">
-            <div class="proof-item reveal">
-                <span class="proof-number">1000+</span>
-                <span class="proof-label">Usuarios ge0tic</span>
-            </div>
-            <div class="proof-item reveal">
-                <span class="proof-number">300+</span>
-                <span class="proof-label">Estudiantes capacitados</span>
-            </div>
-            <div class="proof-item reveal">
-                <span class="proof-number">100+</span>
-                <span class="proof-label">Apps en Play Store</span>
-            </div>
-            <div class="proof-item reveal">
-                <span class="proof-number">📺</span>
-                <span class="proof-label">Entrevistas en medios</span>
-            </div>
+        <!-- Connection lines -->
+        <svg class="connections" viewBox="0 0 1200 800" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#00e5ff" stop-opacity="0"/>
+                    <stop offset="50%" stop-color="#00e5ff" stop-opacity="0.5"/>
+                    <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#c77dff" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#ffd60a" stop-opacity="0"/>
+                </linearGradient>
+            </defs>
+            <path d="M 200 180 Q 400 250 700 300" stroke="url(#lg1)" stroke-width="1.5" fill="none"/>
+            <path d="M 150 440 Q 350 380 700 300" stroke="url(#lg1)" stroke-width="1" fill="none"/>
+            <path d="M 300 560 Q 500 450 700 300" stroke="url(#lg2)" stroke-width="1" fill="none"/>
+        </svg>
+
+        <!-- Particles -->
+        <div class="particles">
+            <div class="particle" style="top:15%;left:10%;width:4px;height:4px;background:#00e5ff;box-shadow:0 0 8px #00e5ff;--dur:7s;--del:0s;--tx:15px;--ty:-20px;--op:0.7;"></div>
+            <div class="particle" style="top:65%;left:5%;width:3px;height:3px;background:#39ff14;box-shadow:0 0 6px #39ff14;--dur:9s;--del:1s;--tx:-10px;--ty:-15px;--op:0.5;"></div>
+            <div class="particle" style="top:40%;left:15%;width:5px;height:5px;background:#c77dff;box-shadow:0 0 10px #c77dff;--dur:11s;--del:2s;--tx:20px;--ty:10px;--op:0.6;"></div>
+            <div class="particle" style="top:80%;left:20%;width:3px;height:3px;background:#ffd60a;box-shadow:0 0 6px #ffd60a;--dur:8s;--del:0.5s;--tx:-15px;--ty:-10px;--op:0.8;"></div>
+            <div class="particle" style="top:25%;left:85%;width:4px;height:4px;background:#ff6b35;box-shadow:0 0 8px #ff6b35;--dur:10s;--del:1.5s;--tx:10px;--ty:20px;--op:0.6;"></div>
         </div>
-    </div>
 
-    <!-- About Section -->
-    <section id="sobre-mi">
-        <div class="about-content reveal">
-            <div class="about-image">
-                <div class="profile-card">
-                    <img src="danielquisbert2.webp" alt="Daniel Quisbert" class="profile-img">
-                    <div class="profile-name">Daniel Quisbert</div>
-                    <div class="profile-title">Desarrollador & Instructor</div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="eyebrow">
+                    <div class="eyebrow-dot"></div>
+                    <span class="eyebrow-text">Comunidad Geoespacial</span>
                 </div>
-            </div>
-            <div class="about-text">
-                <h3>¿Por qué estos cursos? 💡</h3>
-                <p>He desarrollado aplicaciones para empresas privadas y gubernamentales. Todo lo que enseño viene de proyectos reales en producción.</p>
-                <p>En estos cursos no encontrarás teoría vacía: cada clase es un paso hacia construir tu propia aplicación funcional. Aprenderás las mismas técnicas que uso en apps reales.</p>
-                <div class="about-highlights">
-                    <div class="highlight-item">
-                        <strong>Proyectos Reales</strong>
-                        <span>Construye apps que puedes mostrar en tu portfolio</span>
-                    </div>
-                    <div class="highlight-item">
-                        <strong>Clases en Vivo</strong>
-                        <span>Resuelve dudas en tiempo real mientras programas</span>
-                    </div>
-                    <div class="highlight-item">
-                        <strong>Código Fuente</strong>
-                        <span>Acceso completo a ejemplos y proyectos terminados</span>
-                    </div>
-                    <div class="highlight-item">
-                        <strong>Soporte Continuo</strong>
-                        <span>Grupo de WhatsApp para ayuda después del curso</span>
+                <div class="brand-name">
+                    <span class="brand-geo">GEO</span><br>
+                    <span class="brand-nexus">NEXUS</span>
+                </div>
+                <div class="brand-tagline">by Daniel Quisbert</div>
+                <div class="divider"></div>
+                <p class="description">
+                    Comunidad de profesionales en tecnologías geoespaciales, 
+                    desarrollo mobile y sistemas de información geográfica.
+                </p>
+                <div class="tech-chips">
+                    <span class="chip chip-flutter">Flutter</span>
+                    <span class="chip chip-geo">GeoServer</span>
+                    <span class="chip chip-postgis">PostGIS</span>
+                    <span class="chip chip-web">WebMapping</span>
+                    <span class="chip chip-maps">GIS & Maps</span>
+                </div>
+                <div class="author">
+                    <div class="author-avatar">DQ</div>
+                    <div class="author-info">
+                        <span class="author-name">Daniel Quisbert</span>
+                        <span class="author-role">Geo Developer &amp; Instructor</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ge0tic Showcase -->
-    <section id="geotic">
-        <div class="geotic-showcase reveal">
-            <div class="geotic-content">
-                <div class="geotic-info">
-                    <span class="geotic-badge">⭐ Caso de Éxito</span>
-                    <h3>ge0tic: Educación + Tecnología</h3>
-                    <p>App educativa con mapas que uso como ejemplo real en los cursos. Más de 1000 usuarios aprendiendo geografía de forma interactiva.</p>
-                    <ul class="geotic-features">
-                        <li>Funciona sin internet</li>
-                        <li>Desarrollada 100% con Flutter</li>
-                        <li>Mapas interactivos con GIS</li>
-                        <li>Usada en colegios de Bolivia</li>
-                    </ul>
-                    <div class="geotic-stats">
-                        <div class="stat-card">
-                            <span class="stat-number">1000+</span>
-                            <span class="stat-label">Descargas</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">4.5★</span>
-                            <span class="stat-label">Rating</span>
-                        </div>
-                    </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.ge0tic.bo" target="_blank" class="btn-primary" style="margin-top: 1.5rem;">
-                        <span>📱</span> Ver en Play Store
+                <div class="community-ctas">
+                    <a href="https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA" target="_blank" class="btn-whatsapp">
+                        💬 WhatsApp
+                    </a>
+                    <a href="https://t.me/+oWOMHhrIbytkODVh" target="_blank" class="btn-telegram">
+                        ✈️ Telegram
                     </a>
                 </div>
-                <div class="geotic-media">
-                    <div class="media-badge">
-                        <div class="media-icon">📺</div>
-                        <div class="media-text">
-                            <strong>En medios nacionales</strong>
-                            <span>Entrevistas sobre tecnología educativa</span>
-                        </div>
-                    </div>
-                    <div class="media-badge">
-                        <div class="media-icon">🎓</div>
-                        <div class="media-text">
-                            <strong>En el aula</strong>
-                            <span>Colegios lo usan como herramienta</span>
-                        </div>
-                    </div>
-                    <div class="media-badge">
-                        <div class="media-icon">🚀</div>
-                        <div class="media-text">
-                            <strong>Proyecto desde 2016</strong>
-                            <span>8 años de evolución continua</span>
-                        </div>
-                    </div>
-                </div>
+            </div>
+
+            <div class="globe-wrapper">
+                <svg class="globe" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="globeGrad" cx="35%" cy="35%">
+                            <stop offset="0%" stop-color="#1a3a6e"/>
+                            <stop offset="40%" stop-color="#0d2347"/>
+                            <stop offset="100%" stop-color="#050f1e"/>
+                        </radialGradient>
+                        <clipPath id="circleClip">
+                            <circle cx="250" cy="250" r="220"/>
+                        </clipPath>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <circle cx="250" cy="250" r="240" fill="none" stroke="rgba(0,180,255,0.15)" stroke-width="20"/>
+                    <circle cx="250" cy="250" r="228" fill="none" stroke="rgba(0,180,255,0.1)" stroke-width="2"/>
+                    <circle cx="250" cy="250" r="220" fill="url(#globeGrad)"/>
+                    <g clip-path="url(#circleClip)" filter="url(#glow)">
+                        <path d="M 120 140 Q 140 120 180 130 Q 200 135 210 160 Q 220 185 205 210 Q 190 230 170 225 Q 150 215 135 195 Q 115 170 120 140 Z" fill="rgba(0,180,255,0.25)" stroke="rgba(0,229,255,0.5)" stroke-width="1.5"/>
+                        <path d="M 165 255 Q 185 245 200 260 Q 215 280 210 310 Q 205 340 190 355 Q 175 365 160 355 Q 145 340 148 310 Q 150 280 165 255 Z" fill="rgba(0,180,255,0.2)" stroke="rgba(0,229,255,0.4)" stroke-width="1.5"/>
+                        <path d="M 255 130 Q 275 120 295 128 Q 310 138 308 155 Q 305 170 290 175 Q 270 178 258 165 Q 245 150 255 130 Z" fill="rgba(57,255,20,0.2)" stroke="rgba(57,255,20,0.5)" stroke-width="1.5"/>
+                        <path d="M 265 185 Q 290 178 305 195 Q 320 215 318 250 Q 315 285 300 305 Q 285 320 268 315 Q 252 305 248 275 Q 243 245 250 215 Q 255 195 265 185 Z" fill="rgba(255,107,53,0.2)" stroke="rgba(255,107,53,0.4)" stroke-width="1.5"/>
+                        <path d="M 315 120 Q 345 108 390 118 Q 420 128 430 155 Q 438 180 420 200 Q 400 218 370 215 Q 340 210 320 190 Q 300 168 315 120 Z" fill="rgba(199,125,255,0.2)" stroke="rgba(199,125,255,0.4)" stroke-width="1.5"/>
+                        <path d="M 370 270 Q 395 262 415 272 Q 428 285 422 300 Q 415 315 400 318 Q 382 318 372 305 Q 360 290 370 270 Z" fill="rgba(255,214,10,0.2)" stroke="rgba(255,214,10,0.4)" stroke-width="1.5"/>
+                        <ellipse cx="250" cy="250" rx="220" ry="40" fill="none" stroke="rgba(0,180,255,0.15)" stroke-width="1"/>
+                        <ellipse cx="250" cy="250" rx="220" ry="100" fill="none" stroke="rgba(0,180,255,0.1)" stroke-width="1"/>
+                        <ellipse cx="250" cy="250" rx="220" ry="170" fill="none" stroke="rgba(0,180,255,0.1)" stroke-width="1"/>
+                        <line x1="30" y1="250" x2="470" y2="250" stroke="rgba(0,229,255,0.2)" stroke-width="1"/>
+                        <ellipse cx="250" cy="250" rx="60" ry="220" fill="none" stroke="rgba(0,180,255,0.1)" stroke-width="1"/>
+                        <ellipse cx="250" cy="250" rx="130" ry="220" fill="none" stroke="rgba(0,180,255,0.1)" stroke-width="1"/>
+                        <ellipse cx="250" cy="250" rx="190" ry="220" fill="none" stroke="rgba(0,180,255,0.08)" stroke-width="1"/>
+                        <circle cx="175" cy="175" r="5" fill="#00e5ff" opacity="0.9" filter="url(#glow)"/>
+                        <circle cx="280" cy="155" r="4" fill="#39ff14" opacity="0.8" filter="url(#glow)"/>
+                        <circle cx="340" cy="200" r="5" fill="#c77dff" opacity="0.9" filter="url(#glow)"/>
+                        <circle cx="285" cy="270" r="4" fill="#ff6b35" opacity="0.8" filter="url(#glow)"/>
+                        <circle cx="395" cy="285" r="3" fill="#ffd60a" opacity="0.9" filter="url(#glow)"/>
+                        <circle cx="175" cy="300" r="4" fill="#00e5ff" opacity="0.7" filter="url(#glow)"/>
+                    </g>
+                    <ellipse cx="190" cy="175" rx="70" ry="50" fill="rgba(255,255,255,0.04)" transform="rotate(-25, 190, 175)"/>
+                    <circle cx="250" cy="250" r="235" fill="none" stroke="rgba(0,180,255,0.2)" stroke-width="1" stroke-dasharray="8 4"/>
+                </svg>
             </div>
         </div>
     </section>
 
     <!-- Courses Section -->
-    <section id="cursos">
-        <div class="section-header reveal">
-            <span class="section-badge">📚 Programas de Formación</span>
-            <h2>Cursos Disponibles</h2>
-            <p class="section-description">Aprende haciendo. Cada curso termina con una aplicación real que puedes usar y mostrar.</p>
-        </div>
-        <div class="courses-grid">
-            <!-- Curso Inicial -->
-            <div class="course-card reveal">
-                <div class="course-header">
-                    <div class="course-level">🌱 Nivel Junior</div>
-                    <h3 class="course-title">Flutter GIS Básico</h3>
-                    <p class="course-duration">6 semanas • 30 horas</p>
-                </div>
-                <div class="course-body">
-                    <p class="course-description">Aprende a crear tu primera app móvil con mapas interactivos. Perfecto si trabajas con datos geográficos y quieres crear herramientas propias sin depender de software caro.</p>
-                    
-                    <div class="course-features">
-                        <h4>✨ Lo que obtienes:</h4>
-                        <div class="feature-list">
-                            <div class="feature-item">12 clases en vivo</div>
-                            <div class="feature-item">App funcional al terminar</div>
-                            <div class="feature-item">Código fuente completo</div>
-                            <div class="feature-item">Certificado digital</div>
-                            <div class="feature-item">Grupo de soporte</div>
-                            <div class="feature-item">Grabaciones de clases</div>
-                        </div>
-                    </div>
-
-                    <ul class="course-modules">
-                        <li>
-                            <span class="module-title">📌 Módulo 1: Fundamentos</span>
-                            <span class="module-description">Dart y Flutter desde cero - sin experiencia previa requerida</span>
-                        </li>
-                        <li>
-                            <span class="module-title">🎨 Módulo 2: Interfaces</span>
-                            <span class="module-description">Crea pantallas profesionales y navegación fluida</span>
-                        </li>
-                        <li>
-                            <span class="module-title">📍 Módulo 3: Tu primer mapa</span>
-                            <span class="module-description">Geolocalización GPS y coordenadas en tu app</span>
-                        </li>
-                        <li>
-                            <span class="module-title">💾 Módulo 4: Guardar datos</span>
-                            <span class="module-description">Almacena información local sin internet</span>
-                        </li>
-                        <li>
-                            <span class="module-title">🚀 Módulo 5: Proyecto Final</span>
-                            <span class="module-description">App de levantamiento topográfico lista para usar</span>
-                        </li>
-                    </ul>
-
-                    <a href="https://wa.me/59164222142?text=Hola!%20Quiero%20inscribirme%20al%20curso%20Flutter%20GIS%20Básico" target="_blank" class="btn-primary" style="width: 100%;">
-                        <span>📝</span> Inscribirme Ahora
-                    </a>
-                    <a href="https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA" target="_blank" class="btn-secondary" style="width: 100%; margin-top: 1rem;">
-                        <span>👥</span> Unirme al Grupo
-                    </a>
-                </div>
-            </div>
-
-            <!-- Curso Avanzado -->
-            <div class="course-card reveal">
-                <div class="course-header" style="background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);">
-                    <div class="course-level">🚀 Nivel Avanzado</div>
-                    <h3 class="course-title">GIS Pro Mobile</h3>
-                    <p class="course-duration">6 semanas • 32 horas</p>
-                </div>
-                <div class="course-body">
-                    <p class="course-description">Lleva tus apps al siguiente nivel. Aprende a crear aplicaciones empresariales con análisis espacial avanzado, sincronización en la nube y publicación en tiendas oficiales.</p>
-                    
-                    <div class="course-features">
-                        <h4>✨ Lo que obtienes:</h4>
-                        <div class="feature-list">
-                            <div class="feature-item">16 clases en vivo</div>
-                            <div class="feature-item">App publicada en PlayStore</div>
-                            <div class="feature-item">Código profesional</div>
-                            <div class="feature-item">Certificado avanzado</div>
-                            <div class="feature-item">Mentoría 1-a-1</div>
-                            <div class="feature-item">Portfolio profesional</div>
-                        </div>
-                    </div>
-
-                    <ul class="course-modules">
-                        <li>
-                            <span class="module-title">🗺️ Módulo 1: Mapas Avanzados</span>
-                            <span class="module-description">Google Maps, OpenStreetMap, capas vectoriales y raster</span>
-                        </li>
-                        <li>
-                            <span class="module-title">🔔 Módulo 2: Notificaciones</span>
-                            <span class="module-description">Push notifications en tiempo real para tus usuarios</span>
-                        </li>
-                        <li>
-                            <span class="module-title">🌐 Módulo 3: APIs Geoespaciales</span>
-                            <span class="module-description">Conecta servicios WMS, WFS y geocodificación</span>
-                        </li>
-                        <li>
-                            <span class="module-title">📊 Módulo 4: Análisis Espacial</span>
-                            <span class="module-description">Cálculos geodésicos, buffer, intersecciones</span>
-                        </li>
-                        <li>
-                            <span class="module-title">📸 Módulo 5: Captura de Campo</span>
-                            <span class="module-description">Formularios complejos, fotos con geolocalización</span>
-                        </li>
-                        <li>
-                            <span class="module-title">☁️ Módulo 6: Deploy Profesional</span>
-                            <span class="module-description">Sincronización cloud y publicación en stores</span>
-                        </li>
-                        <li>
-                            <span class="module-title">🏆 Módulo 7: Proyecto Empresarial</span>
-                            <span class="module-description">Sistema GIS completo listo para clientes</span>
-                        </li>
-                    </ul>
-
-                    <a href="https://wa.me/59164222142?text=Hola!%20Quiero%20inscribirme%20al%20curso%20GIS%20Pro%20Mobile" target="_blank" class="btn-primary" style="width: 100%;">
-                        <span>📝</span> Inscribirme Ahora
-                    </a>
-                    <a href="https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA" target="_blank" class="btn-secondary" style="width: 100%; margin-top: 1rem;">
-                        <span>👥</span> Unirme al Grupo
-                    </a>
-                </div>
-            </div>
-
-            <!-- Curso GeoServer -->
-            <div class="course-card reveal">
-                <div class="course-header geoserver">
-                    <div class="course-level">🎯 Nivel Intermedio</div>
-                    <h3 class="course-title">GeoServer Básico-Medio</h3>
-                    <p class="course-duration">4 semanas • 20 horas</p>
-                </div>
-                <div class="course-body">
-                    <p class="course-description">Aprende a publicar tus mapas en la web de forma profesional. Construye servicios geoespaciales que cualquiera puede consultar desde navegadores o aplicaciones móviles.</p>
-                    
-                    <div class="course-features">
-                        <h4>✨ Lo que obtienes:</h4>
-                        <div class="feature-list">
-                            <div class="feature-item">8 clases prácticas</div>
-                            <div class="feature-item">Web app deployada</div>
-                            <div class="feature-item">Código completo</div>
-                            <div class="feature-item">Certificado</div>
-                            <div class="feature-item">Grupo de soporte</div>
-                            <div class="feature-item">Portfolio web</div>
-                        </div>
-                    </div>
-
-                    <ul class="course-modules">
-                        <li>
-                            <span class="module-title">⚙️ Módulo 1: Setup</span>
-                            <span class="module-description">Instala y configura GeoServer en tu computadora</span>
-                        </li>
-                        <li>
-                            <span class="module-title">🗄️ Módulo 2: Base de Datos</span>
-                            <span class="module-description">Conecta PostGIS y publica tus primeras capas</span>
-                        </li>
-                        <li>
-                            <span class="module-title">🗺️ Módulo 3: Servicios WMS</span>
-                            <span class="module-description">Crea mapas consultables con filtros dinámicos</span>
-                        </li>
-                        <li>
-                            <span class="module-title">🌐 Módulo 4: Web Development</span>
-                            <span class="module-description">Integra tus mapas en páginas web con Leaflet</span>
-                        </li>
-                        <li>
-                            <span class="module-title">🏆 Módulo 5: Deploy</span>
-                            <span class="module-description">Publica tu web app con mapas funcionando en vivo</span>
-                        </li>
-                    </ul>
-
-                    <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(56, 142, 60, 0.1) 100%); padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid rgba(76, 175, 80, 0.3);">
-                        <div style="text-align: center; margin-bottom: 1rem;">
-                            <div style="font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">💰 Inversión</div>
-                            <div style="font-size: 2rem; font-weight: 800; color: #4CAF50; line-height: 1;">$30 USD</div>
-                            <div style="font-size: 1.2rem; color: var(--text-gray); margin-top: 0.3rem;">Bs. 250</div>
-                        </div>
-                        <div style="text-align: center; font-size: 0.85rem; color: var(--text-gray); margin-top: 1rem;">
-                            📅 Inicio: <strong style="color: #4CAF50;">24 de Febrero, 2026</strong>
-                        </div>
-                    </div>
-
-                    <a href="https://wa.me/59164222142?text=Hola!%20Quiero%20inscribirme%20al%20curso%20de%20GeoServer%20que%20inicia%20el%2024%20de%20febrero" target="_blank" class="btn-primary" style="width: 100%;">
-                        <span>📝</span> Inscribirme Ahora
-                    </a>
-                    <a href="https://chat.whatsapp.com/C0q6HSFXG92JeDWISChp5Q" target="_blank" class="btn-secondary" style="width: 100%; margin-top: 1rem;">
-                        <span>👥</span> Unirme al Grupo
-                    </a>
-                </div>
-            </div>
+    <section class="courses-section">
+        <h2 class="section-title">Próximos Cursos</h2>
+        <div class="courses-grid" id="coursesContainer">
+            <!-- Courses loaded dynamically -->
         </div>
     </section>
-
-    <!-- Success Cases -->
-    <section id="proyectos">
-        <div class="section-header reveal">
-            <span class="section-badge">💼 Portfolio</span>
-            <h2>Aplicaciones Desarrolladas</h2>
-            <p class="section-description">Proyectos reales en producción. Las mismas técnicas que aprenderás en los cursos.</p>
-        </div>
-        <div class="success-grid">
-    <!-- ARTEC - Ecosistema Completo (mantener) -->
-    <div class="success-card reveal">
-        <div class="success-image">🎓</div>
-        <div class="success-content">
-            <h4>ARTEC - Ecosistema Completo</h4>
-            <p>Desarrollé tanto la plataforma web educativa como la aplicación móvil para ARTEC, centro de capacitación líder en Bolivia. Proyecto integral que incluye gestión de cursos, notificaciones y geolocalización de sucursales.</p>
-            <div class="success-tags">
-                <span class="success-tag">Web + Mobile</span>
-                <span class="success-tag">SPIP CMS</span>
-                <span class="success-tag">Flutter</span>
-                <span class="success-tag">Educación</span>
-            </div>
-            <a href="https://arte-tecnologias.com/" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
-                🔗 Ver Proyecto
-            </a>
-        </div>
-    </div>
-
-    <!-- ARTEC Juniors (NUEVA) -->
-    <div class="success-card reveal">
-        <div class="success-image">🎮</div>
-        <div class="success-content">
-            <h4>ARTEC Juniors - Juegos Educativos</h4>
-            <p>App móvil de juegos educativos diseñada para estudiantes de secundaria. Incluye trivias interactivas de Matemática, Lenguaje, Química y Física para repasar contenidos escolares de forma divertida y efectiva.</p>
-            <div class="success-tags">
-                <span class="success-tag">Gamificación</span>
-                <span class="success-tag">Educación</span>
-                <span class="success-tag">Flutter</span>
-                <span class="success-tag">Trivias</span>
-            </div>
-            <a href="https://play.google.com/store/apps/details?id=com.ge0tic.artecjuniors" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
-                📱 Ver en Play Store
-            </a>
-        </div>
-    </div>
-
-    <!-- TallerPRO (NUEVA) -->
-    <div class="success-card reveal">
-        <div class="success-image">🔧</div>
-        <div class="success-content">
-            <h4>TallerPRO - Gestión de Talleres</h4>
-            <p>Sistema completo para talleres mecánicos que conecta propietarios con sus clientes. La app permite a los clientes rastrear reparaciones en tiempo real, recibir notificaciones de progreso y gestionar servicios de mantenimiento vehicular.</p>
-            <div class="success-tags">
-                <span class="success-tag">B2B</span>
-                <span class="success-tag">Automotriz</span>
-                <span class="success-tag">Flutter</span>
-                <span class="success-tag">Gestión</span>
-            </div>
-            <a href="https://play.google.com/store/apps/details?id=com.gecko.tallerpro" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
-                📱 Ver en Play Store
-            </a>
-        </div>
-    </div>
-
-    <!-- Registraduría Nacional (mantener) -->
-    <div class="success-card reveal">
-        <div class="success-image">🏛️</div>
-        <div class="success-content">
-            <h4>Registraduría Nacional - Colombia</h4>
-            <p>Desarrollo y mantenimiento del portal oficial gubernamental de Colombia. Infraestructura de alta disponibilidad que maneja millones de consultas ciudadanas diarias.</p>
-            <div class="success-tags">
-                <span class="success-tag">Gobierno</span>
-                <span class="success-tag">Alta Disponibilidad</span>
-                <span class="success-tag">Seguridad</span>
-                <span class="success-tag">SPIP CMS</span>
-            </div>
-            <a href="https://registraduria.gov.co" target="_blank" class="btn-secondary" style="margin-top: 1rem;">
-                🔗 Ver Sitio
-            </a>
-        </div>
-    </div>
-</div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonios">
-        <div class="section-header reveal">
-            <span class="section-badge">💬 Testimonios</span>
-            <h2>Lo que dicen sobre ge0tic</h2>
-            <p class="section-description">Profesores y directores compartiendo su experiencia.</p>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-video reveal">
-                <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/GFsKYXBKpVo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="testimonial-info">
-                    <h4>Profesora Escolar</h4>
-                    <p>Testimonio sobre el impacto de ge0tic en la enseñanza</p>
-                </div>
-            </div>
-
-            <div class="testimonial-video reveal">
-                <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/AaoTe21QAvQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="testimonial-info">
-                    <h4>Profesora Escolar</h4>
-                    <p>Experiencia usando ge0tic en el aula</p>
-                </div>
-            </div>
-
-            <div class="testimonial-video reveal">
-                <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/sW124xCu7rw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="testimonial-info">
-                    <h4>Directora de Colegio</h4>
-                    <p>Implementación institucional de la plataforma</p>
-                </div>
-            </div>
-
-            <div class="testimonial-video reveal">
-                <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/q8zXi7m5Ctg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="testimonial-info">
-                    <h4>Entrevista Televisiva</h4>
-                    <p>Cobertura en medios nacionales sobre innovación educativa</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="contacto">
-        
-
-        <div class="contact-grid">
-            <div class="contact-card reveal">
-                <div class="contact-icon">📧</div>
-                <h4>Email</h4>
-                <a href="mailto:dani3l.quisb3rt@gmail.com">dani3l.quisb3rt@gmail.com</a>
-            </div>
-            <div class="contact-card reveal">
-                <div class="contact-icon">📝</div>
-                <h4>Inscripciones</h4>
-                <a href="https://wa.me/59164222142" target="_blank">+591 64222142</a>
-            </div>
-            <div class="contact-card reveal">
-                <div class="contact-icon">💬</div>
-                <h4>Consultas Personales</h4>
-                <a href="https://wa.me/59167145303" target="_blank">+591 67145303</a>
-            </div>
-            <div class="contact-card reveal">
-                <div class="contact-icon">💼</div>
-                <h4>LinkedIn</h4>
-                <a href="https://www.linkedin.com/in/danielquisbert/" target="_blank">danielquisbert</a>
-            </div>
-        </div>
-
-        <div class="social-links reveal">
-            <a href="https://www.youtube.com/@danielquisbert" target="_blank" class="social-link" title="YouTube">
-                📺
-            </a>
-            <a href="https://www.tiktok.com/@danielquisbert.ge0tic" target="_blank" class="social-link" title="TikTok">
-                🎵
-            </a>
-            <a href="https://www.facebook.com/danielquisbert" target="_blank" class="social-link" title="Facebook">
-                📘
-            </a>
-            <a href="https://www.instagram.com/dani3l.quisb3rt/" target="_blank" class="social-link" title="Instagram">
-                📸
-            </a>
-        </div>
-    </section>
-
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/59164222142?text=Hola!%20Quiero%20información%20sobre%20los%20cursos" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
-        <span class="whatsapp-tooltip">¡Inscríbete! 📝</span>
-        💬
-    </a>
 
     <!-- Footer -->
     <footer>
-        <p>© <span id="year"></span> Daniel Quisbert - Cursos de Flutter & GIS</p>
-        <p style="font-size: 0.9rem; margin-top: 0.5rem;">De cero a producción. Código real, apps reales 🚀</p>
-    </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>GeoNexus</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        Comunidad de profesionales en tecnologías geoespaciales y desarrollo mobile.
+                    </p>
+                </div>
 
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="https://wa.me/59164222142" target="_blank">
+                                💬 <span>Inscripciones: +591 64222142</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/59167145303" target="_blank">
+                                💼 <span>Consultoría: +591 67145303</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:dani3l.quisb3rt@gmail.com">
+                                📧 <span>dani3l.quisb3rt@gmail.com</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
+                <div class="footer-section">
+                    <h4>Comunidad</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA" target="_blank">
+                                💬 <span>Grupo de WhatsApp</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/+oWOMHhrIbytkODVh" target="_blank">
+                                ✈️ <span>Canal de Telegram</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
 
-    <style>
-/* Modal Overlay */
-.course-modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 14, 26, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 10000;
-    animation: fadeIn 0.4s ease;
-    overflow-y: auto;
-}
-
-.course-modal-overlay.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
-
-/* Modal Container */
-.course-modal {
-    background: var(--secondary-dark, #151b2d);
-    border-radius: 30px;
-    max-width: 600px;
-    width: 100%;
-    position: relative;
-    border: 2px solid rgba(57, 211, 83, 0.3);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    animation: slideUp 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* Modal Header */
-.modal-header {
-    background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
-    padding: 2rem;
-    text-align: center;
-    position: relative;
-}
-
-.modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.modal-close:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: rotate(90deg);
-}
-
-.modal-badge {
-    display: inline-block;
-    background: rgba(245, 158, 11, 0.3);
-    border: 1px solid rgba(245, 158, 11, 0.6);
-    color: #F59E0B;
-    padding: 0.5rem 1.2rem;
-    border-radius: 25px;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-.modal-header h3 {
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 0.5rem;
-    font-weight: 800;
-}
-
-.modal-level {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-}
-
-/* Modal Body */
-.modal-body {
-    padding: 2.5rem;
-}
-
-.urgency-message {
-    background: rgba(245, 158, 11, 0.1);
-    border: 2px solid rgba(245, 158, 11, 0.4);
-    padding: 1rem 1.5rem;
-    border-radius: 15px;
-    text-align: center;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    color: #F59E0B;
-    font-size: 1.05rem;
-}
-
-/* Countdown */
-.countdown-container {
-    background: linear-gradient(135deg, rgba(57, 211, 83, 0.1) 0%, rgba(74, 144, 226, 0.1) 100%);
-    padding: 2rem;
-    border-radius: 20px;
-    margin-bottom: 2rem;
-}
-
-.countdown-label {
-    text-align: center;
-    color: var(--accent-green, #39d353);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
-
-.countdown-timer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    text-align: center;
-}
-
-.countdown-item {
-    background: var(--primary-dark, #0a0e1a);
-    padding: 1rem;
-    border-radius: 12px;
-    border: 1px solid rgba(57, 211, 83, 0.3);
-}
-
-.countdown-number {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--accent-green, #39d353);
-    display: block;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-
-.countdown-text {
-    font-size: 0.8rem;
-    color: var(--text-gray, #c9d1d9);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Seats Info */
-.seats-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    padding: 1rem 1.5rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-}
-
-.seats-label {
-    color: var(--text-gray, #c9d1d9);
-}
-
-.seats-number {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #EF4444;
-}
-
-/* CTA Button */
-.modal-cta {
-    background: linear-gradient(135deg, #39d353 0%, #2ea043 100%);
-    color: white;
-    padding: 1.2rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-.modal-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(57, 211, 83, 0.4);
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-    .course-modal {
-        margin: 1rem;
-    }
-
-    .modal-body {
-        padding: 1.5rem;
-    }
-
-    .countdown-timer {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .countdown-number {
-        font-size: 1.5rem;
-    }
-
-    .modal-header h3 {
-        font-size: 1.5rem;
-    }
-}
-</style>
-
-    <!-- Modal HTML -->
-<div class="course-modal-overlay" id="courseModal">
-    <div class="course-modal">
-        <div class="modal-header">
-            <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">&times;</button>
-            <div class="modal-badge" id="modalBadge">🔥 Inscripciones Abiertas</div>
-            <h3 id="modalTitle">Flutter GIS Básico</h3>
-            <p class="modal-level" id="modalLevel">🌱 Nivel Inicial</p>
-        </div>
-        <div class="modal-body">
-            <div class="urgency-message" id="urgencyMessage">
-                ⚡ Solo quedan 12 cupos disponibles
-            </div>
-
-            <div class="countdown-container">
-                <div class="countdown-label">⏰ El curso inicia en:</div>
-                <div class="countdown-timer">
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="days">00</span>
-                        <span class="countdown-text">Días</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="hours">00</span>
-                        <span class="countdown-text">Horas</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="minutes">00</span>
-                        <span class="countdown-text">Min</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="seconds">00</span>
-                        <span class="countdown-text">Seg</span>
+                <div class="footer-section">
+                    <h4>Sígueme</h4>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@danielquisbert" target="_blank" class="social-link" title="YouTube">📺</a>
+                        <a href="https://www.tiktok.com/@danielquisbert.ge0tic" target="_blank" class="social-link" title="TikTok">🎵</a>
+                        <a href="https://www.facebook.com/danielquisbert" target="_blank" class="social-link" title="Facebook">📘</a>
+                        <a href="https://www.instagram.com/dani3l.quisb3rt/" target="_blank" class="social-link" title="Instagram">📸</a>
+                        <a href="https://www.linkedin.com/in/danielquisbert/" target="_blank" class="social-link" title="LinkedIn">💼</a>
+                       
                     </div>
                 </div>
             </div>
 
-            <div class="seats-info">
-                <span class="seats-label">Cupos Disponibles:</span>
-                <span class="seats-number" id="seatsAvailable">12/15</span>
+            <!-- Portfolio/Testimonials Toggle -->
+            <div class="portfolio-toggle">
+                <button class="btn-toggle" onclick="togglePortfolio()">
+                    <span id="portfolioIcon">📂</span>
+                    <span id="portfolioText">Ver Portfolio y Testimonios</span>
+                </button>
             </div>
 
-            
-            <a href="https://wa.me/59164222142?text=Hola!%20Quiero%20inscribirme%20al%20curso%20Flutter%20GIS%20Básico" target="_blank" class="btn-primary" style="width: 100%;">
-                <span>💬</span>
-                <span>📝</span> Inscribirme Ahora
-            </a>
+            <div class="portfolio-content" id="portfolioContent">
+                <!-- Projects -->
+                <h3 class="section-subtitle">Portfolio de Proyectos</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-icon">🎓</div>
+                        <div class="project-content">
+                            <h4>ARTEC - Ecosistema Completo</h4>
+                            <p>Plataforma web educativa y app móvil para centro de capacitación líder en Bolivia.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Web + Mobile</span>
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Educación</span>
+                            </div>
+                            <a href="https://arte-tecnologias.com/" target="_blank" class="btn-toggle" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">
+                                🔗 Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">🎮</div>
+                        <div class="project-content">
+                            <h4>ARTEC Juniors</h4>
+                            <p>App de juegos educativos para estudiantes con trivias interactivas.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Gamificación</span>
+                                <span class="project-tag">Flutter</span>
+                            </div>
+                            <a href="https://play.google.com/store/apps/details?id=com.ge0tic.artecjuniors" target="_blank" class="btn-toggle" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">
+                                📱 Play Store
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">🔧</div>
+                        <div class="project-content">
+                            <h4>TallerPRO</h4>
+                            <p>Sistema completo para talleres mecánicos con rastreo en tiempo real.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">B2B</span>
+                                <span class="project-tag">Flutter</span>
+                            </div>
+                            <a href="https://play.google.com/store/apps/details?id=com.gecko.tallerpro" target="_blank" class="btn-toggle" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">
+                                📱 Play Store
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">🏛️</div>
+                        <div class="project-content">
+                            <h4>Registraduría Nacional - Colombia</h4>
+                            <p>Portal gubernamental con millones de consultas diarias.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Gobierno</span>
+                                <span class="project-tag">Alta Disponibilidad</span>
+                            </div>
+                            <a href="https://registraduria.gov.co" target="_blank" class="btn-toggle" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">
+                                🔗 Ver Sitio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonials -->
+                <h3 class="section-subtitle">Testimonios</h3>
+                <div class="testimonials-grid">
+                    <div class="testimonial-video">
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/GFsKYXBKpVo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="testimonial-info">
+                            <h5>Profesora Escolar</h5>
+                            <p>Impacto de ge0tic en la enseñanza</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-video">
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/AaoTe21QAvQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="testimonial-info">
+                            <h5>Profesora Escolar</h5>
+                            <p>Experiencia usando ge0tic</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-video">
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/sW124xCu7rw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="testimonial-info">
+                            <h5>Directora de Colegio</h5>
+                            <p>Implementación institucional</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-video">
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/q8zXi7m5Ctg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="testimonial-info">
+                            <h5>Entrevista Televisiva</h5>
+                            <p>Cobertura en medios nacionales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span id="year"></span> Daniel Quisbert - GeoNexus | De cero a producción 🚀</p>
+            </div>
         </div>
-    </div>
-</div>
-    
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/59167145303?text=Hola!%20Tengo%20una%20consulta%20sobre%20consultoría%20o%20trabajo" class="whatsapp-float" target="_blank" aria-label="Consultoría WhatsApp">
+        💬
+    </a>
 
     <script>
-        // Scroll reveal animation
-        function reveal() {
-            const reveals = document.querySelectorAll('.reveal');
-            for (let i = 0; i < reveals.length; i++) {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveals[i].getBoundingClientRect().top;
-                const elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        }
+        // Set year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        window.addEventListener('scroll', reveal);
-        reveal();
-
-        // Header scroll effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
+        // Toggle Portfolio
+        function togglePortfolio() {
+            const content = document.getElementById('portfolioContent');
+            const icon = document.getElementById('portfolioIcon');
+            const text = document.getElementById('portfolioText');
+            
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                icon.textContent = '✖️';
+                text.textContent = 'Cerrar';
             } else {
-                header.classList.remove('scrolled');
+                icon.textContent = '📂';
+                text.textContent = 'Ver Portfolio y Testimonios';
             }
-        });
+        }
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        // Load courses from config
+        async function loadCourses() {
+            try {
+                const response = await fetch('config.json');
+                const config = await response.json();
+                
+                const coursesContainer = document.getElementById('coursesContainer');
+                const courses = config.courses;
 
-        // Mobile menu functionality (basic)
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenu.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
+                coursesContainer.innerHTML = '';
+
+                Object.keys(courses).forEach(key => {
+                    const course = courses[key];
+                    if (!course.enabled) return;
+
+                    const card = createCourseCard(course, config.community);
+                    coursesContainer.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Error loading courses:', error);
+            }
+        }
+
+        function createCourseCard(course, community) {
+            const card = document.createElement('div');
+            card.className = 'course-card';
+
+            let statusClass = '';
+            let statusText = '';
+            let headerClass = '';
+
+            if (course.id === 'geoserver') {
+                headerClass = 'geoserver';
+            } else if (course.id === 'flutter_basico') {
+                headerClass = 'flutter-basic';
+            } else if (course.id === 'gis_pro') {
+                headerClass = 'gis-pro';
+            }
+
+            if (course.status === 'open') {
+                statusClass = 'status-open';
+                statusText = '✅ Inscripciones Abiertas';
+            } else if (course.status === 'full') {
+                statusClass = 'status-full';
+                statusText = '🔴 Cupo Lleno';
+            } else {
+                statusClass = 'status-closed';
+                statusText = '⏸️ Cerrado';
+            }
+
+            // Build features HTML
+            let featuresHTML = '';
+            if (course.features) {
+                let featureItems = '';
+                course.features.forEach(feature => {
+                    featureItems += `<div class="feature-item">${feature}</div>`;
+                });
+                featuresHTML = `
+                    <div class="course-features">
+                        <h4>✨ Lo que obtienes:</h4>
+                        <div class="feature-list">
+                            ${featureItems}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Build modules HTML
+            let modulesHTML = '';
+            if (course.modules) {
+                course.modules.forEach(module => {
+                    modulesHTML += `
+                        <li>
+                            <div class="module-icon">${module.icon}</div>
+                            <div class="module-content">
+                                <span class="module-title">${module.title}</span>
+                                <span class="module-description">${module.description}</span>
+                            </div>
+                        </li>
+                    `;
+                });
+            }
+
+            let ctaHTML = '';
+            if (course.status === 'open' && course.availableSeats > 0) {
+                const whatsappMsg = encodeURIComponent(`Hola! Quiero inscribirme al curso ${course.courseTitle} que inicia el ${formatDate(course.startDate)}`);
+                ctaHTML = `
+                    <div class="seats-indicator">
+                        <span class="seats-number">${course.availableSeats}/${course.totalSeats}</span>
+                        <span class="seats-label">cupos disponibles</span>
+                    </div>
+                    <a href="https://wa.me/59164222142?text=${whatsappMsg}" target="_blank" class="btn-primary">
+                        📝 Inscribirme Ahora
+                    </a>
+                `;
+            } else if (course.status === 'full' || course.availableSeats === 0) {
+                ctaHTML = `
+                    <div class="seats-indicator full">
+                        <span class="seats-number">0/${course.totalSeats}</span>
+                        <span class="seats-label">cupos disponibles</span>
+                    </div>
+                    <div class="next-cohort">
+                        <div class="next-cohort-title">🎓 Próximo Grupo</div>
+                        <div class="next-cohort-date">${formatDate(course.nextCohortDate)}</div>
+                    </div>
+                    <div class="community-cta-box">
+                        <div class="community-cta-title">Únete a la comunidad para enterarte</div>
+                        <div class="community-buttons">
+                            <a href="${community.whatsapp.url}" target="_blank" class="btn-whatsapp">
+                                💬 WhatsApp
+                            </a>
+                            <a href="${community.telegram.url}" target="_blank" class="btn-telegram">
+                                ✈️ Telegram
+                            </a>
+                        </div>
+                    </div>
+                `;
+            } else {
+                ctaHTML = `
+                    <div class="community-cta-box">
+                        <div class="community-cta-title">Únete para recibir actualizaciones</div>
+                        <div class="community-buttons">
+                            <a href="${community.whatsapp.url}" target="_blank" class="btn-whatsapp">
+                                💬 WhatsApp
+                            </a>
+                            <a href="${community.telegram.url}" target="_blank" class="btn-telegram">
+                                ✈️ Telegram
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                <div class="course-header ${headerClass}">
+                    <div class="course-status ${statusClass}">${statusText}</div>
+                    <div class="course-level">${course.courseLevel}</div>
+                    <h3 class="course-title">${course.courseTitle}</h3>
+                    <p class="course-duration">${course.duration}</p>
+                </div>
+                <div class="course-body">
+                    <p class="course-description">${course.description}</p>
+                    
+                    ${featuresHTML}
+                    
+                    <div class="course-info">
+                        <div class="info-row">
+                            <span class="info-label">📅 Inicio:</span>
+                            <span class="info-value">${formatDate(course.startDate)}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">🕐 Horario:</span>
+                            <span class="info-value">${course.schedule}</span>
+                        </div>
+                    </div>
+
+                    <div class="price-box">
+                        <div class="price-label">💰 Inversión</div>
+                        <div class="price-amount">$${course.price.usd} USD</div>
+                        <div class="price-alt">Bs. ${course.price.bolivianos}</div>
+                    </div>
+
+                    <ul class="course-modules">
+                        ${modulesHTML}
+                    </ul>
+
+                    ${ctaHTML}
+                </div>
+            `;
+
+            return card;
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('es-ES', options);
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCourses);
     </script>
-
-
-    <script>
-// Configuración del Modal de Curso
-let modalConfig = null;
-
-// Cargar configuración desde JSON
-async function loadModalConfig() {
-    try {
-        const response = await fetch('config.json');
-        const config = await response.json();
-        modalConfig = config.modal;
-        
-        if (modalConfig.enabled) {
-            initializeModal();
-        }
-    } catch (error) {
-        console.error('Error loading modal config:', error);
-    }
-}
-
-// Inicializar modal
-function initializeModal() {
-    // Verificar si ya se mostró en esta sesión
-    const modalShown = sessionStorage.getItem('courseModalShown');
-    if (modalShown) return;
-
-    // Configurar contenido
-    document.getElementById('modalTitle').textContent = modalConfig.courseTitle;
-    document.getElementById('modalLevel').textContent = modalConfig.courseLevel;
-    document.getElementById('ctaText').textContent = modalConfig.ctaText;
-    
-    // Configurar CTA
-    const whatsappLink = `https://wa.me/${modalConfig.whatsappNumber}?text=${encodeURIComponent(modalConfig.whatsappMessage)}`;
-    document.getElementById('modalCTA').href = whatsappLink;
-
-    // Mostrar cupos
-    document.getElementById('seatsAvailable').textContent = 
-        `${modalConfig.availableSeats}/${modalConfig.totalSeats}`;
-
-    // Iniciar countdown
-    startCountdown();
-
-    // Mostrar modal después de 2 segundos
-    setTimeout(() => {
-        document.getElementById('courseModal').classList.add('active');
-        sessionStorage.setItem('courseModalShown', 'true');
-    }, 2000);
-}
-
-// Countdown timer
-function startCountdown() {
-    const startDate = new Date(modalConfig.startDate).getTime();
-
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = startDate - now;
-
-        if (distance < 0) {
-            // Curso ya comenzó
-            document.getElementById('urgencyMessage').textContent = 
-                modalConfig.urgencyMessages.courseStarted;
-            clearInterval(countdownInterval);
-            return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById('days').textContent = String(days).padStart(2, '0');
-        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-
-        // Actualizar mensaje de urgencia
-        updateUrgencyMessage(days);
-    }
-
-    updateCountdown();
-    const countdownInterval = setInterval(updateCountdown, 1000);
-}
-
-// Actualizar mensaje de urgencia según días restantes
-function updateUrgencyMessage(daysLeft) {
-    const seats = modalConfig.availableSeats;
-    let message = '';
-
-    if (daysLeft > 7) {
-        message = modalConfig.urgencyMessages.moreThan7Days;
-    } else if (daysLeft > 3) {
-        message = modalConfig.urgencyMessages.lessThan7Days;
-    } else if (daysLeft > 1) {
-        message = modalConfig.urgencyMessages.lessThan3Days;
-    } else {
-        message = modalConfig.urgencyMessages.lessThan24Hours;
-    }
-
-    message = message.replace('{seats}', seats);
-    document.getElementById('urgencyMessage').textContent = message;
-}
-
-// Cerrar modal
-function closeModal() {
-    document.getElementById('courseModal').classList.remove('active');
-}
-
-// Cerrar al hacer clic fuera
-document.addEventListener('click', (e) => {
-    const modal = document.getElementById('courseModal');
-    if (e.target === modal) {
-        closeModal();
-    }
-});
-
-// Cargar configuración al cargar la página
-document.addEventListener('DOMContentLoaded', loadModalConfig);
-</script>
-
-
-    
 </body>
 </html>
