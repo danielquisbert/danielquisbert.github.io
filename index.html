@@ -1572,34 +1572,34 @@
             if (course.status === 'open' && course.availableSeats > 0) {
                 const whatsappMsg = encodeURIComponent(`Hola! Quiero inscribirme al curso ${course.courseTitle} que inicia el ${formatDate(course.startDate)}`);
                 ctaHTML = `
-                    <div class="seats-indicator">
-                        <span class="seats-number">${course.availableSeats}/${course.totalSeats}</span>
-                        <span class="seats-label">cupos disponibles</span>
+                    <div class="course-card status-open priority-high">
+                    <span class="badge badge-live">🔴 Inscripciones Abiertas</span>
+                    <span class="badge badge-seats">18/20 cupos disponibles</span>
+                    
+                    <!-- Contenido del curso -->
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-primary btn-pulse">
+                        <i class="fab fa-whatsapp"></i>
+                        Inscribirme Ahora
+                        </button>
                     </div>
-                    <a href="https://wa.me/59164222142?text=${whatsappMsg}" target="_blank" class="btn-primary">
-                        📝 Inscribirme Ahora
-                    </a>
+                    </div>
                 `;
             } else if (course.status === 'full' || course.availableSeats === 0) {
                 ctaHTML = `
-                    <div class="seats-indicator full">
-                        <span class="seats-number">0/${course.totalSeats}</span>
-                        <span class="seats-label">cupos disponibles</span>
+                    <div class="course-card status-full priority-low opacity-75">
+                    <span class="badge badge-full">❌ Cupos Agotados</span>
+                    <span class="badge badge-next">
+                        📅 Próximo grupo: 15 Abril
+                    </span>
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-outline" data-action="waitlist">
+                        <i class="fas fa-bell"></i>
+                        Anotarme en Lista de Espera
+                        </button>
                     </div>
-                    <div class="next-cohort">
-                        <div class="next-cohort-title">🎓 Próximo Grupo</div>
-                        <div class="next-cohort-date">${formatDate(course.nextCohortDate)}</div>
-                    </div>
-                    <div class="community-cta-box">
-                        <div class="community-cta-title">Únete a la comunidad para enterarte</div>
-                        <div class="community-buttons">
-                            <a href="${community.whatsapp.url}" target="_blank" class="btn-whatsapp">
-                                💬 WhatsApp
-                            </a>
-                            <a href="${community.telegram.url}" target="_blank" class="btn-telegram">
-                                ✈️ Telegram
-                            </a>
-                        </div>
                     </div>
                 `;
             } else {

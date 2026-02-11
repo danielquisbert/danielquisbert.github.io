@@ -3,7 +3,7 @@
     "name": "GeoNexus",
     "tagline": "Comunidad Geoespacial",
     "instructor": "Daniel Quisbert",
-    "email": "info@geonexus.com"
+    "email": "dani3l.quisb3rt@gmail.com"
   },
 
   "community": {
@@ -31,7 +31,7 @@
       "icon": "fas fa-briefcase"
     },
     "support": {
-      "number": "59176742009",
+      "number": "59164222142",
       "label": "Soporte Técnico",
       "icon": "fas fa-headset"
     }
@@ -196,7 +196,7 @@
     {
       "id": "gis_pro",
       "enabled": true,
-      "status": "open",
+      "status": "coming_soon",
       "priority": 2,
       "courseTitle": "GIS Pro Mobile",
       "courseLevel": "🚀 Nivel Avanzado",
