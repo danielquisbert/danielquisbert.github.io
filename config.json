@@ -95,7 +95,7 @@
     "flutter_basico": {
       "id": "flutter_basico",
       "enabled": true,
-      "status": "open",
+      "status": "xxx",
       "courseTitle": "Flutter GIS Básico",
       "courseLevel": "🌱 Nivel Junior",
       "duration": "6 semanas • 30 horas",
@@ -149,7 +149,7 @@
     "gis_pro": {
       "id": "gis_pro",
       "enabled": true,
-      "status": "full",
+      "status": "xxx",
       "courseTitle": "GIS Pro Mobile",
       "courseLevel": "🚀 Nivel Avanzado",
       "duration": "6 semanas • 32 horas",
