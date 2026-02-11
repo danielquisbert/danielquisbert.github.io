@@ -1602,18 +1602,33 @@
                     </div>
                     </div>
                 `;
-            } else {
+            } else if (course.status === 'few_seats' ) {
                 ctaHTML = `
-                    <div class="community-cta-box">
-                        <div class="community-cta-title">Únete para recibir actualizaciones</div>
-                        <div class="community-buttons">
-                            <a href="${community.whatsapp.url}" target="_blank" class="btn-whatsapp">
-                                💬 WhatsApp
-                            </a>
-                            <a href="${community.telegram.url}" target="_blank" class="btn-telegram">
-                                ✈️ Telegram
-                            </a>
-                        </div>
+                    <div class="course-card status-few-seats priority-urgent">
+                    <span class="badge badge-urgency animate-pulse">
+                        🔥 ¡ÚLTIMOS 3 CUPOS!
+                    </span>
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-warning btn-pulse-fast">
+                        <i class="fas fa-fire"></i>
+                        Reservar Mi Cupo YA
+                        </button>
+                    </div>
+                    </div>
+                `;
+            } else if (course.status === 'coming_soon' ) {
+                ctaHTML = `
+                    <div class="course-card status-coming priority-medium">
+                    <span class="badge badge-soon">🔜 Próximamente</span>
+                    <span class="badge badge-date">Inicia: 10 de Marzo</span>
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-outline-primary">
+                        <i class="fas fa-rocket"></i>
+                        Reservar Pre-inscripción
+                        </button>
+                    </div>
                     </div>
                 `;
             }
