@@ -44,81 +44,146 @@
     "timezone": "America/La_Paz"
   },
 
+  
   "courses": [
-  {
-    "id": "flutter_basico",
-    "enabled": true,
-    "status": "coming_soon",
-    "courseTitle": "Flutter GIS Básico",
-    "courseLevel": "🌱 Nivel Junior",
-    "duration": "6 semanas • 30 horas",
-    "description": "Crea apps móviles que capturen datos geográficos en campo. Aprenderás a integrar mapas, usar el GPS y guardar información con fotos sin depender de internet.",
-    "features": [
-      "12 clases en vivo + grabaciones",
-      "App de captura funcional",
-      "Manejo de GPS y Cámara",
-      "Almacenamiento Local (Offline)",
-      "Certificado de participación",
-      "Código fuente base incluido"
-    ],
-    "modules": [
-      { "number": 1, "icon": "📱", "title": "Fundamentos Express", "description": "Dart y Widgets esenciales para apps ágiles." },
-      { "number": 2, "icon": "🗺️", "title": "Mapas Interactivos", "description": "Integración de OpenStreetMap y capas base." },
-      { "number": 3, "icon": "📍", "title": "Geolocalización", "description": "Captura de coordenadas exactas y precisión GPS." },
-      { "number": 4, "icon": "📸", "title": "Formularios Multimedia", "description": "Recolección de datos con texto, listas y fotos." },
-      { "number": 5, "icon": "💾", "title": "Persistencia Offline", "description": "Guardado de datos en el equipo sin conexión." },
-      { "number": 6, "icon": "📤", "title": "Exportación de Datos", "description": "Compartir reportes por WhatsApp y formatos CSV." }
-    ]
-  },
-  {
-    "id": "gis_pro",
-    "enabled": true,
-    "status": "coming_soon",
-    "courseTitle": "Flutter GIS Pro",
-    "courseLevel": "🚀 Nivel Avanzado",
-    "duration": "6 semanas • 32 horas",
-    "description": "Desarrolla soluciones corporativas con geoprocesamiento en vivo, sincronización en la nube y geocercas automáticas para gestión de personal y activos.",
-    "features": [
-      "16 clases en vivo de alto nivel",
-      "Geoprocesamiento en el móvil",
-      "Sincronización con Firebase",
-      "Consumo de servicios WMS/WFS",
-      "Publicación en Play Store",
-      "Mentoría técnica personalizada"
-    ],
-    "modules": [
-      { "number": 1, "icon": "🏗️", "title": "Arquitectura Clean", "description": "Estructura profesional para apps escalables." },
-      { "number": 2, "icon": "🌐", "title": "Servicios OGC", "description": "Conexión directa con GeoServer (WMS/WFS)." },
-      { "number": 3, "icon": "🔥", "title": "Cloud Real-time", "description": "Sincronización con Firebase y mapas multiusuario." },
-      { "number": 4, "icon": "📐", "title": "Análisis Espacial", "description": "Cálculo de áreas, distancias y perímetros en pantalla." },
-      { "number": 5, "icon": "🚨", "title": "Geofencing", "description": "Alertas automáticas al entrar o salir de polígonos." },
-      { "number": 6, "icon": "🚀", "title": "Deploy Pro", "description": "Generación de App Bundle y subida a tiendas." }
-    ]
-  },
-  {
-    "id": "geoserver",
-    "enabled": true,
-    "status": "full",
-    "courseTitle": "GeoServer & Security",
-    "courseLevel": "🎯 Nivel Intermedio",
-    "duration": "4 semanas • 20 horas",
-    "description": "Domina la publicación de servicios geoespaciales bajo estándares internacionales, asegurando tus datos con protocolos de acceso restringido.",
-    "features": [
-      "8 clases prácticas intensivas",
-      "Configuración de Seguridad avanzada",
-      "Estilizado de mapas con SLD/CSS",
-      "Optimización de Base de Datos",
-      "Visor web con Leaflet incluido",
-      "Despliegue en servidor VPS"
-    ],
-    "modules": [
-      { "number": 1, "icon": "⚙️", "title": "Arquitectura & PostGIS", "description": "Instalación y tunning de base de datos espacial." },
-      { "number": 2, "icon": "🎨", "title": "Simbología Avanzada", "description": "Diseño de mapas profesionales con SLD y CSS." },
-      { "number": 3, "icon": "🔒", "title": "Seguridad & Usuarios", "description": "Restricción de capas y servicios mediante roles." },
-      { "number": 4, "icon": "⚡", "title": "Filtros CQL", "description": "Consultas dinámicas y potentes desde la URL." },
-      { "number": 5, "icon": "🖥️", "title": "Visor Web Pro", "description": "Integración completa con Leaflet y paneles." },
-      { "number": 6, "icon": "☁️", "title": "Producción Real", "description": "Publicación en la nube para acceso global." }
-    ]
-  }
-]
+    {
+      "id": "flutter_basico",
+      "enabled": true,
+      "status": "coming_soon",
+      "priority": 1,
+      "courseTitle": "Flutter GIS Básico",
+      "courseLevel": "🌱 Nivel Junior",
+      "slug": "flutter-gis-basico",
+      "duration": "6 semanas • 30 horas",
+      "description": "Crea apps móviles que capturen datos geográficos en campo. Aprenderás a integrar mapas, usar el GPS y guardar información con fotos sin depender de internet.",
+      "startDate": "2026-03-10T09:00:00-04:00",
+      "endDate": "2026-04-21T21:30:00-04:00",
+      "availableSeats": 15,
+      "totalSeats": 15,
+      "price": {
+        "usd": 35,
+        "bolivianos": 240,
+        "earlyBirdDiscount": 0.20,
+        "earlyBirdDeadline": "2026-03-03T23:59:59-04:00"
+      },
+      "schedule": "Lunes y Miércoles 19:00-21:30",
+      "modality": "Online en Vivo + Grabaciones",
+      "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
+      "nextCohort": {
+        "startDate": "2026-05-05T09:00:00-04:00",
+        "waitlistEnabled": false
+      },
+      "features": [
+        "Certificación Digital por ARTECLAB",
+        "12 clases en vivo + grabaciones",
+        "App de captura funcional",
+        "Manejo de GPS y Cámara",
+        "Almacenamiento Local (Offline)",
+        "Código fuente base incluido"
+      ],
+      "modules": [
+        { "number": 1, "icon": "📱", "title": "Fundamentos Express", "description": "Dart y Widgets esenciales para apps ágiles." },
+        { "number": 2, "icon": "🗺️", "title": "Mapas Interactivos", "description": "Integración de OpenStreetMap y capas base." },
+        { "number": 3, "icon": "📍", "title": "Geolocalización", "description": "Captura de coordenadas exactas y precisión GPS." },
+        { "number": 4, "icon": "📸", "title": "Formularios Multimedia", "description": "Recolección de datos con texto, listas y fotos." },
+        { "number": 5, "icon": "💾", "title": "Persistencia Offline", "description": "Guardado de datos en el equipo sin conexión." },
+        { "number": 6, "icon": "📤", "title": "Exportación de Datos", "description": "Compartir reportes por WhatsApp y formatos CSV." }
+      ],
+      "requirements": ["Ganas de aprender", "Laptop/PC", "Smartphone Android"],
+      "tags": ["flutter", "mobile", "gps", "offline"]
+    },
+    {
+      "id": "gis_pro",
+      "enabled": true,
+      "status": "coming_soon",
+      "priority": 2,
+      "courseTitle": "Flutter GIS Pro",
+      "courseLevel": "🚀 Nivel Avanzado",
+      "slug": "gis-pro-mobile",
+      "duration": "6 semanas • 32 horas",
+      "description": "Desarrolla soluciones corporativas con geoprocesamiento en vivo, sincronización en la nube y geocercas automáticas para gestión de activos.",
+      "startDate": "2026-02-20T09:00:00-04:00",
+      "endDate": "2026-04-02T22:00:00-04:00",
+      "availableSeats": 18,
+      "totalSeats": 20,
+      "price": {
+        "usd": 50,
+        "bolivianos": 350,
+        "earlyBirdDiscount": 0.15,
+        "earlyBirdDeadline": "2026-02-13T23:59:59-04:00"
+      },
+      "schedule": "Martes y Jueves 19:00-22:00",
+      "modality": "Online en Vivo + Mentoría",
+      "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
+      "nextCohort": {
+        "startDate": "2026-04-22T09:00:00-04:00",
+        "waitlistEnabled": true
+      },
+      "features": [
+        "Certificación Profesional ARTECLAB",
+        "16 clases en vivo de alto nivel",
+        "Geoprocesamiento en el móvil",
+        "Sincronización con Firebase",
+        "Consumo de servicios WMS/WFS",
+        "Publicación en Play Store"
+      ],
+      "modules": [
+        { "number": 1, "icon": "🏗️", "title": "Arquitectura Clean", "description": "Estructura profesional para apps escalables." },
+        { "number": 2, "icon": "🌐", "title": "Servicios OGC", "description": "Conexión directa con GeoServer (WMS/WFS)." },
+        { "number": 3, "icon": "🔥", "title": "Cloud Real-time", "description": "Sincronización con Firebase y mapas multiusuario." },
+        { "number": 4, "icon": "📐", "title": "Análisis Espacial", "description": "Cálculo de áreas, distancias y perímetros en pantalla." },
+        { "number": 5, "icon": "🚨", "title": "Geofencing", "description": "Alertas automáticas al entrar o salir de polígonos." },
+        { "number": 6, "icon": "🚀", "title": "Deploy Pro", "description": "Generación de App Bundle y subida a tiendas." }
+      ],
+      "requirements": ["Conocimientos básicos de Flutter", "Laptop 8GB RAM"],
+      "tags": ["advanced", "firebase", "geoprocessing"]
+    },
+    {
+      "id": "geoserver",
+      "enabled": true,
+      "status": "full",
+      "priority": 3,
+      "courseTitle": "GeoServer & Security",
+      "courseLevel": "🎯 Nivel Intermedio",
+      "slug": "geoserver-basico-medio",
+      "duration": "4 semanas • 20 horas",
+      "description": "Domina la publicación de servicios geoespaciales bajo estándares OGC, asegurando tus datos con protocolos de acceso restringido.",
+      "startDate": "2026-02-24T09:00:00-04:00",
+      "endDate": "2026-03-24T21:00:00-04:00",
+      "availableSeats": 0,
+      "totalSeats": 20,
+      "price": {
+        "usd": 30,
+        "bolivianos": 250,
+        "earlyBirdDiscount": 0.15,
+        "earlyBirdDeadline": "2026-02-17T23:59:59-04:00"
+      },
+      "schedule": "Martes y Jueves 19:00-21:00",
+      "modality": "Online en Vivo",
+      "whatsappGroup": "https://chat.whatsapp.com/C0q6HSFXG92JeDWISChp5Q",
+      "nextCohort": {
+        "startDate": "2026-04-15T09:00:00-04:00",
+        "waitlistEnabled": true
+      },
+      "features": [
+        "Certificación Digital por ARTECLAB",
+        "8 clases prácticas intensivas",
+        "Seguridad de Capas y Servicios",
+        "Estilizado avanzado SLD/CSS",
+        "Filtros CQL dinámicos",
+        "Despliegue en servidor real"
+      ],
+      "modules": [
+        { "number": 1, "icon": "⚙️", "title": "Arquitectura & PostGIS", "description": "Instalación y tunning de base de datos espacial." },
+        { "number": 2, "icon": "🎨", "title": "Simbología Avanzada", "description": "Diseño de mapas profesionales con SLD y CSS." },
+        { "number": 3, "icon": "🔒", "title": "Seguridad & Usuarios", "description": "Restricción de capas y servicios mediante roles." },
+        { "number": 4, "icon": "⚡", "title": "Filtros CQL", "description": "Consultas dinámicas y potentes desde la URL." },
+        { "number": 5, "icon": "🖥️", "title": "Visor Web Pro", "description": "Integración completa con Leaflet y paneles." },
+        { "number": 6, "icon": "☁️", "title": "Producción Real", "description": "Publicación en la nube para acceso global." }
+      ],
+      "requirements": ["Conocimientos GIS", "Laptop"],
+      "tags": ["geoserver", "security", "ogc"]
+    }
+  ]
+
 }
