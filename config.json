@@ -56,7 +56,7 @@
       "slug": "flutter-gis-basico",
       "duration": "6 semanas • 30 horas",
       "description": "Crea apps móviles que capturen datos geográficos en campo. Aprenderás a integrar mapas, usar el GPS y guardar información con fotos sin depender de internet.",
-      "startDate": "2026-03-10T09:00:00-04:00",
+      "startDate": "2026-03-04T09:00:00-04:00",
       "endDate": "2026-04-21T21:30:00-04:00",
       "availableSeats": 15,
       "totalSeats": 15,
@@ -66,11 +66,11 @@
         "earlyBirdDiscount": 0.20,
         "earlyBirdDeadline": "2026-03-03T23:59:59-04:00"
       },
-      "schedule": "Martes y Jueves 20:00-21:30",
+      "schedule": "Miércoles y Viernes 20:00-21:30",
       "modality": "Online en Vivo + Grabaciones",
       "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
       "nextCohort": {
-        "startDate": "2026-05-05T09:00:00-04:00",
+        "startDate": "2026-03-04T09:00:00-04:00",
         "waitlistEnabled": false
       },
       "features": [
