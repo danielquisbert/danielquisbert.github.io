@@ -1,209 +1,277 @@
 {
+  "siteInfo": {
+    "name": "GeoNexus",
+    "tagline": "Comunidad Geoespacial",
+    "instructor": "Daniel Quisbert",
+    "email": "info@geonexus.com"
+  },
+
   "community": {
     "whatsapp": {
       "url": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
-      "label": "Únete al Grupo de WhatsApp"
+      "label": "Únete al Grupo de WhatsApp",
+      "icon": "fab fa-whatsapp"
     },
     "telegram": {
       "url": "https://t.me/+oWOMHhrIbytkODVh",
-      "label": "Únete al Canal de Telegram"
+      "label": "Únete al Canal de Telegram",
+      "icon": "fab fa-telegram"
     }
   },
+
   "contact": {
     "inscription": {
       "number": "59164222142",
-      "label": "Inscripciones"
+      "label": "Inscripciones",
+      "icon": "fas fa-user-plus"
     },
     "consultation": {
       "number": "59167145303",
-      "label": "Consultoría y Trabajo"
+      "label": "Consultoría y Trabajo",
+      "icon": "fas fa-briefcase"
+    },
+    "support": {
+      "number": "59176742009",
+      "label": "Soporte Técnico",
+      "icon": "fas fa-headset"
     }
   },
-  "modal": {
-    "enabled": false,
-    "courseTitle": "GeoServer Básico-Medio",
-    "courseLevel": "🎯 Nivel Intermedio",
-    "startDate": "2026-02-24T09:00:00",
-    "availableSeats": 0,
-    "totalSeats": 20,
-    "whatsappNumber": "59164222142",
-    "whatsappMessage": "Hola! Quiero reservar mi cupo para el curso de GeoServer que inicia el 24 de febrero",
-    "ctaText": "Reservar Mi Cupo Ahora",
-    "urgencyMessages": {
-      "moreThan7Days": "🔥 Inscripciones abiertas - Cupos limitados",
-      "lessThan7Days": "⚡ ¡ÚLTIMA SEMANA! Solo quedan {seats} cupos",
-      "lessThan3Days": "🚨 ¡ÚLTIMOS DÍAS! Solo {seats} lugares disponibles",
-      "lessThan24Hours": "⏰ ¡ÚLTIMO DÍA! Curso inicia mañana - {seats} cupos restantes",
-      "courseStarted": "✅ Curso en progreso - Próximo grupo pronto"
-    }
+
+  "courseDefaults": {
+    "maxSeats": 20,
+    "minSeatsForUrgency": 5,
+    "showCounterWhenSeatsBelow": 8,
+    "timezone": "America/La_Paz"
   },
-  "courses": {
-    "geoserver": {
+
+  "courses": [
+    {
       "id": "geoserver",
       "enabled": true,
       "status": "full",
+      "priority": 3,
       "courseTitle": "GeoServer Básico-Medio",
       "courseLevel": "🎯 Nivel Intermedio",
+      "slug": "geoserver-basico-medio",
       "duration": "4 semanas • 20 horas",
       "description": "Aprende a publicar mapas en la web de forma profesional. Construye servicios geoespaciales accesibles desde navegadores o apps móviles.",
-      "startDate": "2026-02-24T09:00:00",
+      "startDate": "2026-02-24T09:00:00-04:00",
+      "endDate": "2026-03-24T21:00:00-04:00",
       "availableSeats": 0,
       "totalSeats": 20,
       "price": {
         "usd": 30,
-        "bolivianos": 250
+        "bolivianos": 250,
+        "earlyBirdDiscount": 0.15,
+        "earlyBirdDeadline": "2026-02-17T23:59:59-04:00"
       },
       "schedule": "Martes y Jueves 19:00-21:00",
+      "modality": "Online en Vivo",
       "whatsappGroup": "https://chat.whatsapp.com/C0q6HSFXG92JeDWISChp5Q",
-      "nextCohortDate": "2026-04-15T09:00:00",
+      "nextCohort": {
+        "startDate": "2026-04-15T09:00:00-04:00",
+        "waitlistEnabled": true
+      },
       "features": [
-        "8 clases prácticas",
-        "Web app deployada",
-        "Código completo",
-        "Certificado",
-        "Grupo de soporte",
-        "Portfolio web"
+        "8 clases prácticas en vivo",
+        "Web app deployada y funcional",
+        "Código completo + templates",
+        "Certificado digital verificable",
+        "Grupo privado de soporte",
+        "Portfolio web profesional"
       ],
       "modules": [
         {
+          "number": 1,
           "icon": "⚙️",
           "title": "Setup & Configuración",
-          "description": "Instala y configura GeoServer"
+          "description": "Instala y configura GeoServer en tu máquina"
         },
         {
+          "number": 2,
           "icon": "🗄️",
           "title": "PostGIS & Datos",
-          "description": "Conecta bases de datos espaciales"
+          "description": "Conecta bases de datos espaciales y carga datos"
         },
         {
+          "number": 3,
           "icon": "🗺️",
           "title": "Servicios WMS/WFS",
-          "description": "Publica capas y servicios web"
+          "description": "Publica capas y servicios web estándar OGC"
         },
         {
+          "number": 4,
           "icon": "🌐",
           "title": "Web Development",
-          "description": "Integra mapas con Leaflet"
+          "description": "Integra mapas en tu web con Leaflet/OpenLayers"
         },
         {
+          "number": 5,
           "icon": "🚀",
           "title": "Deploy Profesional",
-          "description": "Publica tu proyecto en producción"
+          "description": "Publica tu proyecto en producción (servidor real)"
         }
-      ]
+      ],
+      "requirements": [
+        "Conocimientos básicos de mapas/GIS",
+        "Laptop con 8GB RAM mínimo",
+        "Conocimientos básicos de navegación web"
+      ],
+      "tags": ["geoserver", "webmapping", "postgis", "wms", "wfs"]
     },
-    "flutter_basico": {
+    {
       "id": "flutter_basico",
       "enabled": true,
-      "status": "xxx",
+      "status": "coming_soon",
+      "priority": 1,
       "courseTitle": "Flutter GIS Básico",
       "courseLevel": "🌱 Nivel Junior",
+      "slug": "flutter-gis-basico",
       "duration": "6 semanas • 30 horas",
       "description": "Crea tu primera app móvil con mapas interactivos. Sin experiencia previa requerida. De cero a una app funcional en tu portfolio.",
-      "startDate": "2026-03-10T09:00:00",
-      "availableSeats": 0,
+      "startDate": "2026-03-10T09:00:00-04:00",
+      "endDate": "2026-04-21T21:30:00-04:00",
+      "availableSeats": 15,
       "totalSeats": 15,
       "price": {
-        "usd": 20,
-        "bolivianos": 180
+        "usd": 35,
+        "bolivianos": 240,
+        "earlyBirdDiscount": 0.20,
+        "earlyBirdDeadline": "2026-03-03T23:59:59-04:00"
       },
       "schedule": "Lunes y Miércoles 19:00-21:30",
-      "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
-      "nextCohortDate": "2026-05-05T09:00:00",
+      "modality": "Online en Vivo + Grabaciones",
+      "whatsappGroup": "",
+      "nextCohort": {
+        "startDate": "2026-05-05T09:00:00-04:00",
+        "waitlistEnabled": false
+      },
       "features": [
-        "12 clases en vivo",
-        "App funcional al terminar",
-        "Código fuente completo",
-        "Certificado digital",
-        "Grupo de soporte",
-        "Grabaciones de clases"
+        "12 clases en vivo + grabaciones",
+        "App funcional en tu celular",
+        "Código fuente completo comentado",
+        "Certificado digital al terminar",
+        "Grupo de WhatsApp exclusivo",
+        "Bonus: Publicación en PlayStore"
       ],
       "modules": [
         {
+          "number": 1,
           "icon": "📌",
           "title": "Fundamentos Flutter",
-          "description": "Dart y Flutter desde cero"
+          "description": "Dart y Flutter desde cero absoluto"
         },
         {
+          "number": 2,
           "icon": "🎨",
           "title": "UI/UX Mobile",
-          "description": "Interfaces profesionales"
+          "description": "Interfaces profesionales y responsivas"
         },
         {
+          "number": 3,
           "icon": "📍",
           "title": "Mapas & GPS",
-          "description": "Geolocalización en tu app"
+          "description": "Geolocalización en tiempo real"
         },
         {
+          "number": 4,
           "icon": "💾",
           "title": "Persistencia Local",
-          "description": "Guarda datos sin internet"
+          "description": "Guarda datos sin necesidad de internet"
         },
         {
+          "number": 5,
           "icon": "🏆",
           "title": "Proyecto Final",
-          "description": "App de levantamiento topográfico"
+          "description": "App completa de levantamiento topográfico"
         }
-      ]
+      ],
+      "requirements": [
+        "Ninguno - Desde cero absoluto",
+        "Ganas de aprender programación",
+        "Laptop/PC y smartphone Android"
+      ],
+      "tags": ["flutter", "mobile", "dart", "gps", "beginner"]
     },
-    "gis_pro": {
+    {
       "id": "gis_pro",
       "enabled": true,
-      "status": "xxx",
+      "status": "open",
+      "priority": 2,
       "courseTitle": "GIS Pro Mobile",
       "courseLevel": "🚀 Nivel Avanzado",
+      "slug": "gis-pro-mobile",
       "duration": "6 semanas • 32 horas",
       "description": "Desarrolla aplicaciones empresariales con análisis espacial avanzado, sincronización en la nube y publicación en stores oficiales.",
-      "startDate": "2026-02-20T09:00:00",
-      "availableSeats": 0,
+      "startDate": "2026-02-20T09:00:00-04:00",
+      "endDate": "2026-04-02T22:00:00-04:00",
+      "availableSeats": 18,
       "totalSeats": 20,
       "price": {
-        "usd": 30,
-        "bolivianos": 250
+        "usd": 50,
+        "bolivianos": 350,
+        "earlyBirdDiscount": 0.15,
+        "earlyBirdDeadline": "2026-02-13T23:59:59-04:00"
       },
       "schedule": "Martes y Jueves 19:00-22:00",
-      "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
-      "nextCohortDate": "2026-04-22T09:00:00",
+      "modality": "Online en Vivo + Mentoría 1-a-1",
+      "whatsappGroup": "",
+      "nextCohort": {
+        "startDate": "2026-04-22T09:00:00-04:00",
+        "waitlistEnabled": true
+      },
       "features": [
-        "16 clases en vivo",
-        "App publicada en PlayStore",
-        "Código profesional",
-        "Certificado avanzado",
-        "Mentoría 1-a-1",
-        "Portfolio profesional"
+        "16 clases en vivo de 3 horas",
+        "App publicada en PlayStore/AppStore",
+        "Código production-ready",
+        "Certificado profesional avanzado",
+        "2 sesiones de mentoría 1-a-1",
+        "Portfolio de nivel empresarial"
       ],
       "modules": [
         {
+          "number": 1,
           "icon": "🗺️",
           "title": "Mapas Avanzados",
-          "description": "Google Maps, OSM, capas vectoriales"
+          "description": "Google Maps, OSM, capas vectoriales custom"
         },
         {
+          "number": 2,
           "icon": "🔔",
           "title": "Push Notifications",
-          "description": "Notificaciones en tiempo real"
+          "description": "Firebase Cloud Messaging en tiempo real"
         },
         {
+          "number": 3,
           "icon": "🌐",
           "title": "APIs Geoespaciales",
-          "description": "WMS, WFS y geocodificación"
+          "description": "Integración WMS, WFS y geocodificación"
         },
         {
+          "number": 4,
           "icon": "📊",
           "title": "Análisis Espacial",
-          "description": "Buffer, intersecciones geodésicas"
+          "description": "Buffer, intersecciones, cálculos geodésicos"
         },
         {
+          "number": 5,
           "icon": "📸",
           "title": "Captura de Campo",
-          "description": "Formularios y fotos geolocalizadas"
+          "description": "Formularios dinámicos + fotos geolocalizadas"
         },
         {
+          "number": 6,
           "icon": "☁️",
           "title": "Cloud & Deploy",
-          "description": "Sincronización y publicación"
+          "description": "Sincronización Firebase + publicación en Stores"
         }
-      ]
+      ],
+      "requirements": [
+        "Conocimientos básicos de Flutter/Dart",
+        "Experiencia previa en programación",
+        "Laptop con 8GB RAM y smartphone"
+      ],
+      "tags": ["flutter", "advanced", "gis", "firebase", "production"]
     }
-  }
+  ]
 }
