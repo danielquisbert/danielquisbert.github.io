@@ -1697,7 +1697,7 @@
                         
                     case 'full':
                         cardOpacity = 'opacity-75';
-                        const nextDate = new Date(course.nextCohort.startDate);
+                        const nextDate = course.nextCohort ? new Date(course.nextCohort.startDate) : new Date();
                         const nextDateStr = nextDate.toLocaleDateString('es-BO', options);
                         badge = `<span class="badge badge-full">❌ Cupos Agotados</span>
                                 <span class="badge badge-next">📅 Próximo: ${nextDateStr}</span>`;
@@ -1733,8 +1733,21 @@
                     default:
                         return; // No mostrar cursos con estado desconocido
                     }
+
+                    // 1. Solo añadir clase si no es un string vacío
+                    if (cardOpacity.trim() !== "") {
+                        card.classList.add(cardOpacity);
+                    }
                     
-                    card.classList.add(cardOpacity);
+                    // 2. Generar el innerHTML (lo que ya tienes)
+                    card.innerHTML = `...`; 
+
+                    // 3. El append correcto al contenedor padre
+                    coursesContainer.appendChild(card);
+                    
+                    if (cardOpacity) {
+                        card.classList.add(cardOpacity);
+                    }
                     
                     // Features HTML
                     const featuresHTML = course.features.map(f => 
