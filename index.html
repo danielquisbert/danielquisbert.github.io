@@ -1107,6 +1107,147 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
+        /* ===== BADGES DE ESTADO ===== */
+        .course-badges {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+        }
+
+        .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        }
+
+        .badge-open {
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .badge-urgency {
+        background: rgba(251, 146, 60, 0.15);
+        color: #f97316;
+        border: 1px solid rgba(251, 146, 60, 0.4);
+        animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .badge-seats {
+        background: rgba(59, 130, 246, 0.15);
+        color: #3b82f6;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .badge-soon {
+        background: rgba(139, 92, 246, 0.15);
+        color: #8b5cf6;
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .badge-date {
+        background: rgba(100, 116, 139, 0.15);
+        color: #64748b;
+        border: 1px solid rgba(100, 116, 139, 0.3);
+        }
+
+        .badge-full {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .badge-next {
+        background: rgba(59, 130, 246, 0.15);
+        color: #3b82f6;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .badge-progress {
+        background: rgba(236, 72, 153, 0.15);
+        color: #ec4899;
+        border: 1px solid rgba(236, 72, 153, 0.3);
+        }
+
+        /* ===== BOTONES POR ESTADO ===== */
+        .btn-warning {
+        background: linear-gradient(135deg, #f97316, #ea580c);
+        color: white;
+        border: none;
+        }
+
+        .btn-warning:hover {
+        background: linear-gradient(135deg, #ea580c, #c2410c);
+        transform: translateY(-2px);
+        }
+
+        .btn-pulse {
+        animation: btnPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes btnPulse {
+        0%, 100% {
+            box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.7);
+        }
+        50% {
+            box-shadow: 0 0 0 10px rgba(251, 146, 60, 0);
+        }
+        }
+
+        .btn-outline-primary {
+        background: transparent;
+        color: #3b82f6;
+        border: 2px solid #3b82f6;
+        }
+
+        .btn-outline-primary:hover {
+        background: #3b82f6;
+        color: white;
+        }
+
+        .btn-outline {
+        background: transparent;
+        color: #64748b;
+        border: 2px solid #cbd5e1;
+        }
+
+        .btn-outline:hover:not(:disabled) {
+        background: #f1f5f9;
+        border-color: #94a3b8;
+        }
+
+        .btn-outline:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        }
+
+        /* ===== OPACIDAD PARA CARDS CERRADOS ===== */
+        .opacity-75 {
+        opacity: 0.75;
+        }
+
+        .opacity-60 {
+        opacity: 0.6;
+        }
+
+        /* ===== ANIMACIONES ===== */
+        @keyframes pulse {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.85;
+            transform: scale(1.05);
+        }
+        }
     </style>
 </head>
 <body>
@@ -1495,13 +1636,159 @@
 
                 coursesContainer.innerHTML = '';
 
-                Object.keys(courses).forEach(key => {
-                    const course = courses[key];
+                // Ordenar por prioridad (menor número = mayor prioridad)
+                const sortedCourses = [...courses].sort((a, b) => a.priority - b.priority);
+                
+                sortedCourses.forEach(course => {
                     if (!course.enabled) return;
-
-                    const card = createCourseCard(course, config.community);
-                    coursesContainer.appendChild(card);
+                    
+                    const card = document.createElement('div');
+                    card.className = `course-card status-${course.status}`;
+                    
+                    // Determinar badge y botón según estado
+                    let badge = '';
+                    let button = '';
+                    let cardOpacity = '';
+                    
+                    switch(course.status) {
+                    case 'open':
+                        const seatsLeft = course.availableSeats;
+                        if (seatsLeft <= CONFIG.courseDefaults.minSeatsForUrgency) {
+                        badge = `<span class="badge badge-urgency">🔥 ¡ÚLTIMOS ${seatsLeft} CUPOS!</span>`;
+                        button = `
+                            <a href="https://wa.me/${CONFIG.contact.inscription.number}?text=Hola!%20Quiero%20inscribirme%20en%20el%20curso%20${encodeURIComponent(course.courseTitle)}" 
+                            target="_blank" 
+                            class="btn btn-warning btn-block btn-pulse">
+                            <i class="fas fa-fire"></i>
+                            ¡Reservar Mi Cupo YA!
+                            </a>`;
+                        } else {
+                        badge = `<span class="badge badge-open">✅ Inscripciones Abiertas</span>`;
+                        if (seatsLeft <= CONFIG.courseDefaults.showCounterWhenSeatsBelow) {
+                            badge += `<span class="badge badge-seats">${seatsLeft}/${course.totalSeats} cupos</span>`;
+                        }
+                        button = `
+                            <a href="https://wa.me/${CONFIG.contact.inscription.number}?text=Hola!%20Quiero%20inscribirme%20en%20el%20curso%20${encodeURIComponent(course.courseTitle)}" 
+                            target="_blank" 
+                            class="btn btn-primary btn-block">
+                            <i class="fab fa-whatsapp"></i>
+                            Inscribirme Ahora
+                            </a>`;
+                        }
+                        break;
+                        
+                    case 'coming_soon':
+                        const startDate = new Date(course.startDate);
+                        const options = { day: 'numeric', month: 'long' };
+                        const dateStr = startDate.toLocaleDateString('es-BO', options);
+                        badge = `<span class="badge badge-soon">🔜 Próximamente</span>
+                                <span class="badge badge-date">Inicia: ${dateStr}</span>`;
+                        button = `
+                        <a href="https://wa.me/${CONFIG.contact.inscription.number}?text=Hola!%20Quiero%20reservar%20pre-inscripción%20para%20${encodeURIComponent(course.courseTitle)}" 
+                            target="_blank" 
+                            class="btn btn-outline-primary btn-block">
+                            <i class="fas fa-rocket"></i>
+                            Reservar Pre-inscripción
+                        </a>`;
+                        break;
+                        
+                    case 'full':
+                        cardOpacity = 'opacity-75';
+                        const nextDate = new Date(course.nextCohort.startDate);
+                        const nextDateStr = nextDate.toLocaleDateString('es-BO', options);
+                        badge = `<span class="badge badge-full">❌ Cupos Agotados</span>
+                                <span class="badge badge-next">📅 Próximo: ${nextDateStr}</span>`;
+                        if (course.nextCohort.waitlistEnabled) {
+                        button = `
+                            <a href="https://wa.me/${CONFIG.contact.inscription.number}?text=Hola!%20Quiero%20anotarme%20en%20lista%20de%20espera%20para%20${encodeURIComponent(course.courseTitle)}" 
+                            target="_blank" 
+                            class="btn btn-outline btn-block">
+                            <i class="fas fa-bell"></i>
+                            Lista de Espera
+                            </a>`;
+                        } else {
+                        button = `
+                            <button class="btn btn-outline btn-block" disabled>
+                            <i class="fas fa-lock"></i>
+                            Cupos Agotados
+                            </button>`;
+                        }
+                        break;
+                        
+                    case 'in_progress':
+                        cardOpacity = 'opacity-60';
+                        badge = `<span class="badge badge-progress">🎓 En Progreso</span>`;
+                        button = `
+                        <a href="https://wa.me/${CONFIG.contact.inscription.number}?text=Hola!%20Quiero%20información%20del%20próximo%20grupo%20de%20${encodeURIComponent(course.courseTitle)}" 
+                            target="_blank" 
+                            class="btn btn-outline btn-block">
+                            <i class="fas fa-bell"></i>
+                            Notificarme Próximo Grupo
+                        </a>`;
+                        break;
+                        
+                    default:
+                        return; // No mostrar cursos con estado desconocido
+                    }
+                    
+                    card.classList.add(cardOpacity);
+                    
+                    // Features HTML
+                    const featuresHTML = course.features.map(f => 
+                    `<li><i class="fas fa-check-circle"></i>${f}</li>`
+                    ).join('');
+                    
+                    // Modules HTML
+                    const modulesHTML = course.modules.map(m => 
+                    `<div class="module-item">
+                        <span class="module-icon">${m.icon}</span>
+                        <div>
+                        <strong>${m.title}</strong>
+                        <p>${m.description}</p>
+                        </div>
+                    </div>`
+                    ).join('');
+                    
+                    card.innerHTML = `
+                    <div class="course-badges">
+                        ${badge}
+                    </div>
+                    
+                    <div class="course-level">${course.courseLevel}</div>
+                    <h3 class="course-title">${course.courseTitle}</h3>
+                    <p class="course-description">${course.description}</p>
+                    
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> ${course.duration}</span>
+                        <span><i class="fas fa-calendar"></i> ${course.schedule}</span>
+                        <span><i class="fas fa-video"></i> ${course.modality}</span>
+                    </div>
+                    
+                    <div class="course-price">
+                        <span class="price-usd">$${course.price.usd} USD</span>
+                        <span class="price-bs">Bs. ${course.price.bolivianos}</span>
+                    </div>
+                    
+                    <div class="course-features">
+                        <h4>✨ Incluye:</h4>
+                        <ul>${featuresHTML}</ul>
+                    </div>
+                    
+                    <details class="course-modules">
+                        <summary>📚 Ver Módulos del Curso</summary>
+                        <div class="modules-list">
+                        ${modulesHTML}
+                        </div>
+                    </details>
+                    
+                    <div class="course-actions">
+                        ${button}
+                    </div>
+                    `;
+                    
+                    grid.appendChild(card);
                 });
+
 
             } catch (error) {
                 console.error('Error loading courses:', error);
@@ -1572,63 +1859,48 @@
             if (course.status === 'open' && course.availableSeats > 0) {
                 const whatsappMsg = encodeURIComponent(`Hola! Quiero inscribirme al curso ${course.courseTitle} que inicia el ${formatDate(course.startDate)}`);
                 ctaHTML = `
-                    <div class="course-card status-open priority-high">
-                    <span class="badge badge-live">🔴 Inscripciones Abiertas</span>
-                    <span class="badge badge-seats">18/20 cupos disponibles</span>
-                    
-                    <!-- Contenido del curso -->
-                    
-                    <div class="card-footer">
-                        <button class="btn btn-primary btn-pulse">
-                        <i class="fab fa-whatsapp"></i>
-                        Inscribirme Ahora
-                        </button>
+                    <div class="seats-indicator">
+                        <span class="seats-number">${course.availableSeats}/${course.totalSeats}</span>
+                        <span class="seats-label">cupos disponibles</span>
                     </div>
-                    </div>
+                    <a href="https://wa.me/59164222142?text=${whatsappMsg}" target="_blank" class="btn-primary">
+                        📝 Inscribirme Ahora
+                    </a>
                 `;
             } else if (course.status === 'full' || course.availableSeats === 0) {
                 ctaHTML = `
-                    <div class="course-card status-full priority-low opacity-75">
-                    <span class="badge badge-full">❌ Cupos Agotados</span>
-                    <span class="badge badge-next">
-                        📅 Próximo grupo: 15 Abril
-                    </span>
-                    
-                    <div class="card-footer">
-                        <button class="btn btn-outline" data-action="waitlist">
-                        <i class="fas fa-bell"></i>
-                        Anotarme en Lista de Espera
-                        </button>
+                    <div class="seats-indicator full">
+                        <span class="seats-number">0/${course.totalSeats}</span>
+                        <span class="seats-label">cupos disponibles</span>
                     </div>
+                    <div class="next-cohort">
+                        <div class="next-cohort-title">🎓 Próximo Grupo</div>
+                        <div class="next-cohort-date">${formatDate(course.nextCohortDate)}</div>
                     </div>
-                `;
-            } else if (course.status === 'few_seats' ) {
-                ctaHTML = `
-                    <div class="course-card status-few-seats priority-urgent">
-                    <span class="badge badge-urgency animate-pulse">
-                        🔥 ¡ÚLTIMOS 3 CUPOS!
-                    </span>
-                    
-                    <div class="card-footer">
-                        <button class="btn btn-warning btn-pulse-fast">
-                        <i class="fas fa-fire"></i>
-                        Reservar Mi Cupo YA
-                        </button>
-                    </div>
+                    <div class="community-cta-box">
+                        <div class="community-cta-title">Únete a la comunidad para enterarte</div>
+                        <div class="community-buttons">
+                            <a href="${community.whatsapp.url}" target="_blank" class="btn-whatsapp">
+                                💬 WhatsApp
+                            </a>
+                            <a href="${community.telegram.url}" target="_blank" class="btn-telegram">
+                                ✈️ Telegram
+                            </a>
+                        </div>
                     </div>
                 `;
-            } else if (course.status === 'coming_soon' ) {
+            } else {
                 ctaHTML = `
-                    <div class="course-card status-coming priority-medium">
-                    <span class="badge badge-soon">🔜 Próximamente</span>
-                    <span class="badge badge-date">Inicia: 10 de Marzo</span>
-                    
-                    <div class="card-footer">
-                        <button class="btn btn-outline-primary">
-                        <i class="fas fa-rocket"></i>
-                        Reservar Pre-inscripción
-                        </button>
-                    </div>
+                    <div class="community-cta-box">
+                        <div class="community-cta-title">Únete para recibir actualizaciones</div>
+                        <div class="community-buttons">
+                            <a href="${community.whatsapp.url}" target="_blank" class="btn-whatsapp">
+                                💬 WhatsApp
+                            </a>
+                            <a href="${community.telegram.url}" target="_blank" class="btn-telegram">
+                                ✈️ Telegram
+                            </a>
+                        </div>
                     </div>
                 `;
             }
