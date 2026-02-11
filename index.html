@@ -1635,6 +1635,7 @@
                 const courses = config.courses;
 
                 coursesContainer.innerHTML = '';
+                const options = { day: 'numeric', month: 'long' };
 
                 // Ordenar por prioridad (menor número = mayor prioridad)
                 const sortedCourses = [...courses].sort((a, b) => a.priority - b.priority);
@@ -1679,7 +1680,7 @@
                         
                     case 'coming_soon':
                         const startDate = new Date(course.startDate);
-                        const options = { day: 'numeric', month: 'long' };
+                        
                         const dateStr = startDate.toLocaleDateString('es-BO', options);
                         badge = `<span class="badge badge-soon">🔜 Próximamente</span>
                                 <span class="badge badge-date">Inicia: ${dateStr}</span>`;
@@ -1786,7 +1787,8 @@
                     </div>
                     `;
                     
-                    grid.appendChild(card);
+                    //grid.appendChild(card);
+                    coursesContainer.appendChild(card);
                 });
 
 
