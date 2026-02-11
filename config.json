@@ -41,7 +41,7 @@
     "geoserver": {
       "id": "geoserver",
       "enabled": true,
-      "status": "open",
+      "status": "full",
       "courseTitle": "GeoServer Básico-Medio",
       "courseLevel": "🎯 Nivel Intermedio",
       "duration": "4 semanas • 20 horas",
