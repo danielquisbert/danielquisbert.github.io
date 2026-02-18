@@ -5,7 +5,6 @@
     "instructor": "Daniel Quisbert",
     "email": "dani3l.quisb3rt@gmail.com"
   },
-
   "community": {
     "whatsapp": {
       "url": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
@@ -18,7 +17,6 @@
       "icon": "fab fa-telegram"
     }
   },
-
   "contact": {
     "inscription": {
       "number": "59164222142",
@@ -36,7 +34,6 @@
       "icon": "fas fa-headset"
     }
   },
-
   "courseDefaults": {
     "maxSeats": 20,
     "minSeatsForUrgency": 5,
@@ -44,7 +41,6 @@
     "timezone": "America/La_Paz"
   },
 
-  
   "courses": [
     {
       "id": "flutter_basico",
@@ -141,49 +137,122 @@
     {
       "id": "geoserver",
       "enabled": true,
-      "status": "full",
+      "status": "coming_soon",
       "priority": 3,
-      "courseTitle": "GeoServer & Security",
-      "courseLevel": "🎯 Nivel Intermedio",
-      "slug": "geoserver-basico-medio",
+      "courseTitle": "GeoServer Profesional",
+      "courseLevel": "🎯 Nivel Básico — Intermedio",
+      "slug": "geoserver-profesional",
       "duration": "4 semanas • 20 horas",
-      "description": "Domina la publicación de servicios geoespaciales bajo estándares OGC, asegurando tus datos con protocolos de acceso restringido.",
-      "startDate": "2026-02-24T09:00:00-04:00",
-      "endDate": "2026-03-24T21:00:00-04:00",
-      "availableSeats": 0,
+      "description": "Aprende a publicar, administrar y servir mapas en internet como los profesionales de la industria geoespacial. Desde la instalación hasta producción real en la nube, con integración en web y aplicaciones móviles.",
+      "startDate": "2026-03-17T19:30:00-04:00",
+      "endDate": "2026-04-10T21:30:00-04:00",
+      "availableSeats": 20,
       "totalSeats": 20,
       "price": {
         "usd": 30,
         "bolivianos": 300,
-        "earlyBirdDiscount": 0.15,
-        "earlyBirdDeadline": "2026-02-17T23:59:59-04:00"
+        "earlyBirdDiscount": 0.10,
+        "earlyBirdDeadline": "2026-03-13T23:59:59-04:00"
       },
-      "schedule": "Martes y Jueves 19:00-21:30",
-      "modality": "Online en Vivo",
+      "schedule": "Martes y Jueves 19:30-21:30",
+      "scheduleByCountry": [
+        { "country": "Bolivia",        "flag": "🇧🇴", "time": "19:30 – 21:30 hrs" },
+        { "country": "Perú",           "flag": "🇵🇪", "time": "18:30 – 20:30 hrs" },
+        { "country": "Colombia",       "flag": "🇨🇴", "time": "18:30 – 20:30 hrs" },
+        { "country": "Ecuador",        "flag": "🇪🇨", "time": "18:30 – 20:30 hrs" },
+        { "country": "Chile",          "flag": "🇨🇱", "time": "20:30 – 22:30 hrs" },
+        { "country": "Argentina",      "flag": "🇦🇷", "time": "20:30 – 22:30 hrs" },
+        { "country": "México (CDMX)",  "flag": "🇲🇽", "time": "17:30 – 19:30 hrs" },
+        { "country": "España",         "flag": "🇪🇸", "time": "00:30 – 02:30 hrs" }
+      ],
+      "modality": "Online en Vivo + Grabaciones",
+      "liveHours": 16,
+      "supportHours": 4,
+      "totalHours": 20,
+      "supportFormat": "Sesiones Meet en vivo para consultas y resolución de errores",
+      "instructor": "Daniel Quisbert",
       "whatsappGroup": "https://chat.whatsapp.com/C0q6HSFXG92JeDWISChp5Q",
       "nextCohort": {
-        "startDate": "2026-04-15T09:00:00-04:00",
-        "waitlistEnabled": true
+        "startDate": "2026-03-17T19:30:00-04:00",
+        "waitlistEnabled": false
       },
       "features": [
-        "Certificación Digital por ARTECLAB",
-        "8 clases prácticas intensivas",
-        "Seguridad de Capas y Servicios",
-        "Estilizado avanzado SLD/CSS",
-        "Filtros CQL dinámicos",
-        "Despliegue en servidor real"
+        "Certificación Digital por ARTECLAB con código verificable",
+        "8 clases prácticas en vivo (16 horas)",
+        "4 horas de soporte en vivo por Google Meet",
+        "Publicación de datos vectoriales, raster y PostGIS",
+        "Estilos SLD profesionales y filtros CQL dinámicos",
+        "Seguridad: usuarios, roles y restricción de capas",
+        "Visor web con Leaflet consumiendo tu GeoServer",
+        "Capas GeoServer integradas en app móvil Flutter",
+        "Deploy en servidor Linux en la nube",
+        "Código fuente completo + templates reutilizables"
       ],
       "modules": [
-        { "number": 1, "icon": "⚙️", "title": "Arquitectura & PostGIS", "description": "Instalación y tunning de base de datos espacial." },
-        { "number": 2, "icon": "🎨", "title": "Simbología Avanzada", "description": "Diseño de mapas profesionales con SLD y CSS." },
-        { "number": 3, "icon": "🔒", "title": "Seguridad & Usuarios", "description": "Restricción de capas y servicios mediante roles." },
-        { "number": 4, "icon": "⚡", "title": "Filtros CQL", "description": "Consultas dinámicas y potentes desde la URL." },
-        { "number": 5, "icon": "🖥️", "title": "Visor Web Pro", "description": "Integración completa con Leaflet y paneles." },
-        { "number": 6, "icon": "☁️", "title": "Producción Real", "description": "Publicación en la nube para acceso global." }
+        {
+          "number": 1,
+          "icon": "⚙️",
+          "title": "Arquitectura & Primeros Pasos",
+          "description": "Instalación de GeoServer en Windows y Linux. Workspaces, Stores y publicación de tu primera capa.",
+          "classes": 1,
+          "hours": 2
+        },
+        {
+          "number": 2,
+          "icon": "🗄️",
+          "title": "Publicación de Datos",
+          "description": "Publica vectoriales (Shapefile, GeoJSON), raster (imágenes satelitales, DEM) y capas directamente desde PostGIS.",
+          "classes": 2,
+          "hours": 4
+        },
+        {
+          "number": 3,
+          "icon": "🎨",
+          "title": "Simbología & Estilos SLD",
+          "description": "Diseña estilos profesionales con SLD: reglas por atributo, clasificación temática, etiquetas y estilos para raster.",
+          "classes": 1,
+          "hours": 2
+        },
+        {
+          "number": 4,
+          "icon": "⚡",
+          "title": "Servicios WMS, WFS & Filtros CQL",
+          "description": "Configura servicios OGC estándar y aplica filtros CQL dinámicos directamente desde la URL sin tocar el servidor.",
+          "classes": 1,
+          "hours": 2
+        },
+        {
+          "number": 5,
+          "icon": "🔒",
+          "title": "Seguridad & Control de Acceso",
+          "description": "Gestión de usuarios, roles y permisos. Restricción de capas y servicios por rol a nivel de workspace y capa.",
+          "classes": 1,
+          "hours": 2
+        },
+        {
+          "number": 6,
+          "icon": "🌐",
+          "title": "Visor Web & App Móvil",
+          "description": "Visor de mapas con Leaflet que consume tus servicios WMS/WFS. Integración de capas GeoServer en app móvil Flutter.",
+          "classes": 1,
+          "hours": 2
+        },
+        {
+          "number": 7,
+          "icon": "☁️",
+          "title": "GeoWebCache & Deploy en Producción",
+          "description": "Optimización con tile caching y despliegue completo en servidor Linux en la nube con acceso público.",
+          "classes": 1,
+          "hours": 2
+        }
       ],
-      "requirements": ["Conocimientos GIS", "Laptop"],
-      "tags": ["geoserver", "security", "ogc"]
+      "requirements": [
+        "Conocimientos básicos de mapas o GIS (haber usado QGIS o similar)",
+        "Nociones básicas de bases de datos",
+        "Laptop con mínimo 8GB de RAM",
+        "Conexión a internet estable"
+      ],
+      "tags": ["geoserver", "wms", "wfs", "sld", "cql", "postgis", "leaflet", "flutter", "security", "linux"]
     }
   ]
-
 }
