@@ -180,7 +180,7 @@
         "Certificación Digital por ARTECLAB con código verificable",
         "8 clases prácticas en vivo (16 horas)",
         "4 horas de soporte en vivo por Google Meet",
-        "Publicación de datos vectoriales, raster y PostGIS",
+        "Publicación de datos vectoriales y PostGIS",
         "Estilos SLD profesionales y filtros CQL dinámicos",
         "Seguridad: usuarios, roles y restricción de capas",
         "Visor web con Leaflet consumiendo tu GeoServer",
@@ -201,7 +201,7 @@
           "number": 2,
           "icon": "🗄️",
           "title": "Publicación de Datos",
-          "description": "Publica vectoriales (Shapefile, GeoJSON), raster (imágenes satelitales, DEM) y capas directamente desde PostGIS.",
+          "description": "Publica vectoriales (Shapefile) y capas directamente desde PostGIS.",
           "classes": 2,
           "hours": 4
         },
@@ -209,7 +209,7 @@
           "number": 3,
           "icon": "🎨",
           "title": "Simbología & Estilos SLD",
-          "description": "Diseña estilos profesionales con SLD: reglas por atributo, clasificación temática, etiquetas y estilos para raster.",
+          "description": "Diseña estilos profesionales con SLD: reglas por atributo, clasificación temática, etiquetas",
           "classes": 1,
           "hours": 2
         },
@@ -233,7 +233,7 @@
           "number": 6,
           "icon": "🌐",
           "title": "Visor Web & App Móvil",
-          "description": "Visor de mapas con Leaflet que consume tus servicios WMS/WFS. Integración de capas GeoServer en app móvil Flutter.",
+          "description": "Visor de mapas con Leaflet que consume tus servicios WMS. Integración de capas GeoServer en app móvil Flutter.",
           "classes": 1,
           "hours": 2
         },
@@ -247,7 +247,7 @@
         }
       ],
       "requirements": [
-        "Conocimientos básicos de mapas o GIS (haber usado QGIS o similar)",
+        "Conocimientos básicos de mapas o GIS (haber usado QGIS o similar) o simlemente te gusten los mapas",
         "Nociones básicas de bases de datos",
         "Laptop con mínimo 8GB de RAM",
         "Conexión a internet estable"
