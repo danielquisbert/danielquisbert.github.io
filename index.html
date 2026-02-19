@@ -1905,14 +1905,14 @@
                     }
                     
                     // 2. Generar el innerHTML (lo que ya tienes)
-                    //card.innerHTML = `...`; 
+                    card.innerHTML = `...`; 
 
                     // 3. El append correcto al contenedor padre
-                    //coursesContainer.appendChild(card);
+                    coursesContainer.appendChild(card);
                     
-                    //if (cardOpacity) {
-                      //  card.classList.add(cardOpacity);
-                    //}
+                    if (cardOpacity) {
+                        card.classList.add(cardOpacity);
+                    }
                     
                     // Features HTML
                     const featuresHTML = course.features.map(f => 
