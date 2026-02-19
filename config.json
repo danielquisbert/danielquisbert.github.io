@@ -44,7 +44,7 @@
     {
       "id": "flutter_basico",
       "enabled": true,
-      "status": "coming_soon",
+      "status": "open", //coming_soon
       "priority": 1,
       "courseTitle": "Flutter GIS Básico",
       "courseLevel": "🎯 Nivel Básico — Intermedio",
@@ -186,7 +186,7 @@
     {
       "id": "gis_pro",
       "enabled": true,
-      "status": "coming_soon",
+      "status": "open",
       "priority": 2,
       "courseTitle": "Flutter GIS Pro",
       "courseLevel": "🚀 Nivel Avanzado",
