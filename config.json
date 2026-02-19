@@ -185,8 +185,8 @@
     },
     {
       "id": "gis_pro",
-      "enabled": "coming_soon",
-      "status": "open",
+      "enabled": true,
+      "status": "coming_soon",
       "priority": 2,
       "courseTitle": "Flutter GIS Pro",
       "courseLevel": "🚀 Nivel Avanzado",
