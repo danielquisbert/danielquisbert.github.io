@@ -40,7 +40,6 @@
     "showCounterWhenSeatsBelow": 8,
     "timezone": "America/La_Paz"
   },
-
   "courses": [
     {
       "id": "flutter_basico",
@@ -48,45 +47,141 @@
       "status": "coming_soon",
       "priority": 1,
       "courseTitle": "Flutter GIS Básico",
-      "courseLevel": "🌱 Nivel Junior",
+      "courseLevel": "🎯 Nivel Básico — Intermedio",
       "slug": "flutter-gis-basico",
       "duration": "6 semanas • 30 horas",
-      "description": "Crea apps móviles que capturen datos geográficos en campo. Aprenderás a integrar mapas, usar el GPS y guardar información con fotos sin depender de internet.",
-      "startDate": "2026-03-04T09:00:00-04:00",
-      "endDate": "2026-04-21T21:30:00-04:00",
-      "availableSeats": 15,
-      "totalSeats": 15,
+      "description": "El único curso de Flutter donde trabajas con mapas desde el día uno. Conectas tu app a un servidor GeoServer real, integras GPS y construyes una app Android funcional con datos geoespaciales reales, lista para instalar y mostrar.",
+      "startDate": "2026-03-16T20:00:00-04:00",
+      "endDate": "2026-04-27T22:00:00-04:00",
+      "availableSeats": 20,
+      "totalSeats": 20,
       "price": {
         "usd": 25,
         "bolivianos": 250,
-        "earlyBirdDiscount": 0.20,
-        "earlyBirdDeadline": "2026-03-03T23:59:59-04:00"
+        "earlyBirdDiscount": 0.10,
+        "earlyBirdDeadline": "2026-03-13T23:59:59-04:00"
       },
-      "schedule": "Miércoles y Viernes 20:00-21:30",
+      "schedule": "Lunes y Miércoles 20:00-22:00",
+      "scheduleByCountry": [
+        { "country": "Bolivia",       "flag": "🇧🇴", "time": "20:00 – 22:00 hrs" },
+        { "country": "Perú",          "flag": "🇵🇪", "time": "19:00 – 21:00 hrs" },
+        { "country": "Colombia",      "flag": "🇨🇴", "time": "19:00 – 21:00 hrs" },
+        { "country": "Ecuador",       "flag": "🇪🇨", "time": "19:00 – 21:00 hrs" },
+        { "country": "Chile",         "flag": "🇨🇱", "time": "21:00 – 23:00 hrs" },
+        { "country": "Argentina",     "flag": "🇦🇷", "time": "21:00 – 23:00 hrs" },
+        { "country": "México (CDMX)", "flag": "🇲🇽", "time": "18:00 – 20:00 hrs" },
+        { "country": "España",        "flag": "🇪🇸", "time": "01:00 – 03:00 hrs" }
+      ],
       "modality": "Online en Vivo + Grabaciones",
+      "liveHours": 24,
+      "supportHours": 4,
+      "totalHours": 30,
+      "supportFormat": "1 sesión en vivo por semana durante las primeras 4 semanas",
+      "instructor": "Daniel Quisbert",
       "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
       "nextCohort": {
-        "startDate": "2026-03-04T09:00:00-04:00",
+        "startDate": "2026-03-16T20:00:00-04:00",
         "waitlistEnabled": false
       },
       "features": [
-        "Certificación Digital por ARTECLAB",
-        "12 clases en vivo + grabaciones",
-        "App de captura funcional",
-        "Manejo de GPS y Cámara",
-        "Almacenamiento Local (Offline)",
-        "Código fuente base incluido"
+        "Certificación Digital por ARTECLAB con código verificable",
+        "12 clases prácticas en vivo (24 horas)",
+        "4 horas de sesiones de soporte en vivo semanal",
+        "App Android funcional con mapas y GPS",
+        "Conexión real a GeoServer — capas WMS en el móvil",
+        "Captura de datos GPS con visualización sobre capas del servidor",
+        "Exportación a GeoJSON compatible con QGIS",
+        "APK listo para instalar y distribuir",
+        "Código fuente completo + templates reutilizables",
+        "Grabaciones de todas las clases"
       ],
       "modules": [
-        { "number": 1, "icon": "📱", "title": "Fundamentos Express", "description": "Dart y Widgets esenciales para apps ágiles." },
-        { "number": 2, "icon": "🗺️", "title": "Mapas Interactivos", "description": "Integración de OpenStreetMap y capas base." },
-        { "number": 3, "icon": "📍", "title": "Geolocalización", "description": "Captura de coordenadas exactas y precisión GPS." },
-        { "number": 4, "icon": "📸", "title": "Formularios Multimedia", "description": "Recolección de datos con texto, listas y fotos." },
-        { "number": 5, "icon": "💾", "title": "Persistencia Offline", "description": "Guardado de datos en el equipo sin conexión." },
-        { "number": 6, "icon": "📤", "title": "Exportación de Datos", "description": "Compartir reportes por WhatsApp y formatos CSV." }
+        {
+          "number": 1,
+          "icon": "📱",
+          "title": "Flutter desde Cero con Mentalidad GIS",
+          "description": "Instalación de Flutter en Windows y Linux. Fundamentos de Dart orientados a GIS y tu primera app con mapa interactivo funcionando en tu teléfono Android.",
+          "classes": 2,
+          "hours": 4
+        },
+        {
+          "number": 2,
+          "icon": "🗺️",
+          "title": "Mapas Interactivos & Capas Base",
+          "description": "Integración de flutter_map con OpenStreetMap, control de cámara, marcadores con popups, polilíneas, polígonos y eventos de interacción sobre el mapa.",
+          "classes": 2,
+          "hours": 4
+        },
+        {
+          "number": 3,
+          "icon": "📍",
+          "title": "GPS & Geolocalización Real",
+          "description": "GPS en tiempo real sobre el mapa, gestión de permisos Android, captura de coordenadas, cálculo de distancias y manejo de errores de señal.",
+          "classes": 2,
+          "hours": 4
+        },
+        {
+          "number": 4,
+          "icon": "🌐",
+          "title": "Consumo de Capas GeoServer WMS",
+          "description": "El módulo que hace único este curso. Conecta tu app a un GeoServer real, carga capas WMS profesionales, superpón múltiples capas y aplica filtros CQL dinámicos desde la app.",
+          "classes": 2,
+          "hours": 4
+        },
+        {
+          "number": 5,
+          "icon": "🗂️",
+          "title": "Captura de Datos GPS & Visualización",
+          "description": "Registro de puntos con formulario de atributos, almacenamiento local, visualización de datos propios sobre capas de GeoServer y vista combinada servidor + campo.",
+          "classes": 2,
+          "hours": 4
+        },
+        {
+          "number": 6,
+          "icon": "📤",
+          "title": "Exportación & APK Final",
+          "description": "Exportación a GeoJSON compatible con QGIS, compartir por WhatsApp o email, generación del APK paso a paso e instalación en cualquier Android.",
+          "classes": 2,
+          "hours": 4
+        }
       ],
-      "requirements": ["Ganas de aprender", "Laptop/PC", "Smartphone Android"],
-      "tags": ["flutter", "mobile", "gps", "offline"]
+      "deliverables": [
+        "App Android funcional con mapas interactivos y datos geoespaciales reales",
+        "Conexión real a GeoServer — visualización de capas WMS en el móvil",
+        "GPS integrado que captura y registra coordenadas en campo",
+        "Datos propios visualizados sobre las capas del servidor en el mismo mapa",
+        "Exportación a GeoJSON compatible con QGIS y GeoServer",
+        "APK listo para instalar en cualquier Android y compartir con clientes"
+      ],
+      "requirements": [
+        "Sin experiencia en programación requerida — empezamos desde cero",
+        "Laptop o PC con mínimo 8GB de RAM",
+        "Smartphone Android para probar tu app en tiempo real",
+        "Conexión a internet estable para las clases en vivo"
+      ],
+      "faq": [
+        {
+          "question": "¿Necesito saber programar para empezar?",
+          "answer": "No. El curso comienza desde cero. Si puedes usar una computadora con comodidad y tienes ganas de aprender, puedes tomar este curso sin problema."
+        },
+        {
+          "question": "¿Necesito tener GeoServer instalado?",
+          "answer": "No. Usaremos un servidor de demostración durante las clases. Si ya completaste el curso de GeoServer Profesional, puedes conectar tu propia instancia desde el primer día."
+        },
+        {
+          "question": "¿La app funciona en iPhone?",
+          "answer": "El código Flutter es compatible con iOS, pero el curso está orientado a Android para simplificar la instalación, pruebas y generación del APK final."
+        },
+        {
+          "question": "¿Las clases quedan grabadas?",
+          "answer": "Sí. Todas las sesiones en vivo quedan grabadas y disponibles para que las revises las veces que necesites durante el curso."
+        },
+        {
+          "question": "¿Qué sigue después de este curso?",
+          "answer": "El siguiente nivel es Flutter GIS Pro — arquitectura avanzada, geofencing, notificaciones push con Firebase y publicación en Play Store."
+        }
+      ],
+      "tags": ["flutter", "mobile", "gps", "geoserver", "wms", "cql", "geojson", "android", "apk"]
     },
     {
       "id": "gis_pro",
@@ -124,12 +219,12 @@
         "Publicación en Play Store"
       ],
       "modules": [
-        { "number": 1, "icon": "🏗️", "title": "Arquitectura Clean", "description": "Estructura profesional para apps escalables." },
-        { "number": 2, "icon": "🌐", "title": "Servicios OGC", "description": "Conexión directa con GeoServer (WMS/WFS)." },
-        { "number": 3, "icon": "🔥", "title": "Push Notifications", "description": "Notificaciones en tiempo real." },
-        { "number": 4, "icon": "📐", "title": "Análisis Espacial", "description": "Cálculo de áreas, distancias y perímetros en pantalla." },
-        { "number": 5, "icon": "🚨", "title": "Geofencing", "description": "Alertas automáticas al entrar o salir de polígonos." },
-        { "number": 6, "icon": "🚀", "title": "Deploy Pro", "description": "Generación de App Bundle y subida a tiendas." }
+        { "number": 1, "icon": "🏗️", "title": "Arquitectura Clean", "description": "Estructura profesional para apps escalables.", "classes": 2, "hours": 4 },
+        { "number": 2, "icon": "🌐", "title": "Servicios OGC", "description": "Conexión directa con GeoServer (WMS/WFS).", "classes": 3, "hours": 6 },
+        { "number": 3, "icon": "🔥", "title": "Push Notifications", "description": "Notificaciones en tiempo real con Firebase.", "classes": 2, "hours": 4 },
+        { "number": 4, "icon": "📐", "title": "Análisis Espacial", "description": "Cálculo de áreas, distancias y perímetros en pantalla.", "classes": 3, "hours": 6 },
+        { "number": 5, "icon": "🚨", "title": "Geofencing", "description": "Alertas automáticas al entrar o salir de polígonos.", "classes": 3, "hours": 6 },
+        { "number": 6, "icon": "🚀", "title": "Deploy Pro", "description": "Generación de App Bundle y subida a tiendas.", "classes": 3, "hours": 6 }
       ],
       "requirements": ["Conocimientos básicos de Flutter", "Laptop 8GB RAM"],
       "tags": ["advanced", "firebase", "geoprocessing"]
@@ -156,14 +251,14 @@
       },
       "schedule": "Martes y Jueves 19:30-21:30",
       "scheduleByCountry": [
-        { "country": "Bolivia",        "flag": "🇧🇴", "time": "19:30 – 21:30 hrs" },
-        { "country": "Perú",           "flag": "🇵🇪", "time": "18:30 – 20:30 hrs" },
-        { "country": "Colombia",       "flag": "🇨🇴", "time": "18:30 – 20:30 hrs" },
-        { "country": "Ecuador",        "flag": "🇪🇨", "time": "18:30 – 20:30 hrs" },
-        { "country": "Chile",          "flag": "🇨🇱", "time": "20:30 – 22:30 hrs" },
-        { "country": "Argentina",      "flag": "🇦🇷", "time": "20:30 – 22:30 hrs" },
-        { "country": "México (CDMX)",  "flag": "🇲🇽", "time": "17:30 – 19:30 hrs" },
-        { "country": "España",         "flag": "🇪🇸", "time": "00:30 – 02:30 hrs" }
+        { "country": "Bolivia",       "flag": "🇧🇴", "time": "19:30 – 21:30 hrs" },
+        { "country": "Perú",          "flag": "🇵🇪", "time": "18:30 – 20:30 hrs" },
+        { "country": "Colombia",      "flag": "🇨🇴", "time": "18:30 – 20:30 hrs" },
+        { "country": "Ecuador",       "flag": "🇪🇨", "time": "18:30 – 20:30 hrs" },
+        { "country": "Chile",         "flag": "🇨🇱", "time": "20:30 – 22:30 hrs" },
+        { "country": "Argentina",     "flag": "🇦🇷", "time": "20:30 – 22:30 hrs" },
+        { "country": "México (CDMX)", "flag": "🇲🇽", "time": "17:30 – 19:30 hrs" },
+        { "country": "España",        "flag": "🇪🇸", "time": "00:30 – 02:30 hrs" }
       ],
       "modality": "Online en Vivo + Grabaciones",
       "liveHours": 16,
@@ -209,7 +304,7 @@
           "number": 3,
           "icon": "🎨",
           "title": "Simbología & Estilos SLD",
-          "description": "Diseña estilos profesionales con SLD: reglas por atributo, clasificación temática, etiquetas",
+          "description": "Diseña estilos profesionales con SLD: reglas por atributo, clasificación temática y etiquetas.",
           "classes": 1,
           "hours": 2
         },
@@ -247,7 +342,7 @@
         }
       ],
       "requirements": [
-        "Conocimientos básicos de mapas o GIS (haber usado QGIS o similar) o simlemente te gusten los mapas",
+        "Conocimientos básicos de mapas o GIS (haber usado QGIS o similar, o simplemente te gusten los mapas)",
         "Nociones básicas de bases de datos",
         "Laptop con mínimo 8GB de RAM",
         "Conexión a internet estable"
