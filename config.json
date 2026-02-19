@@ -185,7 +185,7 @@
     },
     {
       "id": "gis_pro",
-      "enabled": true,
+      "enabled": "coming_soon",
       "status": "open",
       "priority": 2,
       "courseTitle": "Flutter GIS Pro",
@@ -232,7 +232,7 @@
     {
       "id": "geoserver",
       "enabled": true,
-      "status": "coming_soon",
+      "status": "open",
       "priority": 3,
       "courseTitle": "GeoServer Profesional",
       "courseLevel": "🎯 Nivel Básico — Intermedio",
