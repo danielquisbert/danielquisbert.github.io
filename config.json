@@ -96,54 +96,12 @@
         "Grabaciones de todas las clases"
       ],
       "modules": [
-        {
-          "number": 1,
-          "icon": "📱",
-          "title": "Flutter desde Cero con Mentalidad GIS",
-          "description": "Instalación de Flutter en Windows y Linux. Fundamentos de Dart orientados a GIS y tu primera app con mapa interactivo funcionando en tu teléfono Android.",
-          "classes": 2,
-          "hours": 4
-        },
-        {
-          "number": 2,
-          "icon": "🗺️",
-          "title": "Mapas Interactivos & Capas Base",
-          "description": "Integración de flutter_map con OpenStreetMap, control de cámara, marcadores con popups, polilíneas, polígonos y eventos de interacción sobre el mapa.",
-          "classes": 2,
-          "hours": 4
-        },
-        {
-          "number": 3,
-          "icon": "📍",
-          "title": "GPS & Geolocalización Real",
-          "description": "GPS en tiempo real sobre el mapa, gestión de permisos Android, captura de coordenadas, cálculo de distancias y manejo de errores de señal.",
-          "classes": 2,
-          "hours": 4
-        },
-        {
-          "number": 4,
-          "icon": "🌐",
-          "title": "Consumo de Capas GeoServer WMS",
-          "description": "El módulo que hace único este curso. Conecta tu app a un GeoServer real, carga capas WMS profesionales, superpón múltiples capas y aplica filtros CQL dinámicos desde la app.",
-          "classes": 2,
-          "hours": 4
-        },
-        {
-          "number": 5,
-          "icon": "🗂️",
-          "title": "Captura de Datos GPS & Visualización",
-          "description": "Registro de puntos con formulario de atributos, almacenamiento local, visualización de datos propios sobre capas de GeoServer y vista combinada servidor + campo.",
-          "classes": 2,
-          "hours": 4
-        },
-        {
-          "number": 6,
-          "icon": "📤",
-          "title": "Exportación & APK Final",
-          "description": "Exportación a GeoJSON compatible con QGIS, compartir por WhatsApp o email, generación del APK paso a paso e instalación en cualquier Android.",
-          "classes": 2,
-          "hours": 4
-        }
+        { "number": 1, "icon": "📱", "title": "Flutter desde Cero con Mentalidad GIS", "description": "Instalación de Flutter en Windows y Linux. Fundamentos de Dart orientados a GIS y tu primera app con mapa interactivo funcionando en tu teléfono Android.", "classes": 2, "hours": 4 },
+        { "number": 2, "icon": "🗺️", "title": "Mapas Interactivos & Capas Base", "description": "Integración de flutter_map con OpenStreetMap, control de cámara, marcadores con popups, polilíneas, polígonos y eventos de interacción sobre el mapa.", "classes": 2, "hours": 4 },
+        { "number": 3, "icon": "📍", "title": "GPS & Geolocalización Real", "description": "GPS en tiempo real sobre el mapa, gestión de permisos Android, captura de coordenadas, cálculo de distancias y manejo de errores de señal.", "classes": 2, "hours": 4 },
+        { "number": 4, "icon": "🌐", "title": "Consumo de Capas GeoServer WMS", "description": "El módulo que hace único este curso. Conecta tu app a un GeoServer real, carga capas WMS profesionales, superpón múltiples capas y aplica filtros CQL dinámicos desde la app.", "classes": 2, "hours": 4 },
+        { "number": 5, "icon": "🗂️", "title": "Captura de Datos GPS & Visualización", "description": "Registro de puntos con formulario de atributos, almacenamiento local, visualización de datos propios sobre capas de GeoServer y vista combinada servidor + campo.", "classes": 2, "hours": 4 },
+        { "number": 6, "icon": "📤", "title": "Exportación & APK Final", "description": "Exportación a GeoJSON compatible con QGIS, compartir por WhatsApp o email, generación del APK paso a paso e instalación en cualquier Android.", "classes": 2, "hours": 4 }
       ],
       "deliverables": [
         "App Android funcional con mapas interactivos y datos geoespaciales reales",
@@ -160,26 +118,11 @@
         "Conexión a internet estable para las clases en vivo"
       ],
       "faq": [
-        {
-          "question": "¿Necesito saber programar para empezar?",
-          "answer": "No. El curso comienza desde cero. Si puedes usar una computadora con comodidad y tienes ganas de aprender, puedes tomar este curso sin problema."
-        },
-        {
-          "question": "¿Necesito tener GeoServer instalado?",
-          "answer": "No. Usaremos un servidor de demostración durante las clases. Si ya completaste el curso de GeoServer Profesional, puedes conectar tu propia instancia desde el primer día."
-        },
-        {
-          "question": "¿La app funciona en iPhone?",
-          "answer": "El código Flutter es compatible con iOS, pero el curso está orientado a Android para simplificar la instalación, pruebas y generación del APK final."
-        },
-        {
-          "question": "¿Las clases quedan grabadas?",
-          "answer": "Sí. Todas las sesiones en vivo quedan grabadas y disponibles para que las revises las veces que necesites durante el curso."
-        },
-        {
-          "question": "¿Qué sigue después de este curso?",
-          "answer": "El siguiente nivel es Flutter GIS Pro — arquitectura avanzada, geofencing, notificaciones push con Firebase y publicación en Play Store."
-        }
+        { "question": "¿Necesito saber programar para empezar?", "answer": "No. El curso comienza desde cero. Si puedes usar una computadora con comodidad y tienes ganas de aprender, puedes tomar este curso sin problema." },
+        { "question": "¿Necesito tener GeoServer instalado?", "answer": "No. Usaremos un servidor de demostración durante las clases. Si ya completaste el curso de GeoServer Profesional, puedes conectar tu propia instancia desde el primer día." },
+        { "question": "¿La app funciona en iPhone?", "answer": "El código Flutter es compatible con iOS, pero el curso está orientado a Android para simplificar la instalación, pruebas y generación del APK final." },
+        { "question": "¿Las clases quedan grabadas?", "answer": "Sí. Todas las sesiones en vivo quedan grabadas y disponibles para que las revises las veces que necesites durante el curso." },
+        { "question": "¿Qué sigue después de este curso?", "answer": "El siguiente nivel es Flutter GIS Pro — arquitectura avanzada, geofencing, notificaciones push con Firebase y publicación en Play Store." }
       ],
       "tags": ["flutter", "mobile", "gps", "geoserver", "wms", "cql", "geojson", "android", "apk"]
     },
@@ -189,45 +132,119 @@
       "status": "coming_soon",
       "priority": 2,
       "courseTitle": "Flutter GIS Pro",
-      "courseLevel": "🚀 Nivel Avanzado",
-      "slug": "gis-pro-mobile",
-      "duration": "6 semanas • 32 horas",
-      "description": "Desarrolla soluciones corporativas con geoprocesamiento en vivo, notificaciones y geocercas automáticas para gestión de activos.",
-      "startDate": "2026-01-07T09:00:00-04:00",
-      "endDate": "2026-04-02T22:00:00-04:00",
-      "availableSeats": 18,
+      "courseLevel": "🚀 Nivel Intermedio — Avanzado",
+      "slug": "flutter-gis-pro",
+      "duration": "6 semanas • 24 horas",
+      "description": "Construye soluciones móviles geoespaciales de nivel corporativo. Arquitectura Clean profesional, análisis espacial en tiempo real, geocercas automáticas con alertas push y publicación en Google Play Store.",
+      "startDate": null,
+      "endDate": null,
+      "availableSeats": 20,
       "totalSeats": 20,
       "price": {
         "usd": 30,
         "bolivianos": 300,
-        "earlyBirdDiscount": 0.15,
-        "earlyBirdDeadline": "2026-02-13T23:59:59-04:00"
+        "earlyBirdDiscount": 0.10,
+        "earlyBirdDeadline": null
       },
-      "schedule": "Miércoles y Viernes 20:00-22:00",
-      "modality": "Online en Vivo + Mentoría",
+      "schedule": "Próximamente",
+      "scheduleByCountry": [],
+      "modality": "Online en Vivo + Grabaciones",
+      "liveHours": 24,
+      "supportHours": 4,
+      "totalHours": 28,
+      "supportFormat": "Sesiones Meet en vivo para revisión de proyectos y resolución técnica",
+      "instructor": "Daniel Quisbert",
       "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
       "nextCohort": {
-        "startDate": "2026-01-07T09:00:00-04:00",
+        "startDate": null,
         "waitlistEnabled": true
       },
       "features": [
-        "Certificación Profesional ARTECLAB",
-        "16 clases en vivo de alto nivel",
-        "Geoprocesamiento en el móvil",
-        "Notificaciones con Firebase",
-        "Consumo de servicios WMS/WFS",
-        "Publicación en Play Store"
+        "Certificación Profesional ARTECLAB con código verificable",
+        "12 clases prácticas en vivo (24 horas)",
+        "4 horas de sesiones de soporte y revisión de proyectos",
+        "Arquitectura Clean profesional para apps GIS escalables",
+        "Panel de capas WMS/WFS dinámico controlado por el usuario",
+        "Notificaciones push con contexto geoespacial via Firebase",
+        "Análisis espacial en pantalla: áreas, distancias y dibujo interactivo",
+        "Sistema de geofencing con alertas automáticas en tiempo real",
+        "App publicada en Google Play Store",
+        "Código fuente completo + templates de arquitectura profesional",
+        "Grabaciones de todas las clases"
       ],
       "modules": [
-        { "number": 1, "icon": "🏗️", "title": "Arquitectura Clean", "description": "Estructura profesional para apps escalables.", "classes": 2, "hours": 4 },
-        { "number": 2, "icon": "🌐", "title": "Servicios OGC", "description": "Conexión directa con GeoServer (WMS/WFS).", "classes": 3, "hours": 6 },
-        { "number": 3, "icon": "🔥", "title": "Push Notifications", "description": "Notificaciones en tiempo real con Firebase.", "classes": 2, "hours": 4 },
-        { "number": 4, "icon": "📐", "title": "Análisis Espacial", "description": "Cálculo de áreas, distancias y perímetros en pantalla.", "classes": 3, "hours": 6 },
-        { "number": 5, "icon": "🚨", "title": "Geofencing", "description": "Alertas automáticas al entrar o salir de polígonos.", "classes": 3, "hours": 6 },
-        { "number": 6, "icon": "🚀", "title": "Deploy Pro", "description": "Generación de App Bundle y subida a tiendas.", "classes": 3, "hours": 6 }
+        {
+          "number": 1,
+          "icon": "🏗️",
+          "title": "Arquitectura Clean para Apps GIS",
+          "description": "Clean Architecture aplicada a GIS: capas, dependencias, gestión de estado con Riverpod/Bloc, inyección de dependencias y patrones de repositorio para datos geoespaciales.",
+          "classes": 2,
+          "hours": 4
+        },
+        {
+          "number": 2,
+          "icon": "🌐",
+          "title": "Servicios OGC Avanzados WMS/WFS",
+          "description": "Consumo avanzado de WMS y WFS, panel dinámico de capas controlado por el usuario, filtros CQL complejos, caché de tiles y manejo de múltiples servidores GeoServer simultáneos.",
+          "classes": 2,
+          "hours": 4
+        },
+        {
+          "number": 3,
+          "icon": "🔥",
+          "title": "Push Notifications con Contexto Geoespacial",
+          "description": "Firebase Cloud Messaging con payload geoespacial: notificaciones que abren el mapa en el punto exacto del evento, alertas en background y canales por tipo de evento GIS.",
+          "classes": 2,
+          "hours": 4
+        },
+        {
+          "number": 4,
+          "icon": "📐",
+          "title": "Análisis Espacial en el Móvil",
+          "description": "Cálculo de áreas y perímetros en tiempo real, medición de distancias, dibujo interactivo de geometrías, buffer zones y exportación de análisis a GeoJSON.",
+          "classes": 2,
+          "hours": 4
+        },
+        {
+          "number": 5,
+          "icon": "🚨",
+          "title": "Geofencing & Alertas Automáticas",
+          "description": "Geocercas definidas desde el mapa, detección en tiempo real de entrada y salida de polígonos, alertas push automáticas, GPS en background y visualización sobre capas WMS.",
+          "classes": 2,
+          "hours": 4
+        },
+        {
+          "number": 6,
+          "icon": "🚀",
+          "title": "Deploy Profesional en Play Store",
+          "description": "Optimización de rendimiento, configuración de flavors dev/prod, firma de app, generación del App Bundle y proceso completo de publicación en Google Play Store.",
+          "classes": 2,
+          "hours": 4
+        }
       ],
-      "requirements": ["Conocimientos básicos de Flutter", "Laptop 8GB RAM"],
-      "tags": ["advanced", "firebase", "geoprocessing"]
+      "deliverables": [
+        "App Android publicada en Google Play Store con tu nombre",
+        "Arquitectura Clean profesional reutilizable para proyectos corporativos",
+        "Panel de capas WMS/WFS dinámico controlado por el usuario",
+        "Sistema de notificaciones push con contexto geoespacial",
+        "Herramientas de análisis espacial interactivo: áreas, distancias y dibujo",
+        "Sistema de geofencing con alertas automáticas en tiempo real"
+      ],
+      "requirements": [
+        "Haber completado Flutter GIS Básico o experiencia equivalente con Flutter y mapas",
+        "Conocimiento básico de consumo de capas WMS/WFS",
+        "Laptop con mínimo 8GB de RAM (16GB recomendado)",
+        "Smartphone Android para pruebas en dispositivo real",
+        "Conexión a internet estable para las clases en vivo"
+      ],
+      "faq": [
+        { "question": "¿Es obligatorio haber tomado Flutter GIS Básico?", "answer": "Es muy recomendable. Si ya tienes experiencia construyendo apps Flutter con mapas y consumiendo WMS/WFS, puedes ingresar directamente. Escríbenos y evaluamos tu nivel." },
+        { "question": "¿Necesito una cuenta de Google Play?", "answer": "No es obligatorio tenerla antes de empezar. Durante el módulo de deploy te guiamos para crearla. El registro tiene un costo único de $25 USD que se paga directamente a Google." },
+        { "question": "¿Las clases quedan grabadas?", "answer": "Sí. Todas las sesiones en vivo quedan grabadas y disponibles durante el curso." },
+        { "question": "¿Cuándo inicia este curso?", "answer": "Las fechas se anunciarán al finalizar Flutter GIS Básico. Únete al grupo de WhatsApp o Telegram para recibir la notificación primero." },
+        { "question": "¿Hay más cursos después de este?", "answer": "Flutter GIS Pro es actualmente el nivel máximo de la ruta Flutter en ARTECLAB. Al completarlo tendrás el perfil completo de un especialista en desarrollo móvil geoespacial." }
+      ],
+      "tags": ["flutter", "advanced", "clean-architecture", "firebase", "geofencing", "analysis", "wms", "wfs", "playstore", "android"]
     },
     {
       "id": "geoserver",
@@ -284,62 +301,13 @@
         "Código fuente completo + templates reutilizables"
       ],
       "modules": [
-        {
-          "number": 1,
-          "icon": "⚙️",
-          "title": "Arquitectura & Primeros Pasos",
-          "description": "Instalación de GeoServer en Windows y Linux. Workspaces, Stores y publicación de tu primera capa.",
-          "classes": 1,
-          "hours": 2
-        },
-        {
-          "number": 2,
-          "icon": "🗄️",
-          "title": "Publicación de Datos",
-          "description": "Publica vectoriales (Shapefile) y capas directamente desde PostGIS.",
-          "classes": 2,
-          "hours": 4
-        },
-        {
-          "number": 3,
-          "icon": "🎨",
-          "title": "Simbología & Estilos SLD",
-          "description": "Diseña estilos profesionales con SLD: reglas por atributo, clasificación temática y etiquetas.",
-          "classes": 1,
-          "hours": 2
-        },
-        {
-          "number": 4,
-          "icon": "⚡",
-          "title": "Servicios WMS, WFS & Filtros CQL",
-          "description": "Configura servicios OGC estándar y aplica filtros CQL dinámicos directamente desde la URL sin tocar el servidor.",
-          "classes": 1,
-          "hours": 2
-        },
-        {
-          "number": 5,
-          "icon": "🔒",
-          "title": "Seguridad & Control de Acceso",
-          "description": "Gestión de usuarios, roles y permisos. Restricción de capas y servicios por rol a nivel de workspace y capa.",
-          "classes": 1,
-          "hours": 2
-        },
-        {
-          "number": 6,
-          "icon": "🌐",
-          "title": "Visor Web & App Móvil",
-          "description": "Visor de mapas con Leaflet que consume tus servicios WMS. Integración de capas GeoServer en app móvil Flutter.",
-          "classes": 1,
-          "hours": 2
-        },
-        {
-          "number": 7,
-          "icon": "☁️",
-          "title": "GeoWebCache & Deploy en Producción",
-          "description": "Optimización con tile caching y despliegue completo en servidor Linux en la nube con acceso público.",
-          "classes": 1,
-          "hours": 2
-        }
+        { "number": 1, "icon": "⚙️", "title": "Arquitectura & Primeros Pasos", "description": "Instalación de GeoServer en Windows y Linux. Workspaces, Stores y publicación de tu primera capa.", "classes": 1, "hours": 2 },
+        { "number": 2, "icon": "🗄️", "title": "Publicación de Datos", "description": "Publica vectoriales (Shapefile) y capas directamente desde PostGIS.", "classes": 2, "hours": 4 },
+        { "number": 3, "icon": "🎨", "title": "Simbología & Estilos SLD", "description": "Diseña estilos profesionales con SLD: reglas por atributo, clasificación temática y etiquetas.", "classes": 1, "hours": 2 },
+        { "number": 4, "icon": "⚡", "title": "Servicios WMS, WFS & Filtros CQL", "description": "Configura servicios OGC estándar y aplica filtros CQL dinámicos directamente desde la URL sin tocar el servidor.", "classes": 1, "hours": 2 },
+        { "number": 5, "icon": "🔒", "title": "Seguridad & Control de Acceso", "description": "Gestión de usuarios, roles y permisos. Restricción de capas y servicios por rol a nivel de workspace y capa.", "classes": 1, "hours": 2 },
+        { "number": 6, "icon": "🌐", "title": "Visor Web & App Móvil", "description": "Visor de mapas con Leaflet que consume tus servicios WMS. Integración de capas GeoServer en app móvil Flutter.", "classes": 1, "hours": 2 },
+        { "number": 7, "icon": "☁️", "title": "GeoWebCache & Deploy en Producción", "description": "Optimización con tile caching y despliegue completo en servidor Linux en la nube con acceso público.", "classes": 1, "hours": 2 }
       ],
       "requirements": [
         "Conocimientos básicos de mapas o GIS (haber usado QGIS o similar, o simplemente te gusten los mapas)",
