@@ -1445,6 +1445,8 @@
     border-radius: 25px;
     max-width: 600px;
     width: 100%;
+    max-height: 90vh; /* 👈 NUEVO */
+    overflow-y: auto; /* 👈 NUEVO */
     position: relative;
     border: 2px solid rgba(0, 229, 255, 0.3);
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
@@ -2512,7 +2514,7 @@ document.addEventListener('keydown', (e) => {
                 </a>
                 
                 <div class="payment-note">
-                    <strong>📌 Bancos aceptados:</strong> BNB, Unión, Mercantil, FIE, Ganadero
+                    <strong>📌 Transferencia bancaria</strong> desde cualquier banco boliviano que soporte transferencia por QR
                 </div>
             </div>
         </div>
@@ -2533,7 +2535,6 @@ document.addEventListener('keydown', (e) => {
                 <ol>
                     <li>Escanea el QR desde Binance</li>
                     <li>Transfiere el monto en <strong>USDT</strong></li>
-                    <li>Red: <strong>TRC20 o BEP20</strong></li>
                     <li>Captura el comprobante</li>
                     <li>Envíalo por WhatsApp ⬇️</li>
                 </ol>
@@ -2543,10 +2544,6 @@ document.addEventListener('keydown', (e) => {
                    class="btn-send-voucher">
                     💬 Enviar Comprobante a WhatsApp
                 </a>
-                
-                <div class="payment-note">
-                    <strong>⚠️ Importante:</strong> Verifica la red antes de enviar (TRC20 o BEP20)
-                </div>
             </div>
         </div>
     </div>
