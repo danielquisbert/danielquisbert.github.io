@@ -56,12 +56,12 @@
       "availableSeats": 20,
       "totalSeats": 20,
       "price": {
-        "usd": 25,
-        "bolivianos": 250,
+        "usd": 49,
+        "bolivianos": null,
         "earlyBirdDiscount": 0.10,
         "earlyBirdDeadline": "2026-03-13T23:59:59-04:00"
       },
-      "schedule": "Lunes y Miércoles 20:00-22:00",
+      "schedule": "Lunes y Miércoles 20:00-21:30",
       "scheduleByCountry": [
         { "country": "Bolivia",       "flag": "🇧🇴", "time": "20:00 – 22:00 hrs" },
         { "country": "Perú",          "flag": "🇵🇪", "time": "19:00 – 21:00 hrs" },
@@ -92,8 +92,8 @@
         "Captura de datos GPS con visualización sobre capas del servidor",
         "Exportación a GeoJSON compatible con QGIS",
         "APK listo para instalar y distribuir",
-        "Código fuente completo + templates reutilizables",
-        "Grabaciones de todas las clases"
+        "Código fuente completo",
+        "Grabaciones de todas las clases con acceso de por vida"
       ],
       "modules": [
         { "number": 1, "icon": "📱", "title": "Flutter desde Cero con Mentalidad GIS", "description": "Instalación de Flutter en Windows y Linux. Fundamentos de Dart orientados a GIS y tu primera app con mapa interactivo funcionando en tu teléfono Android.", "classes": 2, "hours": 4 },
@@ -141,8 +141,8 @@
       "availableSeats": 20,
       "totalSeats": 20,
       "price": {
-        "usd": 30,
-        "bolivianos": 300,
+        "usd": 69,
+        "bolivianos": null,
         "earlyBirdDiscount": 0.10,
         "earlyBirdDeadline": null
       },
@@ -169,8 +169,8 @@
         "Análisis espacial en pantalla: áreas, distancias y dibujo interactivo",
         "Sistema de geofencing con alertas automáticas en tiempo real",
         "App publicada en Google Play Store",
-        "Código fuente completo + templates de arquitectura profesional",
-        "Grabaciones de todas las clases"
+        "Código fuente completo",
+        "Grabaciones de todas las clases y acceso de por vida"
       ],
       "modules": [
         {
@@ -261,8 +261,8 @@
       "availableSeats": 20,
       "totalSeats": 20,
       "price": {
-        "usd": 30,
-        "bolivianos": 300,
+        "usd": 79,
+        "bolivianos": null,
         "earlyBirdDiscount": 0.10,
         "earlyBirdDeadline": "2026-03-13T23:59:59-04:00"
       },
