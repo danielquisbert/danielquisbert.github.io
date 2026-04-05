@@ -44,7 +44,7 @@
     {
       "id": "flutter_basico",
       "enabled": true,
-      "status": "open",
+      "status": "status-closed",
       "priority": 1,
       "courseTitle": "Flutter GIS",
       "courseLevel": "🎯 Nivel Básico — Intermedio",
@@ -249,7 +249,7 @@
     {
       "id": "geoserver",
       "enabled": true,
-      "status": "open",
+      "status": "status-closed",
       "priority": 3,
       "courseTitle": "GeoServer Profesional",
       "courseLevel": "🎯 Nivel Básico — Intermedio",
