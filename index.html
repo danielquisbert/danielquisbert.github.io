@@ -2210,7 +2210,7 @@
                     
                     <div class="course-price">
                         <span class="price-usd">$${course.price.usd} USD</span>
-                        <span class="price-bs">Bs. ${course.price.bolivianos}</span>
+                        ${course.price.bolivianos !== null ? `<span class="price-bs">Bs. ${course.price.bolivianos}</span>` : ''}
                     </div>
                     
                     <div class="course-features">
