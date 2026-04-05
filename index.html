@@ -2082,7 +2082,7 @@
                     let cardOpacity = '';
                     const options = { day: 'numeric', month: 'long' };
                     switch(course.status) {
-                    case 'open':
+                    case "open":
                         const seatsLeft = course.availableSeats;
                         if (seatsLeft <= config.courseDefaults.minSeatsForUrgency) {
                         badge = `<span class="badge badge-urgency">🔥 ¡ÚLTIMOS ${seatsLeft} CUPOS!</span>`;
@@ -2108,7 +2108,7 @@
                         }
                         break;
                         
-                    case 'coming_soon':
+                    case "coming_soon":
                         const startDate = new Date(course.startDate);
                         
                         const dateStr = startDate.toLocaleDateString('es-BO', options);
@@ -2123,7 +2123,7 @@
                         </a>`;
                         break;
                         
-                    case 'full':
+                    case "full":
                         cardOpacity = 'opacity-75';
                         const nextDate = course.nextCohort ? new Date(course.nextCohort.startDate) : new Date();
                         const nextDateStr = nextDate.toLocaleDateString('es-BO', options);
@@ -2146,7 +2146,7 @@
                         }
                         break;
                         
-                    case 'in_progress':
+                    case "inprogress":
                         cardOpacity = 'opacity-60';
                         badge = `<span class="badge badge-progress">🎓 En Progreso</span>`;
                         button = `
