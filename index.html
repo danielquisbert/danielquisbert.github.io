@@ -2379,7 +2379,8 @@
                     <div class="price-box">
                         <div class="price-label">💰 Inversión</div>
                         <div class="price-amount">$${course.price.usd} USD</div>
-                        <div class="price-alt">Bs. ${course.price.bolivianos}</div>
+                        ${course.price?.bolivianos ? `<div class="price-alt">Bs. ${course.price.bolivianos}</div>` : ''}
+                        
                     </div>
 
                     <ul class="course-modules">
