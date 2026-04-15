@@ -1,2540 +1,402 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cursos prácticos de Flutter y GeoServer. Comunidad de profesionales en tecnologías geoespaciales.">
-    <title>GeoNexus | Cursos Flutter & GIS</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-primary: #050a14;
-            --bg-secondary: #080f1e;
-            --bg-card: #0d1625;
-            --accent-cyan: #00e5ff;
-            --accent-green: #39ff14;
-            --accent-purple: #c77dff;
-            --accent-orange: #ff6b35;
-            --accent-yellow: #ffd60a;
-            --text-primary: #ffffff;
-            --text-secondary: rgba(255,255,255,0.75);
-            --text-muted: rgba(255,255,255,0.45);
-        }
-
-        body {
-            font-family: 'Exo 2', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* =====================
-           HERO SECTION (GeoNexus Style)
-        ===================== */
-        .hero {
-            min-height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            padding: 2rem;
-        }
-
-        /* Grid background */
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(0,180,255,0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,180,255,0.06) 1px, transparent 1px);
-            background-size: 60px 60px;
-            z-index: 0;
-        }
-
-        /* Radial gradient overlay */
-        .hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 70% 80% at 55% 50%,
-                rgba(0,180,255,0.12) 0%,
-                rgba(20,40,100,0.4) 50%,
-                rgba(8,15,30,0.95) 100%);
-            z-index: 0;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            width: 100%;
-            position: relative;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 2rem;
-        }
-
-        /* Corner decorations */
-        .corner-tl, .corner-br {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            z-index: 5;
-        }
-
-        .corner-tl {
-            top: 20px;
-            left: 20px;
-            border-top: 2px solid rgba(0,229,255,0.5);
-            border-left: 2px solid rgba(0,229,255,0.5);
-        }
-
-        .corner-br {
-            bottom: 20px;
-            right: 20px;
-            border-bottom: 2px solid rgba(57,255,20,0.5);
-            border-right: 2px solid rgba(57,255,20,0.5);
-        }
-
-        /* Scan line */
-        .scanline {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(0,229,255,0.4), transparent);
-            z-index: 3;
-            animation: scan 6s linear infinite;
-        }
-
-        @keyframes scan {
-            0% { top: 0%; opacity: 0; }
-            5% { opacity: 1; }
-            95% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-        }
-
-        /* Glow effect */
-        .glow-left {
-            position: absolute;
-            left: -100px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(0,180,255,0.15) 0%, transparent 70%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* Map pins */
-        .map-pins {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .pin {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: pinPulse 3s ease-in-out infinite;
-            animation-delay: var(--del, 0s);
-        }
-
-        .pin-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--color, #00e5ff);
-            box-shadow: 0 0 12px var(--color, #00e5ff), 0 0 24px var(--color, #00e5ff);
-        }
-
-        .pin-line {
-            width: 2px;
-            height: 20px;
-            background: linear-gradient(to bottom, var(--color, #00e5ff), transparent);
-        }
-
-        .pin-ring {
-            position: absolute;
-            top: -6px;
-            left: -6px;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            border: 1px solid var(--color, #00e5ff);
-            animation: ringExpand 3s ease-out infinite;
-            animation-delay: var(--del, 0s);
-            opacity: 0.5;
-        }
-
-        @keyframes pinPulse {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-
-        @keyframes ringExpand {
-            0% { transform: scale(1); opacity: 0.6; }
-            100% { transform: scale(3); opacity: 0; }
-        }
-
-        /* Connection lines */
-        .connections {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-        }
-
-        /* Particles */
-        .particles {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            animation: floatP var(--dur, 8s) ease-in-out infinite;
-            animation-delay: var(--del, 0s);
-        }
-
-        @keyframes floatP {
-            0%, 100% { transform: translate(0,0) scale(1); opacity: var(--op, 0.6); }
-            50% { transform: translate(var(--tx,10px), var(--ty,-15px)) scale(1.2); opacity: 1; }
-        }
-
-        /* Hero Content */
-        .hero-content {
-            position: relative;
-            max-width: 620px;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 16px;
-            background: rgba(0,180,255,0.12);
-            border: 1px solid rgba(0,180,255,0.3);
-            border-radius: 100px;
-            margin-bottom: 24px;
-        }
-
-        .eyebrow-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #00e5ff;
-            box-shadow: 0 0 8px #00e5ff;
-            animation: blink 2s ease-in-out infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        .eyebrow-text {
-            font-size: 13px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #00e5ff;
-            font-weight: 600;
-        }
-
-        .brand-name {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 900;
-            line-height: 0.95;
-            letter-spacing: -2px;
-            margin-bottom: 6px;
-        }
-
-        .brand-geo {
-            color: #ffffff;
-            text-shadow:
-                0 0 30px rgba(255,255,255,0.3),
-                0 0 60px rgba(0,180,255,0.2);
-        }
-
-        .brand-nexus {
-            background: linear-gradient(135deg, #00b4ff 0%, #00e5ff 40%, #39ff14 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 20px rgba(0,200,255,0.6));
-        }
-
-        .brand-tagline {
-            font-size: 16px;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 32px;
-            font-weight: 300;
-        }
-
-        .divider {
-            width: 120px;
-            height: 3px;
-            background: linear-gradient(90deg, #00b4ff, #39ff14, transparent);
-            border-radius: 2px;
-            margin-bottom: 28px;
-        }
-
-        .description {
-            font-size: 17px;
-            color: rgba(255,255,255,0.75);
-            line-height: 1.6;
-            margin-bottom: 36px;
-            max-width: 500px;
-            font-weight: 300;
-        }
-
-        .tech-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
-
-        .chip {
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            font-family: 'Orbitron', sans-serif;
-            border: 1px solid;
-            text-transform: uppercase;
-        }
-
-        .chip-flutter { color: #54c5f8; border-color: rgba(84,197,248,0.4); background: rgba(84,197,248,0.08); }
-        .chip-geo { color: #39ff14; border-color: rgba(57,255,20,0.4); background: rgba(57,255,20,0.08); }
-        .chip-postgis { color: #ff6b35; border-color: rgba(255,107,53,0.4); background: rgba(255,107,53,0.08); }
-        .chip-web { color: #c77dff; border-color: rgba(199,125,255,0.4); background: rgba(199,125,255,0.08); }
-        .chip-maps { color: #ffd60a; border-color: rgba(255,214,10,0.4); background: rgba(255,214,10,0.08); }
-
-        .author {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .author-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #00b4ff, #39ff14);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            font-size: 16px;
-            color: #080f1e;
-            flex-shrink: 0;
-        }
-
-        .author-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .author-name {
-            font-size: 15px;
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .author-role {
-            font-size: 12px;
-            color: rgba(255,255,255,0.45);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* Community CTAs */
-        .community-ctas {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .btn-whatsapp, .btn-telegram {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.9rem 1.8rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-        }
-
-        .btn-whatsapp:hover {
-            background: #20ba5a;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-        }
-
-        .btn-telegram {
-            background: transparent;
-            color: var(--accent-cyan);
-            border: 2px solid rgba(0, 229, 255, 0.3);
-        }
-
-        .btn-telegram:hover {
-            border-color: var(--accent-cyan);
-            background: rgba(0, 229, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        /* Globe 3D */
-        .globe-wrapper {
-            position: relative;
-            width: 520px;
-            height: 520px;
-            flex-shrink: 0;
-        }
-        .globe-wrapper canvas {
-            width: 100% !important;
-            height: 100% !important;
-            display: block;
-            cursor: grab;
-        }
-        .globe-wrapper canvas:active { cursor: grabbing; }
-        #la-paz-label {
-            position: absolute;
-            pointer-events: none;
-            z-index: 10;
-            font-family: 'Orbitron', monospace;
-            font-size: 10px;
-            font-weight: 900;
-            color: #39ff14;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px #39ff14, 0 0 20px rgba(57,255,20,0.5);
-            opacity: 0;
-            transition: opacity 0.3s;
-            white-space: nowrap;
-        }
-        #la-paz-label.visible { opacity: 1; }
-        #la-paz-label::before {
-            content: '';
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            background: #39ff14;
-            border-radius: 50%;
-            margin-right: 6px;
-            box-shadow: 0 0 8px #39ff14, 0 0 16px #39ff14;
-            vertical-align: middle;
-            animation: laPazPulse 1.5s infinite;
-        }
-        @keyframes laPazPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.6); opacity: 0.5; }
-        }
-
-        /* =====================
-           COURSES SECTION
-        ===================== */
-        .courses-section {
-            padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            text-align: center;
-            margin-bottom: 4rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #00b4ff 0%, #39ff14 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2rem;
-        }
-
-        .course-card {
-            background: var(--bg-card);
-            border-radius: 25px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 180, 255, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .course-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 180, 255, 0.2);
-            border-color: rgba(0, 229, 255, 0.4);
-        }
-
-        .course-header {
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
-        }
-
-        .course-header.geoserver {
-            background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
-        }
-
-        .course-header.flutter-basic {
-            background: linear-gradient(135deg, #54c5f8 0%, #4A90E2 100%);
-        }
-
-        .course-header.gis-pro {
-            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
-        }
-
-        .course-status {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .status-open {
-            background: rgba(57, 255, 20, 0.2);
-            color: #39ff14;
-            border: 1px solid rgba(57, 255, 20, 0.5);
-        }
-
-        .status-full {
-            background: rgba(255, 107, 53, 0.2);
-            color: #ff6b35;
-            border: 1px solid rgba(255, 107, 53, 0.5);
-        }
-
-        .status-closed {
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .course-level {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .course-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            font-weight: 800;
-        }
-
-        .course-duration {
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
-
-        .course-body {
-            padding: 2rem;
-        }
-
-        .course-description {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-
-        .course-features {
-            background: rgba(57, 211, 83, 0.05);
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-        }
-
-        .course-features h4 {
-            color: var(--accent-green);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .feature-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.8rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .feature-item::before {
-            content: '✓';
-            color: var(--accent-green);
-            font-weight: bold;
-        }
-
-        .course-info {
-            background: rgba(0, 180, 255, 0.05);
-            padding: 1rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 180, 255, 0.1);
-        }
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 0;
-        }
-
-        .info-label {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .info-value {
-            font-weight: 700;
-            color: var(--accent-cyan);
-        }
-
-        .price-box {
-            background: linear-gradient(135deg, rgba(0, 180, 255, 0.1) 0%, rgba(57, 255, 20, 0.1) 100%);
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 180, 255, 0.3);
-            text-align: center;
-        }
-
-        .price-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .price-amount {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--accent-cyan);
-            line-height: 1;
-        }
-
-        .price-alt {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-top: 0.3rem;
-        }
-
-        .seats-indicator {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(57, 255, 20, 0.1);
-            padding: 0.8rem 1.2rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(57, 255, 20, 0.3);
-        }
-
-        .seats-indicator.full {
-            background: rgba(255, 107, 53, 0.1);
-            border-color: rgba(255, 107, 53, 0.3);
-        }
-
-        .seats-number {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 900;
-            color: #39ff14;
-        }
-
-        .seats-indicator.full .seats-number {
-            color: #ff6b35;
-        }
-
-        .seats-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .course-modules {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .course-modules li {
-            padding: 0.8rem 1rem;
-            margin-bottom: 0.6rem;
-            background: rgba(0, 180, 255, 0.05);
-            border-radius: 10px;
-            border-left: 3px solid var(--accent-cyan);
-            transition: all 0.3s ease;
-            display: flex;
-            gap: 0.8rem;
-            align-items: flex-start;
-        }
-
-        .course-modules li:hover {
-            background: rgba(0, 180, 255, 0.1);
-            transform: translateX(5px);
-        }
-
-        .module-icon {
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .module-content {
-            flex: 1;
-        }
-
-        .module-title {
-            font-weight: 700;
-            color: var(--text-primary);
-            display: block;
-            margin-bottom: 0.2rem;
-            font-size: 0.95rem;
-        }
-
-        .module-description {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .next-cohort {
-            background: rgba(255, 214, 10, 0.1);
-            border: 1px solid rgba(255, 214, 10, 0.3);
-            padding: 1rem 1.2rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .next-cohort-title {
-            color: var(--accent-yellow);
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .next-cohort-date {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        .community-cta-box {
-            background: rgba(57, 255, 20, 0.1);
-            border: 2px solid rgba(57, 255, 20, 0.3);
-            padding: 1.2rem;
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .community-cta-title {
-            color: var(--accent-green);
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-
-        .community-buttons {
-            display: flex;
-            gap: 0.8rem;
-            justify-content: center;
-        }
-
-        .community-buttons .btn-whatsapp,
-        .community-buttons .btn-telegram {
-            flex: 1;
-            padding: 0.7rem 1rem;
-            font-size: 0.85rem;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #39ff14 0%, #2ea043 100%);
-            color: #0a0e1a;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(57, 255, 20, 0.3);
-        }
-
-        /* =====================
-           FOOTER
-        ===================== */
-        footer {
-            background: var(--bg-secondary);
-            padding: 4rem 2rem 2rem;
-            border-top: 1px solid rgba(0, 180, 255, 0.1);
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h4 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent-cyan);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-cyan);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 180, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.3rem;
-            border: 1px solid rgba(0, 180, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 10px 25px rgba(0, 180, 255, 0.2);
-        }
-
-        /* Portfolio/Testimonials Toggle */
-        .portfolio-toggle {
-            text-align: center;
-            margin: 3rem 0 2rem;
-        }
-
-        .btn-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--accent-purple);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(139, 92, 246, 0.3);
-            cursor: pointer;
-        }
-
-        .btn-toggle:hover {
-            border-color: var(--accent-purple);
-            background: rgba(139, 92, 246, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .portfolio-content {
-            display: none;
-            max-width: 1200px;
-            margin: 2rem auto 0;
-        }
-
-        .portfolio-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
-        }
-
-        .project-icon {
-            height: 150px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h4 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: var(--accent-purple);
-        }
-
-        .project-content p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            line-height: 1.6;
-            font-size: 0.9rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-tag {
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--accent-purple);
-            padding: 0.3rem 0.7rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            border: 1px solid rgba(139, 92, 246, 0.3);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .testimonial-video {
-            background: var(--bg-card);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-
-        .video-embed {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-embed iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .testimonial-info {
-            padding: 1rem;
-        }
-
-        .testimonial-info h5 {
-            color: var(--accent-orange);
-            margin-bottom: 0.3rem;
-            font-size: 0.95rem;
-        }
-
-        .testimonial-info p {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        .section-subtitle {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            color: var(--accent-purple);
-            text-align: center;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0, 180, 255, 0.1);
-            color: var(--text-muted);
-        }
-
-        /* =====================
-           FLOATING WHATSAPP
-        ===================== */
-        .whatsapp-float {
-            position: fixed;
-            width: 65px;
-            height: 65px;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 32px;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.15);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7); }
-            100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
-        }
-
-        /* =====================
-           RESPONSIVE
-        ===================== */
-        @media (max-width: 968px) {
-            .hero-container {
-                flex-direction: column;
-                gap: 3rem;
-            }
-
-            .globe-wrapper {
-                width: 350px;
-                height: 350px;
-            }
-
-            .courses-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .community-buttons {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .brand-name {
-                font-size: 3rem;
-            }
-
-            .community-ctas {
-                flex-direction: column;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-
-        /* ===== BADGES DE ESTADO ===== */
-        .course-badges {
-        display: flex;
-        gap: 8px;
-        margin-bottom: 12px;
-        flex-wrap: wrap;
-        }
-
-        .badge {
-        display: inline-flex;
-        align-items: center;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        }
-
-        .badge-open {
-        background: rgba(16, 185, 129, 0.15);
-        color: #10b981;
-        border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .badge-urgency {
-        background: rgba(251, 146, 60, 0.15);
-        color: #f97316;
-        border: 1px solid rgba(251, 146, 60, 0.4);
-        animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        .badge-seats {
-        background: rgba(59, 130, 246, 0.15);
-        color: #3b82f6;
-        border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .badge-soon {
-        background: rgba(139, 92, 246, 0.15);
-        color: #8b5cf6;
-        border: 1px solid rgba(139, 92, 246, 0.3);
-        }
-
-        .badge-date {
-        background: rgba(100, 116, 139, 0.15);
-        color: #64748b;
-        border: 1px solid rgba(100, 116, 139, 0.3);
-        }
-
-        .badge-full {
-        background: rgba(239, 68, 68, 0.15);
-        color: #ef4444;
-        border: 1px solid rgba(239, 68, 68, 0.3);
-        }
-
-        .badge-next {
-        background: rgba(59, 130, 246, 0.15);
-        color: #3b82f6;
-        border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .badge-progress {
-        background: rgba(236, 72, 153, 0.15);
-        color: #ec4899;
-        border: 1px solid rgba(236, 72, 153, 0.3);
-        }
-
-        /* ===== BOTONES POR ESTADO ===== */
-        .btn-warning {
-        background: linear-gradient(135deg, #f97316, #ea580c);
-        color: white;
-        border: none;
-        }
-
-        .btn-warning:hover {
-        background: linear-gradient(135deg, #ea580c, #c2410c);
-        transform: translateY(-2px);
-        }
-
-        .btn-pulse {
-        animation: btnPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes btnPulse {
-        0%, 100% {
-            box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.7);
-        }
-        50% {
-            box-shadow: 0 0 0 10px rgba(251, 146, 60, 0);
-        }
-        }
-
-        .btn-outline-primary {
-        background: transparent;
-        color: #3b82f6;
-        border: 2px solid #3b82f6;
-        }
-
-        .btn-outline-primary:hover {
-        background: #3b82f6;
-        color: white;
-        }
-
-        .btn-outline {
-        background: transparent;
-        color: #64748b;
-        border: 2px solid #cbd5e1;
-        }
-
-        .btn-outline:hover:not(:disabled) {
-        background: #f1f5f9;
-        border-color: #94a3b8;
-        }
-
-        .btn-outline:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-        }
-
-        /* ===== OPACIDAD PARA CARDS CERRADOS ===== */
-        .opacity-75 {
-        opacity: 0.75;
-        }
-
-        .opacity-60 {
-        opacity: 0.6;
-        }
-
-        /* ===== ANIMACIONES ===== */
-        @keyframes pulse {
-        0%, 100% {
-            opacity: 1;
-            transform: scale(1);
-        }
-        50% {
-            opacity: 0.85;
-            transform: scale(1.05);
-        }
-        }
-
-
-
-        /* =====================
-   COURSES GRID & CARDS
-===================== */
-.courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
-    align-items: start;
-}
-
-.course-card {
-    background: var(--bg-card); /* Asegúrate que esta variable exista, sino usa #1a1a1a */
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-}
-
-.course-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-purple);
-    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.2);
-}
-
-.course-level {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent-purple);
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.course-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    line-height: 1.3;
-}
-
-.course-description {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-}
-
-/* Metadata (Iconos de reloj, calendario) */
-.course-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-}
-
-.course-meta span {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.course-meta i {
-    color: var(--accent-purple);
-    width: 16px;
-}
-
-/* Precios */
-.course-price {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-}
-
-.price-usd {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #fff;
-}
-
-.price-bs {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-}
-
-/* Features (Lista de check) */
-.course-features h4 {
-    font-size: 0.9rem;
-    margin-bottom: 0.8rem;
-    color: #fff;
-}
-
-.course-features ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 1.5rem;
-}
-
-.course-features li {
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-secondary);
-}
-
-.course-features i {
-    color: #10b981;
-}
-
-/* Módulos (Details/Summary) */
-.course-modules {
-    margin-bottom: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.course-modules summary {
-    padding: 1rem 0;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--accent-purple);
-    outline: none;
-}
-
-.module-item {
-    display: flex;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.module-icon { font-size: 1.2rem; }
-.module-item strong { display: block; font-size: 0.85rem; color: #fff; }
-.module-item p { font-size: 0.75rem; color: var(--text-muted); margin: 0; }
-
-/* Botones genéricos */
-.btn-block {
-    width: 100%;
-    padding: 1rem;
-    border-radius: 12px;
-    font-weight: 700;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, var(--accent-purple), #6d28d9);
-    color: white;
-}
-
-
-    /* =====================
-   PAYMENT MODAL
-===================== */
-.payment-modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(5, 10, 20, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 10000;
-    padding: 2rem;
-    overflow-y: auto;
-    animation: fadeIn 0.3s ease;
-}
-
-.payment-modal-overlay.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.payment-modal {
-    background: var(--bg-card);
-    border-radius: 25px;
-    max-width: 600px;
-    width: 100%;
-    max-height: 90vh; /* 👈 NUEVO */
-    overflow-y: auto; /* 👈 NUEVO */
-    position: relative;
-    border: 2px solid rgba(0, 229, 255, 0.3);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-    animation: slideUp 0.4s ease;
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.modal-close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    z-index: 10;
-}
-
-.modal-close-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: rotate(90deg);
-}
-
-.modal-header {
-    padding: 2rem 2rem 1rem;
-    text-align: center;
-    border-bottom: 1px solid rgba(0, 180, 255, 0.2);
-}
-
-.modal-header h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #00b4ff 0%, #39ff14 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.modal-header p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-/* Tabs */
-.payment-tabs {
-    display: flex;
-    gap: 1rem;
-    padding: 1.5rem 2rem 0;
-}
-
-.tab-btn {
-    flex: 1;
-    padding: 1rem;
-    background: rgba(0, 180, 255, 0.1);
-    border: 2px solid rgba(0, 180, 255, 0.2);
-    border-radius: 12px;
-    color: var(--text-secondary);
-    font-weight: 700;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.tab-btn:hover {
-    border-color: rgba(0, 229, 255, 0.4);
-    background: rgba(0, 180, 255, 0.15);
-}
-
-.tab-btn.active {
-    background: linear-gradient(135deg, rgba(0, 180, 255, 0.2), rgba(57, 255, 20, 0.2));
-    border-color: var(--accent-cyan);
-    color: white;
-    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.3);
-}
-
-/* Tab Content */
-.tab-content {
-    display: none;
-    padding: 2rem;
-}
-
-.tab-content.active {
-    display: block;
-    animation: fadeIn 0.3s ease;
-}
-
-/* QR Container */
-.qr-container {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.qr-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.qr-actions {
-    display: flex;
-    justify-content: center;
-}
-
-.btn-download {
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(135deg, #00b4ff, #39ff14);
-    color: #0a0e1a;
-    border: none;
-    border-radius: 50px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-}
-
-.btn-download:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 229, 255, 0.4);
-}
-
-/* Instructions */
-.payment-instructions {
-    background: rgba(0, 180, 255, 0.05);
-    padding: 1.5rem;
-    border-radius: 15px;
-    border: 1px solid rgba(0, 180, 255, 0.2);
-}
-
-.payment-instructions h4 {
-    color: var(--accent-cyan);
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.payment-instructions ol {
-    margin-bottom: 1.5rem;
-    padding-left: 1.5rem;
-    color: var(--text-secondary);
-}
-
-.payment-instructions li {
-    margin-bottom: 0.8rem;
-    line-height: 1.6;
-}
-
-.btn-send-voucher {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    background: #25D366;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    text-align: center;
-    transition: all 0.3s ease;
-    margin-bottom: 1rem;
-}
-
-.btn-send-voucher:hover {
-    background: #20ba5a;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-}
-
-.payment-note {
-    background: rgba(255, 214, 10, 0.1);
-    border: 1px solid rgba(255, 214, 10, 0.3);
-    padding: 1rem;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-}
-
-.payment-note strong {
-    color: var(--accent-yellow);
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-    .payment-modal {
-        margin: 1rem;
-    }
-    
-    .payment-tabs {
-        flex-direction: column;
-    }
-    
-    .tab-content {
-        padding: 1.5rem;
-    }
-}
-
-/* Botón adicional en course cards */
-.btn-payment-methods {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.9rem 1.5rem;
-    background: transparent;
-    color: var(--accent-cyan);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    border: 2px solid rgba(0, 229, 255, 0.3);
-    cursor: pointer;
-    width: 100%;
-    margin-top: 0.8rem;
-}
-
-.btn-payment-methods:hover {
-    border-color: var(--accent-cyan);
-    background: rgba(0, 229, 255, 0.1);
-    transform: translateY(-2px);
-}
-
-
-        
-    </style>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cursos prácticos de Flutter y GeoServer. Comunidad de profesionales en tecnologías geoespaciales. Daniel Quisbert.">
+  <meta name="keywords" content="GIS, Flutter, GeoServer, PostGIS, mapas, cursos, Bolivia, geoespacial, open source">
+  <meta name="author" content="Daniel Quisbert">
+  <title>GeoNexus | Cursos Flutter & GIS</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Three.js (for globe) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="corner-tl"></div>
-        <div class="corner-br"></div>
-        <div class="scanline"></div>
-        <div class="glow-left"></div>
 
-        <!-- Map pins -->
-        <div class="map-pins">
-            <div class="pin" style="top:22%; left:18%; --color:#00e5ff; --del:0s;">
-                <div class="pin-dot"></div>
-                <div class="pin-ring"></div>
-                <div class="pin-line"></div>
-            </div>
-            <div class="pin" style="top:55%; left:12%; --color:#39ff14; --del:1s;">
-                <div class="pin-dot"></div>
-                <div class="pin-ring"></div>
-                <div class="pin-line"></div>
-            </div>
-            <div class="pin" style="top:70%; left:25%; --color:#c77dff; --del:0.5s;">
-                <div class="pin-dot"></div>
-                <div class="pin-ring"></div>
-                <div class="pin-line"></div>
-            </div>
-            <div class="pin" style="top:35%; left:30%; --color:#ffd60a; --del:1.5s;">
-                <div class="pin-dot"></div>
-                <div class="pin-ring"></div>
-                <div class="pin-line"></div>
-            </div>
-            <div class="pin" style="top:80%; left:15%; --color:#ff6b35; --del:2s;">
-                <div class="pin-dot"></div>
-                <div class="pin-ring"></div>
-                <div class="pin-line"></div>
-            </div>
-        </div>
+  <!-- ============================
+       HERO SECTION
+  ============================= -->
+  <section class="hero">
+    <div class="corner-tl"></div>
+    <div class="corner-br"></div>
+    <div class="scanline"></div>
+    <div class="glow-left"></div>
 
-        <!-- Connection lines -->
-        <svg class="connections" viewBox="0 0 1200 800" preserveAspectRatio="none">
-            <defs>
-                <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#00e5ff" stop-opacity="0"/>
-                    <stop offset="50%" stop-color="#00e5ff" stop-opacity="0.5"/>
-                    <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
-                </linearGradient>
-                <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#c77dff" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#ffd60a" stop-opacity="0"/>
-                </linearGradient>
-            </defs>
-            <path d="M 200 180 Q 400 250 700 300" stroke="url(#lg1)" stroke-width="1.5" fill="none"/>
-            <path d="M 150 440 Q 350 380 700 300" stroke="url(#lg1)" stroke-width="1" fill="none"/>
-            <path d="M 300 560 Q 500 450 700 300" stroke="url(#lg2)" stroke-width="1" fill="none"/>
-        </svg>
-
-        <!-- Particles -->
-        <div class="particles">
-            <div class="particle" style="top:15%;left:10%;width:4px;height:4px;background:#00e5ff;box-shadow:0 0 8px #00e5ff;--dur:7s;--del:0s;--tx:15px;--ty:-20px;--op:0.7;"></div>
-            <div class="particle" style="top:65%;left:5%;width:3px;height:3px;background:#39ff14;box-shadow:0 0 6px #39ff14;--dur:9s;--del:1s;--tx:-10px;--ty:-15px;--op:0.5;"></div>
-            <div class="particle" style="top:40%;left:15%;width:5px;height:5px;background:#c77dff;box-shadow:0 0 10px #c77dff;--dur:11s;--del:2s;--tx:20px;--ty:10px;--op:0.6;"></div>
-            <div class="particle" style="top:80%;left:20%;width:3px;height:3px;background:#ffd60a;box-shadow:0 0 6px #ffd60a;--dur:8s;--del:0.5s;--tx:-15px;--ty:-10px;--op:0.8;"></div>
-            <div class="particle" style="top:25%;left:85%;width:4px;height:4px;background:#ff6b35;box-shadow:0 0 8px #ff6b35;--dur:10s;--del:1.5s;--tx:10px;--ty:20px;--op:0.6;"></div>
-        </div>
-
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="eyebrow">
-                    <div class="eyebrow-dot"></div>
-                    <span class="eyebrow-text">Comunidad Geoespacial</span>
-                </div>
-                <div class="brand-name">
-                    <span class="brand-geo">GEO</span><br>
-                    <span class="brand-nexus">NEXUS</span>
-                </div>
-                <div class="brand-tagline">by Daniel Quisbert</div>
-                <div class="divider"></div>
-                <p class="description">
-                    Comunidad de profesionales en tecnologías geoespaciales, 
-                    desarrollo mobile y sistemas de información geográfica.
-                </p>
-                <div class="tech-chips">
-                    <span class="chip chip-flutter">Flutter</span>
-                    <span class="chip chip-geo">GeoServer</span>
-                    <span class="chip chip-postgis">PostGIS</span>
-                    <span class="chip chip-web">WebMapping</span>
-                    <span class="chip chip-maps">GIS & Maps</span>
-                </div>
-                <div class="author">
-                    <div class="author-avatar">DQ</div>
-                    <div class="author-info">
-                        <span class="author-name">Daniel Quisbert</span>
-                        <span class="author-role">Geo Developer &amp; Instructor</span>
-                    </div>
-                </div>
-                <div class="community-ctas">
-                    <a href="https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA" target="_blank" class="btn-whatsapp">
-                        💬 WhatsApp
-                    </a>
-                    <a href="https://t.me/+oWOMHhrIbytkODVh" target="_blank" class="btn-telegram">
-                        ✈️ Telegram
-                    </a>
-                </div>
-            </div>
-
-            <div class="globe-wrapper" id="globe-container">
-                <div id="la-paz-label">LA PAZ, BOLIVIA</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Courses Section -->
-    <section class="courses-section">
-        <h2 class="section-title">Próximos Cursos</h2>
-        <div class="courses-grid" id="coursesContainer">
-            <p class="loading-text" style="text-align: center; grid-column: 1/-1; padding: 2rem; color: #666;">
-                <i class="fas fa-spinner fa-spin"></i> Cargando cursos increíbles...
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>GeoNexus</h4>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                        Comunidad de profesionales en tecnologías geoespaciales y desarrollo mobile.
-                    </p>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <ul class="footer-links">
-                        <li>
-                            <a href="https://wa.me/59164222142" target="_blank">
-                                💬 <span>Inscripciones: +591 64222142</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://wa.me/59167145303" target="_blank">
-                                💼 <span>Consultoría: +591 67145303</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mailto:dani3l.quisb3rt@gmail.com">
-                                📧 <span>dani3l.quisb3rt@gmail.com</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Comunidad</h4>
-                    <ul class="footer-links">
-                        <li>
-                            <a href="https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA" target="_blank">
-                                💬 <span>Grupo de WhatsApp</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://t.me/+oWOMHhrIbytkODVh" target="_blank">
-                                ✈️ <span>Canal de Telegram</span>
-                            </a>
-                        </li>
-                        
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Sígueme</h4>
-                    <div class="social-links">
-                        <a href="https://www.youtube.com/@danielquisbert" target="_blank" class="social-link" title="YouTube">📺</a>
-                        <a href="https://www.tiktok.com/@danielquisbert.ge0tic" target="_blank" class="social-link" title="TikTok">🎵</a>
-                        <a href="https://www.facebook.com/danielquisbert" target="_blank" class="social-link" title="Facebook">📘</a>
-                        <a href="https://www.instagram.com/dani3l.quisb3rt/" target="_blank" class="social-link" title="Instagram">📸</a>
-                        <a href="https://www.linkedin.com/in/danielquisbert/" target="_blank" class="social-link" title="LinkedIn">💼</a>
-                       
-                    </div>
-                </div>
-            </div>
-
-            <!-- Portfolio/Testimonials Toggle -->
-            <div class="portfolio-toggle">
-                <button class="btn-toggle" onclick="togglePortfolio()">
-                    <span id="portfolioIcon">📂</span>
-                    <span id="portfolioText">Ver Portfolio y Testimonios</span>
-                </button>
-            </div>
-
-            <div class="portfolio-content" id="portfolioContent">
-                <!-- Projects -->
-                <h3 class="section-subtitle">Portfolio de Proyectos</h3>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-icon">🎓</div>
-                        <div class="project-content">
-                            <h4>ARTEC - Ecosistema Completo</h4>
-                            <p>Plataforma web educativa y app móvil para centro de capacitación líder en Bolivia.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Web + Mobile</span>
-                                <span class="project-tag">Flutter</span>
-                                <span class="project-tag">Educación</span>
-                            </div>
-                            <a href="https://arte-tecnologias.com/" target="_blank" class="btn-toggle" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">
-                                🔗 Ver Proyecto
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-icon">🎮</div>
-                        <div class="project-content">
-                            <h4>ARTEC Juniors</h4>
-                            <p>App de juegos educativos para estudiantes con trivias interactivas.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Gamificación</span>
-                                <span class="project-tag">Flutter</span>
-                            </div>
-                            <a href="https://play.google.com/store/apps/details?id=com.ge0tic.artecjuniors" target="_blank" class="btn-toggle" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">
-                                📱 Play Store
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-icon">🔧</div>
-                        <div class="project-content">
-                            <h4>TallerPRO</h4>
-                            <p>Sistema completo para talleres mecánicos con rastreo en tiempo real.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">B2B</span>
-                                <span class="project-tag">Flutter</span>
-                            </div>
-                            <a href="https://play.google.com/store/apps/details?id=com.gecko.tallerpro" target="_blank" class="btn-toggle" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">
-                                📱 Play Store
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-icon">🏛️</div>
-                        <div class="project-content">
-                            <h4>Registraduría Nacional - Colombia</h4>
-                            <p>Portal gubernamental con millones de consultas diarias.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Gobierno</span>
-                                <span class="project-tag">Alta Disponibilidad</span>
-                            </div>
-                            <a href="https://registraduria.gov.co" target="_blank" class="btn-toggle" style="font-size: 0.85rem; padding: 0.6rem 1.2rem;">
-                                🔗 Ver Sitio
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonials -->
-                <h3 class="section-subtitle">Testimonios</h3>
-                <div class="testimonials-grid">
-                    <div class="testimonial-video">
-                        <div class="video-embed">
-                            <iframe src="https://www.youtube.com/embed/GFsKYXBKpVo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="testimonial-info">
-                            <h5>Profesora Escolar</h5>
-                            <p>Impacto de ge0tic en la enseñanza</p>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-video">
-                        <div class="video-embed">
-                            <iframe src="https://www.youtube.com/embed/AaoTe21QAvQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="testimonial-info">
-                            <h5>Profesora Escolar</h5>
-                            <p>Experiencia usando ge0tic</p>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-video">
-                        <div class="video-embed">
-                            <iframe src="https://www.youtube.com/embed/sW124xCu7rw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="testimonial-info">
-                            <h5>Directora de Colegio</h5>
-                            <p>Implementación institucional</p>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-video">
-                        <div class="video-embed">
-                            <iframe src="https://www.youtube.com/embed/q8zXi7m5Ctg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="testimonial-info">
-                            <h5>Entrevista Televisiva</h5>
-                            <p>Cobertura en medios nacionales</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© <span id="year"></span> Daniel Quisbert - GeoNexus | De cero a producción 🚀</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/59167145303?text=Hola!%20Tengo%20una%20consulta%20sobre%20consultoría%20o%20trabajo" class="whatsapp-float" target="_blank" aria-label="Consultoría WhatsApp">
-        💬
-    </a>
-
-    <script>
-        // Set year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Toggle Portfolio
-        function togglePortfolio() {
-            const content = document.getElementById('portfolioContent');
-            const icon = document.getElementById('portfolioIcon');
-            const text = document.getElementById('portfolioText');
-            
-            content.classList.toggle('active');
-            
-            if (content.classList.contains('active')) {
-                icon.textContent = '✖️';
-                text.textContent = 'Cerrar';
-            } else {
-                icon.textContent = '📂';
-                text.textContent = 'Ver Portfolio y Testimonios';
-            }
-        }
-
-        // Load courses from config
-        async function loadCourses() {
-            try {
-                const response = await fetch('config.json');
-                const config = await response.json();
-                
-                const coursesContainer = document.getElementById('coursesContainer');
-                const courses = config.courses;
-
-                coursesContainer.innerHTML = '';
-                
-
-                // Ordenar por prioridad (menor número = mayor prioridad)
-                const sortedCourses = [...courses].sort((a, b) => a.priority - b.priority);
-                
-                sortedCourses.forEach(course => {
-                    if (!course.enabled) return;
-                    
-                    const card = document.createElement('div');
-                    card.className = `course-card status-${course.status}`;
-                    
-                    // Determinar badge y botón según estado
-                    let badge = '';
-                    let button = '';
-                    let cardOpacity = '';
-                    const options = { day: 'numeric', month: 'long' };
-                    switch(course.status) {
-                    case "open":
-                        const seatsLeft = course.availableSeats;
-                        if (seatsLeft <= config.courseDefaults.minSeatsForUrgency) {
-                        badge = `<span class="badge badge-urgency">🔥 ¡ÚLTIMOS ${seatsLeft} CUPOS!</span>`;
-                        button = `
-                            <a href="https://wa.me/${config.contact.inscription.number}?text=Hola!%20Quiero%20inscribirme%20en%20el%20curso%20${encodeURIComponent(course.courseTitle)}" 
-                            target="_blank" 
-                            class="btn btn-warning btn-block btn-pulse">
-                            <i class="fas fa-fire"></i>
-                            ¡Reservar Mi Cupo YA!
-                            </a>`;
-                        } else {
-                        badge = `<span class="badge badge-open">✅ Inscripciones Abiertas</span>`;
-                        if (seatsLeft <= config.courseDefaults.showCounterWhenSeatsBelow) {
-                            badge += `<span class="badge badge-seats">${seatsLeft}/${course.totalSeats} cupos</span>`;
-                        }
-                        button = `
-                            <a href="https://wa.me/${config.contact.inscription.number}?text=Hola!%20Quiero%20inscribirme%20en%20el%20curso%20${encodeURIComponent(course.courseTitle)}" 
-                            target="_blank" 
-                            class="btn btn-primary btn-block">
-                            <i class="fab fa-whatsapp"></i>
-                            Inscribirme Ahora
-                            </a>`;
-                        }
-                        break;
-                        
-                    case "coming_soon":
-                        const startDate = new Date(course.startDate);
-                        
-                        const dateStr = startDate.toLocaleDateString('es-BO', options);
-                        badge = `<span class="badge badge-soon">🔜 Próximamente</span>
-                                <span class="badge badge-date">Inicia: ${dateStr}</span>`;
-                        button = `
-                        <a href="https://wa.me/${config.contact.inscription.number}?text=Hola!%20Quiero%20reservar%20pre-inscripción%20para%20${encodeURIComponent(course.courseTitle)}" 
-                            target="_blank" 
-                            class="btn btn-outline-primary btn-block">
-                            <i class="fas fa-rocket"></i>
-                            Reservar Pre-inscripción
-                        </a>`;
-                        break;
-                        
-                    case "full":
-                        cardOpacity = 'opacity-75';
-                        const nextDate = course.nextCohort ? new Date(course.nextCohort.startDate) : new Date();
-                        const nextDateStr = nextDate.toLocaleDateString('es-BO', options);
-                        badge = `<span class="badge badge-full">❌ Cupos Agotados</span>
-                                <span class="badge badge-next">📅 Próximo: ${nextDateStr}</span>`;
-                        if (course.nextCohort.waitlistEnabled) {
-                        button = `
-                            <a href="https://wa.me/${config.contact.inscription.number}?text=Hola!%20Quiero%20anotarme%20en%20lista%20de%20espera%20para%20${encodeURIComponent(course.courseTitle)}" 
-                            target="_blank" 
-                            class="btn btn-outline btn-block">
-                            <i class="fas fa-bell"></i>
-                            Lista de Espera
-                            </a>`;
-                        } else {
-                        button = `
-                            <button class="btn btn-outline btn-block" disabled>
-                            <i class="fas fa-lock"></i>
-                            Cupos Agotados
-                            </button>`;
-                        }
-                        break;
-                        
-                    case "inprogress":
-                        cardOpacity = 'opacity-60';
-                        badge = `<span class="badge badge-progress">🎓 En Progreso</span>`;
-                        button = `
-                        <a href="https://wa.me/${config.contact.inscription.number}?text=Hola!%20Quiero%20información%20del%20próximo%20grupo%20de%20${encodeURIComponent(course.courseTitle)}" 
-                            target="_blank" 
-                            class="btn btn-outline btn-block">
-                            <i class="fas fa-bell"></i>
-                            Notificarme Próximo Grupo
-                        </a>`;
-                        break;
-                        
-                    default:
-                        return; // No mostrar cursos con estado desconocido
-                    }
-
-                    // 1. Solo añadir clase si no es un string vacío
-                    if (cardOpacity.trim() !== "") {
-                        card.classList.add(cardOpacity);
-                    }
-                    
-                    // 2. Generar el innerHTML (lo que ya tienes)
-                    card.innerHTML = `...`; 
-
-                    // 3. El append correcto al contenedor padre
-                    coursesContainer.appendChild(card);
-                    
-                    if (cardOpacity) {
-                        card.classList.add(cardOpacity);
-                    }
-                    
-                    // Features HTML
-                    const featuresHTML = course.features.map(f => 
-                    `<li><i class="fas fa-check-circle"></i>${f}</li>`
-                    ).join('');
-                    
-                    // Modules HTML
-                    const modulesHTML = course.modules.map(m => 
-                    `<div class="module-item">
-                        <span class="module-icon">${m.icon}</span>
-                        <div>
-                        <strong>${m.title}</strong>
-                        <p>${m.description}</p>
-                        </div>
-                    </div>`
-                    ).join('');
-                    
-                    card.innerHTML = `
-                    <div class="course-badges">
-                        ${badge}
-                    </div>
-                    
-                    <div class="course-level">${course.courseLevel}</div>
-                    <h3 class="course-title">${course.courseTitle}</h3>
-                    <p class="course-description">${course.description}</p>
-                    
-                    <div class="course-meta">
-                        <span><i class="fas fa-clock"></i> ${course.duration}</span>
-                        <span><i class="fas fa-calendar"></i> ${course.schedule}</span>
-                        <span><i class="fas fa-video"></i> ${course.modality}</span>
-                    </div>
-                    
-                    <div class="course-price">
-                        <span class="price-usd">$${course.price.usd} USD</span>
-                        ${course.price.bolivianos !== null ? `<span class="price-bs">Bs. ${course.price.bolivianos}</span>` : ''}
-                    </div>
-                    
-                    <div class="course-features">
-                        <h4>✨ Incluye:</h4>
-                        <ul>${featuresHTML}</ul>
-                    </div>
-                    
-                    <details class="course-modules"  id="modules-${course.id}">
-                        <summary>📚 Ver Módulos del Curso</summary>
-                        <div class="modules-list">
-                        ${modulesHTML}
-                        </div>
-                    </details>
-                    
-                    <div class="course-actions">
-                        ${button}
-                        ${course.status === 'open' ? `
-                            <button class="btn-payment-methods" onclick="openPaymentModal()">
-                                💳 Ver Métodos de Pago
-                            </button>
-                        ` : ''}
-                    </div>
-                    `;
-                    
-                    //grid.appendChild(card);
-                    coursesContainer.appendChild(card);
-                });
-
-
-            } catch (error) {
-                console.error('Error loading courses:', error);
-            }
-        }
-
-        function createCourseCard(course, community) {
-            const card = document.createElement('div');
-            card.className = 'course-card';
-
-            let statusClass = '';
-            let statusText = '';
-            let headerClass = '';
-
-            if (course.id === 'geoserver') {
-                headerClass = 'geoserver';
-            } else if (course.id === 'flutter_basico') {
-                headerClass = 'flutter-basic';
-            } else if (course.id === 'gis_pro') {
-                headerClass = 'gis-pro';
-            }
-
-            if (course.status === 'open') {
-                statusClass = 'status-open';
-                statusText = '✅ Inscripciones Abiertas';
-            } else if (course.status === 'full') {
-                statusClass = 'status-full';
-                statusText = '🔴 Cupo Lleno';
-            } else {
-                statusClass = 'status-closed';
-                statusText = '⏸️ En desarrollo';
-            }
-
-            // Build features HTML
-            let featuresHTML = '';
-            if (course.features) {
-                let featureItems = '';
-                course.features.forEach(feature => {
-                    featureItems += `<div class="feature-item">${feature}</div>`;
-                });
-                featuresHTML = `
-                    <div class="course-features">
-                        <h4>✨ Lo que obtienes:</h4>
-                        <div class="feature-list">
-                            ${featureItems}
-                        </div>
-                    </div>
-                `;
-            }
-
-            // Build modules HTML
-            let modulesHTML = '';
-            if (course.modules) {
-                course.modules.forEach(module => {
-                    modulesHTML += `<div class="module-item">
-                        <div class="module-icon">${m.icon}</div>
-                        <div>
-                            <strong>${m.title}</strong>
-                            <p>${m.description}</p>
-                        </div>
-                    </div>`;
-                });
-            }
-
-            let ctaHTML = '';
-            if (course.status === 'open' && course.availableSeats > 0) {
-                const whatsappMsg = encodeURIComponent(`Hola! Quiero inscribirme al curso ${course.courseTitle} que inicia el ${formatDate(course.startDate)}`);
-                ctaHTML = `
-                    <div class="seats-indicator">
-                        <span class="seats-number">${course.availableSeats}/${course.totalSeats}</span>
-                        <span class="seats-label">cupos disponibles</span>
-                    </div>
-                    <a href="https://wa.me/59164222142?text=${whatsappMsg}" target="_blank" class="btn-primary">
-                        📝 Inscribirme Ahora
-                    </a>
-                `;
-            } else if (course.status === 'full' || course.availableSeats === 0) {
-                ctaHTML = `
-                    <div class="seats-indicator full">
-                        <span class="seats-number">0/${course.totalSeats}</span>
-                        <span class="seats-label">cupos disponibles</span>
-                    </div>
-                    <div class="next-cohort">
-                        <div class="next-cohort-title">🎓 Próximo Grupo</div>
-                        <div class="next-cohort-date">${formatDate(course.nextCohortDate)}</div>
-                    </div>
-                    <div class="community-cta-box">
-                        <div class="community-cta-title">Únete a la comunidad para enterarte</div>
-                        <div class="community-buttons">
-                            <a href="${community.whatsapp.url}" target="_blank" class="btn-whatsapp">
-                                💬 WhatsApp
-                            </a>
-                            <a href="${community.telegram.url}" target="_blank" class="btn-telegram">
-                                ✈️ Telegram
-                            </a>
-                        </div>
-                    </div>
-                `;
-            } else {
-                ctaHTML = `
-                    <div class="community-cta-box">
-                        <div class="community-cta-title">Únete para recibir actualizaciones</div>
-                        <div class="community-buttons">
-                            <a href="${community.whatsapp.url}" target="_blank" class="btn-whatsapp">
-                                💬 WhatsApp
-                            </a>
-                            <a href="${community.telegram.url}" target="_blank" class="btn-telegram">
-                                ✈️ Telegram
-                            </a>
-                        </div>
-                    </div>
-                `;
-            }
-
-            card.innerHTML = `
-                <div class="course-header ${headerClass}">
-                    <div class="course-status ${statusClass}">${statusText}</div>
-                    <div class="course-level">${course.courseLevel}</div>
-                    <h3 class="course-title">${course.courseTitle}</h3>
-                    <p class="course-duration">${course.duration}</p>
-                </div>
-                <div class="course-body">
-                    <p class="course-description">${course.description}</p>
-                    
-                    ${featuresHTML}
-                    
-                    <div class="course-info">
-                        <div class="info-row">
-                            <span class="info-label">📅 Inicio:</span>
-                            <span class="info-value">${formatDate(course.startDate)}</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="info-label">🕐 Horario:</span>
-                            <span class="info-value">${course.schedule}</span>
-                        </div>
-                    </div>
-
-                    <div class="price-box">
-                        <div class="price-label">💰 Inversión</div>
-                        <div class="price-amount">$${course.price.usd} USD</div>
-                        ${course.price?.bolivianos ? `<div class="price-alt">Bs. ${course.price.bolivianos}</div>` : ''}
-                        
-                    </div>
-
-                    <ul class="course-modules">
-                        ${modulesHTML}
-                    </ul>
-
-                    ${ctaHTML}
-                </div>
-            `;
-
-            return card;
-        }
-
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            return date.toLocaleDateString('es-ES', options);
-        }
-
-        document.addEventListener('DOMContentLoaded', loadCourses);
-
-
-
-        // Payment Modal Functions
-function openPaymentModal() {
-    document.getElementById('paymentModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closePaymentModal() {
-    document.getElementById('paymentModal').classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
-
-function switchTab(tab) {
-    // Remove active from all tabs and contents
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-    
-    // Add active to selected
-    event.target.classList.add('active');
-    document.getElementById(tab + '-tab').classList.add('active');
-}
-
-function downloadQR(filename, downloadName) {
-    const link = document.createElement('a');
-    link.href = filename;
-    link.download = downloadName;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
-// Close modal when clicking outside
-document.addEventListener('click', (e) => {
-    const modal = document.getElementById('paymentModal');
-    if (e.target === modal) {
-        closePaymentModal();
-    }
-});
-
-// Close with ESC key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closePaymentModal();
-    }
-});
-
-        
-    </script>
-
-    <!-- Modal de Métodos de Pago -->
-<div class="payment-modal-overlay" id="paymentModal">
-    <div class="payment-modal">
-        <button class="modal-close-btn" onclick="closePaymentModal()">✖</button>
-        
-        <div class="modal-header">
-            <h3>💳 Métodos de Pago</h3>
-            <p>Selecciona tu método preferido</p>
-        </div>
-
-        <!-- Tabs -->
-        <div class="payment-tabs">
-            <button class="tab-btn active" onclick="switchTab('bolivia')">
-                🇧🇴 Bolivia (Bs.)
-            </button>
-            <button class="tab-btn" onclick="switchTab('international')">
-                🌎 Internacional (USDT)
-            </button>
-        </div>
-
-        <!-- Tab Content: Bolivia -->
-        <div class="tab-content active" id="bolivia-tab">
-            <div class="qr-container">
-                <img src="qr-cursos-gis.jpeg" alt="QR Pago Bolivia" id="qr-bolivia" class="qr-image">
-                <div class="qr-actions">
-                    <button class="btn-download" onclick="downloadQR('qr-cursos-gis.jpeg', 'QR-Pago-Bolivia.jpeg')">
-                        📥 Descargar QR
-                    </button>
-                </div>
-            </div>
-            
-            <div class="payment-instructions">
-                <h4>📱 Instrucciones de Pago</h4>
-                <ol>
-                    <li>Escanea el QR desde tu app bancaria</li>
-                    <li>Transfiere el monto indicado en Bs.</li>
-                    <li>Captura el comprobante de pago</li>
-                    <li>Envíalo por WhatsApp ⬇️</li>
-                </ol>
-                
-                <a href="https://wa.me/59164222142?text=Hola!%20Adjunto%20comprobante%20de%20pago%20del%20curso" 
-                   target="_blank" 
-                   class="btn-send-voucher">
-                    💬 Enviar Comprobante a WhatsApp
-                </a>
-                
-                <div class="payment-note">
-                    <strong>📌 Transferencia bancaria</strong> desde cualquier banco boliviano que soporte transferencia por QR
-                </div>
-            </div>
-        </div>
-
-        <!-- Tab Content: International -->
-        <div class="tab-content" id="international-tab">
-            <div class="qr-container">
-                <img src="QR-binance.jpeg" alt="QR Binance" id="qr-binance" class="qr-image">
-                <div class="qr-actions">
-                    <button class="btn-download" onclick="downloadQR('QR-binance.jpeg', 'QR-Binance-USDT.jpeg')">
-                        📥 Descargar QR
-                    </button>
-                </div>
-            </div>
-            
-            <div class="payment-instructions">
-                <h4>💳 Instrucciones de Pago</h4>
-                <ol>
-                    <li>Escanea el QR desde Binance</li>
-                    <li>Transfiere el monto en <strong>USDT</strong></li>
-                    <li>Captura el comprobante</li>
-                    <li>Envíalo por WhatsApp ⬇️</li>
-                </ol>
-                
-                <a href="https://wa.me/59164222142?text=Hola!%20Adjunto%20comprobante%20de%20pago%20USDT%20del%20curso" 
-                   target="_blank" 
-                   class="btn-send-voucher">
-                    💬 Enviar Comprobante a WhatsApp
-                </a>
-            </div>
-        </div>
+    <!-- Map pins -->
+    <div class="map-pins">
+      <div class="pin" style="top:22%;left:18%;--color:#00e5ff;--del:0s">
+        <div class="pin-dot"></div><div class="pin-ring"></div><div class="pin-line"></div>
+      </div>
+      <div class="pin" style="top:55%;left:12%;--color:#39ff14;--del:1s">
+        <div class="pin-dot"></div><div class="pin-ring"></div><div class="pin-line"></div>
+      </div>
+      <div class="pin" style="top:70%;left:25%;--color:#c77dff;--del:0.5s">
+        <div class="pin-dot"></div><div class="pin-ring"></div><div class="pin-line"></div>
+      </div>
+      <div class="pin" style="top:35%;left:30%;--color:#ffd60a;--del:1.5s">
+        <div class="pin-dot"></div><div class="pin-ring"></div><div class="pin-line"></div>
+      </div>
+      <div class="pin" style="top:80%;left:15%;--color:#ff6b35;--del:2s">
+        <div class="pin-dot"></div><div class="pin-ring"></div><div class="pin-line"></div>
+      </div>
     </div>
-</div>
 
-<script src="globe3d.js"></script>
-    
+    <!-- Connection lines -->
+    <svg class="connections" viewBox="0 0 1200 800" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#00e5ff" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#00e5ff" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#c77dff" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#ffd60a" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="M 200 180 Q 400 250 700 300" stroke="url(#lg1)" stroke-width="1.5" fill="none"/>
+      <path d="M 150 440 Q 350 380 700 300" stroke="url(#lg1)" stroke-width="1" fill="none"/>
+      <path d="M 300 560 Q 500 450 700 300" stroke="url(#lg2)" stroke-width="1" fill="none"/>
+    </svg>
+
+    <!-- Particles -->
+    <div class="particles">
+      <div class="particle" style="top:15%;left:10%;width:4px;height:4px;background:#00e5ff;box-shadow:0 0 8px #00e5ff;--dur:7s;--del:0s;--tx:15px;--ty:-20px;--op:0.7"></div>
+      <div class="particle" style="top:65%;left:5%;width:3px;height:3px;background:#39ff14;box-shadow:0 0 6px #39ff14;--dur:9s;--del:1s;--tx:-10px;--ty:-15px;--op:0.5"></div>
+      <div class="particle" style="top:40%;left:15%;width:5px;height:5px;background:#c77dff;box-shadow:0 0 10px #c77dff;--dur:11s;--del:2s;--tx:20px;--ty:10px;--op:0.6"></div>
+      <div class="particle" style="top:80%;left:20%;width:3px;height:3px;background:#ffd60a;box-shadow:0 0 6px #ffd60a;--dur:8s;--del:0.5s;--tx:-15px;--ty:-10px;--op:0.8"></div>
+      <div class="particle" style="top:25%;left:85%;width:4px;height:4px;background:#ff6b35;box-shadow:0 0 8px #ff6b35;--dur:10s;--del:1.5s;--tx:10px;--ty:20px;--op:0.6"></div>
+    </div>
+
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="eyebrow">
+          <div class="eyebrow-dot"></div>
+          <span class="eyebrow-text">Comunidad Geoespacial</span>
+        </div>
+
+        <div class="brand-name">
+          <span class="brand-geo">GEO</span><br>
+          <span class="brand-nexus">NEXUS</span>
+        </div>
+        <div class="brand-tagline">by Daniel Quisbert</div>
+
+        <div class="divider"></div>
+
+        <p class="description">
+          Comunidad de profesionales en tecnologías geoespaciales,
+          desarrollo mobile y sistemas de información geográfica.
+        </p>
+
+        <div class="tech-chips">
+          <span class="chip chip-flutter">Flutter</span>
+          <span class="chip chip-geo">GeoServer</span>
+          <span class="chip chip-postgis">PostGIS</span>
+          <span class="chip chip-web">WebMapping</span>
+          <span class="chip chip-maps">GIS & Maps</span>
+        </div>
+
+        <div class="author">
+          <div class="author-avatar">DQ</div>
+          <div class="author-info">
+            <span class="author-name">Daniel Quisbert</span>
+            <span class="author-role">Geo Developer &amp; Instructor</span>
+          </div>
+        </div>
+
+        <div class="community-ctas">
+          <a href="https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA" target="_blank" class="btn-whatsapp">
+            💬 WhatsApp
+          </a>
+          <a href="https://t.me/+oWOMHhrIbytkODVh" target="_blank" class="btn-telegram">
+            ✈️ Telegram
+          </a>
+        </div>
+      </div>
+
+      <!-- Globe 3D -->
+      <div class="globe-wrapper" id="globe-container">
+        <div id="la-paz-label">LA PAZ, BOLIVIA</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       COURSES SECTION
+  ============================= -->
+  <section class="courses-section">
+    <h2 class="section-title">Próximos Cursos</h2>
+    <p class="section-subtitle-text">Aprende tecnologías geoespaciales con proyectos reales, desde cero hasta producción.</p>
+    <div class="courses-grid" id="coursesContainer">
+      <p class="loading-text">⏳ Cargando cursos...</p>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================= -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>GeoNexus</h4>
+          <p style="color:var(--text-secondary);margin-bottom:1rem;">
+            Comunidad de profesionales en tecnologías geoespaciales y desarrollo mobile.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/59164222142" target="_blank">💬 <span>Inscripciones: +591 64222142</span></a></li>
+            <li><a href="https://wa.me/59167145303" target="_blank">💼 <span>Consultoría: +591 67145303</span></a></li>
+            <li><a href="mailto:dani3l.quisb3rt@gmail.com">📧 <span>dani3l.quisb3rt@gmail.com</span></a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Comunidad</h4>
+          <ul class="footer-links">
+            <li><a href="https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA" target="_blank">💬 <span>Grupo de WhatsApp</span></a></li>
+            <li><a href="https://t.me/+oWOMHhrIbytkODVh" target="_blank">✈️ <span>Canal de Telegram</span></a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Sígueme</h4>
+          <div class="social-links">
+            <a href="https://www.youtube.com/@danielquisbert" target="_blank" class="social-link" title="YouTube">📺</a>
+            <a href="https://www.tiktok.com/@danielquisbert.ge0tic" target="_blank" class="social-link" title="TikTok">🎵</a>
+            <a href="https://www.facebook.com/danielquisbert" target="_blank" class="social-link" title="Facebook">📘</a>
+            <a href="https://www.instagram.com/dani3l.quisb3rt/" target="_blank" class="social-link" title="Instagram">📸</a>
+            <a href="https://www.linkedin.com/in/danielquisbert/" target="_blank" class="social-link" title="LinkedIn">💼</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio Toggle -->
+      <div class="portfolio-toggle">
+        <button class="btn-toggle" onclick="togglePortfolio()">
+          <span id="portfolioIcon">📂</span>
+          <span id="portfolioText">Ver Portfolio y Testimonios</span>
+        </button>
+      </div>
+
+      <div class="portfolio-content" id="portfolioContent">
+        <!-- Projects -->
+        <h3 class="section-subtitle">Portfolio de Proyectos</h3>
+        <div class="projects-grid">
+
+          <!-- ge0tic — App Estrella -->
+          <div class="project-card">
+            <div class="project-icon geo-theme">🌍</div>
+            <div class="project-content">
+              <h4>ge0tic — App de Geografía</h4>
+              <p>App educativa de geografía y GIS para Bolivia. Mapas interactivos, datos geoespaciales y aprendizaje gamificado. Mi proyecto insignia.</p>
+              <div class="project-tags">
+                <span class="project-tag">Flutter</span>
+                <span class="project-tag">GIS</span>
+                <span class="project-tag">Educación</span>
+                <span class="project-tag">Open Source</span>
+              </div>
+              <a href="https://play.google.com/store/apps/details?id=com.ge0tic.bo" target="_blank" class="project-link">
+                📱 Descargar en Play Store
+              </a>
+            </div>
+          </div>
+
+          <!-- ARTEC -->
+          <div class="project-card">
+            <div class="project-icon edu-theme">🎓</div>
+            <div class="project-content">
+              <h4>ARTEC — Ecosistema Completo</h4>
+              <p>Plataforma web educativa y app móvil para centro de capacitación líder en Bolivia.</p>
+              <div class="project-tags">
+                <span class="project-tag">Web + Mobile</span>
+                <span class="project-tag">Flutter</span>
+                <span class="project-tag">Educación</span>
+              </div>
+              <a href="https://arte-tecnologias.com/" target="_blank" class="project-link">
+                🔗 Ver Proyecto
+              </a>
+            </div>
+          </div>
+
+          <!-- ARTEC Juniors -->
+          <div class="project-card">
+            <div class="project-icon game-theme">🎮</div>
+            <div class="project-content">
+              <h4>ARTEC Juniors</h4>
+              <p>App de juegos educativos para estudiantes con trivias interactivas.</p>
+              <div class="project-tags">
+                <span class="project-tag">Gamificación</span>
+                <span class="project-tag">Flutter</span>
+              </div>
+              <a href="https://play.google.com/store/apps/details?id=com.ge0tic.artecjuniors" target="_blank" class="project-link">
+                📱 Play Store
+              </a>
+            </div>
+          </div>
+
+          <!-- TallerPRO -->
+          <div class="project-card">
+            <div class="project-icon tool-theme">🔧</div>
+            <div class="project-content">
+              <h4>TallerPRO</h4>
+              <p>Sistema completo para talleres mecánicos con rastreo en tiempo real.</p>
+              <div class="project-tags">
+                <span class="project-tag">B2B</span>
+                <span class="project-tag">Flutter</span>
+              </div>
+              <a href="https://play.google.com/store/apps/details?id=com.gecko.tallerpro" target="_blank" class="project-link">
+                📱 Play Store
+              </a>
+            </div>
+          </div>
+
+          <!-- Registraduría -->
+          <div class="project-card">
+            <div class="project-icon gov-theme">🏛️</div>
+            <div class="project-content">
+              <h4>Registraduría Nacional — Colombia</h4>
+              <p>Portal gubernamental con millones de consultas diarias.</p>
+              <div class="project-tags">
+                <span class="project-tag">Gobierno</span>
+                <span class="project-tag">Alta Disponibilidad</span>
+              </div>
+              <a href="https://registraduria.gov.co" target="_blank" class="project-link">
+                🔗 Ver Sitio
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonials -->
+        <h3 class="section-subtitle">Testimonios</h3>
+        <div class="testimonials-grid">
+          <div class="testimonial-video">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/GFsKYXBKpVo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="testimonial-info">
+              <h5>Profesora Escolar</h5>
+              <p>Impacto de ge0tic en la enseñanza</p>
+            </div>
+          </div>
+          <div class="testimonial-video">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/AaoTe21QAvQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="testimonial-info">
+              <h5>Profesora Escolar</h5>
+              <p>Experiencia usando ge0tic</p>
+            </div>
+          </div>
+          <div class="testimonial-video">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/sW124xCu7rw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="testimonial-info">
+              <h5>Directora de Colegio</h5>
+              <p>Implementación institucional</p>
+            </div>
+          </div>
+          <div class="testimonial-video">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/q8zXi7m5Ctg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="testimonial-info">
+              <h5>Entrevista Televisiva</h5>
+              <p>Cobertura en medios nacionales</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Daniel Quisbert — GeoNexus | De cero a producción 🚀</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/59167145303?text=Hola!%20Tengo%20una%20consulta%20sobre%20consultoría%20o%20trabajo" class="whatsapp-float" target="_blank" aria-label="Consultoría WhatsApp">
+    💬
+  </a>
+
+  <!-- Payment Modal -->
+  <div class="payment-modal-overlay" id="paymentModal">
+    <div class="payment-modal">
+      <button class="modal-close-btn" onclick="closePaymentModal()">✖</button>
+
+      <div class="modal-header">
+        <h3>💳 Métodos de Pago</h3>
+        <p>Selecciona tu método preferido</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="payment-tabs">
+        <button class="tab-btn active" onclick="switchTab('bolivia')">🇧🇴 Bolivia (Bs.)</button>
+        <button class="tab-btn" onclick="switchTab('international')">🌎 Internacional (USDT)</button>
+      </div>
+
+      <!-- Bolivia -->
+      <div class="tab-content active" id="bolivia-tab">
+        <div class="qr-container">
+          <img src="qr-cursos-gis.jpeg" alt="QR Pago Bolivia" class="qr-image">
+          <div class="qr-actions">
+            <button class="btn-download" onclick="downloadQR('qr-cursos-gis.jpeg','QR-Pago-Bolivia.jpeg')">📥 Descargar QR</button>
+          </div>
+        </div>
+        <div class="payment-instructions">
+          <h4>📱 Instrucciones de Pago</h4>
+          <ol>
+            <li>Escanea el QR desde tu app bancaria</li>
+            <li>Transfiere el monto indicado en Bs.</li>
+            <li>Captura el comprobante de pago</li>
+            <li>Envíalo por WhatsApp ⬇️</li>
+          </ol>
+          <a href="https://wa.me/59164222142?text=Hola!%20Adjunto%20comprobante%20de%20pago%20del%20curso" target="_blank" class="btn-send-voucher">
+            💬 Enviar Comprobante a WhatsApp
+          </a>
+          <div class="payment-note">
+            <strong>📌 Transferencia bancaria</strong> desde cualquier banco boliviano que soporte transferencia por QR
+          </div>
+        </div>
+      </div>
+
+      <!-- International -->
+      <div class="tab-content" id="international-tab">
+        <div class="qr-container">
+          <img src="QR-binance.jpeg" alt="QR Binance" class="qr-image">
+          <div class="qr-actions">
+            <button class="btn-download" onclick="downloadQR('QR-binance.jpeg','QR-Binance-USDT.jpeg')">📥 Descargar QR</button>
+          </div>
+        </div>
+        <div class="payment-instructions">
+          <h4>💳 Instrucciones de Pago</h4>
+          <ol>
+            <li>Escanea el QR desde Binance</li>
+            <li>Transfiere el monto en <strong>USDT</strong></li>
+            <li>Captura el comprobante</li>
+            <li>Envíalo por WhatsApp ⬇️</li>
+          </ol>
+          <a href="https://wa.me/59164222142?text=Hola!%20Adjunto%20comprobante%20de%20pago%20USDT%20del%20curso" target="_blank" class="btn-send-voucher">
+            💬 Enviar Comprobante a WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="globe3d.js"></script>
 </body>
 </html>
