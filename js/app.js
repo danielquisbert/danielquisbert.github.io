@@ -7,7 +7,143 @@ document.addEventListener('DOMContentLoaded', () => {
   initYear();
   loadCourses();
   initScrollReveal();
+  initContentProtection();
 });
+
+/* =============================================
+   CONTENT PROTECTION — ANTI-INSPECT / ANTI-COPY
+   ============================================= */
+function initContentProtection() {
+
+  // 1. Bloquear click derecho
+  document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    return false;
+  });
+
+  // 2. Bloquear atajos de DevTools e inspección
+  document.addEventListener('keydown', (e) => {
+    const blocked = [
+      e.key === 'F12',                                    // DevTools
+      e.ctrlKey && e.shiftKey && e.key === 'I',           // Inspect Element
+      e.ctrlKey && e.shiftKey && e.key === 'J',           // Console
+      e.ctrlKey && e.shiftKey && e.key === 'C',           // Inspect selector
+      e.ctrlKey && e.shiftKey && e.key === 'K',           // Firefox console
+      e.ctrlKey && e.shiftKey && e.key === 'E',           // Firefox network
+      e.ctrlKey && e.shiftKey && e.key === 'M',           // Firefox responsive
+      e.ctrlKey && e.key === 'u',                         // View source
+      e.ctrlKey && e.key === 's',                         // Save page
+      e.ctrlKey && e.key === 'p',                         // Print
+    ];
+
+    if (blocked.some(Boolean)) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  });
+
+  // 3. Bloquear selección de texto (excepto inputs)
+  document.addEventListener('selectstart', (e) => {
+    const tag = e.target.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    e.preventDefault();
+  });
+
+  // 4. Bloquear copiar
+  document.addEventListener('copy', (e) => {
+    const tag = e.target.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    e.preventDefault();
+  });
+
+  // 5. Bloquear cortar
+  document.addEventListener('cut', (e) => {
+    e.preventDefault();
+  });
+
+  // 6. Bloquear drag de imágenes y elementos
+  document.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+  });
+
+  // 7. Detección de DevTools por tamaño de ventana
+  const threshold = 160;
+  let devToolsOpen = false;
+
+  setInterval(() => {
+    const w = window.outerWidth - window.innerWidth > threshold;
+    const h = window.outerHeight - window.innerHeight > threshold;
+    if ((w || h) && !devToolsOpen) {
+      devToolsOpen = true;
+      console.clear();
+      console.log('%c⚠️ GeoNexus — Contenido protegido', 'color:#00e5ff;font-size:20px;font-weight:bold');
+      console.log('%cEl uso de herramientas de desarrollo está restringido.', 'color:#ff6b35;font-size:14px');
+    } else if (!w && !h) {
+      devToolsOpen = false;
+    }
+  }, 1000);
+
+  // 8. Console branding
+  console.clear();
+  console.log('%c🌍 GeoNexus by Daniel Quisbert', 'color:#39ff14;font-size:16px;font-weight:bold');
+
+  // 9. Anti-debugger (ejecutar una sola vez al cargar)
+  (function () {
+    const t = performance.now();
+    debugger;
+    if (performance.now() - t > 100) console.clear();
+  })();
+
+  // 10. Inyectar CSS de protección
+  const shield = document.createElement('style');
+  shield.id = 'geonexus-shield';
+  shield.textContent = `
+    /* Anti-selección global */
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    input, textarea {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+    /* Anti-impresión */
+    @media print {
+      body { display: none !important; }
+      html::after {
+        content: '⚠️ Contenido protegido — GeoNexus by Daniel Quisbert';
+        display: block;
+        text-align: center;
+        padding: 4rem;
+        font-size: 2rem;
+        color: #333;
+      }
+    }
+    /* Anti-arrastrar imágenes */
+    img {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      user-drag: none;
+      pointer-events: none;
+    }
+    /* Restaurar pointer-events en elementos interactivos */
+    a, a *, iframe, button, summary, details,
+    .btn-block, .btn-toggle, .btn-whatsapp, .btn-telegram,
+    .btn-payment-methods, .btn-download, .btn-send-voucher,
+    .modal-close-btn, .tab-btn, .whatsapp-float,
+    .project-link, .social-link, .course-modules,
+    .globe-wrapper canvas {
+      pointer-events: auto !important;
+    }
+  `;
+  document.head.appendChild(shield);
+}
 
 /* ---------- YEAR ---------- */
 function initYear() {
