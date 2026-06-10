@@ -305,7 +305,7 @@
         { "number": 4, "icon": "⚡", "title": "Servicios WMS, WFS & Filtros CQL", "description": "Configura servicios OGC estándar y aplica filtros CQL dinámicos directamente desde la URL sin tocar el servidor.", "classes": 1, "hours": 2 },
         { "number": 5, "icon": "🔒", "title": "Seguridad & Control de Acceso", "description": "Gestión de usuarios, roles y permisos. Restricción de capas y servicios por rol a nivel de workspace y capa.", "classes": 1, "hours": 2 },
         { "number": 6, "icon": "🌐", "title": "Visor Web & App Móvil", "description": "Visor de mapas con Leaflet que consume tus servicios WMS. Integración de capas GeoServer en app móvil Flutter.", "classes": 1, "hours": 2 },
-        { "number": 7, "icon": "☁️", "title": "GeoWebCache & Deploy en Producción", "description": "Optimización con tile caching y simulación de despliegue del servidor Linux en la nube con acceso público.", "classes": 1, "hours": 2 }
+        { "number": 7, "icon": "☁️", "title": "GeoWebCache & Deploy en Producción", "description": "Optimización con tile caching y simulación de despliegue del servidor Linux en la nube con acceso público.", "classes": 1, "hours": 2 },
       ],
       "requirements": [
         "Conocimientos básicos de mapas o GIS (haber usado QGIS o similar, o simplemente te gusten los mapas)",
