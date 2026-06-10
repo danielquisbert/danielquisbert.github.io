@@ -256,8 +256,8 @@
       "slug": "geoserver-profesional",
       "duration": "4 semanas • 16 horas",
       "description": "Aprende a publicar, administrar y servir mapas en internet como los profesionales de la industria geoespacial. Desde la instalación hasta producción real en la nube, con integración en web y aplicaciones móviles.",
-      "startDate": 2026-06-23T21:30:00-04:00,
-      "endDate": 2026-07-16T21:30:00-04:00,
+      "startDate": "2026-06-23T21:30:00-04:00",
+      "endDate": "2026-07-16T21:30:00-04:00",
       "availableSeats": 20,
       "totalSeats": 20,
       "price": {
