@@ -1,3 +1,18 @@
+Aquí tienes el JSON corregido y adaptado a los nuevos requerimientos.
+
+### 🔄 Cambios aplicados basados en tus instrucciones:
+
+1. **Descuento Pronto Pago (Early Bird):** Como el inicio de **Flutter+GIS** es el `2026-06-22` y el de **GeoServer Profesional** es el `2026-06-23`, las fechas límites de inscripción anticipada (`earlyBirdDeadline`) se configuraron exactamente para **un día antes a última hora** (`2026-06-21` y `2026-06-22` respectivamente).
+2. **Horario Base (Bolivia):** Se actualizó el horario de clases de 20:00 a 22:00 (Hora de Bolivia, `America/La_Paz`) tanto en la propiedad general `schedule` como en los módulos de ambos cursos.
+3. **Cálculo de Horarios por País (`scheduleByCountry`):** Tomando como base la zona horaria de Bolivia (UTC-4) de 20:00 a 22:00, se recalcularon los horarios correspondientes para reflejar el desfase de cada país:
+* **Perú, Colombia, Ecuador:** UTC-5 (1 hora menos) ➔ **19:00 – 21:00 hrs**
+* **Chile, Argentina:** UTC-3 (1 hora más) ➔ **21:00 – 23:00 hrs**
+* **México (CDMX):** UTC-6 (2 horas menos) ➔ **18:00 – 20:00 hrs**
+* **España:** UTC+2 (6 horas más) ➔ **02:00 – 04:00 hrs**
+
+
+
+```json
 {
   "siteInfo": {
     "name": "GeoNexus",
@@ -59,9 +74,9 @@
         "usd": 40,
         "bolivianos": null,
         "earlyBirdDiscount": 0.05,
-        "earlyBirdDeadline": "2026-03-13T23:59:59-04:00"
+        "earlyBirdDeadline": "2026-06-21T23:59:59-04:00"
       },
-      "schedule": "Lunes y Miércoles 20:00-21:30",
+      "schedule": "Lunes y Miércoles 20:00-22:00",
       "scheduleByCountry": [
         { "country": "Bolivia",       "flag": "🇧🇴", "time": "20:00 – 22:00 hrs" },
         { "country": "Perú",          "flag": "🇵🇪", "time": "19:00 – 21:00 hrs" },
@@ -70,7 +85,7 @@
         { "country": "Chile",         "flag": "🇨🇱", "time": "21:00 – 23:00 hrs" },
         { "country": "Argentina",     "flag": "🇦🇷", "time": "21:00 – 23:00 hrs" },
         { "country": "México (CDMX)", "flag": "🇲🇽", "time": "18:00 – 20:00 hrs" },
-        { "country": "España",        "flag": "🇪🇸", "time": "01:00 – 03:00 hrs" }
+        { "country": "España",        "flag": "🇪🇸", "time": "02:00 – 04:00 hrs" }
       ],
       "modality": "Online en Vivo + Grabaciones",
       "liveHours": 24,
@@ -162,7 +177,7 @@
       "features": [
         "Certificación Profesional ARTECLAB con código verificable",
         "12 clases prácticas en vivo (24 horas)",
-        "4 horas de sesiones de soporte y revisión de proyectos",
+        "4 hours de sesiones de soporte y revisión de proyectos",
         "Arquitectura Clean profesional para apps GIS escalables",
         "Panel de capas WMS/WFS dinámico controlado por el usuario",
         "Notificaciones push con contexto geoespacial via Firebase",
@@ -256,26 +271,26 @@
       "slug": "geoserver-profesional",
       "duration": "4 semanas • 16 horas",
       "description": "Aprende a publicar, administrar y servir mapas en internet como los profesionales de la industria geoespacial. Desde la instalación hasta producción real en la nube, con integración en web y aplicaciones móviles.",
-      "startDate": "2026-06-23T21:30:00-04:00",
-      "endDate": "2026-07-16T21:30:00-04:00",
+      "startDate": "2026-06-23T20:00:00-04:00",
+      "endDate": "2026-07-16T22:00:00-04:00",
       "availableSeats": 20,
       "totalSeats": 20,
       "price": {
         "usd": 40,
         "bolivianos": null,
         "earlyBirdDiscount": 0.05,
-        "earlyBirdDeadline": "2026-03-13T23:59:59-04:00"
+        "earlyBirdDeadline": "2026-06-22T23:59:59-04:00"
       },
-      "schedule": "Martes y Jueves 19:30-21:30",
+      "schedule": "Martes y Jueves 20:00-22:00",
       "scheduleByCountry": [
-        { "country": "Bolivia",       "flag": "🇧🇴", "time": "19:30 – 21:30 hrs" },
-        { "country": "Perú",          "flag": "🇵🇪", "time": "18:30 – 20:30 hrs" },
-        { "country": "Colombia",      "flag": "🇨🇴", "time": "18:30 – 20:30 hrs" },
-        { "country": "Ecuador",       "flag": "🇪🇨", "time": "18:30 – 20:30 hrs" },
-        { "country": "Chile",         "flag": "🇨🇱", "time": "20:30 – 22:30 hrs" },
-        { "country": "Argentina",     "flag": "🇦🇷", "time": "20:30 – 22:30 hrs" },
-        { "country": "México (CDMX)", "flag": "🇲🇽", "time": "17:30 – 19:30 hrs" },
-        { "country": "España",        "flag": "🇪🇸", "time": "00:30 – 02:30 hrs" }
+        { "country": "Bolivia",       "flag": "🇧🇴", "time": "20:00 – 22:00 hrs" },
+        { "country": "Perú",          "flag": "🇵🇪", "time": "19:00 – 21:00 hrs" },
+        { "country": "Colombia",      "flag": "🇨🇴", "time": "19:00 – 21:00 hrs" },
+        { "country": "Ecuador",       "flag": "🇪🇨", "time": "19:00 – 21:00 hrs" },
+        { "country": "Chile",         "flag": "🇨🇱", "time": "21:00 – 23:00 hrs" },
+        { "country": "Argentina",     "flag": "🇦🇷", "time": "21:00 – 23:00 hrs" },
+        { "country": "México (CDMX)", "flag": "🇲🇽", "time": "18:00 – 20:00 hrs" },
+        { "country": "España",        "flag": "🇪🇸", "time": "02:00 – 04:00 hrs" }
       ],
       "modality": "Online en Vivo + Grabaciones",
       "liveHours": 16,
@@ -285,7 +300,7 @@
       "instructor": "Daniel Quisbert",
       "whatsappGroup": "https://chat.whatsapp.com/C0q6HSFXG92JeDWISChp5Q",
       "nextCohort": {
-        "startDate": "2026-03-17T19:30:00-04:00",
+        "startDate": "2026-03-17T20:00:00-04:00",
         "waitlistEnabled": false
       },
       "features": [
@@ -317,3 +332,5 @@
     }
   ]
 }
+
+```
