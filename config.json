@@ -56,7 +56,7 @@
       "availableSeats": 20,
       "totalSeats": 20,
       "price": {
-        "usd": 49,
+        "usd": 40,
         "bolivianos": null,
         "earlyBirdDiscount": 0.10,
         "earlyBirdDeadline": "2026-03-13T23:59:59-04:00"
@@ -141,7 +141,7 @@
       "availableSeats": 20,
       "totalSeats": 20,
       "price": {
-        "usd": 69,
+        "usd": 50,
         "bolivianos": null,
         "earlyBirdDiscount": 0.10,
         "earlyBirdDeadline": null
@@ -254,14 +254,14 @@
       "courseTitle": "GeoServer Profesional",
       "courseLevel": "🎯 Nivel Básico — Intermedio",
       "slug": "geoserver-profesional",
-      "duration": "4 semanas • 20 horas",
+      "duration": "4 semanas • 16 horas",
       "description": "Aprende a publicar, administrar y servir mapas en internet como los profesionales de la industria geoespacial. Desde la instalación hasta producción real en la nube, con integración en web y aplicaciones móviles.",
-      "startDate": null,
-      "endDate": "2026-04-10T21:30:00-04:00",
+      "startDate": 2026-06-23T21:30:00-04:00,
+      "endDate": null,
       "availableSeats": 20,
       "totalSeats": 20,
       "price": {
-        "usd": 79,
+        "usd": 40,
         "bolivianos": null,
         "earlyBirdDiscount": 0.10,
         "earlyBirdDeadline": "2026-03-13T23:59:59-04:00"
@@ -291,23 +291,21 @@
       "features": [
         "Certificación Digital por ARTECLAB con código verificable",
         "8 clases prácticas en vivo (16 horas)",
-        "4 horas de soporte en vivo por Google Meet",
         "Publicación de datos vectoriales y PostGIS",
         "Estilos SLD profesionales y filtros CQL dinámicos",
         "Seguridad: usuarios, roles y restricción de capas",
         "Visor web con Leaflet consumiendo tu GeoServer",
         "Capas GeoServer integradas en app móvil Flutter",
-        "Deploy en servidor Linux en la nube",
-        "Código fuente completo + templates reutilizables"
+        "Simulación de Deploy en servidor Linux en la Nube",
       ],
       "modules": [
-        { "number": 1, "icon": "⚙️", "title": "Arquitectura & Primeros Pasos", "description": "Instalación de GeoServer en Windows y Linux. Workspaces, Stores y publicación de tu primera capa.", "classes": 1, "hours": 2 },
-        { "number": 2, "icon": "🗄️", "title": "Publicación de Datos", "description": "Publica vectoriales (Shapefile) y capas directamente desde PostGIS.", "classes": 2, "hours": 4 },
+        { "number": 1, "icon": "⚙️", "title": "Arquitectura & Primeros Pasos", "description": "Instalación de GeoServer en Linux. Workspaces, Stores y publicación de tu primera capa.", "classes": 1, "hours": 2 },
+        { "number": 2, "icon": "🗄️", "title": "Publicación de Datos", "description": "Publica vectoriales (Shapefile y PostGIS) y capas directamente desde PostGIS.", "classes": 2, "hours": 4 },
         { "number": 3, "icon": "🎨", "title": "Simbología & Estilos SLD", "description": "Diseña estilos profesionales con SLD: reglas por atributo, clasificación temática y etiquetas.", "classes": 1, "hours": 2 },
         { "number": 4, "icon": "⚡", "title": "Servicios WMS, WFS & Filtros CQL", "description": "Configura servicios OGC estándar y aplica filtros CQL dinámicos directamente desde la URL sin tocar el servidor.", "classes": 1, "hours": 2 },
         { "number": 5, "icon": "🔒", "title": "Seguridad & Control de Acceso", "description": "Gestión de usuarios, roles y permisos. Restricción de capas y servicios por rol a nivel de workspace y capa.", "classes": 1, "hours": 2 },
         { "number": 6, "icon": "🌐", "title": "Visor Web & App Móvil", "description": "Visor de mapas con Leaflet que consume tus servicios WMS. Integración de capas GeoServer en app móvil Flutter.", "classes": 1, "hours": 2 },
-        { "number": 7, "icon": "☁️", "title": "GeoWebCache & Deploy en Producción", "description": "Optimización con tile caching y despliegue completo en servidor Linux en la nube con acceso público.", "classes": 1, "hours": 2 }
+        { "number": 7, "icon": "☁️", "title": "GeoWebCache & Deploy en Producción", "description": "Optimización con tile caching y simulación de despliegue del servidor Linux en la nube con acceso público.", "classes": 1, "hours": 2 }
       ],
       "requirements": [
         "Conocimientos básicos de mapas o GIS (haber usado QGIS o similar, o simplemente te gusten los mapas)",
