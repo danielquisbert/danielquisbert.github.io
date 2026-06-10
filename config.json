@@ -1,18 +1,4 @@
-Aquí tienes el JSON corregido y adaptado a los nuevos requerimientos.
 
-### 🔄 Cambios aplicados basados en tus instrucciones:
-
-1. **Descuento Pronto Pago (Early Bird):** Como el inicio de **Flutter+GIS** es el `2026-06-22` y el de **GeoServer Profesional** es el `2026-06-23`, las fechas límites de inscripción anticipada (`earlyBirdDeadline`) se configuraron exactamente para **un día antes a última hora** (`2026-06-21` y `2026-06-22` respectivamente).
-2. **Horario Base (Bolivia):** Se actualizó el horario de clases de 20:00 a 22:00 (Hora de Bolivia, `America/La_Paz`) tanto en la propiedad general `schedule` como en los módulos de ambos cursos.
-3. **Cálculo de Horarios por País (`scheduleByCountry`):** Tomando como base la zona horaria de Bolivia (UTC-4) de 20:00 a 22:00, se recalcularon los horarios correspondientes para reflejar el desfase de cada país:
-* **Perú, Colombia, Ecuador:** UTC-5 (1 hora menos) ➔ **19:00 – 21:00 hrs**
-* **Chile, Argentina:** UTC-3 (1 hora más) ➔ **21:00 – 23:00 hrs**
-* **México (CDMX):** UTC-6 (2 horas menos) ➔ **18:00 – 20:00 hrs**
-* **España:** UTC+2 (6 horas más) ➔ **02:00 – 04:00 hrs**
-
-
-
-```json
 {
   "siteInfo": {
     "name": "GeoNexus",
@@ -332,5 +318,3 @@ Aquí tienes el JSON corregido y adaptado a los nuevos requerimientos.
     }
   ]
 }
-
-```
