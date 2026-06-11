@@ -1,0 +1,358 @@
+/* =============================================
+   danielquisbert.com — Página personal
+   Dirección: lámina cartográfica suiza.
+   Piedra fría, tinta, un acento azul petróleo,
+   coordenadas en mono como firma.
+   ============================================= */
+
+:root {
+  --paper: #F4F5F2;
+  --ink: #161C1A;
+  --muted: #5E6864;
+  --line: rgba(22, 28, 26, 0.16);
+  --accent: #0F4C5C;       /* azul hidrografía */
+  --accent-soft: rgba(15, 76, 92, 0.10);
+  --max: 1080px;
+  --pad: clamp(1.4rem, 5vw, 3rem);
+}
+
+/* ---------- Tema oscuro ----------
+   Automático si el sistema está en oscuro;
+   [data-theme] (botón) tiene prioridad. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #141816;
+    --ink: #ECEEEA;
+    --muted: #98A29D;
+    --line: rgba(236, 238, 234, 0.15);
+    --accent: #6FB3C6;
+    --accent-soft: rgba(111, 179, 198, 0.12);
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #141816;
+  --ink: #ECEEEA;
+  --muted: #98A29D;
+  --line: rgba(236, 238, 234, 0.15);
+  --accent: #6FB3C6;
+  --accent-soft: rgba(111, 179, 198, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--accent); color: var(--paper); }
+
+a { color: inherit; }
+
+/* ---------- Utilidades tipográficas ---------- */
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.eyebrow.rule {
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  margin-bottom: 2.6rem;
+}
+.mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; }
+
+/* ---------- Nav ---------- */
+.nav {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.6rem var(--pad);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.nav-brand {
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 1.8rem; }
+.nav-links a {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+
+/* ---------- Layout base ---------- */
+main { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+.section {
+  padding: 4.2rem 0 1.4rem;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.section.in { opacity: 1; transform: none; }
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  padding: clamp(2.5rem, 8vh, 6rem) 0 3.5rem;
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 9vw, 6.4rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  margin: 1.1rem 0 1.5rem;
+}
+.hero-role {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--muted);
+  max-width: 26em;
+  margin-bottom: 2.2rem;
+}
+.hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.7rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn-solid {
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+}
+.btn-solid:hover { background: var(--accent); border-color: var(--accent); }
+.btn-line {
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+.btn-line:hover { border-color: var(--ink); }
+
+/* Foto con curvas de nivel detrás */
+.hero-photo {
+  position: relative;
+  justify-self: end;
+  width: min(100%, 360px);
+}
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 2px;
+  position: relative;
+  z-index: 1;
+}
+.contours {
+  position: absolute;
+  inset: -14% -18% -14% -18%;
+  width: 136%;
+  height: 128%;
+  color: var(--accent);
+  opacity: 0.35;
+  z-index: 0;
+}
+
+/* ---------- Pilares ---------- */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.4rem;
+}
+.pillar h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+.pillar p {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* ---------- Lista de cursos ---------- */
+.course-list { list-style: none; }
+.course-list li { border-bottom: 1px solid var(--line); }
+.course-list li:first-child { border-top: 1px solid var(--line); }
+.course-list a {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 1.4rem;
+  align-items: baseline;
+  padding: 1.25rem 0.2rem;
+  text-decoration: none;
+  transition: background 0.2s, padding-left 0.25s;
+}
+.course-list a:hover { background: var(--accent-soft); padding-left: 0.8rem; }
+.course-list a > span:first-child { font-weight: 600; font-size: 1.05rem; }
+.course-sub { color: var(--muted); font-size: 0.92rem; }
+.arrow { color: var(--accent); font-weight: 500; }
+
+.note {
+  margin-top: 1.6rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.note a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+/* ---------- Lista de proyectos ---------- */
+.project-list { list-style: none; }
+.project-list li { border-bottom: 1px solid var(--line); }
+.project-list li:first-child { border-top: 1px solid var(--line); }
+.project-list a {
+  display: grid;
+  grid-template-columns: 260px 1fr auto;
+  gap: 1.4rem;
+  align-items: baseline;
+  padding: 1.1rem 0.2rem;
+  text-decoration: none;
+  transition: background 0.2s, padding-left 0.25s;
+}
+.project-list a:hover { background: var(--accent-soft); padding-left: 0.8rem; }
+.p-name { font-weight: 600; font-size: 0.98rem; }
+.p-desc { color: var(--muted); font-size: 0.92rem; }
+
+/* ---------- Bio ---------- */
+.bio {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  line-height: 1.55;
+  max-width: 30em;
+}
+.bio strong { font-weight: 600; }
+
+/* ---------- Contacto ---------- */
+.big-mail {
+  display: inline-block;
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 0.15em;
+  transition: border-color 0.25s, color 0.25s;
+}
+.big-mail:hover { color: var(--accent); border-color: var(--accent); }
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2rem;
+  margin-top: 2rem;
+}
+.contact-row a {
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-row a:hover { color: var(--accent); }
+
+/* ---------- Footer ---------- */
+.footer {
+  max-width: var(--max);
+  margin: 4rem auto 0;
+  padding: 1.6rem var(--pad) 2.2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* ---------- Accesibilidad ---------- */
+a:focus-visible, .btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .section { opacity: 1; transform: none; transition: none; }
+  * { transition-duration: 0.01ms !important; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 880px) {
+  .pillars { grid-template-columns: repeat(2, 1fr); }
+  .hero { grid-template-columns: 1fr; }
+  .hero-photo { justify-self: start; width: min(78%, 320px); margin-top: 0.5rem; }
+  .course-list a, .project-list a { grid-template-columns: 1fr auto; }
+  .course-sub, .p-desc { grid-column: 1 / -1; margin-top: -0.5rem; padding-bottom: 0.2rem; }
+}
+@media (max-width: 540px) {
+  .pillars { grid-template-columns: 1fr; gap: 1.8rem; }
+  .nav-links { gap: 1.1rem; }
+  .nav-links a:first-child { display: none; }
+}
+
+/* ---------- Toggle de tema ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  align-self: center;
+}
+.theme-toggle:hover { color: var(--ink); border-color: var(--ink); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Sol visible en oscuro (para volver a claro), luna visible en claro */
+.icon-sun { display: none; }
+.icon-moon { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .icon-moon { display: none; }
+}
+:root[data-theme="dark"] .icon-sun { display: block; }
+:root[data-theme="dark"] .icon-moon { display: none; }
+:root[data-theme="light"] .icon-sun { display: none; }
+:root[data-theme="light"] .icon-moon { display: block; }
+
+/* Transición suave al cambiar de tema */
+body, .btn, .theme-toggle, .course-list a, .project-list a {
+  transition-property: background-color, color, border-color;
+  transition-duration: 0.25s;
+}
+
+/* Ajustes finos en oscuro: foto y curvas de nivel */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero-photo img { border: 1px solid var(--line); }
+  :root:not([data-theme="light"]) .contours { opacity: 0.45; }
+  :root:not([data-theme="light"]) .btn-solid:hover { color: #141816; }
+}
+:root[data-theme="dark"] .hero-photo img { border: 1px solid var(--line); }
+:root[data-theme="dark"] .contours { opacity: 0.45; }
+:root[data-theme="dark"] .btn-solid:hover { color: #141816; }
