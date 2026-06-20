@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Opciones de pago para cursos - Daniel Quisbert">
+    <title>Pagar Curso - Daniel Quisbert</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">DQ</div>
+                    <div class="logo-text">
+                        <h1>Daniel Quisbert</h1>
+                        <p>Cursos en línea</p>
+                    </div>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h2>Opciones de pago</h2>
+                <p>Elige tu método preferido y completa tu inscripción</p>
+            </section>
+
+            <!-- Payment Methods Container -->
+            <div class="payment-methods-grid">
+                
+                <!-- BINANCE -->
+                <section class="payment-method binance-method">
+                    <div class="method-header">
+                        <div class="method-icon binance-icon">₿</div>
+                        <h3>Binance P2P</h3>
+                    </div>
+
+                    <p class="method-description">Criptomonedas seguras, sin intermediarios</p>
+
+                    <div class="qr-display">
+                        <img src="images/qr-binance.jpeg" alt="Código QR Binance P2P" class="qr-image">
+                        <p class="qr-label">Código QR</p>
+                    </div>
+
+                    <a href="https://s.binance.com/eEpXwLVO" target="_blank" class="btn btn-primary">
+                        Ir a Binance P2P →
+                    </a>
+
+                    <div class="features">
+                        <div class="feature">
+                            <span class="feature-icon">⚡</span>
+                            <span class="feature-text">Instantáneo</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🔒</span>
+                            <span class="feature-text">Seguro</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🌍</span>
+                            <span class="feature-text">Múltiples países</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AIRTM -->
+                <section class="payment-method airtm-method">
+                    <div class="method-header">
+                        <div class="method-icon airtm-icon">💰</div>
+                        <h3>Airtm</h3>
+                    </div>
+
+                    <p class="method-description">Dólares digitales seguros</p>
+
+                    <div class="qr-display">
+                        <img src="images/qr-airtm.jpeg" alt="Código QR Airtm" class="qr-image">
+                        <p class="qr-label">Código QR</p>
+                    </div>
+
+                    <a href="airtm.me/danielquisbert" target="_blank" class="btn btn-primary">
+                        Ir a Airtm →
+                    </a>
+
+                    <div class="features">
+                        <div class="feature">
+                            <span class="feature-icon">💵</span>
+                            <span class="feature-text">Dólares digitales</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">📱</span>
+                            <span class="feature-text">App móvil</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span class="feature-text">Rápido</span>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Complete Registration Section -->
+            <section class="registration-section">
+                <h3>Completa tu inscripción</h3>
+                <p class="registration-description">Después de realizar tu pago, envía el comprobante por WhatsApp para confirmar tu inscripción</p>
+                
+                <button id="whatsappComprobante" class="btn btn-whatsapp">
+                    📱 Enviar comprobante por WhatsApp
+                </button>
+            </section>
+
+            <!-- Western Union Section -->
+            <section class="western-union-section">
+                <div class="western-union-box">
+                    <h4>¿Prefieres otra opción?</h4>
+                    <p><strong>Western Union</strong></p>
+                    <p class="western-description">Si prefieres usar Western Union o tienes otra forma de pago, contáctanos por WhatsApp. Te pasaremos los datos bancarios para completar tu transferencia.</p>
+                    
+                    <button id="whatsappWestern" class="btn btn-whatsapp-secondary">
+                        💬 Contactar por WhatsApp
+                    </button>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section">
+                <h4>¿Necesitas ayuda?</h4>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:info@danielquisbert.com">info@danielquisbert.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💬</span>
+                        <a href="#" id="whatsappGeneral">+591 6422-2142 (WhatsApp)</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Daniel Quisbert. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

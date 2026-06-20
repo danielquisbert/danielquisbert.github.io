@@ -1,0 +1,344 @@
+═══════════════════════════════════════════════════════════════════════════════
+                            ✨ ACTUALIZACIÓN V2
+                        Binance P2P + Airtm con Combo
+═══════════════════════════════════════════════════════════════════════════════
+
+🆕 CAMBIOS PRINCIPALES
+───────────────────────────────────────────────────────────────────────────────
+
+1. ✅ SELECTOR DE MÉTODO DE PAGO
+   └─ Ahora tienes 2 opciones:
+      • Binance P2P (imagen QR)
+      • Airtm (imagen QR + conversión desde $30)
+
+2. ✅ LOADING ANIMATION (AIRTM)
+   └─ Simula consulta de sistema por 0.5 segundos
+   └─ Spinner + texto "Consultando sistemas..."
+   └─ Luego muestra conversion y QR
+
+3. ✅ COMBO/CONVERSIÓN (AIRTM >= $30)
+   └─ A partir de $30 USD muestra:
+      • Monto en USD
+      • Equivalencia en moneda local (Bs)
+      • Tipo de cambio actualizado
+   └─ Para montos < $30 no aparece (es normal)
+
+4. ✅ IMÁGENES DIFERENTES POR MÉTODO
+   └─ Binance: qr-10.png, qr-15.png, ... (carpeta images/)
+   └─ Airtm: qr-airtm-10.png, qr-airtm-15.png, ... (carpeta images/)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📁 NUEVA ESTRUCTURA DE ARCHIVOS
+───────────────────────────────────────────────────────────────────────────────
+
+pago-curso/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── script.js
+└── images/
+    ├── qr-10.png          ← Binance
+    ├── qr-15.png          ← Binance
+    ├── ... (hasta qr-90.png)
+    ├── qr-120.png         ← Binance
+    │
+    ├── qr-airtm-10.png    ← Airtm (NUEVO)
+    ├── qr-airtm-15.png    ← Airtm (NUEVO)
+    ├── ... (hasta qr-airtm-90.png)
+    └── qr-airtm-120.png   ← Airtm (NUEVO)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📝 QUÉ DEBES HACER AHORA
+───────────────────────────────────────────────────────────────────────────────
+
+PASO 1: DESCARGAR NUEVOS ARCHIVOS
+  ✓ Los 3 archivos actualizados ya están listos:
+    - index.html (actualizado con tabs y Airtm)
+    - styles.css (actualizado con loading y conversion)
+    - script.js (actualizado con lógica de tabs y conversión)
+
+PASO 2: GENERAR QRs DE AIRTM
+  ✓ Para cada monto ($10-$120), genera 2 QRs:
+    
+    BINANCE:
+    - qr-10.png, qr-15.png, qr-20.png, ... qr-120.png
+      (Tu QR de Binance P2P para cada monto)
+    
+    AIRTM:
+    - qr-airtm-10.png, qr-airtm-15.png, ... qr-airtm-120.png
+      (Tu QR de Airtm para cada monto)
+
+PASO 3: ORGANIZAR CARPETA images/
+  ✓ Coloca TODOS (17 × 2 = 34) QRs en la carpeta images/:
+    images/
+    ├── qr-10.png
+    ├── qr-15.png
+    ├── ... (todas las 17 de Binance)
+    ├── qr-120.png
+    ├── qr-airtm-10.png
+    ├── qr-airtm-15.png
+    ├── ... (todas las 17 de Airtm)
+    └── qr-airtm-120.png
+
+PASO 4: ACTUALIZAR ENLACES DE AIRTM
+  ✓ Abre script.js
+  ✓ Busca: "const airtmConfig = {"
+  ✓ Reemplaza todos los "https://airtm.com" con tu enlace real
+    Ejemplo:
+    '30': {
+        label: 'QR para $30 USD',
+        image: 'images/qr-airtm-30.png',
+        link: 'https://tu-enlace-airtm-aqui.com'  ← CAMBIA ESTO
+    }
+
+PASO 5: VERIFICAR TIPO DE CAMBIO
+  ✓ En script.js busca:
+    const EXCHANGE_RATE = 6.89;
+  ✓ Actualiza el valor según tasa actual (USD a BOB)
+    Ejemplo:
+    const EXCHANGE_RATE = 7.15;  // 1 USD = 7.15 BOB
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎯 CÓMO FUNCIONA AHORA
+───────────────────────────────────────────────────────────────────────────────
+
+BINANCE P2P
+──────────
+
+Usuario selecciona:
+  1. Haz click en tab "Binance P2P"
+  2. Elige monto ($10-$120)
+  3. Aparece QR de Binance
+  4. Muestra instrucciones
+  5. Botón "Ir a Binance P2P"
+
+No hay loading: aparece al instante
+
+
+AIRTM
+─────
+
+Usuario selecciona:
+  1. Haz click en tab "Airtm"
+  2. Elige monto ($10-$120)
+  3. CARGANDO: Aparece spinner por 0.5 segundos
+     "Consultando sistemas..."
+  4. Si monto >= $30:
+     ├─ Aparece COMBO/CONVERSIÓN:
+     │  • $30.00 USD → Bs 206.70
+     │  • "Tipo de cambio actualizado"
+     └─ Luego aparece QR
+  5. Si monto < $30:
+     └─ Solo aparece QR sin conversión
+  6. Muestra instrucciones
+  7. Botón "Ir a Airtm"
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🔧 CONFIGURACIONES IMPORTANTES
+───────────────────────────────────────────────────────────────────────────────
+
+ARCHIVO: script.js
+
+1. ENLACE DE AIRTM
+   Busca: link: 'https://airtm.com'
+   En todas las entradas de airtmConfig
+   Reemplaza con tu enlace real
+
+2. TIPO DE CAMBIO (Bolivia)
+   Busca: const EXCHANGE_RATE = 6.89;
+   
+   Valores actuales (aproximados):
+   • 6.89  = 1 USD = 6.89 BOB
+   • 7.00  = 1 USD = 7.00 BOB
+   • 7.15  = 1 USD = 7.15 BOB
+   
+   Actualiza según la tasa del día
+
+3. TIEMPO DE LOADING
+   Busca: setTimeout(() => { ... }, 500);
+   
+   500 = 0.5 segundos
+   Si quieres cambiar:
+   • 300 = 0.3 segundos (más rápido)
+   • 1000 = 1 segundo (más lento)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📊 TABLAS DE MONTOS ACTUALIZADAS
+───────────────────────────────────────────────────────────────────────────────
+
+BINANCE P2P (Todos los montos igual)
+────────────────────────────────────
+
+$10    ┐
+$15    │
+$20    │ Mismo proceso
+$25    │ (sin loading)
+$30    │
+$35    │
+... y así
+$120   ┘
+
+
+AIRTM (Diferentes)
+──────────────────
+
+$10    ┐
+$15    │ Sin conversión
+$20    │ (loading + QR)
+$25    │
+$30    ┐ Con conversión
+$35    │ (loading + combo + QR)
+... y así
+$120   ┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+💡 EJEMPLOS DE CONVERSIÓN
+───────────────────────────────────────────────────────────────────────────────
+
+Si EXCHANGE_RATE = 6.89
+
+Monto USD  →  Conversión a Bs
+──────────────────────────────
+$30.00     →  Bs 206.70
+$40.00     →  Bs 275.60
+$50.00     →  Bs 344.50
+$60.00     →  Bs 413.40
+$70.00     →  Bs 482.30
+$80.00     →  Bs 551.20
+$90.00     →  Bs 620.10
+$120.00    →  Bs 826.80
+
+(Se calcula automáticamente según el monto seleccionado)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎨 ESTILOS NUEVOS
+───────────────────────────────────────────────────────────────────────────────
+
+1. PAYMENT METHOD TABS
+   ├─ 2 botones lado a lado (responsive)
+   ├─ Activo: color primario (azul)
+   ├─ Inactivo: gris
+   └─ Animación suave al cambiar
+
+2. LOADING SPINNER
+   ├─ Animación de giro continuo
+   ├─ 0.5 segundos de duración
+   ├─ Aparece y desaparece suavemente
+   └─ Texto: "Consultando sistemas..."
+
+3. CONVERSION DISPLAY
+   ├─ 2 montos lado a lado ($30.00 → Bs 206.70)
+   ├─ Colores diferentes (azul y verde)
+   ├─ Fondo degradado sutil
+   ├─ Texto "Tipo de cambio actualizado"
+   └─ Animación de entrada (slideUp)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ CHECKLIST DE INSTALACIÓN
+───────────────────────────────────────────────────────────────────────────────
+
+ANTES DE PUBLICAR:
+
+☐ Descargué los 3 archivos actualizados
+☐ Generé 17 QRs de Binance (qr-10.png ... qr-120.png)
+☐ Generé 17 QRs de Airtm (qr-airtm-10.png ... qr-airtm-120.png)
+☐ Coloqué TODOS (34) QRs en carpeta images/
+☐ Actualizé enlaces de Airtm en script.js
+☐ Verifiqué tipo de cambio (EXCHANGE_RATE) correcto
+☐ Probé localmente: tab selector funciona
+☐ Probé Binance: aparecen QRs sin loading
+☐ Probé Airtm: aparece loading por 0.5 seg
+☐ Probé Airtm $30+: aparece conversión
+☐ Probé dark mode: funciona en ambas secciones
+☐ Probé en móvil: responsive correctamente
+☐ Nombres de archivos exactos (minúsculas)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🐛 SOLUCIÓN DE PROBLEMAS
+───────────────────────────────────────────────────────────────────────────────
+
+❌ Los tabs no funcionan
+   ✓ Abre DevTools (F12) → Console
+   ✓ Busca errores JavaScript
+   ✓ Verifica que los ID coincidan en HTML y JS
+
+❌ Las imágenes de Airtm no aparecen
+   ✓ Verifica que existan: qr-airtm-10.png, etc.
+   ✓ Nombres deben ser exactos (minúsculas)
+   ✓ Deben estar en carpeta images/
+
+❌ No aparece conversión en Airtm
+   ✓ Comprueba que monto seleccionado >= $30
+   ✓ Verifica que showConversion: true esté en config
+
+❌ El loading aparece pero no desaparece
+   ✓ Busca "setTimeout" en script.js
+   ✓ Verifica que haya "}, 500);"
+   ✓ Recarga la página (Ctrl+Shift+R)
+
+❌ Las conversiones están incorrectas
+   ✓ Actualiza EXCHANGE_RATE en script.js
+   ✓ Usa valor correcto de tipo de cambio USD→BOB
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📱 CARACTERÍSTICAS RESPONSIVE
+───────────────────────────────────────────────────────────────────────────────
+
+DESKTOP (≥768px)
+└─ Tabs lado a lado
+└─ Conversión en 2 columnas
+└─ Espacios generosos
+
+TABLET (768px)
+└─ Tabs adaptan ancho
+└─ Conversión se ajusta
+└─ Buen padding
+
+MÓVIL (<480px)
+└─ Tabs stack verticalmente (1 por línea)
+└─ Conversión en 2 filas
+└─ Espacios compactos
+└─ Texto reducido
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎯 PRÓXIMOS PASOS
+───────────────────────────────────────────────────────────────────────────────
+
+1. Descarga los 3 archivos actualizados
+2. Reemplaza los antiguos (index.html, styles.css, script.js)
+3. Genera 34 QRs (17 Binance + 17 Airtm)
+4. Coloca en carpeta images/
+5. Actualiza script.js (enlaces y tipo de cambio)
+6. Prueba localmente
+7. Sube a GitHub
+8. ¡Listo!
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                         ¡VERSIÓN 2 LISTA PARA USAR!
+
+═══════════════════════════════════════════════════════════════════════════════
