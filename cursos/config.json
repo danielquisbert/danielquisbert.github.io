@@ -67,28 +67,28 @@
       },
       {
         "id": "estudiantes",
-        "label": "🎓 Estudiantes · Flutter GIS",
+        "label": "🎓 Estudiantes · Flutter+GIS",
         "title": "Estudiantes del curso Flutter + GIS",
         "subtitle": "Alumnos que construyeron su propia app Android con mapas, GPS y GeoServer durante el curso.",
         "videos": [
           {
             "id": "AI34WxG9jaY",
-            "name": "Estudiante Flutter GIS",
+            "name": "Estudiante Flutter+GIS",
             "description": "Su experiencia en el curso"
           },
           {
             "id": "OdUicucZ7IQ",
-            "name": "Estudiante Flutter GIS",
+            "name": "Estudiante Flutter+GIS",
             "description": "De cero a su primera app con mapas"
           },
           {
             "id": "s8gHEdHEtnA",
-            "name": "Estudiante Flutter GIS",
+            "name": "Estudiante Flutter+GIS",
             "description": "Resultados y aprendizajes del curso"
           },
           {
             "id": "gmq-0ho_2LM",
-            "name": "Estudiante Flutter GIS",
+            "name": "Estudiante Flutter+GIS",
             "description": "Su app funcionando con GeoServer"
           }
         ]
@@ -265,7 +265,7 @@
         },
         {
           "question": "¿Qué sigue después de este curso?",
-          "answer": "El siguiente nivel es Flutter GIS Pro — arquitectura avanzada, geofencing, notificaciones push con Firebase y publicación en Play Store."
+          "answer": "El siguiente nivel es Flutter+GIS Pro — arquitectura avanzada, geofencing, notificaciones push con Firebase y publicación en Play Store."
         }
       ],
       "tags": [
@@ -285,7 +285,7 @@
       "enabled": true,
       "status": "coming_soon",
       "priority": 2,
-      "courseTitle": "Flutter GIS Pro",
+      "courseTitle": "Flutter+GIS Pro",
       "courseLevel": "🚀 Nivel Intermedio — Avanzado",
       "slug": "flutter-gis-pro",
       "duration": "6 semanas • 24 horas",
@@ -385,7 +385,7 @@
         "Sistema de geofencing con alertas automáticas en tiempo real"
       ],
       "requirements": [
-        "Haber completado Flutter GIS Básico o experiencia equivalente con Flutter y mapas",
+        "Haber completado Flutter+GIS Básico o experiencia equivalente con Flutter y mapas",
         "Conocimiento básico de consumo de capas WMS/WFS",
         "Laptop con mínimo 8GB de RAM (16GB recomendado)",
         "Smartphone Android para pruebas en dispositivo real",
@@ -393,7 +393,7 @@
       ],
       "faq": [
         {
-          "question": "¿Es obligatorio haber tomado Flutter GIS Básico?",
+          "question": "¿Es obligatorio haber tomado Flutter+GIS Básico?",
           "answer": "Es muy recomendable. Si ya tienes experiencia construyendo apps Flutter con mapas y consumiendo WMS/WFS, puedes ingresar directamente. Escríbenos y evaluamos tu nivel."
         },
         {
@@ -406,11 +406,11 @@
         },
         {
           "question": "¿Cuándo inicia este curso?",
-          "answer": "Las fechas se anunciarán al finalizar Flutter GIS Básico. Únete al grupo de WhatsApp o Telegram para recibir la notificación primero."
+          "answer": "Las fechas se anunciarán al finalizar Flutter+GIS Básico. Únete al grupo de WhatsApp o Telegram para recibir la notificación primero."
         },
         {
           "question": "¿Hay más cursos después de este?",
-          "answer": "Flutter GIS Pro es actualmente el nivel máximo de la ruta Flutter en ARTECLAB. Al completarlo tendrás el perfil completo de un especialista en desarrollo móvil geoespacial."
+          "answer": "Flutter+GIS Pro es actualmente el nivel máximo de la ruta Flutter en ARTECLAB. Al completarlo tendrás el perfil completo de un especialista en desarrollo móvil geoespacial."
         }
       ],
       "tags": [
