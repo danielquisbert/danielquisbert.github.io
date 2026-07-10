@@ -1,3 +1,25 @@
+Esa es una combinación tecnológica excelente y muy demandada (Stack empresarial moderno). Utilizar **Angular** te permite estructurar la aplicación de forma modular y escalable, **Leaflet** aporta ligereza en el renderizado web, **GeoServer** actúa como el motor robusto de datos espaciales, y la **IA** le da ese valor agregado revolucionario (como asistentes virtuales o interpretación de lenguaje natural).
+
+Para un nivel intermedio, donde asumimos que el alumno ya sabe bases de programación y conceptos GIS, aquí tienes mi propuesta de **10 puntos clave** que deberían conformar el núcleo del curso:
+
+1. **Arquitectura Angular para GIS:** Configuración del entorno, creación de componentes modulares (mapa, barra lateral, controles) y uso de servicios en Angular.
+2. **Implementación de Leaflet en Angular:** Inicialización del mapa, gestión del estado (zoom, centro) y manejo del ciclo de vida de los componentes espaciales.
+3. **Consumo de GeoServer (WMS):** Conexión vía HTTP a GeoServer para renderizar mapas base y capas raster/vectoriales pesadas mediante WMS.
+4. **Interacción con Datos (WFS):** Peticiones a GeoServer para extraer datos vectoriales reales (GeoJSON), implementar clics en el mapa y renderizar *popups* dinámicos.
+5. **Gestor de Capas Avanzado:** Creación de un control personalizado en Angular para encender/apagar capas, cambiar la opacidad y gestionar el orden (z-index).
+6. **Integración de API de Inteligencia Artificial:** Conexión con LLMs (como OpenAI o Gemini) a través de servicios de Angular para crear un chat/asistente integrado en el visor.
+7. **IA Aplicada (Texto a GeoJSON):** Uso de IA para extraer coordenadas o ubicaciones desde texto no estructurado ingresado por el usuario y dibujarlas automáticamente en Leaflet.
+8. **Consultas Espaciales con Lenguaje Natural:** Entrenar el prompt de la IA para que traduzca preguntas del usuario (ej. *"Muestra los lotes del distrito 4"*) a filtros CQL que GeoServer entienda.
+9. **UI/UX Cartográfica:** Diseño de interfaces modernas con Angular Material o Tailwind CSS orientadas a visores de mapas (paneles flotantes, diseño responsivo).
+10. **Optimización y Despliegue:** Optimización del bundle de Angular, manejo seguro de las API Keys de la IA y despliegue del visor a producción.
+
+---
+
+A partir de esos 10 puntos, he estructurado los módulos, descripción, características y requerimientos del curso de **Web Mapping con IA** en el JSON.
+
+Aquí tienes el archivo JSON actualizado:
+
+```json
 {
   "siteInfo": {
     "name": "GeoNexus",
@@ -220,7 +242,7 @@
       "courseTitle": "GeoServer Profesional",
       "slug": "geoserver-profesional",
       "duration": "4 semanas • 1.5 hrs. por clase (2 días a la semana)",
-      "description": "Publica, administra y sirve mapas en internet como los profesionales de la industria geoespacial. Desde la instalación hasta producción real en la nube.",
+      "description": "Publica, administra y sirve mapas en internet como los profesionales de la industria geoespacial. Domina la integración con bases de datos espaciales y despliegues en la nube.",
       "startDate": null,
       "endDate": null,
       "availableSeats": 20,
@@ -248,49 +270,50 @@
         "Certificación por parte de ARTECLAB",
         "Grabaciones de por vida",
         "Material incluido",
-        "Publicación de datos vectoriales",
-        "Estilos SLD profesionales",
-        "Seguridad: usuarios y roles",
+        "Conexión nativa y publicación desde PostgreSQL/PostGIS",
+        "Creación y orquestación de Grupos de Capas (Layer Groups)",
+        "Estilos SLD profesionales y filtros CQL",
+        "Seguridad: control de acceso por usuarios y roles",
         "Simulación de deploy en servidor Linux"
       ],
       "modules": [
         {
           "number": 1,
           "icon": "⚙️",
-          "title": "Arquitectura & Publicación",
-          "description": "Instalación de GeoServer y publicación de vectoriales.",
+          "title": "Arquitectura & Datos Vectoriales",
+          "description": "Instalación de GeoServer, estructura de Workspaces, Data Stores y publicación de archivos vectoriales tradicionales.",
           "classes": 2,
           "hours": 3
         },
         {
           "number": 2,
-          "icon": "🎨",
-          "title": "Simbología & Servicios",
-          "description": "Diseño con SLD, filtros CQL y configuración de servicios WMS/WFS.",
+          "icon": "🐘",
+          "title": "Integración Avanzada con PostGIS",
+          "description": "Conexión directa a bases de datos espaciales. Publicación de tablas de PostgreSQL, creación de vistas SQL parametrizadas y optimización de rendimiento.",
           "classes": 2,
           "hours": 3
         },
         {
           "number": 3,
-          "icon": "🔒",
-          "title": "Seguridad & Visores",
-          "description": "Gestión de usuarios y creación de visor web básico con Leaflet.",
+          "icon": "🎨",
+          "title": "Grupos de Capas & Simbología SLD",
+          "description": "Creación de Grupos de Capas (Layer Groups) para componer mapas base complejos. Diseño de estilos profesionales con SLD, etiquetado y filtros OGC.",
           "classes": 2,
           "hours": 3
         },
         {
           "number": 4,
           "icon": "☁️",
-          "title": "Optimización & Deploy",
-          "description": "GeoWebCache y despliegue del servidor Linux en la nube.",
+          "title": "Servicios OGC, Seguridad & Deploy",
+          "description": "Consumo de servicios WMS/WFS, gestión de seguridad (usuarios y restricción de capas), y despliegue del servidor en la nube con Linux.",
           "classes": 2,
           "hours": 3
         }
       ],
       "deliverables": [
-        "Servidor GeoServer configurado",
-        "Capas publicadas con estilos SLD",
-        "Visor web básico integrado"
+        "Servidor GeoServer configurado y asegurado",
+        "Conexión estable a base de datos PostGIS con capas dinámicas",
+        "Grupos de capas y mapas base publicados con estilos SLD"
       ],
       "requirements": [
         "Conocimientos básicos de GIS",
@@ -299,12 +322,17 @@
       ],
       "faq": [
         {
-          "question": "¿Necesito experiencia previa en servidores?",
-          "answer": "No, te guiaremos paso a paso desde la instalación."
+          "question": "¿Necesito saber SQL o bases de datos antes de empezar?",
+          "answer": "Es recomendable tener nociones básicas, pero te enseñaremos paso a paso cómo realizar la conexión y publicar tus tablas desde PostGIS."
+        },
+        {
+          "question": "¿Necesito experiencia previa en servidores Linux?",
+          "answer": "No, te guiaremos paso a paso desde la instalación y el despliegue."
         }
       ],
       "tags": [
         "geoserver",
+        "postgis",
         "wms",
         "wfs",
         "sld",
@@ -389,10 +417,10 @@
       "enabled": true,
       "status": "coming_soon",
       "priority": 4,
-      "courseTitle": "Desarrollo Web Mapping con IA",
-      "slug": "web-mapping-ia",
+      "courseTitle": "Web Mapping con Angular, GeoServer e IA",
+      "slug": "web-mapping-angular-ia",
       "duration": "4 semanas • 1.5 hrs. por clase (2 días a la semana)",
-      "description": "Desarrolla visores de mapas web modernos potenciados por Inteligencia Artificial. Aprende a integrar asistentes de IA y flujos de automatización en tus aplicaciones GIS.",
+      "description": "Desarrolla visores de mapas empresariales usando Angular y Leaflet. Aprende a consumir datos espaciales desde GeoServer e integra Inteligencia Artificial para interactuar con tus mapas mediante lenguaje natural.",
       "startDate": null,
       "endDate": null,
       "availableSeats": 20,
@@ -420,41 +448,76 @@
         "Certificación por parte de ARTECLAB",
         "Grabaciones de por vida",
         "Material incluido",
-        "Desarrollo de visores web interactivos",
-        "Integración de APIs de Inteligencia Artificial",
-        "Automatización de procesos GIS web"
+        "Arquitectura Frontend con Angular y TypeScript",
+        "Renderizado de mapas interactivos con Leaflet",
+        "Consumo de capas WMS y WFS desde GeoServer",
+        "Integración de LLMs (OpenAI/Gemini) como asistentes del mapa",
+        "Traducción de lenguaje natural a consultas espaciales (CQL)"
       ],
       "modules": [
         {
           "number": 1,
+          "icon": "🅰️",
+          "title": "Arquitectura UI: Angular & Leaflet",
+          "description": "Configuración del proyecto Angular, creación de componentes del visor, integración de Leaflet y diseño de interfaz.",
+          "classes": 2,
+          "hours": 3
+        },
+        {
+          "number": 2,
+          "icon": "🌐",
+          "title": "Conexión GIS: GeoServer WMS & WFS",
+          "description": "Consumo de servicios OGC vía HTTP. Carga de capas pesadas WMS, extracción de datos vectoriales WFS y creación de un gestor de capas.",
+          "classes": 2,
+          "hours": 3
+        },
+        {
+          "number": 3,
           "icon": "🤖",
-          "title": "Temario en desarrollo",
-          "description": "El temario detallado de este curso se publicará próximamente.",
-          "classes": 8,
-          "hours": 12
+          "title": "Integración de IA y Asistentes",
+          "description": "Conexión a APIs de LLMs (ej. OpenAI), creación de un chat geoespacial y extracción de geometrías a partir de texto libre.",
+          "classes": 2,
+          "hours": 3
+        },
+        {
+          "number": 4,
+          "icon": "🧠",
+          "title": "Filtros IA y Puesta en Producción",
+          "description": "Entrenamiento de prompts para convertir lenguaje natural en filtros CQL para GeoServer. Optimización de la app Angular y despliegue.",
+          "classes": 2,
+          "hours": 3
         }
       ],
       "deliverables": [
-        "Visor Web Mapping funcional",
-        "Integración de asistente IA en el visor"
+        "Visor Web Mapping en Angular funcional",
+        "Integración de asistente IA contextual",
+        "Código fuente escalable y buenas prácticas GIS/Frontend"
       ],
       "requirements": [
-        "Conocimientos básicos de HTML/JS",
-        "Conocimientos básicos de GIS"
+        "Conocimientos básicos de JavaScript/TypeScript",
+        "Nociones básicas de GeoServer",
+        "Laptop con mínimo 8GB de RAM"
       ],
       "faq": [
         {
-          "question": "¿Las clases quedan grabadas?",
-          "answer": "Sí. Todas las sesiones en vivo quedan grabadas y disponibles para siempre."
+          "question": "¿Necesito saber Angular a fondo?",
+          "answer": "Es recomendable tener bases de HTML/JS o Typescript, pero te enseñaremos la arquitectura necesaria paso a paso orientada al mapa."
+        },
+        {
+          "question": "¿Debo pagar por la IA utilizada en el curso?",
+          "answer": "No es obligatorio grandes pagos, utilizaremos capas gratuitas (free-tiers) o créditos iniciales de las APIs (como Gemini o OpenAI) que son suficientes para desarrollo."
         }
       ],
       "tags": [
-        "web-mapping",
-        "ia",
-        "javascript",
+        "angular",
         "leaflet",
-        "ai"
+        "geoserver",
+        "typescript",
+        "ia",
+        "web-mapping"
       ]
     }
   ]
 }
+
+```
