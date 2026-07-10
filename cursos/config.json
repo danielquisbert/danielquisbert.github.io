@@ -35,66 +35,6 @@
     "showCounterWhenSeatsBelow": 8,
     "timezone": "America/La_Paz"
   },
-  "testimonials": {
-    "groups": [
-      {
-        "id": "docentes",
-        "label": "👩‍🏫 Docentes · ge0tic",
-        "title": "Docentes que usaron ge0tic en el aula",
-        "subtitle": "Profesoras y directoras que integraron la primera versión de ge0tic en sus clases de geografía.",
-        "videos": [
-          {
-            "id": "GFsKYXBKpVo",
-            "name": "Profesora Escolar",
-            "description": "Impacto de ge0tic en la enseñanza"
-          },
-          {
-            "id": "AaoTe21QAvQ",
-            "name": "Profesora Escolar",
-            "description": "Experiencia usando ge0tic en clases"
-          },
-          {
-            "id": "sW124xCu7rw",
-            "name": "Directora de Colegio",
-            "description": "Implementación institucional"
-          },
-          {
-            "id": "q8zXi7m5Ctg",
-            "name": "Entrevista Televisiva",
-            "description": "Cobertura en medios nacionales"
-          }
-        ]
-      },
-      {
-        "id": "estudiantes",
-        "label": "🎓 Estudiantes · Flutter+GIS",
-        "title": "Estudiantes del curso Flutter + GIS",
-        "subtitle": "Alumnos que construyeron su propia app Android con mapas, GPS y GeoServer durante el curso.",
-        "videos": [
-          {
-            "id": "AI34WxG9jaY",
-            "name": "Estudiante Flutter+GIS",
-            "description": "Su experiencia en el curso"
-          },
-          {
-            "id": "OdUicucZ7IQ",
-            "name": "Estudiante Flutter+GIS",
-            "description": "De cero a su primera app con mapas"
-          },
-          {
-            "id": "s8gHEdHEtnA",
-            "name": "Estudiante Flutter+GIS",
-            "description": "Resultados y aprendizajes del curso"
-          },
-          {
-            "id": "gmq-0ho_2LM",
-            "name": "Estudiante Flutter+GIS",
-            "description": "Su app funcionando con GeoServer"
-          }
-        ]
-      }
-    ]
-  },
   "courses": [
     {
       "id": "flutter_basico",
@@ -109,108 +49,13 @@
       "endDate": null,
       "availableSeats": 20,
       "totalSeats": 20,
-      "price": {
-        "usd": 69,
-        "bolivianos": null,
-        "earlyBirdDiscount": null,
-        "earlyBirdDeadline": null
-      },
+      "price": { "usd": 69, "bolivianos": null, "earlyBirdDiscount": null, "earlyBirdDeadline": null },
       "schedule": "Por definir",
-      "scheduleByCountry": [],
       "modality": "Online en Vivo + Grabaciones",
-      "liveHours": 15,
-      "supportHours": 4,
-      "totalHours": 19,
-      "supportFormat": "1 sesión en vivo por semana",
       "instructor": "Daniel Quisbert",
-      "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
-      "nextCohort": {
-        "startDate": null,
-        "waitlistEnabled": true
-      },
-      "features": [
-        "Certificación por parte de ARTECLAB",
-        "Grabaciones de por vida",
-        "Material incluido",
-        "App Android funcional con mapas y GPS",
-        "Conexión real a GeoServer — capas WMS en el móvil",
-        "Captura de datos GPS con visualización",
-        "Exportación a GeoJSON",
-        "APK listo para instalar y distribuir",
-        "Código fuente completo"
-      ],
-      "modules": [
-        {
-          "number": 1,
-          "icon": "📱",
-          "title": "Flutter desde Cero con Mentalidad GIS",
-          "description": "Instalación de Flutter en Windows y Linux. Fundamentos de Dart orientados a GIS y tu primera app con mapa interactivo.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 2,
-          "icon": "🗺️",
-          "title": "Mapas Interactivos & Capas Base",
-          "description": "Integración de flutter_map con OpenStreetMap, control de cámara, marcadores con popups y eventos de interacción.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 3,
-          "icon": "📍",
-          "title": "GPS & Geolocalización Real",
-          "description": "GPS en tiempo real sobre el mapa, gestión de permisos Android y captura de coordenadas.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 4,
-          "icon": "🌐",
-          "title": "Consumo de Capas GeoServer WMS",
-          "description": "Conecta tu app a un GeoServer real, carga capas WMS profesionales y aplica filtros CQL.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 5,
-          "icon": "🗂️",
-          "title": "Captura de Datos GPS & Exportación",
-          "description": "Registro de puntos, visualización de datos propios y exportación a GeoJSON compatible con QGIS.",
-          "classes": 2,
-          "hours": 3
-        }
-      ],
-      "deliverables": [
-        "App Android funcional con mapas interactivos",
-        "Conexión real a GeoServer",
-        "GPS integrado",
-        "APK listo para instalar"
-      ],
-      "requirements": [
-        "Sin experiencia en programación requerida",
-        "Laptop o PC con mínimo 8GB de RAM",
-        "Smartphone Android",
-        "Conexión a internet estable"
-      ],
-      "faq": [
-        {
-          "question": "¿Necesito saber programar para empezar?",
-          "answer": "No. El curso comienza desde cero."
-        },
-        {
-          "question": "¿Las clases quedan grabadas?",
-          "answer": "Sí. Todas las sesiones en vivo quedan grabadas y disponibles para siempre."
-        }
-      ],
-      "tags": [
-        "flutter",
-        "mobile",
-        "gps",
-        "geoserver",
-        "wms",
-        "android"
-      ]
+      "features": [ "Certificación ARTECLAB", "App Android con mapas", "Conexión GeoServer WMS", "Código fuente completo" ],
+      "modules": [ { "number": 1, "icon": "📱", "title": "Flutter & Mentalidad GIS", "classes": 2, "hours": 3 }, { "number": 2, "icon": "🗺️", "title": "Mapas & Capas Base", "classes": 2, "hours": 3 }, { "number": 3, "icon": "📍", "title": "GPS & Geolocalización", "classes": 2, "hours": 3 }, { "number": 4, "icon": "🌐", "title": "Consumo GeoServer WMS", "classes": 2, "hours": 3 }, { "number": 5, "icon": "🗂️", "title": "Captura y Exportación", "classes": 2, "hours": 3 } ],
+      "tags": ["flutter", "mobile", "gps", "geoserver"]
     },
     {
       "id": "geoserver",
@@ -220,175 +65,82 @@
       "courseTitle": "GeoServer Profesional",
       "slug": "geoserver-profesional",
       "duration": "4 semanas • 1.5 hrs. por clase (2 días a la semana)",
-      "description": "Publica, administra y sirve mapas en internet como los profesionales de la industria geoespacial. Domina la integración con bases de datos espaciales y despliegues en la nube.",
-      "startDate": null,
-      "endDate": null,
-      "availableSeats": 20,
-      "totalSeats": 20,
-      "price": {
-        "usd": 69,
-        "bolivianos": null,
-        "earlyBirdDiscount": null,
-        "earlyBirdDeadline": null
-      },
-      "schedule": "Por definir",
-      "scheduleByCountry": [],
-      "modality": "Online en Vivo + Grabaciones",
-      "liveHours": 12,
-      "supportHours": 4,
-      "totalHours": 16,
-      "supportFormat": "Sesiones Meet en vivo para consultas",
-      "instructor": "Daniel Quisbert",
-      "whatsappGroup": "https://chat.whatsapp.com/C0q6HSFXG92JeDWISChp5Q",
-      "nextCohort": {
-        "startDate": null,
-        "waitlistEnabled": true
-      },
-      "features": [
-        "Certificación por parte de ARTECLAB",
-        "Grabaciones de por vida",
-        "Material incluido",
-        "Conexión nativa y publicación desde PostgreSQL/PostGIS",
-        "Creación y orquestación de Grupos de Capas (Layer Groups)",
-        "Estilos SLD profesionales y filtros CQL",
-        "Seguridad: control de acceso por usuarios y roles",
-        "Simulación de deploy en servidor Linux"
-      ],
+      "description": "Publica y sirve mapas como los profesionales. Domina la integración con PostGIS, estilos SLD y despliegues en servidores Linux.",
+      "features": [ "Instalación en Linux", "Integración PostGIS", "Grupos de capas", "Seguridad OGC" ],
       "modules": [
-        {
-          "number": 1,
-          "icon": "⚙️",
-          "title": "Arquitectura & Datos Vectoriales",
-          "description": "Instalación de GeoServer, estructura de Workspaces, Data Stores y publicación de archivos vectoriales tradicionales.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 2,
-          "icon": "🐘",
-          "title": "Integración Avanzada con PostGIS",
-          "description": "Conexión directa a bases de datos espaciales. Publicación de tablas de PostgreSQL, creación de vistas SQL parametrizadas y optimización de rendimiento.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 3,
-          "icon": "🎨",
-          "title": "Grupos de Capas & Simbología SLD",
-          "description": "Creación de Grupos de Capas (Layer Groups) para componer mapas base complejos. Diseño de estilos profesionales con SLD, etiquetado y filtros OGC.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 4,
-          "icon": "☁️",
-          "title": "Servicios OGC, Seguridad & Deploy",
-          "description": "Consumo de servicios WMS/WFS, gestión de seguridad (usuarios y restricción de capas), y despliegue del servidor en la nube con Linux.",
-          "classes": 2,
-          "hours": 3
-        }
+        { "number": 1, "icon": "⚙️", "title": "Arquitectura GeoServer", "classes": 2, "hours": 3 },
+        { "number": 2, "icon": "🐘", "title": "Integración PostGIS", "classes": 2, "hours": 3 },
+        { "number": 3, "icon": "🎨", "title": "Estilos SLD y Grupos", "classes": 2, "hours": 3 },
+        { "number": 4, "icon": "☁️", "title": "Seguridad y Despliegue", "classes": 2, "hours": 3 }
       ],
-      "deliverables": [
-        "Servidor GeoServer configurado y asegurado",
-        "Conexión estable a base de datos PostGIS con capas dinámicas",
-        "Grupos de capas y mapas base publicados con estilos SLD"
-      ],
-      "requirements": [
-        "Conocimientos básicos de GIS",
-        "Laptop con mínimo 8GB de RAM",
-        "Conexión a internet estable"
-      ],
-      "faq": [
-        {
-          "question": "¿Necesito saber SQL o bases de datos antes de empezar?",
-          "answer": "Es recomendable tener nociones básicas, pero te enseñaremos paso a paso cómo realizar la conexión y publicar tus tablas desde PostGIS."
-        },
-        {
-          "question": "¿Necesito experiencia previa en servidores Linux?",
-          "answer": "No, te guiaremos paso a paso desde la instalación y el despliegue."
-        }
-      ],
-      "tags": [
-        "geoserver",
-        "postgis",
-        "wms",
-        "wfs",
-        "sld",
-        "linux"
-      ]
+      "tags": ["geoserver", "postgis", "wms", "linux"]
     },
     {
       "id": "postgresql_postgis",
       "enabled": true,
       "status": "coming_soon",
       "priority": 3,
-      "courseTitle": "PostgreSQL y PostGIS",
+      "courseTitle": "PostgreSQL y PostGIS Profesional",
       "slug": "postgresql-postgis",
       "duration": "4 semanas • 1.5 hrs. por clase (2 días a la semana)",
-      "description": "Aprende a gestionar bases de datos espaciales. Domina SQL y las funciones espaciales de PostGIS para almacenamiento, consultas y análisis de datos geográficos.",
+      "description": "Instala tu propio servidor de datos espaciales en Linux Debian. Aprende a gestionar datos masivos con ogr2ogr, realizar análisis espacial y publicar vistas dinámicas.",
       "startDate": null,
       "endDate": null,
       "availableSeats": 20,
       "totalSeats": 20,
-      "price": {
-        "usd": 69,
-        "bolivianos": null,
-        "earlyBirdDiscount": null,
-        "earlyBirdDeadline": null
-      },
+      "price": { "usd": 69, "bolivianos": null, "earlyBirdDiscount": null, "earlyBirdDeadline": null },
       "schedule": "Por definir",
-      "scheduleByCountry": [],
       "modality": "Online en Vivo + Grabaciones",
-      "liveHours": 12,
-      "supportHours": 4,
-      "totalHours": 16,
-      "supportFormat": "Sesiones en vivo para consultas",
       "instructor": "Daniel Quisbert",
-      "whatsappGroup": "",
-      "nextCohort": {
-        "startDate": null,
-        "waitlistEnabled": true
-      },
       "features": [
-        "Certificación por parte de ARTECLAB",
-        "Grabaciones de por vida",
-        "Material incluido",
-        "Instalación y configuración de PostgreSQL",
-        "Modelado de bases de datos espaciales",
-        "Consultas SQL y análisis espacial con PostGIS",
-        "Integración con QGIS y GeoServer"
+        "Instalación y configuración en Linux Debian",
+        "Automatización de carga masiva con ogr2ogr",
+        "Análisis espacial avanzado con ST_Buffer, ST_Intersects y ST_Distance",
+        "Publicación de vistas dinámicas con ST_AsGeoJSON",
+        "Conexión bidireccional con QGIS y GeoServer"
       ],
       "modules": [
         {
           "number": 1,
-          "icon": "🗄️",
-          "title": "Temario en desarrollo",
-          "description": "El temario detallado de este curso se publicará próximamente.",
-          "classes": 8,
-          "hours": 12
+          "icon": "🐧",
+          "title": "Servidor Linux & PostGIS",
+          "description": "Instalación de PostgreSQL/PostGIS en Debian desde cero. Gestión de usuarios y permisos de base de datos.",
+          "classes": 2,
+          "hours": 3
+        },
+        {
+          "number": 2,
+          "icon": "🚚",
+          "title": "Ingeniería de Datos con ogr2ogr",
+          "description": "Automatización de importación de Shapefiles masivos. Limpieza, normalización y carga eficiente a tablas PostGIS.",
+          "classes": 2,
+          "hours": 3
+        },
+        {
+          "number": 3,
+          "icon": "🔍",
+          "title": "Análisis Espacial SQL",
+          "description": "Uso de funciones espaciales (Buffer, Intersects, Distance) para consultas lógicas y toma de decisiones geoespaciales.",
+          "classes": 2,
+          "hours": 3
+        },
+        {
+          "number": 4,
+          "icon": "🌐",
+          "title": "Vistas SQL y Publicación",
+          "description": "Creación de vistas para GeoServer, uso de ST_AsGeoJSON para web y edición remota desde QGIS.",
+          "classes": 2,
+          "hours": 3
         }
       ],
       "deliverables": [
-        "Base de datos espacial estructurada",
-        "Scripts de consultas espaciales"
+        "Servidor de base de datos espacial operativo en Linux",
+        "Scripts de automatización ogr2ogr",
+        "Biblioteca de consultas SQL espaciales",
+        "Vistas dinámicas publicadas en GeoServer"
       ],
-      "requirements": [
-        "Conocimientos básicos de GIS",
-        "Laptop con mínimo 8GB de RAM"
-      ],
-      "faq": [
-        {
-          "question": "¿Las clases quedan grabadas?",
-          "answer": "Sí. Todas las sesiones en vivo quedan grabadas y disponibles para siempre."
-        }
-      ],
-      "tags": [
-        "postgresql",
-        "postgis",
-        "database",
-        "sql",
-        "spatial"
-      ]
+      "requirements": [ "Conocimientos básicos de GIS", "Laptop con mínimo 8GB de RAM" ],
+      "tags": ["postgresql", "postgis", "debian", "ogr2ogr", "sql", "spatial"]
     },
     {
       "id": "web_mapping_ia",
@@ -398,102 +150,15 @@
       "courseTitle": "Desarrollo Web Mapping con IA",
       "slug": "web-mapping-angular-ia",
       "duration": "4 semanas • 1.5 hrs. por clase (2 días a la semana)",
-      "description": "Aprende a desarrollar un visor de mapas profesional utilizando Angular, Leaflet y GeoServer. Descubre cómo utilizar Inteligencia Artificial (Claude, Gemini) como tu asistente de programación para generar código, resolver errores y acelerar la creación de herramientas GIS web.",
-      "startDate": null,
-      "endDate": null,
-      "availableSeats": 20,
-      "totalSeats": 20,
-      "price": {
-        "usd": 69,
-        "bolivianos": null,
-        "earlyBirdDiscount": null,
-        "earlyBirdDeadline": null
-      },
-      "schedule": "Por definir",
-      "scheduleByCountry": [],
-      "modality": "Online en Vivo + Grabaciones",
-      "liveHours": 12,
-      "supportHours": 4,
-      "totalHours": 16,
-      "supportFormat": "Sesiones en vivo para consultas",
-      "instructor": "Daniel Quisbert",
-      "whatsappGroup": "",
-      "nextCohort": {
-        "startDate": null,
-        "waitlistEnabled": true
-      },
-      "features": [
-        "Certificación por parte de ARTECLAB",
-        "Grabaciones de por vida",
-        "Material incluido",
-        "Uso de IA (Claude/Gemini) como asistente de desarrollo (Copiloto)",
-        "Arquitectura Frontend Open Source con Angular y Leaflet",
-        "Herramientas de control: Navegación, Zoom y Gestor de capas",
-        "Implementación de herramientas para dibujar sobre el mapa",
-        "Consumo de servicios OGC (WMS/WFS) desde GeoServer"
-      ],
+      "description": "Aprende a desarrollar un visor de mapas profesional utilizando Angular, Leaflet y GeoServer. Descubre cómo utilizar Inteligencia Artificial (Claude, Gemini) como tu asistente de programación.",
+      "features": [ "Uso de IA como copiloto", "Angular y Leaflet", "Drag & Drop (GeoJSON, KML, SHP)", "Geoprocesamiento con Turf.js" ],
       "modules": [
-        {
-          "number": 1,
-          "icon": "🤖",
-          "title": "Angular, Leaflet y Prompts para IA",
-          "description": "Configuración del entorno Angular. Aprende a estructurar instrucciones (prompts) para que la IA genere la estructura inicial de tu mapa con Leaflet.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 2,
-          "icon": "🧭",
-          "title": "Herramientas de Navegación y UI",
-          "description": "Uso de IA para programar rápidamente controles de zoom personalizados, geolocalización, minimapas y un gestor dinámico de capas base.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 3,
-          "icon": "✏️",
-          "title": "Interacción y Dibujo en el Mapa",
-          "description": "Implementación de barras de herramientas para dibujar polígonos, líneas y marcadores, apoyándonos en la IA para resolver la lógica de coordenadas y eventos de Leaflet.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 4,
-          "icon": "🌐",
-          "title": "Servicios OGC con GeoServer",
-          "description": "Integración del visor web con GeoServer. Programación (asistida por IA) para consumir servicios WMS, cargar capas pesadas y realizar peticiones WFS.",
-          "classes": 2,
-          "hours": 3
-        }
+        { "number": 1, "icon": "🤖", "title": "Angular, Leaflet y Prompts IA", "classes": 2, "hours": 3 },
+        { "number": 2, "icon": "🧭", "title": "Navegación, UI y Dibujo", "classes": 2, "hours": 3 },
+        { "number": 3, "icon": "📥", "title": "Importación y Turf.js", "classes": 2, "hours": 3 },
+        { "number": 4, "icon": "🌐", "title": "Servicios OGC y GeoServer", "classes": 2, "hours": 3 }
       ],
-      "deliverables": [
-        "Visor Web Mapping funcional desarrollado en Angular",
-        "Herramientas interactivas de dibujo y navegación",
-        "Metodología de trabajo 'Pair Programming' con IA"
-      ],
-      "requirements": [
-        "Conocimientos básicos de HTML, CSS o JavaScript",
-        "Nociones básicas de GIS",
-        "Laptop con mínimo 8GB de RAM"
-      ],
-      "faq": [
-        {
-          "question": "¿Debo pagar una suscripción de IA (como ChatGPT Plus o Claude Pro)?",
-          "answer": "No es obligatorio. Te enseñaremos a utilizar las versiones gratuitas de Gemini, Claude o ChatGPT de manera efectiva para generar el código que necesitamos."
-        },
-        {
-          "question": "¿Necesito ser un experto en Angular?",
-          "answer": "No. La IA te servirá precisamente como puente para entender la arquitectura y escribir el código rápidamente, pero es ideal tener nociones de programación."
-        }
-      ],
-      "tags": [
-        "angular",
-        "leaflet",
-        "geoserver",
-        "ia-prompts",
-        "web-mapping",
-        "open-source"
-      ]
+      "tags": ["angular", "leaflet", "geoserver", "ia-prompts", "web-mapping"]
     }
   ]
 }
