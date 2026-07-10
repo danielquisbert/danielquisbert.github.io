@@ -395,10 +395,10 @@
       "enabled": true,
       "status": "coming_soon",
       "priority": 4,
-      "courseTitle": "Web Mapping con Angular, GeoServer e IA",
+      "courseTitle": "Desarrollo Web Mapping con IA",
       "slug": "web-mapping-angular-ia",
       "duration": "4 semanas • 1.5 hrs. por clase (2 días a la semana)",
-      "description": "Desarrolla visores de mapas empresariales usando Angular y Leaflet. Aprende a consumir datos espaciales desde GeoServer e integra Inteligencia Artificial para interactuar con tus mapas mediante lenguaje natural.",
+      "description": "Aprende a desarrollar un visor de mapas profesional utilizando Angular, Leaflet y GeoServer. Descubre cómo utilizar Inteligencia Artificial (Claude, Gemini) como tu asistente de programación para generar código, resolver errores y acelerar la creación de herramientas GIS web.",
       "startDate": null,
       "endDate": null,
       "availableSeats": 20,
@@ -426,73 +426,73 @@
         "Certificación por parte de ARTECLAB",
         "Grabaciones de por vida",
         "Material incluido",
-        "Arquitectura Frontend con Angular y TypeScript",
-        "Renderizado de mapas interactivos con Leaflet",
-        "Consumo de capas WMS y WFS desde GeoServer",
-        "Integración de LLMs (OpenAI/Gemini) como asistentes del mapa",
-        "Traducción de lenguaje natural a consultas espaciales (CQL)"
+        "Uso de IA (Claude/Gemini) como asistente de desarrollo (Copiloto)",
+        "Arquitectura Frontend Open Source con Angular y Leaflet",
+        "Herramientas de control: Navegación, Zoom y Gestor de capas",
+        "Implementación de herramientas para dibujar sobre el mapa",
+        "Consumo de servicios OGC (WMS/WFS) desde GeoServer"
       ],
       "modules": [
         {
           "number": 1,
-          "icon": "🅰️",
-          "title": "Arquitectura UI: Angular & Leaflet",
-          "description": "Configuración del proyecto Angular, creación de componentes del visor, integración de Leaflet y diseño de interfaz.",
+          "icon": "🤖",
+          "title": "Angular, Leaflet y Prompts para IA",
+          "description": "Configuración del entorno Angular. Aprende a estructurar instrucciones (prompts) para que la IA genere la estructura inicial de tu mapa con Leaflet.",
           "classes": 2,
           "hours": 3
         },
         {
           "number": 2,
-          "icon": "🌐",
-          "title": "Conexión GIS: GeoServer WMS & WFS",
-          "description": "Consumo de servicios OGC vía HTTP. Carga de capas pesadas WMS, extracción de datos vectoriales WFS y creación de un gestor de capas.",
+          "icon": "🧭",
+          "title": "Herramientas de Navegación y UI",
+          "description": "Uso de IA para programar rápidamente controles de zoom personalizados, geolocalización, minimapas y un gestor dinámico de capas base.",
           "classes": 2,
           "hours": 3
         },
         {
           "number": 3,
-          "icon": "🤖",
-          "title": "Integración de IA y Asistentes",
-          "description": "Conexión a APIs de LLMs (ej. OpenAI), creación de un chat geoespacial y extracción de geometrías a partir de texto libre.",
+          "icon": "✏️",
+          "title": "Interacción y Dibujo en el Mapa",
+          "description": "Implementación de barras de herramientas para dibujar polígonos, líneas y marcadores, apoyándonos en la IA para resolver la lógica de coordenadas y eventos de Leaflet.",
           "classes": 2,
           "hours": 3
         },
         {
           "number": 4,
-          "icon": "🧠",
-          "title": "Filtros IA y Puesta en Producción",
-          "description": "Entrenamiento de prompts para convertir lenguaje natural en filtros CQL para GeoServer. Optimización de la app Angular y despliegue.",
+          "icon": "🌐",
+          "title": "Servicios OGC con GeoServer",
+          "description": "Integración del visor web con GeoServer. Programación (asistida por IA) para consumir servicios WMS, cargar capas pesadas y realizar peticiones WFS.",
           "classes": 2,
           "hours": 3
         }
       ],
       "deliverables": [
-        "Visor Web Mapping en Angular funcional",
-        "Integración de asistente IA contextual",
-        "Código fuente escalable y buenas prácticas GIS/Frontend"
+        "Visor Web Mapping funcional desarrollado en Angular",
+        "Herramientas interactivas de dibujo y navegación",
+        "Metodología de trabajo 'Pair Programming' con IA"
       ],
       "requirements": [
-        "Conocimientos básicos de JavaScript/TypeScript",
-        "Nociones básicas de GeoServer",
+        "Conocimientos básicos de HTML, CSS o JavaScript",
+        "Nociones básicas de GIS",
         "Laptop con mínimo 8GB de RAM"
       ],
       "faq": [
         {
-          "question": "¿Necesito saber Angular a fondo?",
-          "answer": "Es recomendable tener bases de HTML/JS o Typescript, pero te enseñaremos la arquitectura necesaria paso a paso orientada al mapa."
+          "question": "¿Debo pagar una suscripción de IA (como ChatGPT Plus o Claude Pro)?",
+          "answer": "No es obligatorio. Te enseñaremos a utilizar las versiones gratuitas de Gemini, Claude o ChatGPT de manera efectiva para generar el código que necesitamos."
         },
         {
-          "question": "¿Debo pagar por la IA utilizada en el curso?",
-          "answer": "No es obligatorio grandes pagos, utilizaremos capas gratuitas (free-tiers) o créditos iniciales de las APIs (como Gemini o OpenAI) que son suficientes para desarrollo."
+          "question": "¿Necesito ser un experto en Angular?",
+          "answer": "No. La IA te servirá precisamente como puente para entender la arquitectura y escribir el código rápidamente, pero es ideal tener nociones de programación."
         }
       ],
       "tags": [
         "angular",
         "leaflet",
         "geoserver",
-        "typescript",
-        "ia",
-        "web-mapping"
+        "ia-prompts",
+        "web-mapping",
+        "open-source"
       ]
     }
   ]
