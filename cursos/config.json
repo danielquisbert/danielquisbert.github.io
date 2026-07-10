@@ -99,173 +99,108 @@
     {
       "id": "flutter_basico",
       "enabled": true,
-      "status": "open",
+      "status": "coming_soon",
       "priority": 1,
       "courseTitle": "Flutter + GIS",
-      "courseLevel": "🎯 Nivel Básico — Intermedio",
       "slug": "flutter-gis-basico",
-      "duration": "5 semanas • 20 horas",
+      "duration": "5 semanas • 1.5 hrs. por clase (2 días a la semana)",
       "description": "El único curso de Flutter donde trabajas con mapas de verdad. Conecta tu app a un servidor GeoServer real, integra GPS y construye una app Android funcional con datos geoespaciales reales, lista para instalar y mostrar.",
-      "startDate": "2026-06-22T20:00:00-04:00",
-      "endDate": "2026-07-15T22:00:00-04:00",
+      "startDate": null,
+      "endDate": null,
       "availableSeats": 20,
       "totalSeats": 20,
       "price": {
-        "usd": 40,
+        "usd": 69,
         "bolivianos": null,
-        "earlyBirdDiscount": 0.05,
-        "earlyBirdDeadline": "2026-06-21T23:59:59-04:00"
+        "earlyBirdDiscount": null,
+        "earlyBirdDeadline": null
       },
-      "schedule": "Lunes y Miércoles 20:00-22:00",
-      "scheduleByCountry": [
-        {
-          "country": "Bolivia",
-          "flag": "🇧🇴",
-          "time": "20:00 – 22:00 hrs"
-        },
-        {
-          "country": "Perú",
-          "flag": "🇵🇪",
-          "time": "19:00 – 21:00 hrs"
-        },
-        {
-          "country": "Colombia",
-          "flag": "🇨🇴",
-          "time": "19:00 – 21:00 hrs"
-        },
-        {
-          "country": "Ecuador",
-          "flag": "🇪🇨",
-          "time": "19:00 – 21:00 hrs"
-        },
-        {
-          "country": "Chile",
-          "flag": "🇨🇱",
-          "time": "21:00 – 23:00 hrs"
-        },
-        {
-          "country": "Argentina",
-          "flag": "🇦🇷",
-          "time": "21:00 – 23:00 hrs"
-        },
-        {
-          "country": "México (CDMX)",
-          "flag": "🇲🇽",
-          "time": "18:00 – 20:00 hrs"
-        },
-        {
-          "country": "España",
-          "flag": "🇪🇸",
-          "time": "02:00 – 04:00 hrs"
-        }
-      ],
+      "schedule": "Por definir",
+      "scheduleByCountry": [],
       "modality": "Online en Vivo + Grabaciones",
-      "liveHours": 24,
+      "liveHours": 15,
       "supportHours": 4,
-      "totalHours": 30,
-      "supportFormat": "1 sesión en vivo por semana durante las primeras 4 semanas",
+      "totalHours": 19,
+      "supportFormat": "1 sesión en vivo por semana",
       "instructor": "Daniel Quisbert",
       "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
       "nextCohort": {
-        "startDate": "2026-03-16T20:00:00-04:00",
-        "waitlistEnabled": false
+        "startDate": null,
+        "waitlistEnabled": true
       },
       "features": [
-        "Certificación Digital ARTECLAB con código verificable",
-        "12 clases prácticas en vivo (24 horas)",
-        "4 horas de sesiones de soporte en vivo semanal",
+        "Certificación por parte de ARTECLAB",
+        "Grabaciones de por vida",
+        "Material incluido",
         "App Android funcional con mapas y GPS",
         "Conexión real a GeoServer — capas WMS en el móvil",
-        "Captura de datos GPS con visualización sobre capas del servidor",
-        "Exportación a GeoJSON compatible con QGIS",
+        "Captura de datos GPS con visualización",
+        "Exportación a GeoJSON",
         "APK listo para instalar y distribuir",
-        "Código fuente completo",
-        "Grabaciones de todas las clases con acceso de por vida"
+        "Código fuente completo"
       ],
       "modules": [
         {
           "number": 1,
           "icon": "📱",
           "title": "Flutter desde Cero con Mentalidad GIS",
-          "description": "Instalación de Flutter en Windows y Linux. Fundamentos de Dart orientados a GIS y tu primera app con mapa interactivo funcionando en tu teléfono Android.",
+          "description": "Instalación de Flutter en Windows y Linux. Fundamentos de Dart orientados a GIS y tu primera app con mapa interactivo.",
           "classes": 2,
-          "hours": 4
+          "hours": 3
         },
         {
           "number": 2,
           "icon": "🗺️",
           "title": "Mapas Interactivos & Capas Base",
-          "description": "Integración de flutter_map con OpenStreetMap, control de cámara, marcadores con popups, polilíneas, polígonos y eventos de interacción sobre el mapa.",
+          "description": "Integración de flutter_map con OpenStreetMap, control de cámara, marcadores con popups y eventos de interacción.",
           "classes": 2,
-          "hours": 4
+          "hours": 3
         },
         {
           "number": 3,
           "icon": "📍",
           "title": "GPS & Geolocalización Real",
-          "description": "GPS en tiempo real sobre el mapa, gestión de permisos Android, captura de coordenadas, cálculo de distancias y manejo de errores de señal.",
+          "description": "GPS en tiempo real sobre el mapa, gestión de permisos Android y captura de coordenadas.",
           "classes": 2,
-          "hours": 4
+          "hours": 3
         },
         {
           "number": 4,
           "icon": "🌐",
           "title": "Consumo de Capas GeoServer WMS",
-          "description": "El módulo que hace único este curso. Conecta tu app a un GeoServer real, carga capas WMS profesionales, superpón múltiples capas y aplica filtros CQL dinámicos desde la app.",
+          "description": "Conecta tu app a un GeoServer real, carga capas WMS profesionales y aplica filtros CQL.",
           "classes": 2,
-          "hours": 4
+          "hours": 3
         },
         {
           "number": 5,
           "icon": "🗂️",
-          "title": "Captura de Datos GPS & Visualización",
-          "description": "Registro de puntos con formulario de atributos, almacenamiento local, visualización de datos propios sobre capas de GeoServer y vista combinada servidor + campo.",
+          "title": "Captura de Datos GPS & Exportación",
+          "description": "Registro de puntos, visualización de datos propios y exportación a GeoJSON compatible con QGIS.",
           "classes": 2,
-          "hours": 4
-        },
-        {
-          "number": 6,
-          "icon": "📤",
-          "title": "Exportación & APK Final",
-          "description": "Exportación a GeoJSON compatible con QGIS, compartir por WhatsApp o email, generación del APK paso a paso e instalación en cualquier Android.",
-          "classes": 2,
-          "hours": 4
+          "hours": 3
         }
       ],
       "deliverables": [
-        "App Android funcional con mapas interactivos y datos geoespaciales reales",
-        "Conexión real a GeoServer — visualización de capas WMS en el móvil",
-        "GPS integrado que captura y registra coordenadas en campo",
-        "Datos propios visualizados sobre las capas del servidor en el mismo mapa",
-        "Exportación a GeoJSON compatible con QGIS y GeoServer",
-        "APK listo para instalar en cualquier Android y compartir con clientes"
+        "App Android funcional con mapas interactivos",
+        "Conexión real a GeoServer",
+        "GPS integrado",
+        "APK listo para instalar"
       ],
       "requirements": [
-        "Sin experiencia en programación requerida — empezamos desde cero",
+        "Sin experiencia en programación requerida",
         "Laptop o PC con mínimo 8GB de RAM",
-        "Smartphone Android para probar tu app en tiempo real",
-        "Conexión a internet estable para las clases en vivo"
+        "Smartphone Android",
+        "Conexión a internet estable"
       ],
       "faq": [
         {
           "question": "¿Necesito saber programar para empezar?",
-          "answer": "No. El curso comienza desde cero. Si puedes usar una computadora con comodidad y tienes ganas de aprender, puedes tomar este curso sin problema."
-        },
-        {
-          "question": "¿Necesito tener GeoServer instalado?",
-          "answer": "No. Usaremos un servidor de demostración durante las clases. Si ya completaste el curso de GeoServer Profesional, puedes conectar tu propia instancia desde el primer día."
-        },
-        {
-          "question": "¿La app funciona en iPhone?",
-          "answer": "El código Flutter es compatible con iOS, pero el curso está orientado a Android para simplificar la instalación, pruebas y generación del APK final."
+          "answer": "No. El curso comienza desde cero."
         },
         {
           "question": "¿Las clases quedan grabadas?",
-          "answer": "Sí. Todas las sesiones en vivo quedan grabadas y disponibles para que las revises las veces que necesites durante el curso."
-        },
-        {
-          "question": "¿Qué sigue después de este curso?",
-          "answer": "El siguiente nivel es Flutter+GIS Pro — arquitectura avanzada, geofencing, notificaciones push con Firebase y publicación en Play Store."
+          "answer": "Sí. Todas las sesiones en vivo quedan grabadas y disponibles para siempre."
         }
       ],
       "tags": [
@@ -274,317 +209,251 @@
         "gps",
         "geoserver",
         "wms",
-        "cql",
-        "geojson",
-        "android",
-        "apk"
-      ]
-    },
-    {
-      "id": "gis_pro",
-      "enabled": true,
-      "status": "coming_soon",
-      "priority": 2,
-      "courseTitle": "Flutter+GIS Pro",
-      "courseLevel": "🚀 Nivel Intermedio — Avanzado",
-      "slug": "flutter-gis-pro",
-      "duration": "6 semanas • 24 horas",
-      "description": "Construye soluciones móviles geoespaciales de nivel corporativo. Arquitectura Clean profesional, análisis espacial en tiempo real, geocercas automáticas con alertas push y publicación en Google Play Store.",
-      "startDate": null,
-      "endDate": null,
-      "availableSeats": 20,
-      "totalSeats": 20,
-      "price": {
-        "usd": 50,
-        "bolivianos": null,
-        "earlyBirdDiscount": 0.1,
-        "earlyBirdDeadline": null
-      },
-      "schedule": "Próximamente",
-      "scheduleByCountry": [],
-      "modality": "Online en Vivo + Grabaciones",
-      "liveHours": 24,
-      "supportHours": 4,
-      "totalHours": 28,
-      "supportFormat": "Sesiones Meet en vivo para revisión de proyectos y resolución técnica",
-      "instructor": "Daniel Quisbert",
-      "whatsappGroup": "https://chat.whatsapp.com/EJOvnlYSKRxFzYStND7SqA",
-      "nextCohort": {
-        "startDate": null,
-        "waitlistEnabled": true
-      },
-      "features": [
-        "Certificación Profesional ARTECLAB con código verificable",
-        "12 clases prácticas en vivo (24 horas)",
-        "4 horas de sesiones de soporte y revisión de proyectos",
-        "Arquitectura Clean profesional para apps GIS escalables",
-        "Panel de capas WMS/WFS dinámico controlado por el usuario",
-        "Notificaciones push con contexto geoespacial vía Firebase",
-        "Análisis espacial en pantalla: áreas, distancias y dibujo interactivo",
-        "Sistema de geofencing con alertas automáticas en tiempo real",
-        "App publicada en Google Play Store",
-        "Código fuente completo",
-        "Grabaciones de todas las clases y acceso de por vida"
-      ],
-      "modules": [
-        {
-          "number": 1,
-          "icon": "🏗️",
-          "title": "Arquitectura Clean para Apps GIS",
-          "description": "Clean Architecture aplicada a GIS: capas, dependencias, gestión de estado con Riverpod/Bloc, inyección de dependencias y patrones de repositorio para datos geoespaciales.",
-          "classes": 2,
-          "hours": 4
-        },
-        {
-          "number": 2,
-          "icon": "🌐",
-          "title": "Servicios OGC Avanzados WMS/WFS",
-          "description": "Consumo avanzado de WMS y WFS, panel dinámico de capas controlado por el usuario, filtros CQL complejos, caché de tiles y manejo de múltiples servidores GeoServer simultáneos.",
-          "classes": 2,
-          "hours": 4
-        },
-        {
-          "number": 3,
-          "icon": "🔥",
-          "title": "Push Notifications con Contexto Geoespacial",
-          "description": "Firebase Cloud Messaging con payload geoespacial: notificaciones que abren el mapa en el punto exacto del evento, alertas en background y canales por tipo de evento GIS.",
-          "classes": 2,
-          "hours": 4
-        },
-        {
-          "number": 4,
-          "icon": "📐",
-          "title": "Análisis Espacial en el Móvil",
-          "description": "Cálculo de áreas y perímetros en tiempo real, medición de distancias, dibujo interactivo de geometrías, buffer zones y exportación de análisis a GeoJSON.",
-          "classes": 2,
-          "hours": 4
-        },
-        {
-          "number": 5,
-          "icon": "🚨",
-          "title": "Geofencing & Alertas Automáticas",
-          "description": "Geocercas definidas desde el mapa, detección en tiempo real de entrada y salida de polígonos, alertas push automáticas, GPS en background y visualización sobre capas WMS.",
-          "classes": 2,
-          "hours": 4
-        },
-        {
-          "number": 6,
-          "icon": "🚀",
-          "title": "Deploy Profesional en Play Store",
-          "description": "Optimización de rendimiento, configuración de flavors dev/prod, firma de app, generación del App Bundle y proceso completo de publicación en Google Play Store.",
-          "classes": 2,
-          "hours": 4
-        }
-      ],
-      "deliverables": [
-        "App Android publicada en Google Play Store con tu nombre",
-        "Arquitectura Clean profesional reutilizable para proyectos corporativos",
-        "Panel de capas WMS/WFS dinámico controlado por el usuario",
-        "Sistema de notificaciones push con contexto geoespacial",
-        "Herramientas de análisis espacial interactivo: áreas, distancias y dibujo",
-        "Sistema de geofencing con alertas automáticas en tiempo real"
-      ],
-      "requirements": [
-        "Haber completado Flutter+GIS Básico o experiencia equivalente con Flutter y mapas",
-        "Conocimiento básico de consumo de capas WMS/WFS",
-        "Laptop con mínimo 8GB de RAM (16GB recomendado)",
-        "Smartphone Android para pruebas en dispositivo real",
-        "Conexión a internet estable para las clases en vivo"
-      ],
-      "faq": [
-        {
-          "question": "¿Es obligatorio haber tomado Flutter+GIS Básico?",
-          "answer": "Es muy recomendable. Si ya tienes experiencia construyendo apps Flutter con mapas y consumiendo WMS/WFS, puedes ingresar directamente. Escríbenos y evaluamos tu nivel."
-        },
-        {
-          "question": "¿Necesito una cuenta de Google Play?",
-          "answer": "No es obligatorio tenerla antes de empezar. Durante el módulo de deploy te guiamos para crearla. El registro tiene un costo único de $25 USD que se paga directamente a Google."
-        },
-        {
-          "question": "¿Las clases quedan grabadas?",
-          "answer": "Sí. Todas las sesiones en vivo quedan grabadas y disponibles durante el curso."
-        },
-        {
-          "question": "¿Cuándo inicia este curso?",
-          "answer": "Las fechas se anunciarán al finalizar Flutter+GIS Básico. Únete al grupo de WhatsApp o Telegram para recibir la notificación primero."
-        },
-        {
-          "question": "¿Hay más cursos después de este?",
-          "answer": "Flutter+GIS Pro es actualmente el nivel máximo de la ruta Flutter en ARTECLAB. Al completarlo tendrás el perfil completo de un especialista en desarrollo móvil geoespacial."
-        }
-      ],
-      "tags": [
-        "flutter",
-        "advanced",
-        "clean-architecture",
-        "firebase",
-        "geofencing",
-        "analysis",
-        "wms",
-        "wfs",
-        "playstore",
         "android"
       ]
     },
     {
       "id": "geoserver",
       "enabled": true,
-      "status": "open",
-      "priority": 3,
+      "status": "coming_soon",
+      "priority": 2,
       "courseTitle": "GeoServer Profesional",
-      "courseLevel": "🎯 Nivel Básico — Intermedio",
       "slug": "geoserver-profesional",
-      "duration": "4 semanas • 16 horas",
-      "description": "Publica, administra y sirve mapas en internet como los profesionales de la industria geoespacial. Desde la instalación hasta producción real en la nube, con integración en web y aplicaciones móviles.",
-      "startDate": "2026-06-23T20:00:00-04:00",
-      "endDate": "2026-07-16T22:00:00-04:00",
+      "duration": "4 semanas • 1.5 hrs. por clase (2 días a la semana)",
+      "description": "Publica, administra y sirve mapas en internet como los profesionales de la industria geoespacial. Desde la instalación hasta producción real en la nube.",
+      "startDate": null,
+      "endDate": null,
       "availableSeats": 20,
       "totalSeats": 20,
       "price": {
-        "usd": 40,
+        "usd": 69,
         "bolivianos": null,
-        "earlyBirdDiscount": 0.05,
-        "earlyBirdDeadline": "2026-06-22T23:59:59-04:00"
+        "earlyBirdDiscount": null,
+        "earlyBirdDeadline": null
       },
-      "schedule": "Martes y Jueves 20:00-22:00",
-      "scheduleByCountry": [
-        {
-          "country": "Bolivia",
-          "flag": "🇧🇴",
-          "time": "20:00 – 22:00 hrs"
-        },
-        {
-          "country": "Perú",
-          "flag": "🇵🇪",
-          "time": "19:00 – 21:00 hrs"
-        },
-        {
-          "country": "Colombia",
-          "flag": "🇨🇴",
-          "time": "19:00 – 21:00 hrs"
-        },
-        {
-          "country": "Ecuador",
-          "flag": "🇪🇨",
-          "time": "19:00 – 21:00 hrs"
-        },
-        {
-          "country": "Chile",
-          "flag": "🇨🇱",
-          "time": "21:00 – 23:00 hrs"
-        },
-        {
-          "country": "Argentina",
-          "flag": "🇦🇷",
-          "time": "21:00 – 23:00 hrs"
-        },
-        {
-          "country": "México (CDMX)",
-          "flag": "🇲🇽",
-          "time": "18:00 – 20:00 hrs"
-        },
-        {
-          "country": "España",
-          "flag": "🇪🇸",
-          "time": "02:00 – 04:00 hrs"
-        }
-      ],
+      "schedule": "Por definir",
+      "scheduleByCountry": [],
       "modality": "Online en Vivo + Grabaciones",
-      "liveHours": 16,
+      "liveHours": 12,
       "supportHours": 4,
-      "totalHours": 20,
-      "supportFormat": "Sesiones Meet en vivo para consultas y resolución de errores",
+      "totalHours": 16,
+      "supportFormat": "Sesiones Meet en vivo para consultas",
       "instructor": "Daniel Quisbert",
       "whatsappGroup": "https://chat.whatsapp.com/C0q6HSFXG92JeDWISChp5Q",
       "nextCohort": {
-        "startDate": "2026-03-17T20:00:00-04:00",
-        "waitlistEnabled": false
+        "startDate": null,
+        "waitlistEnabled": true
       },
       "features": [
-        "Certificación Digital ARTECLAB con código verificable",
-        "8 clases prácticas en vivo (16 horas)",
-        "Publicación de datos vectoriales y PostGIS",
-        "Estilos SLD profesionales y filtros CQL dinámicos",
-        "Seguridad: usuarios, roles y restricción de capas",
-        "Visor web con Leaflet consumiendo tu GeoServer",
-        "Capas GeoServer integradas en app móvil Flutter",
-        "Simulación de deploy en servidor Linux en la nube"
+        "Certificación por parte de ARTECLAB",
+        "Grabaciones de por vida",
+        "Material incluido",
+        "Publicación de datos vectoriales",
+        "Estilos SLD profesionales",
+        "Seguridad: usuarios y roles",
+        "Simulación de deploy en servidor Linux"
       ],
       "modules": [
         {
           "number": 1,
           "icon": "⚙️",
-          "title": "Arquitectura & Primeros Pasos",
-          "description": "Instalación de GeoServer en Linux. Workspaces, Stores y publicación de tu primera capa.",
-          "classes": 1,
-          "hours": 2
+          "title": "Arquitectura & Publicación",
+          "description": "Instalación de GeoServer y publicación de vectoriales.",
+          "classes": 2,
+          "hours": 3
         },
         {
           "number": 2,
-          "icon": "🗄️",
-          "title": "Publicación de Datos",
-          "description": "Publica vectoriales (Shapefile y PostGIS) y capas directamente desde PostGIS.",
+          "icon": "🎨",
+          "title": "Simbología & Servicios",
+          "description": "Diseño con SLD, filtros CQL y configuración de servicios WMS/WFS.",
           "classes": 2,
-          "hours": 4
+          "hours": 3
         },
         {
           "number": 3,
-          "icon": "🎨",
-          "title": "Simbología & Estilos SLD",
-          "description": "Diseña estilos profesionales con SLD: reglas por atributo, clasificación temática y etiquetas.",
-          "classes": 1,
-          "hours": 2
+          "icon": "🔒",
+          "title": "Seguridad & Visores",
+          "description": "Gestión de usuarios y creación de visor web básico con Leaflet.",
+          "classes": 2,
+          "hours": 3
         },
         {
           "number": 4,
-          "icon": "⚡",
-          "title": "Servicios WMS, WFS & Filtros CQL",
-          "description": "Configura servicios OGC estándar y aplica filtros CQL dinámicos directamente desde la URL sin tocar el servidor.",
-          "classes": 1,
-          "hours": 2
-        },
-        {
-          "number": 5,
-          "icon": "🔒",
-          "title": "Seguridad & Control de Acceso",
-          "description": "Gestión de usuarios, roles y permisos. Restricción de capas y servicios por rol a nivel de workspace y capa.",
-          "classes": 1,
-          "hours": 2
-        },
-        {
-          "number": 6,
-          "icon": "🌐",
-          "title": "Visor Web & App Móvil",
-          "description": "Visor de mapas con Leaflet que consume tus servicios WMS. Integración de capas GeoServer en app móvil Flutter.",
-          "classes": 1,
-          "hours": 2
-        },
-        {
-          "number": 7,
           "icon": "☁️",
-          "title": "GeoWebCache & Deploy en Producción",
-          "description": "Optimización con tile caching y simulación de despliegue del servidor Linux en la nube con acceso público.",
-          "classes": 1,
-          "hours": 2
+          "title": "Optimización & Deploy",
+          "description": "GeoWebCache y despliegue del servidor Linux en la nube.",
+          "classes": 2,
+          "hours": 3
         }
       ],
+      "deliverables": [
+        "Servidor GeoServer configurado",
+        "Capas publicadas con estilos SLD",
+        "Visor web básico integrado"
+      ],
       "requirements": [
-        "Conocimientos básicos de mapas o GIS (haber usado QGIS o similar, o simplemente que te gusten los mapas)",
-        "Nociones básicas de bases de datos",
+        "Conocimientos básicos de GIS",
         "Laptop con mínimo 8GB de RAM",
         "Conexión a internet estable"
+      ],
+      "faq": [
+        {
+          "question": "¿Necesito experiencia previa en servidores?",
+          "answer": "No, te guiaremos paso a paso desde la instalación."
+        }
       ],
       "tags": [
         "geoserver",
         "wms",
         "wfs",
         "sld",
-        "cql",
-        "postgis",
-        "leaflet",
-        "flutter",
-        "security",
         "linux"
+      ]
+    },
+    {
+      "id": "postgresql_postgis",
+      "enabled": true,
+      "status": "coming_soon",
+      "priority": 3,
+      "courseTitle": "PostgreSQL y PostGIS",
+      "slug": "postgresql-postgis",
+      "duration": "4 semanas • 1.5 hrs. por clase (2 días a la semana)",
+      "description": "Aprende a gestionar bases de datos espaciales. Domina SQL y las funciones espaciales de PostGIS para almacenamiento, consultas y análisis de datos geográficos.",
+      "startDate": null,
+      "endDate": null,
+      "availableSeats": 20,
+      "totalSeats": 20,
+      "price": {
+        "usd": 69,
+        "bolivianos": null,
+        "earlyBirdDiscount": null,
+        "earlyBirdDeadline": null
+      },
+      "schedule": "Por definir",
+      "scheduleByCountry": [],
+      "modality": "Online en Vivo + Grabaciones",
+      "liveHours": 12,
+      "supportHours": 4,
+      "totalHours": 16,
+      "supportFormat": "Sesiones en vivo para consultas",
+      "instructor": "Daniel Quisbert",
+      "whatsappGroup": "",
+      "nextCohort": {
+        "startDate": null,
+        "waitlistEnabled": true
+      },
+      "features": [
+        "Certificación por parte de ARTECLAB",
+        "Grabaciones de por vida",
+        "Material incluido",
+        "Instalación y configuración de PostgreSQL",
+        "Modelado de bases de datos espaciales",
+        "Consultas SQL y análisis espacial con PostGIS",
+        "Integración con QGIS y GeoServer"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "icon": "🗄️",
+          "title": "Temario en desarrollo",
+          "description": "El temario detallado de este curso se publicará próximamente.",
+          "classes": 8,
+          "hours": 12
+        }
+      ],
+      "deliverables": [
+        "Base de datos espacial estructurada",
+        "Scripts de consultas espaciales"
+      ],
+      "requirements": [
+        "Conocimientos básicos de GIS",
+        "Laptop con mínimo 8GB de RAM"
+      ],
+      "faq": [
+        {
+          "question": "¿Las clases quedan grabadas?",
+          "answer": "Sí. Todas las sesiones en vivo quedan grabadas y disponibles para siempre."
+        }
+      ],
+      "tags": [
+        "postgresql",
+        "postgis",
+        "database",
+        "sql",
+        "spatial"
+      ]
+    },
+    {
+      "id": "web_mapping_ia",
+      "enabled": true,
+      "status": "coming_soon",
+      "priority": 4,
+      "courseTitle": "Desarrollo Web Mapping con IA",
+      "slug": "web-mapping-ia",
+      "duration": "4 semanas • 1.5 hrs. por clase (2 días a la semana)",
+      "description": "Desarrolla visores de mapas web modernos potenciados por Inteligencia Artificial. Aprende a integrar asistentes de IA y flujos de automatización en tus aplicaciones GIS.",
+      "startDate": null,
+      "endDate": null,
+      "availableSeats": 20,
+      "totalSeats": 20,
+      "price": {
+        "usd": 69,
+        "bolivianos": null,
+        "earlyBirdDiscount": null,
+        "earlyBirdDeadline": null
+      },
+      "schedule": "Por definir",
+      "scheduleByCountry": [],
+      "modality": "Online en Vivo + Grabaciones",
+      "liveHours": 12,
+      "supportHours": 4,
+      "totalHours": 16,
+      "supportFormat": "Sesiones en vivo para consultas",
+      "instructor": "Daniel Quisbert",
+      "whatsappGroup": "",
+      "nextCohort": {
+        "startDate": null,
+        "waitlistEnabled": true
+      },
+      "features": [
+        "Certificación por parte de ARTECLAB",
+        "Grabaciones de por vida",
+        "Material incluido",
+        "Desarrollo de visores web interactivos",
+        "Integración de APIs de Inteligencia Artificial",
+        "Automatización de procesos GIS web"
+      ],
+      "modules": [
+        {
+          "number": 1,
+          "icon": "🤖",
+          "title": "Temario en desarrollo",
+          "description": "El temario detallado de este curso se publicará próximamente.",
+          "classes": 8,
+          "hours": 12
+        }
+      ],
+      "deliverables": [
+        "Visor Web Mapping funcional",
+        "Integración de asistente IA en el visor"
+      ],
+      "requirements": [
+        "Conocimientos básicos de HTML/JS",
+        "Conocimientos básicos de GIS"
+      ],
+      "faq": [
+        {
+          "question": "¿Las clases quedan grabadas?",
+          "answer": "Sí. Todas las sesiones en vivo quedan grabadas y disponibles para siempre."
+        }
+      ],
+      "tags": [
+        "web-mapping",
+        "ia",
+        "javascript",
+        "leaflet",
+        "ai"
       ]
     }
   ]
