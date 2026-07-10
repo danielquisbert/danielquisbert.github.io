@@ -35,6 +35,35 @@
     "showCounterWhenSeatsBelow": 8,
     "timezone": "America/La_Paz"
   },
+  "testimonials": {
+    "groups": [
+      {
+        "id": "estudiantes",
+        "label": "🎓 Estudiantes · Flutter+GIS",
+        "title": "Estudiantes del curso Flutter + GIS",
+        "subtitle": "Alumnos que construyeron su propia app Android con mapas, GPS y GeoServer durante el curso.",
+        "videos": [
+          { "id": "AI34WxG9jaY", "name": "Estudiante Flutter+GIS", "description": "Su experiencia en el curso" },
+          { "id": "OdUicucZ7IQ", "name": "Estudiante Flutter+GIS", "description": "De cero a su primera app con mapas" },
+          { "id": "s8gHEdHEtnA", "name": "Estudiante Flutter+GIS", "description": "Resultados y aprendizajes del curso" },
+          { "id": "gmq-0ho_2LM", "name": "Estudiante Flutter+GIS", "description": "Su app funcionando con GeoServer" }
+        ]
+      },
+      {
+        "id": "docentes",
+        "label": "👩‍🏫 Docentes · ge0tic",
+        "title": "Docentes que usaron ge0tic en el aula",
+        "subtitle": "Profesoras y directoras que integraron la primera versión de ge0tic en sus clases de geografía.",
+        "videos": [
+          { "id": "GFsKYXBKpVo", "name": "Profesora Escolar", "description": "Impacto de ge0tic en la enseñanza" },
+          { "id": "AaoTe21QAvQ", "name": "Profesora Escolar", "description": "Experiencia usando ge0tic en clases" },
+          { "id": "sW124xCu7rw", "name": "Directora de Colegio", "description": "Implementación institucional" },
+          { "id": "q8zXi7m5Ctg", "name": "Entrevista Televisiva", "description": "Cobertura en medios nacionales" }
+        ]
+      }
+      
+    ]
+  },
   "courses": [
     {
       "id": "flutter_basico",
