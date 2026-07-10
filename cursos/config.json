@@ -1,25 +1,3 @@
-Esa es una combinación tecnológica excelente y muy demandada (Stack empresarial moderno). Utilizar **Angular** te permite estructurar la aplicación de forma modular y escalable, **Leaflet** aporta ligereza en el renderizado web, **GeoServer** actúa como el motor robusto de datos espaciales, y la **IA** le da ese valor agregado revolucionario (como asistentes virtuales o interpretación de lenguaje natural).
-
-Para un nivel intermedio, donde asumimos que el alumno ya sabe bases de programación y conceptos GIS, aquí tienes mi propuesta de **10 puntos clave** que deberían conformar el núcleo del curso:
-
-1. **Arquitectura Angular para GIS:** Configuración del entorno, creación de componentes modulares (mapa, barra lateral, controles) y uso de servicios en Angular.
-2. **Implementación de Leaflet en Angular:** Inicialización del mapa, gestión del estado (zoom, centro) y manejo del ciclo de vida de los componentes espaciales.
-3. **Consumo de GeoServer (WMS):** Conexión vía HTTP a GeoServer para renderizar mapas base y capas raster/vectoriales pesadas mediante WMS.
-4. **Interacción con Datos (WFS):** Peticiones a GeoServer para extraer datos vectoriales reales (GeoJSON), implementar clics en el mapa y renderizar *popups* dinámicos.
-5. **Gestor de Capas Avanzado:** Creación de un control personalizado en Angular para encender/apagar capas, cambiar la opacidad y gestionar el orden (z-index).
-6. **Integración de API de Inteligencia Artificial:** Conexión con LLMs (como OpenAI o Gemini) a través de servicios de Angular para crear un chat/asistente integrado en el visor.
-7. **IA Aplicada (Texto a GeoJSON):** Uso de IA para extraer coordenadas o ubicaciones desde texto no estructurado ingresado por el usuario y dibujarlas automáticamente en Leaflet.
-8. **Consultas Espaciales con Lenguaje Natural:** Entrenar el prompt de la IA para que traduzca preguntas del usuario (ej. *"Muestra los lotes del distrito 4"*) a filtros CQL que GeoServer entienda.
-9. **UI/UX Cartográfica:** Diseño de interfaces modernas con Angular Material o Tailwind CSS orientadas a visores de mapas (paneles flotantes, diseño responsivo).
-10. **Optimización y Despliegue:** Optimización del bundle de Angular, manejo seguro de las API Keys de la IA y despliegue del visor a producción.
-
----
-
-A partir de esos 10 puntos, he estructurado los módulos, descripción, características y requerimientos del curso de **Web Mapping con IA** en el JSON.
-
-Aquí tienes el archivo JSON actualizado:
-
-```json
 {
   "siteInfo": {
     "name": "GeoNexus",
@@ -519,5 +497,3 @@ Aquí tienes el archivo JSON actualizado:
     }
   ]
 }
-
-```
