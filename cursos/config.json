@@ -43,18 +43,20 @@
       "priority": 1,
       "courseTitle": "Flutter + GIS",
       "slug": "flutter-gis-basico",
-      "duration": "5 semanas • 1.5 hrs. por clase (2 días a la semana)",
-      "description": "El único curso de Flutter donde trabajas con mapas de verdad. Conecta tu app a un servidor GeoServer real, integra GPS y construye una app Android funcional con datos geoespaciales reales, lista para instalar y mostrar.",
-      "startDate": null,
-      "endDate": null,
+      "duration": "5 semanas • 1.5 hrs. por clase",
+      "description": "El único curso de Flutter donde trabajas con mapas de verdad. Conecta tu app a un servidor GeoServer real.",
       "availableSeats": 20,
       "totalSeats": 20,
-      "price": { "usd": 69, "bolivianos": null, "earlyBirdDiscount": null, "earlyBirdDeadline": null },
-      "schedule": "Por definir",
-      "modality": "Online en Vivo + Grabaciones",
+      "price": { "usd": 69, "bolivianos": null },
       "instructor": "Daniel Quisbert",
-      "features": [ "Certificación ARTECLAB", "App Android con mapas", "Conexión GeoServer WMS", "Código fuente completo" ],
-      "modules": [ { "number": 1, "icon": "📱", "title": "Flutter & Mentalidad GIS", "classes": 2, "hours": 3 }, { "number": 2, "icon": "🗺️", "title": "Mapas & Capas Base", "classes": 2, "hours": 3 }, { "number": 3, "icon": "📍", "title": "GPS & Geolocalización", "classes": 2, "hours": 3 }, { "number": 4, "icon": "🌐", "title": "Consumo GeoServer WMS", "classes": 2, "hours": 3 }, { "number": 5, "icon": "🗂️", "title": "Captura y Exportación", "classes": 2, "hours": 3 } ],
+      "features": ["Certificación ARTECLAB", "App Android funcional", "Conexión a GeoServer", "Código fuente completo"],
+      "modules": [
+        { "number": 1, "icon": "📱", "title": "Flutter desde Cero", "classes": 2, "hours": 3 },
+        { "number": 2, "icon": "🗺️", "title": "Mapas Interactivos", "classes": 2, "hours": 3 },
+        { "number": 3, "icon": "📍", "title": "GPS Real", "classes": 2, "hours": 3 },
+        { "number": 4, "icon": "🌐", "title": "Consumo WMS", "classes": 2, "hours": 3 },
+        { "number": 5, "icon": "🗂️", "title": "Captura y Exportación", "classes": 2, "hours": 3 }
+      ],
       "tags": ["flutter", "mobile", "gps", "geoserver"]
     },
     {
@@ -64,9 +66,13 @@
       "priority": 2,
       "courseTitle": "GeoServer Profesional",
       "slug": "geoserver-profesional",
-      "duration": "4 semanas • 1.5 hrs. por clase (2 días a la semana)",
-      "description": "Publica y sirve mapas como los profesionales. Domina la integración con PostGIS, estilos SLD y despliegues en servidores Linux.",
-      "features": [ "Instalación en Linux", "Integración PostGIS", "Grupos de capas", "Seguridad OGC" ],
+      "duration": "4 semanas • 1.5 hrs. por clase",
+      "description": "Publica, administra y sirve mapas en internet como los profesionales.",
+      "availableSeats": 20,
+      "totalSeats": 20,
+      "price": { "usd": 69, "bolivianos": null },
+      "instructor": "Daniel Quisbert",
+      "features": ["Instalación en Linux", "Integración PostGIS", "Grupos de capas", "Seguridad OGC"],
       "modules": [
         { "number": 1, "icon": "⚙️", "title": "Arquitectura GeoServer", "classes": 2, "hours": 3 },
         { "number": 2, "icon": "🐘", "title": "Integración PostGIS", "classes": 2, "hours": 3 },
@@ -82,65 +88,20 @@
       "priority": 3,
       "courseTitle": "PostgreSQL y PostGIS Profesional",
       "slug": "postgresql-postgis",
-      "duration": "4 semanas • 1.5 hrs. por clase (2 días a la semana)",
-      "description": "Instala tu propio servidor de datos espaciales en Linux Debian. Aprende a gestionar datos masivos con ogr2ogr, realizar análisis espacial y publicar vistas dinámicas.",
-      "startDate": null,
-      "endDate": null,
+      "duration": "4 semanas • 1.5 hrs. por clase",
+      "description": "Instala tu servidor de datos espaciales en Linux Debian, automatiza con ogr2ogr y realiza análisis con PostGIS.",
       "availableSeats": 20,
       "totalSeats": 20,
-      "price": { "usd": 69, "bolivianos": null, "earlyBirdDiscount": null, "earlyBirdDeadline": null },
-      "schedule": "Por definir",
-      "modality": "Online en Vivo + Grabaciones",
+      "price": { "usd": 69, "bolivianos": null },
       "instructor": "Daniel Quisbert",
-      "features": [
-        "Instalación y configuración en Linux Debian",
-        "Automatización de carga masiva con ogr2ogr",
-        "Análisis espacial avanzado con ST_Buffer, ST_Intersects y ST_Distance",
-        "Publicación de vistas dinámicas con ST_AsGeoJSON",
-        "Conexión bidireccional con QGIS y GeoServer"
-      ],
+      "features": ["Instalación Linux Debian", "Automatización ogr2ogr", "Análisis con ST_Buffer/Intersects", "Vistas dinámicas"],
       "modules": [
-        {
-          "number": 1,
-          "icon": "🐧",
-          "title": "Servidor Linux & PostGIS",
-          "description": "Instalación de PostgreSQL/PostGIS en Debian desde cero. Gestión de usuarios y permisos de base de datos.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 2,
-          "icon": "🚚",
-          "title": "Ingeniería de Datos con ogr2ogr",
-          "description": "Automatización de importación de Shapefiles masivos. Limpieza, normalización y carga eficiente a tablas PostGIS.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 3,
-          "icon": "🔍",
-          "title": "Análisis Espacial SQL",
-          "description": "Uso de funciones espaciales (Buffer, Intersects, Distance) para consultas lógicas y toma de decisiones geoespaciales.",
-          "classes": 2,
-          "hours": 3
-        },
-        {
-          "number": 4,
-          "icon": "🌐",
-          "title": "Vistas SQL y Publicación",
-          "description": "Creación de vistas para GeoServer, uso de ST_AsGeoJSON para web y edición remota desde QGIS.",
-          "classes": 2,
-          "hours": 3
-        }
+        { "number": 1, "icon": "🐧", "title": "Servidor Linux & PostGIS", "classes": 2, "hours": 3 },
+        { "number": 2, "icon": "🚚", "title": "Ingeniería con ogr2ogr", "classes": 2, "hours": 3 },
+        { "number": 3, "icon": "🔍", "title": "Análisis Espacial SQL", "classes": 2, "hours": 3 },
+        { "number": 4, "icon": "🌐", "title": "Vistas SQL y Publicación", "classes": 2, "hours": 3 }
       ],
-      "deliverables": [
-        "Servidor de base de datos espacial operativo en Linux",
-        "Scripts de automatización ogr2ogr",
-        "Biblioteca de consultas SQL espaciales",
-        "Vistas dinámicas publicadas en GeoServer"
-      ],
-      "requirements": [ "Conocimientos básicos de GIS", "Laptop con mínimo 8GB de RAM" ],
-      "tags": ["postgresql", "postgis", "debian", "ogr2ogr", "sql", "spatial"]
+      "tags": ["postgresql", "postgis", "debian", "ogr2ogr", "sql"]
     },
     {
       "id": "web_mapping_ia",
@@ -149,14 +110,18 @@
       "priority": 4,
       "courseTitle": "Desarrollo Web Mapping con IA",
       "slug": "web-mapping-angular-ia",
-      "duration": "4 semanas • 1.5 hrs. por clase (2 días a la semana)",
-      "description": "Aprende a desarrollar un visor de mapas profesional utilizando Angular, Leaflet y GeoServer. Descubre cómo utilizar Inteligencia Artificial (Claude, Gemini) como tu asistente de programación.",
-      "features": [ "Uso de IA como copiloto", "Angular y Leaflet", "Drag & Drop (GeoJSON, KML, SHP)", "Geoprocesamiento con Turf.js" ],
+      "duration": "4 semanas • 1.5 hrs. por clase",
+      "description": "Visor de mapas con Angular, Leaflet, Turf.js y consumo de servicios OGC, potenciado por IA como copiloto.",
+      "availableSeats": 20,
+      "totalSeats": 20,
+      "price": { "usd": 69, "bolivianos": null },
+      "instructor": "Daniel Quisbert",
+      "features": ["Uso de IA como copiloto", "Angular y Leaflet", "Drag & Drop (GeoJSON, KML, SHP)", "Geoprocesamiento Turf.js"],
       "modules": [
-        { "number": 1, "icon": "🤖", "title": "Angular, Leaflet y Prompts IA", "classes": 2, "hours": 3 },
-        { "number": 2, "icon": "🧭", "title": "Navegación, UI y Dibujo", "classes": 2, "hours": 3 },
-        { "number": 3, "icon": "📥", "title": "Importación y Turf.js", "classes": 2, "hours": 3 },
-        { "number": 4, "icon": "🌐", "title": "Servicios OGC y GeoServer", "classes": 2, "hours": 3 }
+        { "number": 1, "icon": "🤖", "title": "Angular y Prompts IA", "classes": 2, "hours": 3 },
+        { "number": 2, "icon": "🧭", "title": "Navegación y Dibujo", "classes": 2, "hours": 3 },
+        { "number": 3, "icon": "📥", "title": "Importación y Análisis", "classes": 2, "hours": 3 },
+        { "number": 4, "icon": "🌐", "title": "Servicios OGC", "classes": 2, "hours": 3 }
       ],
       "tags": ["angular", "leaflet", "geoserver", "ia-prompts", "web-mapping"]
     }
