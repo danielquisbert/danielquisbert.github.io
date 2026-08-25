@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Quisbert — Media Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0d1117;
+    --surface: #131a23;
+    --surface-2: #1a2330;
+    --line: #263140;
+    --text: #e6edf3;
+    --muted: #8b96a5;
+    --accent: #5fb85f;      /* topo-line green, GIS nod */
+    --accent-2: #58a6ff;    /* dev-link blue */
+    --accent-3: #e3b341;    /* warm warning/amber for highlights */
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+
+  /* map backdrop: coordinate grid + topographic contours, minimal */
+  .topo{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    background-image:
+      linear-gradient(rgba(230,237,243,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(230,237,243,0.035) 1px, transparent 1px),
+      repeating-radial-gradient(circle at 12% 18%, transparent 0, transparent 42px, rgba(95,184,95,0.10) 43px, transparent 44px),
+      repeating-radial-gradient(circle at 88% 82%, transparent 0, transparent 58px, rgba(95,184,95,0.08) 59px, transparent 60px);
+    background-size: 48px 48px, 48px 48px, auto, auto;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+  }
+  .coord{
+    position:fixed;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:rgba(139,150,165,0.35);
+    z-index:0;
+    pointer-events:none;
+    letter-spacing:0.04em;
+  }
+  .coord.tl{top:24px;left:24px;}
+  .coord.br{bottom:24px;right:24px;}
+
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+
+  header.hero{padding:96px 0 64px;border-bottom:1px solid var(--line);}
+  .prompt{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    color:var(--accent);
+    letter-spacing:0.02em;
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .prompt::before{content:"$";color:var(--muted);}
+  .cursor{display:inline-block;width:8px;height:16px;background:var(--accent);animation:blink 1.1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  h1{
+    font-family:'JetBrains Mono',monospace;
+    font-weight:800;
+    font-size:clamp(38px,6vw,64px);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    margin-bottom:14px;
+  }
+  h1 span{color:var(--accent);}
+  .tagline{
+    font-size:19px;
+    color:var(--muted);
+    max-width:560px;
+    margin-bottom:32px;
+  }
+  .pillars{display:flex;flex-wrap:wrap;gap:10px;}
+  .pill{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    padding:6px 12px;
+    border:1px solid var(--line);
+    border-radius:4px;
+    color:var(--muted);
+    background:var(--surface);
+  }
+
+  section{padding:64px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    color:var(--accent-2);
+    margin-bottom:8px;
+  }
+  .eyebrow::before{content:"// ";color:var(--muted);}
+  h2{
+    font-family:'JetBrains Mono',monospace;
+    font-size:26px;
+    font-weight:700;
+    margin-bottom:36px;
+  }
+
+  /* stats grid */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  .stat{background:var(--surface);padding:26px 22px;position:relative;}
+  .stat .platform{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
+  .badge{font-size:10px;padding:2px 7px;border-radius:20px;background:rgba(95,184,95,0.12);color:var(--accent);border:1px solid rgba(95,184,95,0.3);}
+  .badge.grow{background:rgba(88,166,255,0.12);color:var(--accent-2);border-color:rgba(88,166,255,0.3);}
+  .stat .num{font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:var(--text);}
+  .stat .label{font-size:13px;color:var(--muted);margin-top:2px;}
+  .stat a{display:inline-block;margin-top:14px;font-size:13px;color:var(--accent-2);text-decoration:none;border-bottom:1px solid transparent;}
+  .stat a:hover{border-bottom-color:var(--accent-2);}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;}
+  .about-grid p{color:var(--muted);font-size:15.5px;margin-bottom:14px;}
+  .about-grid strong{color:var(--text);}
+  .infobox{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:22px;height:fit-content;}
+  .infobox dt{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:14px;}
+  .infobox dt:first-child{margin-top:0;}
+  .infobox dd{font-size:14.5px;color:var(--text);margin-top:2px;}
+
+  /* content pillars detail */
+  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:20px;}
+  .card h3{font-family:'JetBrains Mono',monospace;font-size:15px;margin-bottom:8px;color:var(--accent-3);}
+  .card p{font-size:14px;color:var(--muted);}
+
+  /* CTA */
+  .cta{border-bottom:none;text-align:left;padding-bottom:96px;}
+  .cta-box{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:44px;}
+  .cta-box h2{margin-bottom:12px;}
+  .cta-box p{color:var(--muted);font-size:15.5px;max-width:520px;margin-bottom:26px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'JetBrains Mono',monospace;font-weight:600;font-size:14.5px;
+    background:var(--accent);color:#06210a;
+    padding:13px 22px;border-radius:6px;text-decoration:none;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(95,184,95,0.25);}
+  footer{padding:32px 0 60px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);text-align:center;}
+
+  @media (max-width:680px){
+    .about-grid{grid-template-columns:1fr;}
+    header.hero{padding:64px 0 48px;}
+    .cta-box{padding:28px;}
+  }
+</style>
+</head>
+<body>
+<div class="topo"></div>
+<div class="coord tl">16°30′S, 68°09′W</div>
+<div class="coord br">LA PAZ, BO</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="prompt">whoami<span class="cursor"></span></div>
+    <h1>Daniel <span>Quisbert</span></h1>
+    <p class="tagline">Creador de contenido tech en español. Cubro inteligencia artificial, apps móviles, software open source, GIS y desarrollo web — con videos cortos, directos y sin relleno.</p>
+    <div class="pillars">
+      <span class="pill">#opensource</span>
+      <span class="pill">#mobileapps</span>
+      <span class="pill">#gis</span>
+      <span class="pill">#webdev</span>
+      <span class="pill">#ia</span>
+    </div>
+  </header>
+
+  <section id="stats">
+    <div class="eyebrow">cat audience.json</div>
+    <h2>Audiencia por plataforma</h2>
+    <div class="stats">
+      <div class="stat">
+        <div class="platform">TikTok <span class="badge">Principal</span></div>
+        <div class="num">38.5K</div>
+        <div class="label">seguidores</div>
+        <a href="https://www.tiktok.com/@dani.quisbert" target="_blank">@dani.quisbert →</a>
+      </div>
+      <div class="stat">
+        <div class="platform">Facebook <span class="badge">Principal</span></div>
+        <div class="num">53K</div>
+        <div class="label">seguidores</div>
+        <a href="https://www.facebook.com/danielquisbert.mapps" target="_blank">danielquisbert.mapps →</a>
+      </div>
+      <div class="stat">
+        <div class="platform">Instagram <span class="badge grow">En crecimiento</span></div>
+        <div class="num">250</div>
+        <div class="label">seguidores</div>
+        <a href="https://www.instagram.com/danielquisbert.mapps/" target="_blank">danielquisbert.mapps →</a>
+      </div>
+      <div class="stat">
+        <div class="platform">YouTube <span class="badge grow">En crecimiento</span></div>
+        <div class="num">350</div>
+        <div class="label">suscriptores</div>
+        <a href="https://www.youtube.com/@danielquisbert" target="_blank">@danielquisbert →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="eyebrow">cat about.md</div>
+    <h2>Sobre el contenido</h2>
+    <div class="about-grid">
+      <div>
+        <p><strong>Nicho:</strong> tecnología, aplicaciones móviles, software open source, GIS (sistemas de información geográfica) y desarrollo web — un espacio donde la audiencia es pequeña pero de alta intención: developers, makers y early adopters que prueban lo que recomiendo.</p>
+        <p>Publico videos cortos y directos, sin relleno: demos reales, comparativas y explicaciones que le ahorran tiempo a quien me sigue. Esa relación de confianza es lo que hace que las recomendaciones conviertan.</p>
+        <p>Base en <strong>La Paz, Bolivia</strong> — contenido en español, con alcance en toda Latinoamérica.</p>
+      </div>
+      <div class="infobox">
+        <dl>
+          <dt>Idioma</dt>
+          <dd>Español</dd>
+          <dt>Ubicación</dt>
+          <dd>La Paz, Bolivia</dd>
+          <dt>Formato</dt>
+          <dd>Video corto (TikTok, Reels, Shorts)</dd>
+          <dt>Contacto</dt>
+          <dd><a href="mailto:info@danielquisbert.com" style="color:var(--accent-2);">info@danielquisbert.com</a></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="content">
+    <div class="eyebrow">ls ./content-pillars</div>
+    <h2>Qué tipo de contenido hago</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Inteligencia artificial</h3>
+        <p>Pruebo herramientas de IA en cámara y muestro para qué sirven en la vida real, sin humo ni relleno.</p>
+      </div>
+      <div class="card">
+        <h3>Open source</h3>
+        <p>Proyectos y software libre que vale la pena conocer, explicados sin tecnicismos innecesarios.</p>
+      </div>
+      <div class="card">
+        <h3>Apps móviles</h3>
+        <p>Aplicaciones útiles, poco conocidas o recién lanzadas, probadas en cámara.</p>
+      </div>
+      <div class="card">
+        <h3>GIS</h3>
+        <p>Sistemas de información geográfica y mapas — un ángulo poco cubierto en redes en español.</p>
+      </div>
+      <div class="card">
+        <h3>Desarrollo web</h3>
+        <p>Tips, herramientas y tendencias para quienes construyen para la web.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyecto">
+    <div class="eyebrow">git log --project</div>
+    <h2>Además, construyo</h2>
+    <div class="about-grid">
+      <div>
+        <p><strong>Ge0tic</strong> — mi app móvil para aprender geografía jugando. No solo hablo de tecnología: la desarrollo. Esto le da a mis recomendaciones una credibilidad distinta frente a mi audiencia.</p>
+        <p>Ya disponible en Bolivia, México y Colombia, con nuevas versiones para otros países en camino.</p>
+      </div>
+      <div class="infobox">
+        <dl>
+          <dt>Proyecto</dt>
+          <dd>Ge0tic — app de geografía</dd>
+          <dt>Disponible en</dt>
+          <dd>Bolivia, México, Colombia</dd>
+          <dt>Link</dt>
+          <dd><a href="https://play.google.com/store/apps/details?id=com.ge0tic.bo&hl=es_BO" target="_blank" style="color:var(--accent-2);">Google Play →</a></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-box">
+      <div class="eyebrow">contact --send</div>
+      <h2>¿Trabajamos juntos?</h2>
+      <p>Abierto a colaboraciones con marcas de tecnología, apps y herramientas de IA. Escríbeme para tarifas y disponibilidad.</p>
+      <a class="btn" href="mailto:info@danielquisbert.com">info@danielquisbert.com →</a>
+    </div>
+  </section>
+
+  <footer>
+    danielquisbert.com/media-kit — actualizado agosto 2026
+  </footer>
+
+</div>
+</body>
+</html>
